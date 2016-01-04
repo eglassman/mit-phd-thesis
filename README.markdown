@@ -1,5 +1,10 @@
 # MIT Ph.D. Thesis template in LaTeX
 
+I have forked this Ph.D. Thesis from Kyle <kljensen@gmail.com>, who wrote his dissertation in 2006 and was kind enough to make his nicely organized latex source files public as a template for others. I am taking advantage of this, as if it were a latex template for a conference submission. Over the spring and summer, I plan to treat is (great) work with my own, paragraph by paragraph, until my dissertation is finished!
+
+
+His original README is below:
+
 This is a [LaTeX](http://www.latex-project.org/) template for a Ph.D. thesis at [MIT](http://web.mit.edu).  As far as I know, it conforms to all the [requirements](http://libraries.mit.edu/archives/thesis-specs/), at least as of 2006 when I submitted it.  There are a few things to note:
 
 * The final output can be found here: [Kyle Jensen's MIT Ph.D. thesis](http://cloud.github.com/downloads/kljensen/mit-phd-thesis/kljensen-mit-phd-thesis.pdf)

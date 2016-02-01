@@ -1,0 +1,42 @@
+\section{DocMatrix}
+
+There have been several approaches to creating tools that allow students to read multiple texts at the same time.  Information cartography, reading list generation for novices, and information foraging are discussed here.
+
+
+\textbf{Information cartography} presents a large set of documents that are algorithmically sub-sampled and laid out as a 2-D map of interrelated documents to explore and read \cite{shahaf}. This technique has been applied to scholarly publications and news articles on complex current events, such as the European debt crisis or the Israeli-Palestinian conflict. These domains contain interrelated parallel story-lines that evolve and intersect over time, and are represented as such in the resulting ‘Metro Maps’ of information.
+
+\textbf{Reading list generation} The simple question, ``What machine learning books are accessible and appropriate for my high school-aged daughter?'' recently kicked off a very lively discussion on a corporate engineering mailing list. It is a question that humans with a model of the learner, e.g., high school student, and the subject matter, e.g., machine learning, can answer well. Jardine \cite{jardine} generated reading lists specifically for novices hoping to become experts in a particular area, using a personalized pagerank function and Latent Topic Models. 
+
+
+\textbf{Parallel documents for sensemaking} Grokker is a document-clustering visualization system, with small popup windows to read texts in parallel \cite{slaney}. Unlike DocMatrix, Grokker's primary representation of a corpus of documents is as clusters of dots, but the study design and results are still relevant here. The task for Grokker readers was to quickly browse a large document collection, and then answer a set of questions to test their understanding. A key finding of this study was that small details of document viewability and the amount of time it took the participants to access content dramatically affected how much they understood about the domain.  In other words, small changes in the amount of time to switch between related documents was an important variable.  Their results are echoed in our studies, especially the fact that small changes in the time cost of accessing the contents of a document ``can cause dramatic effects in the ability of a user to see, manage and understand the corpus.'' This is true in our work as well, even though our control interface was a standard tool for accessing a collection of documents, not a physical pile of documents. 
+
+Our approach is to present documents in such a way that readers can most easily and quickly explore and exploit the best documents, and sections of documents, for them, based on their own internal knowledge and preferences.  
+
+
+
+\subsection{Synthesizing Knowledge Across Sources and Modalities}
+
+The synthesis of understanding derived from multiple sources is critical to journalism and humanities scholarship and in technical fields, like mathematics.
+
+\textit{Humanities}  \hspace{2 mm}
+Wineburg \cite{wineburg} shows how students of history come to their understanding of complex events. One important behavior is the students' use of multiple simultaneous documents to understand context. Wineburg finds that ``\ldots context is everything \ldots who wrote something; what their political view is; what the situation in the world is at that moment \ldots you need to see the situation from many points-of-view \ldots''
+
+Software has recently been built to help scholars and journalists analyze and synthesize knowledge across sources. For example, the AP's Overview Project \cite{overview} is an example of software designed to help journalists analyze thousands of documents. Similarly, WordSeer \cite{wordseer} allows scholars in the humanities to make sense of a corpus of relevant texts by providing the ability to look at multiple sources and do textual analysis of the content. Crowdlines \cite{luther} employed crowd-sourcing to help people learn and synthesize information from diverse online sources. Since humans are skilled at evaluating high-level structure and making connections between sources, crowdworkers created outlines for important topics that included diverse perspectives from multiple document sources. DocMatrix helps the reader synthesize information from diverse sources without requiring crowdworkers. 
+
+\textit{Mathematically Advanced Content}  \hspace{2 mm}
+Educational psychologists have found that multiple explanations within and across multiple modalities can help students learn mathematical problem solving. Both Tabachneck et al. \cite{Tabachneck} and Cox and Brna \cite{cox} found that students fared better at problem solving when using multiple strategies and/or representations, such as diagrams, written algebra, tables, and natural language. Ainsworth points out that giving students an opportunity to consider different representations may help them overcome the weaknesses of any particular representation.
+
+This is also supported by authors of Metacademy.com, a popular online resource for teaching yourself machine learning: ``A good general piece of advice is to consult multiple resources. Different textbooks or courses will explain something from a different perspective \ldots [O]ften when reading one, you get an ‘aha!’ moment for something which didn't make sense in the other. Unfortunately, this option might not be practical unless you have access to a university library.'' \cite{metacademy}
+
+\textit{Variation Theory and Learning}  \hspace{2 mm}
+Marton's Variation Theory, as summarized by Suhonen et al. \cite{suhonen}, is defined by the dimensions of variation necessary to fully communicate a concept to a student: \emph{contrast} (``in order to experience something, a person must experience something else to compare it with''); \emph{generalization}, or the ways something can vary without becoming something else; \emph{separation}, or looking at the variation only across specific features; and \emph{fusion}, where multiple critical aspects of the concept are varied simultaneously. In other words, variation reveals which aspects of a phenomenon are superficial/irrelevant and which are innate/critical to its definition \cite{Leung}. It is a framework that now guides the design of some critical reading exercises \cite{Tong} and exercises for novice programmers \cite{eckerdal}. 
+
+\textit{Library-Inspired Software}  \hspace{2 mm}
+Software has also been developed to support book users more generally. The display of physical books on a library shelf according to the Dewey Decimal system can serve, at the book shelf level, as a mechanism for finding a set of topically related books to dig into further. Virtual versions of this interaction, like Bohemian Bookshelf \cite{bohemian} and the Harvard Library Innovation Lab's Stack View \cite{stackview}, use modern information visualization techniques and metadata, such as patron usage, to help readers serendipitously find good resources that can be used in a collection to help understand a complex topic.
+
+\subsection{Layout}
+Pinterest may not have been the first to display collections of items in loose grids with large photos of various heights and widths, but the company name has become synonymous with the layout style, now adopted by many other sites. Before Pinterest, Tufte pioneered a layout technique called ``small multiples,'' designed to help viewers make rapid decisions about a wide array of items or variables: ``Small multiple designs \ldots answer directly by visually enforcing \ldots the differences among objects, \ldots the scope of alternatives.'' We took inspiration from both of these layouts when designing the flowing grid layout for DocMatrix. 
+
+The common term sidebar was inspired by Hearst's faceted browsing \cite{facets}. But rather than display facets derived from metadata about each document, we extracted the common terms from a source closer to the content of the documents themselves: the tables of contents. Clicking on any of the terms in this list exposes the tables of contents, with relevant chapter titles highlighted; the actual terms contained in the tables of contents are the key to this ontological alignment.
+
+While analyses of how people use physical books has suggested that multiple views of texts could be useful for complex sensemaking work \cite{ohara,adler} few studies of how such an interface could be built and used have been conducted since then. Our work fills this gap in the research.

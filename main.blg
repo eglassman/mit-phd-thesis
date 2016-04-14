@@ -1,0 +1,138 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: Body/Images-chap1/table_gene_similarity.aux
+A level-1 auxiliary file: Body/Images-chap2/antimicrobialnames.aux
+A level-1 auxiliary file: Body/Images-chap4/table_matrix.aux
+A level-1 auxiliary file: bitSet_8c.aux
+A level-1 auxiliary file: convll_8c.aux
+A level-1 auxiliary file: convll_8h.aux
+A level-1 auxiliary file: fastaSeqIO_8c.aux
+A level-1 auxiliary file: fastaSeqIO_8h.aux
+A level-1 auxiliary file: gemoda-r_8c.aux
+A level-1 auxiliary file: gemoda-s_8c.aux
+A level-1 auxiliary file: matdata_8h.aux
+A level-1 auxiliary file: matrices_8c.aux
+A level-1 auxiliary file: matrices_8h.aux
+A level-1 auxiliary file: matrixmap_8h.aux
+A level-1 auxiliary file: newConv_8c.aux
+A level-1 auxiliary file: patStats_8c.aux
+A level-1 auxiliary file: patStats_8h.aux
+A level-1 auxiliary file: realCompare_8c.aux
+A level-1 auxiliary file: realCompare_8h.aux
+A level-1 auxiliary file: realIo_8c.aux
+A level-1 auxiliary file: realIo_8h.aux
+A level-1 auxiliary file: spat_8h.aux
+A level-1 auxiliary file: words_8c.aux
+A level-1 auxiliary file: structbitSet__t.aux
+A level-1 auxiliary file: structcnode.aux
+A level-1 auxiliary file: structcSet__t.aux
+A level-1 auxiliary file: structfSeq__t.aux
+A level-1 auxiliary file: structmnode.aux
+A level-1 auxiliary file: structrdh__t.aux
+A level-1 auxiliary file: structsHash__t.aux
+A level-1 auxiliary file: structsHashEntry__t.aux
+A level-1 auxiliary file: structsOffset__t.aux
+A level-1 auxiliary file: structsPat__t.aux
+A level-1 auxiliary file: structsSize__t.aux
+The style file: abbrvnat.bst
+Reallocated field_info (elt_size=4) to 14212 items from 5000.
+Database file #1: References/research-new.bib
+Warning--I'm ignoring zaki1998theoretical's extra "url" field
+--line 2387 of file References/research-new.bib
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+Warning--I didn't find a database entry for "6005readings"
+Warning--I didn't find a database entry for "artofreadablecode"
+Warning--I didn't find a database entry for "styleguides"
+Warning--I didn't find a database entry for "baxter"
+Warning--I didn't find a database entry for "xutransformation"
+Warning--I didn't find a database entry for "MOOCshop"
+Warning--I didn't find a database entry for "shasha1994exact"
+Warning--I didn't find a database entry for "codewebs"
+Warning--I didn't find a database entry for "Soloway1984"
+Warning--I didn't find a database entry for "taherkhani12"
+Warning--I didn't find a database entry for "taherkhani13"
+Warning--I didn't find a database entry for "Luxton13"
+Warning--I didn't find a database entry for "rishabh"
+Warning--I didn't find a database entry for "riversaied"
+Warning--I didn't find a database entry for "schleimer2003winnowing"
+Warning--I didn't find a database entry for "basupowergrading"
+Warning--I didn't find a database entry for "basuDivideAndConquer"
+Warning--I didn't find a database entry for "ICERGlassman"
+Warning--I didn't find a database entry for "wordseerlitcomp13"
+Warning--I didn't find a database entry for "wordseercikm13"
+Warning--I didn't find a database entry for "crowdscape"
+Warning--I didn't find a database entry for "wordseerhcir11"
+Warning--I didn't find a database entry for "overcode"
+Warning--I didn't find a database entry for "autostyle"
+Warning--I didn't find a database entry for "ACES"
+Warning--I didn't find a database entry for "literateprogramming"
+Warning--I didn't find a database entry for "operands"
+Warning--I didn't find a database entry for "hackeronion"
+Warning--I didn't find a database entry for "GoogleCStyleGuide"
+Warning--I didn't find a database entry for "ieeeRapidFeedback"
+Warning--I didn't find a database entry for "communityTAs"
+Warning--I didn't find a database entry for "kumar2007tutorial"
+Warning--I didn't find a database entry for "diziol"
+Warning--I didn't find a database entry for "curse"
+Warning--I didn't find a database entry for "helpmeout"
+Warning--I didn't find a database entry for "dewey1933"
+Warning--I didn't find a database entry for "selfexplanation"
+Warning--I didn't find a database entry for "asee"
+Warning--I didn't find a database entry for "disequilibrium"
+Warning--I didn't find a database entry for "productiveconfusion"
+Warning--I didn't find a database entry for "kavanagh"
+Warning--I didn't find a database entry for "mazur"
+Warning--I didn't find a database entry for "peerassessment"
+Warning--I didn't find a database entry for "talkabout"
+Warning--I didn't find a database entry for "kim2013learnersourcing"
+Warning--I didn't find a database entry for "weir2015"
+Warning--I didn't find a database entry for "mitros2015"
+Warning--to sort, need author, editor, or key in galassi2003gnu
+Warning--empty author and editor in galassi2003gnu
+Warning--can't use both author and editor fields in aho1979theory
+Warning--can't use both author and editor fields in amsterdam1996susceptibility
+Warning--empty chapter and pages in fasman1976handbook
+Warning--empty institution in wolpert1995no
+You've used 282 entries,
+            2773 wiz_defined-function locations,
+            2190 strings with 67067 characters,
+and the built_in function-call counts, 184178 in all, are:
+= -- 15222
+> -- 16344
+< -- 171
++ -- 5490
+- -- 5205
+* -- 17590
+:= -- 29472
+add.period$ -- 904
+call.type$ -- 282
+change.case$ -- 2561
+chr.to.int$ -- 279
+cite$ -- 571
+duplicate$ -- 5938
+empty$ -- 11155
+format.name$ -- 5662
+if$ -- 37050
+int.to.chr$ -- 4
+int.to.str$ -- 1
+missing$ -- 288
+newline$ -- 1468
+num.names$ -- 1131
+pop$ -- 4803
+preamble$ -- 1
+purify$ -- 2298
+quote$ -- 0
+skip$ -- 5304
+stack$ -- 0
+substring$ -- 6271
+swap$ -- 609
+text.length$ -- 24
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 3007
+warning$ -- 6
+while$ -- 1287
+width$ -- 0
+write$ -- 3780
+(There were 54 warnings)

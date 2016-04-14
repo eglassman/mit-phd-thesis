@@ -24,6 +24,9 @@
 \input{Body/header.tex}
 \pagestyle{plain}
 
+\usepackage{courier}
+\newcommand \codevar[1]{\texttt{#1}}
+
 %% This bit allows you to either specify only the files which you wish to
 %% process, or `all' to process all files which you \include.
 %% Krishna Sethuraman (1990).
@@ -45,19 +48,20 @@
 %add a nice little line underneath the heading
 %\renewcommand{\headrulewidth}{0.6pt}
 
-
-\input{Body/chap1}
+\input{Body/intro.tex}
 \input{Body/relatedWork}
+\input{Body/overcode}
 \input{Body/chap2}
 \input{Body/chap3}
 \input{Body/chap4}
+\input{Body/bayesian}
 
 \clearpage
 \appendix
 %\addcontentsline{toc}{part}{Appendix}
 
 \input{Body/appa}
-\import{./Body/appb/}{appb.tex}
+%\import{./Body/appb/}{appb.tex}
 %\input{Body/appc}
 \input{Body/biblio.tex}
 %\input{Body/index.tex}

@@ -13,11 +13,13 @@ Since terminology across research domains can vary, I will define the terms in w
 \end{comment}
 
 
-\subsection{Feature Engineering}
+\section{Feature Engineering}
 
-In order to discover or identify critical features, it is necessary to generate a set of candidate features. A variety of methods have been employed in the literature to select or engineer features, but those which I describe here are focused on features that humans can perceive by looking at the actual code submission.
+In order to discover or identify critical features, it is necessary to generate a set of candidate features. A variety of methods have been employed in the literature to select or engineer features. 
 
-\subsubsection{Abstract Syntax Trees, Dependency Graphs, and Control Flow Graphs}
+%The features described here are focused on features that humans can perceive by looking at the actual code submission.
+
+\subsection{Abstract Syntax Trees, Dependency Graphs, and Control Flow Graphs}
 
 Aggarwal et al. \cite{aggarwalprinciples} address the critical nature of feature engineering in the context of machine-learning-based automated grading. The grading rubric is based on the authors' understanding of how humans perceive and assess programs. They describe how humans first look for certain ``signature features,'' such as certain control structures, dependencies, and keywords. If the necessary features are in place, then more fine-grained assessment can be made. Are the correct structures used, and are statements ordered properly? This increasingly fine-grained assessment can continue on, to include terminating conditions and dependencies between data structures, until the human is satisfied. 
 
@@ -26,7 +28,7 @@ Aggarwal et al. suggest extracting these features from a code submission's Abstr
 %, human considerations are weighed heavily in their feature design.
 
 
-\subsubsection{Compiler Concepts}
+\subsection{Compiler Concepts}
 
 Some of the Java exercises in the corpus studied by Luxton-Reilly et al. \cite{Luxton13} were as simple as writing a function which takes two integers and returns their sum. Within these simple tasks, variation was still found in the way students used parentheses, declared and initialized variables, and made assignments. In order to use established, non-ambiguous terms for their observations, Luxton-Reilly et al. reference compiler concepts, such as tokens, classes of tokens, and control flow graphs. 
 
@@ -34,19 +36,19 @@ They labeled types of variations as structural, syntactic, or relating to presen
 
 Luxton-Reilly et al.'s Eclipse plugin takes as input a collection of Java source files and creates a library of structurally unique Java code, which becomes the categories of files. On their corpus, they found a small number of highly populated categories, which did not always line up with the category of the instructor's implementation.
 
-\subsubsection{Adding Input-Output Behavior}
+\subsection{Input-Output Behavior}
 
 Huang et al. \cite{MOOCshop} considered tens of thousands of solutions submitted to Stanford's Fall 2011 Machine Learning MOOC, and identified clusters of solutions based on measures of syntactic but also functional similarity. The syntactic similarity was the edit distance between solutions' ASTs, using the tree edit distance function described in Shasha et al. \cite{shasha1994exact}. Code submissions were also grouped by their success or failure on a battery of unit tests (input-output behavior). By pairing behavioral descriptions with structure-based distance measures between submissions, the authors got a fine-grained breakdown of submissions, across correctness and structure.
 
 \subsubsection{Program Comprehension}
 
-Yet another field is relevant when looking for the internal design variation of identically behaving solutions. Over the course of several papers, culminating in their most recent article \cite{taherkhani13}, Taherkhani et al. have drawn from the field of program comprehension to develop several algorithm recognition methods. Two methods feature prominently in their work: (1) a method that creates a feature vector for the \emph{predefined target solution} based on roles of variables, beacons, and various other software metrics and (2) a method that scans solutions for \emph{predefined schemas} that are associated with algorithms of interest. In \cite{taherkhani13}, Taherkhani et al. have combined the two approaches into a more robust version which only compares software metrics and beacons on the code that have the same schema. While the software metrics used in these approaches are relevant to my thesis, the use of predefined schemas and target solutions does not fit in with my approach of purely mining student solutions.
+Yet another field is relevant when looking for the internal design variation of identically behaving solutions. 
 
-\subsubsection{Clone and Plaigiarism Detection}
+%\subsubsection{Clone and Plaigiarism Detection}
 
-Recognizing algorithms is similar to clone detection, which is also associated with plaigiarism detection. There are multiple types of clones. The simplest clone is an exact copy of another section of code. A parameter-substituted clone only differs from its copy by the values of identifiers and literals. A structure-substituted clone is a copy with something new swapped in for an entire subtree of the syntax tree. The most sweeping algorithm recognition methods can identify clones that are modified beyond just structural substitutions \cite{tiarks2011extended}. These latter two types of clones are difficult to identify with current state-of-the-art techniques \cite{taherkhani12, taherkhani13}. 
 
-One strategy which has worked well for discovering similar code segments in larger pieces of source code is document fingerprinting \cite{schleimer2003winnowing}, where functions of small sections of code are considered ``fingerprints.'' A fingerprint is constructed by computing hashes for all $n$-grams in a document (for some chosen $n$). Similar code will contain similar fingerprint components. These fingerprints are potential features for classifying or clustering code.
+
+
 
 %%In their algorithm for the MOSS plagiarism-detection system, Schleimer et al. \cite{schleimer2003winnowing} introduce winnowing, an efficient technique for generating fingerprints with a guarantee that identical code sections above a user-selected minimum size will always yield identical components in the fingerprint.
 
@@ -54,10 +56,12 @@ One strategy which has worked well for discovering similar code segments in larg
 %We might instead put aside not only the idea of winnowing, but of selecting a compact fingerprint at all: while a fingerprint might normally be constructed by computing hashes for all $n$-grams in a document (for some chosen $n$) and selecting a subset of them, we can retain all the hashes. If we believe that dissimilar code will contain different $n$-grams in different amounts, we can use vectors in the space of $n$-grams to identify submissions. In our investigations with Java source code, however, even after removing irrelevant features such as variable names and considering token-level $n$-grams, the number of different $n$-grams was too large for unsupervised clustering to be effective.
 
 %\textbf{Make plugin description concrete and accurate}
-
+\begin{comment}
 \subsection{Mathematical Modeling Applied to Solutions}
 
 While critical features are chosen based on their ability to enhance teachers' understanding or guide the choice of example solutions, it is also necessary to select features that support classification or clustering. Specifically, it is necessary to select features that support classification or clustering that is understandable and acceptable to the human in the loop.
+\end{comment}
+
 
 %\subsubsection{Supervised ML}
 %
@@ -69,19 +73,17 @@ While critical features are chosen based on their ability to enhance teachers' u
 
 \subsubsection{Active and Interactive Machine Learning}
 
-On his interactive machine learning (IML) course webpage, Dr. Brad Knox describes IML as ``machine learning with a human in the learning loop, observing the result of learning and providing input meant to improve the learning outcome.'' Active learning is a subset of semi-supervised machine learning in which the algorithm can query the human in the loop. Active/interactive machine learning techniques, which can take advantage of human experts in the loop to resolve uncertainties, have been deployed for de-duplication in Stonebraker et al.'s Data Tamer \cite{stonebraker2013data} and in a cardiac ECG-based alarm system \cite{JWiensNIPS}. The work on applying interactive machine learning to the educational context is not as mature, but actively being pursued. For example, Basu et al. \cite{basupowergrading} have simulated an interactive machine learning framework for helping teachers grade large numbers of clustered free response textual answers.
+%On his interactive machine learning (IML) course webpage, Dr. Brad Knox describes IML as ``machine learning with a human in the learning loop, observing the result of learning and providing input meant to improve the learning outcome.'' Active learning is a subset of semi-supervised machine learning in which the algorithm can query the human in the loop. Active/interactive machine learning techniques, which can take advantage of human experts in the loop to resolve uncertainties, have been deployed for de-duplication in Stonebraker et al.'s Data Tamer \cite{stonebraker2013data} and in a cardiac ECG-based alarm system \cite{JWiensNIPS}. The work on applying interactive machine learning to the educational context is not as mature, but actively being pursued. For example, 
+
+Basu et al. \cite{basupowergrading} have simulated an interactive machine learning framework for helping teachers grade large numbers of clustered free response textual answers.
 
 %\textbf{Describe HCI aspects of IML in survey paper assigned by Knox?}
 
-\subsubsection{Probabilistic Approaches}
 
-Using automated classification methods, Piech et al. \cite{Piech} found distinct development paths students take to achieve working solutions that fulfilled the specifications of short introductory programming exercises in Java. Students' incremental paths were classified by pipeline that included milestone discovery, Hidden Markov Modeling of the students' process, and clustering of solution paths. These identified paths are visualized as finite state machine transition diagrams. The evaluation focused on predicting midterm exam grades and detecting milestone difficulty. 
-
-Sudol et al.'s new metric, Probabilistic Distance to Solution, and its successful application to introductory programming exercises, is a second example of the feasibility of classifying and mapping out distinct paths to solutions \cite{sudol12}. After using a Markov Model to generate a ``problem state graph,'' the authors applied their Probabilistic Distance to Solution (PDS) metric to the graph to estimate the number of states between an observed program model and the model of a correct solution.
 
 \subsubsection{Learning Students' Process and Behavior}
 
-The following examples highlight research that is further from relevance to this thesis because the paths to a working solution are classified by behavior rather than the type of final solution found. Kiesmueller et al. \cite{Kiesmueller} attempted to recognize strategies at a very high level, which are not specific to the challenge at hand. Example high-level problem-independent strategies were a top-down or bottom-up programming style. Helminen et al. \cite{ICERHelminen} introduced novel interactive graphs for examining the problem solving process of students working on small programming-like problems. However, problems with multiple solutions were outside the scope of their investigation.
+%The following examples highlight research that is further from relevance to this thesis because the paths to a working solution are classified by behavior rather than the type of final solution found. 
 
 
 
@@ -119,7 +121,7 @@ The following examples highlight research that is further from relevance to this
 
 
 %\textbf{insert transition to next section}
-\subsection{Feedback to Students}
+\section{Feedback to Students}
 
 Peer-pairing can stand in place of staff assistance, to both reduce the load on teaching staff and give students a chance to gain ownership of material through teaching it to someone else. Weld et al. speculate about peer-pairing in MOOCs based on student competency measures \cite{WeldHcomp12}, and Klemmer et al. demonstrate peer assessments' scalability to large online design-oriented classes \cite{Klemmer}.
 

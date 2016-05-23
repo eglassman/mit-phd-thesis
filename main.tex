@@ -19,12 +19,16 @@
 %\documentclass[12pt]{mitthesis}
 %\documentclass[12pt,singlespace,twoside]{mitthesis}
 \documentclass[12pt,twoside]{mitthesis}
+\usepackage{todonotes}
+\usepackage{subcaption}
 %\documentclass[12pt,oneside]{mitthesis}
 %\usepackage{lgrind}
 \input{Body/header.tex}
 \pagestyle{plain}
 
+
 \usepackage{courier}
+
 \newcommand \codevar[1]{\texttt{#1}}
 
 %% This bit allows you to either specify only the files which you wish to
@@ -51,10 +55,12 @@
 \input{Body/intro.tex}
 \input{Body/relatedWork}
 \input{Body/overcode}
-\input{Body/chap2}
-\input{Body/chap3}
-\input{Body/chap4}
+\input{Body/foobaz}
+\input{Body/classoverflow}
+\input{Body/grovercode}
 \input{Body/bayesian}
+\input{Body/discussion}
+\input{Body/futurework}
 
 \clearpage
 \appendix

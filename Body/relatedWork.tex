@@ -6,29 +6,186 @@
 %% prompt when you run the file main.tex through LaTeX.
 \chapter{Related Work}\label{chapter:relatedwork}
 
-Systems that help students in massive programming courses may build on work from any or all the following related fields: program analysis, program synthesis, crowd workflows, user-interface design, machine learning, and learning science. This chapter presents prior work within these fields that this thesis builds on, such as theories of how people learn that inspired key design decisions. In order to clarify how this thesis is distinct and novel, this chapter also presents prior work that has similar goals or uses similar methods.
+Systems that help students in massive programming courses may build on work from any or all the following related fields: program analysis, program synthesis, crowd workflows, user-interface design, machine learning, and learning science. First, I present prior work and theories of how people learn that later inspired key design decisions. I then clarify how this thesis work is novel by describing related work that achieves similar goals or uses similar methods.
 
-\section{Learning from Solution Variation}
+Computers' potential as teaching aids was recognized soon after their development; not long after it was physically possible to bring a computer into the classroom, they were used as vehicles for education \cite{computersInEdu}. Modern computer-aided instruction includes intelligent tutoring systems, automated tutorials, power-grading systems, and massive open online course platforms. 
+
+\todo{add cody! (see ICER submission)}
+\todo{look into PHOG and other interesting work here: http://www.srl.inf.ethz.ch/spas.php http://www.srl.inf.ethz.ch/raychev.php and "Predicting Program Properties from “Big Code” http://www.srl.inf.ethz.ch/papers/jsnice15.pdf and "Code Completion with Statistical Language Models" http://www.srl.inf.ethz.ch/papers/pldi14-statistical.pdf}
+
+\todo{Analyzing Engineering Design through the Lens of Computation
+Authors
+Marcelo Worsley, Paulo Blikstein}
+
+\todo{Teaching composition quality at scale: human judgment in the age of autograders
+Authors
+John DeNero, Stephen Martinis}
+
+\todo{Problems Before Solutions: Automated Problem Clarification at Scale
+Authors
+Soumya Basu, Albert Wu, Brian Hou, John DeNero}
+
+\todo{CS10K Teachers by 2017?: Try CS1K+ students NOW! Coping with the Largest CS1 Courses in History
+Authors
+Daniel D Garcia, Jennifer Campbell, John DeNero, Mary Lou Dorf, Stuart Reges}
+
+\todo{Fuzz Testing Projects in Massive Courses
+Authors
+Sumukh Sridhara, Brian Hou, Jeffrey Lu, John DeNero}
+
+\todo{https://computinged.wordpress.com/2012/12/14/research-questions-on-moocs-whos-talking-whos-completing-and-wheres-the-teaching/}
+
+\todo{https://computinged.wordpress.com/2012/08/14/daphne-kollers-ted-talk-whats-new-about-moocs/
+
+The Relative Effectiveness of Human Tutoring,
+Intelligent Tutoring Systems, and Other Tutoring
+Systems
+KURT VanLEHN $http://www.public.asu.edu/~kvanlehn/Stringent/PDF/EffectivenessOfTutoring_Vanlehn.pdf$}
+
+\todo{cite Techniques for Plan Recognition
+SANDRA CARBERRY for solution path mining, but I did not do that...}
+\todo{Automated Feedback Generation for
+
+Introductory Programming Assignments
+
+Rishabh Singh}
+
+\todo{Learning Design Patterns
+with Bayesian Grammar Induction
+Jerry O. Talton et al. http://graphics.stanford.edu/~lfyg/gi.pdf}
+
+\todo{http://cs.stanford.edu/people/sharmar/pubs/ddec.pdf Data-driven equivalence checking}
+
+\todo{Mining Source Code Repositories at Massive Scale
+using Language Modeling
+Miltiadis Allamanis, Charles Sutton}
+
+\todo{Student coding styles as predictors of help-seeking behavior
+Authors
+Engin Bumbacher, Alfredo Sandes, Amit Deutsch, Paulo Blikstein}
+
+\todo{see library on Google Scholar, Vineet's review of literature}
+
+\todo{Programming Pathways: A Technique for Analyzing Novice Programmers’ Learning Trajectories
+Authors
+Marcelo Worsley, Paulo Blikstein}
+
+\todo{Educational data mining and learning analytics: Applications to constructionist research
+Authors
+Matthew Berland, Ryan S Baker, Paulo Blikstein}
+
+\todo{cite WebZeitGeist}
+
+\todo{Programming pluralism: Using learning analytics to detect patterns in the learning of computer programming
+Authors
+Paulo Blikstein, Marcelo Worsley, Chris Piech, Mehran Sahami, Steven Cooper, Daphne Koller}
+
+\todo{cite Using learning analytics to assess students' behavior in open-ended programming tasks
+Authors
+Paulo Blikstein}
+
+\todo{Modeling how students learn to program
+Authors
+Chris Piech, Mehran Sahami, Daphne Koller, Steve Cooper, Paulo Blikstein}
+
+\todo{see Related Work folder in Google Drive and Question Independent Grading using Machine Learning:
+
+The Case of Computer Program Grading
+
+Gursimran Singh
+
+Shashank Srikant
+
+Varun Aggarwal}
+
+\todo{add The Sweep: Essential Examples for In-Flow Peer Review by
+JG Politz, JM Collard, A Guha, K Fisler, S Krishnamurthi and In-flow peer-review of tests in test-first programming
+Authors
+Joe Gibbs Politz, Shriram Krishnamurthi, Kathi Fisler and In-Flow Peer Review
+Authors
+Dave Clarke, Tony Clear, Kathi Fisler, Matthias Hauswirth, Shriram Krishnamurthi, Joe Gibbs Politz, Ville Tirronen, Tobias Wrigstad and CaptainTeach: a platform for in-flow peer review of programming assignments
+Authors
+Joe Gibbs Politz, Shriram Krishnamurthi, Kathi Fisler and CaptainTeach: Multi-stage, in-flow peer review for programming assignments
+Authors
+Joe Gibbs Politz, Daniel Patterson, Shriram Krishnamurthi, Kathi Fisler}
+
+\todo{add this to related work https://computinged.wordpress.com/2016/05/16/implementing-design-studio-pedagogy-with-an-augmented-reality-cs-classroom/}
+
+\section{Learning from Variation}
 
 \begin{comment}
 Marton et al.'s variation theory \cite{Marton13} holds that in order to learn something, one must see examples that vary along particular dimensions: ``contrast,'' as in pairing it with something it is not; ``generalization,'' as in presenting multiple instances of the object or concept to be learned, varying only that which is irrelevant; ``separation,'' as in presenting multiple instances of the object or concept, varying only that which can vary internally without changing the object or concept into something else; and ``fusion,'' as in seeing multiple examples in which previously analytically separated aspects must be processed together to recognize the object or concept. The aspects which are related to these dimensions of variation and therefore define the object or concept are called ``critical features.''
 \end{comment}
 
+\subsection{Variation Theory}
 Marton's Variation Theory, as summarized by Suhonen et al. \cite{suhonen}, is defined by the dimensions of variation necessary to fully communicate a concept to a student: \emph{contrast} (``in order to experience something, a person must experience something else to compare it with''); \emph{generalization}, or the ways something can vary without becoming something else; \emph{separation}, or looking at the variation only across specific features; and \emph{fusion}, where multiple critical aspects of the concept are varied simultaneously. In other words, variation reveals which aspects of a phenomenon are superficial/irrelevant and which are innate/critical to its definition \cite{Leung}. These aspects that define the object or concept are called ``critical features.'' The Variation Theory is a framework that now guides the design of some critical reading exercises \cite{Tong} and exercises for novice programmers \cite{eckerdal}. 
 
 Given Marton et al.'s rubric for effective patterns of variation, and the identification of ``critical features,'' one can discern between more or less theoretically effective examples of the object or concept given to a student to learn. On this basis, Luxton-Reilly et al. \cite{Luxton13} suggest that identifying distinct clusters of solutions can help instructors select appropriate examples of code for helping students learn. They also suggest that it is helpful for teachers' own understanding and quality of feedback and guidance. Facilitating the discovery or identification of critical features, which are possibly both teacher-specific and task-specific, is a major challenge I will address in this thesis. 
 
 Other pedagogical strategies that involve comparing and contrasting examples have also been shown to have learning benefits. The pedagogical method of comparing and contrasting ways of approaching a solution has now been validated in the literature of mathematics education research \cite{Star07}, cognitive science \cite{loewenstein2003analogical,kurtz01learning,telling}, and computing education research \cite{Suhonen08, PatitsasICER13}. Peer reviews and assessments, surveyed in \cite{peerReview98}, are yet another opportunity for students to learn from compare and contrast.
 
-\section{Methods for Extracting Solution Variation}
+\subsection{Synthesizing Knowledge Across Sources and Modalities}
+
+The synthesis of understanding derived from multiple sources is critical to journalism and humanities scholarship and in technical fields, like mathematics.
+
+\subsubsection{Humanities Scholarship and Journalistic Analysis}  
+Wineburg \cite{wineburg} shows how students of history come to their understanding of complex events. One important behavior is the students' use of multiple simultaneous documents to understand context. Wineburg finds that ``\ldots context is everything \ldots who wrote something; what their political view is; what the situation in the world is at that moment \ldots you need to see the situation from many points-of-view \ldots''
+
+Software has recently been built to help scholars and journalists analyze and synthesize knowledge across sources. For example, the AP's Overview Project is an example of software designed to help journalists analyze thousands of documents. Similarly, WordSeer \cite{wordseer} allows scholars in the humanities to make sense of a corpus of relevant texts by providing the ability to look at multiple sources and do textual analysis of the content. Crowdlines \cite{luther} employed crowd-sourcing to help people learn and synthesize information from diverse online sources. Since humans are skilled at evaluating high-level structure and making connections between sources, crowdworkers created outlines for important topics that included diverse perspectives from multiple document sources. 
+
+Shahaf et al. \cite{shahaf} created algorithms for ``information cartography,'' algorithmically sub-sampling large collections of documents on a common topic and laying them out as a 2-D map of interrelated documents for users to explore and read. This technique has been applied to scholarly publications and news articles on complex current events, such as the European debt crisis or the Israeli-Palestinian conflict. These domains contain interrelated parallel story-lines that evolve and intersect over time, and are represented as such in the resulting ‘Metro Maps’ of information.
+
+\subsubsection{Science, Technology, Engineering and Math (STEM)} 
+The simple question, ``What machine learning books are accessible and appropriate for my high school-aged daughter?'' recently kicked off a very lively discussion on a corporate engineering mailing list. It is a question that humans with a model of the learner, e.g., high school student, and the subject matter, e.g., machine learning, can answer well. Jardine \cite{jardine} generated reading lists specifically for novices hoping to become experts in a particular area, using a personalized pagerank function and Latent Topic Models. 
+
+Educational psychologists have found that multiple explanations within and across multiple modalities can help students learn mathematical problem solving. Both Tabachneck et al. \cite{Tabachneck} and Cox and Brna \cite{cox} found that students fared better at problem solving when using multiple strategies and/or representations, such as diagrams, written algebra, tables, and natural language. Ainsworth points out that giving students an opportunity to consider different representations may help them overcome the weaknesses of any particular representation.
+
+This is also supported by authors of Metacademy.com, a popular online resource for teaching yourself machine learning: ``A good general piece of advice is to consult multiple resources. Different textbooks or courses will explain something from a different perspective \ldots [O]ften when reading one, you get an ‘aha!’ moment for something which didn't make sense in the other. Unfortunately, this option might not be practical unless you have access to a university library.'' \cite{metacademy}
+
+\subsection{User Interface Design}
+Tufte pioneered a layout technique called ``small multiples,'' designed to help viewers make rapid decisions about a wide array of items or variables: ``Small multiple designs \ldots answer directly by visually enforcing \ldots the differences among objects, \ldots the scope of alternatives.'' %We took inspiration from both of these layouts when designing the flowing grid layout for DocMatrix. 
+
+%The common term sidebar was inspired by Hearst's faceted browsing \cite{facets}. But rather than display facets derived from metadata about each document, we extracted the common terms from a source closer to the content of the documents themselves: the tables of contents. Clicking on any of the terms in this list exposes the tables of contents, with relevant chapter titles highlighted; the actual terms contained in the tables of contents are the key to this ontological alignment.
+
+Grokker is a document-clustering visualization system, with small popup windows to read texts in parallel \cite{slaney}. Unlike DocMatrix, Grokker's primary representation of a corpus of documents is as clusters of dots, but the study design and results are still relevant here. The task for Grokker readers was to quickly browse a large document collection, and then answer a set of questions to test their understanding. A key finding of this study was that small details of document viewability and the amount of time it took the participants to access content dramatically affected how much they understood about the domain.  In other words, small changes in the amount of time to switch between related documents was an important variable.  
+
+
+\section{Methods for Analyzing Solutions}
+
+While the methods described in this section all analyze solutions written in code, either as individuals or as a collection, some focus on supervised classification of solutions using pre-defined schemas and some focus on unsupervised clustering of code within collections; and some focus on explicitly identifying variation.
+
+\subsection{Methods for Supervised Classification of Solutions}
+
+Taherkhani and collaborators have developed several algorithm recognition methods. Two methods feature prominently in their work: (1) a method that creates a feature vector for the \emph{predefined target solution} based on roles of variables, beacons, and various other software metrics and (2) a method that scans solutions for \emph{predefined schemas} that are associated with algorithms of interest. In \cite{taherkhani13}, Taherkhani et al. have combined the two approaches into a more robust version which only compares software metrics and beacons on the code that have the same schema. While the software metrics used in these approaches are relevant to my thesis, the use of predefined schemas and target solutions is distinct from my approach of purely mining student solutions.
+
+\subsection{Methods for Unsupervised Clustering of Code}
+
+Unsupervised clustering encompasses everything from identifying plagiarism within a collection of solutions submitted by different people to loosely grouping solutions with similar approaches to solving a problem.
+
+\subsubsection{Clone Detection}
+There are multiple types of clones. The simplest clone is an exact copy. A parameter-substituted clone only differs from its copy by the values of identifiers and literals. A structure-substituted clone is a copy with something new swapped in for an entire subtree of the syntax tree. This is of particular interest to teachers looking for evidence of plagiarism within or across class offerings and for software engineers performing re-factoring who want to make their code more compliant with the DRY ("Do Not Repeat Yourself") principle of software development.
+
+\citet{tiarks2011extended} does... \todo{expand on what I said earlier: The most powerful algorithm recognition methods can identify clones that are modified beyond just structural substitutions...}
+
+A popular plaigerism detection algorithm, MOSS, uses \todo{winnowed?} document fingerprinting by \citet{schleimer2003winnowing}. A fingerprint is constructed by computing hashes for all $n$-grams in a document (for some chosen $n$). Similar code will contain similar fingerprint components. \todo{it also does parameter substitution, right? and what's this winnowing business? did document fingerprinting exist before this citation?}
+
+%These latter two types of clones are difficult to identify even with current state-of-the-art techniques \cite{taherkhani12, taherkhani13}. 
+
+\subsection{Methods for Describing Solution Variation}
 
 \begin{comment}
 Braun and Clarke \cite{thematic06} argue that its application to qualitative data outside psychological research is justified. It is in direct contrast to methods in which a hypothesis or theory is first declared, and then evidence for and against it is gathered from the data. 
 \end{comment}
 
-Luxton-Reilly et al. \cite{Luxton13} used thematic analysis to capture the variation between correct solutions in their dataset. Thematic analysis comes out of the field of psychology as a way to build theory from observing patterns in organic, free-form statements from subjects, or, in this case, submissions for coding assignments. They aimed to discover the kinds and degree of variation between student-generated solutions that fulfilled the specifications of short introductory Java programming exercises. By thematic analysis of student submissions, the authors generated a taxonomy that captured the variation between correct solutions in their dataset. They then created an Eclipse plug-in for classifying new code examples based on their taxonomy. 
+\citet{Luxton13} used thematic analysis to capture the variation between correct solutions in their dataset. Thematic analysis comes out of the field of psychology as a way to build theory from observing patterns in organic, free-form statements from subjects, or, in this case, submissions for coding assignments. They aimed to discover the kinds and degree of variation between student-generated solutions that fulfilled the specifications of short introductory Java programming exercises. By thematic analysis of student submissions, the authors generated a taxonomy that captured the variation between correct solutions in their dataset. They then created an Eclipse plug-in for classifying new code examples based on their taxonomy. 
 
+\section{Methods for Analyzing Paths to Solutions}
 
+Using automated classification methods, \citet{Piech} found distinct development paths students take to achieve working solutions that fulfilled the specifications of short introductory programming exercises in Java. Students' incremental paths were classified by pipeline that included milestone discovery, Hidden Markov Modeling of the students' process, and clustering of solution paths. These identified paths are visualized as finite state machine transition diagrams. The evaluation focused on predicting midterm exam grades and detecting milestone difficulty.
+
+\citet{sudol12} also classify and map out distinct paths to solutions to introductory programming exercises. After using a Markov Model to generate a ``problem state graph,'' the authors applied their Probabilistic Distance to Solution (PDS) metric to the graph to estimate the number of states between an observed program model and the model of a correct solution.
+
+Kiesmueller et al. \cite{Kiesmueller} attempted to recognize strategies at a very high level, which are not specific to the challenge at hand. Example high-level problem-independent strategies were a top-down or bottom-up programming style. Helminen et al. \cite{ICERHelminen} introduced novel interactive graphs for examining the problem solving process of students working on small programming-like problems. However, problems with multiple solutions were outside the scope of their investigation.
 
 %\section{Introduction}
 \input{Body/thesisproposal_relatedwork.tex}
@@ -36,7 +193,7 @@ Luxton-Reilly et al. \cite{Luxton13} used thematic analysis to capture the varia
 \input{Body/overcode_relatedwork.tex}
 \input{Body/foobaz_relatedwork.tex}
 \input{Body/classoverflow_relatedwork.tex}
-\input{Body/docmatrix_relatedwork.tex}
+
 
 Also consider related work folder(s) on machine, Zotero
 

@@ -1,0 +1,410 @@
+
+\subsection{Clustering and Grading Solutions}
+
+Consistency problems with holistic clustering and classification for style \& grading ("Can Computers Compare Student Code Solutions as Well as Teachers?", ACES)
+
+\subsubsection{Clustering}
+
+Luxton-Reilly et al. \citeyear{Luxton13} label types of variations as structural, syntactic, or presentation-related. The structural similarity between solutions in a dataset is captured by comparing their control flow graphs. If the control flow of two solutions is the same, then the syntactic variation within the blocks of code is compared by looking at the sequence of token classes. Presentation-based variation, such as variable names and spacing, is only examined when two solutions are structurally and syntactically the same.
+
+ACES
+
+AutoStyle
+
+Codewebs \& MOOCshop
+
+Brooks [text]
+
+\subsubsection{Classification}
+
+Aggrawal et al. [successful]
+Rogers [unsuccessful]
+Rees
+
+\subsection{Feedback Interfaces}
+ACES, Brooks, AutoStyle
+
+
+\subsubsection{Program Synthesis}
+
+%There has also been work on analyzing each student solution individually to provide more precise feedback. 
+Singh et al. \citeyear{rishabh} use a constraint-based synthesis algorithm to find the minimal changes needed to make an incorrect solution functionally equivalent to a reference implementation. The changes are specified in terms of a problem-specific error model that captures the common mistakes students make on a particular problem. This could be used as a distance metric between incorrect and correct solutions.
+
+%\subsubsection{Teacher Agreement}
+
+
+\subsection{Visualizing Differences Between Code}
+
+\subsubsection{Code Comparison Tools}
+File comparison tools, such as Apple FileMerge, Microsoft WinDiff, and Unix diff, are a class of tools that analyze and present differences between files. Highlighting indicates inserted, deleted, and changed text. Unchanged text is collapsed. Some of these tools are customized for analyzing code, such as Code Compare. They are also integrated into existing integrated development environments (IDE), including IntelliJ IDEA and Eclipse. These code-specific comparison tools may match methods rather than just comparing lines. Three panes side-by-side are used to show code during three-way merges of file differences. There are tools, e.g. KDiff3, which will show the differences between four files when performing a distributed version control merge operation, but that appears to be an upper limit. These tools do not scale beyond comparing a handful of programs simultaneously.
+
+\subsubsection{Graph-Based Visualizations and Interfaces}
+
+\subsection{Clustering Solutions}
+
+Luxton-Reilly et al. \citeyear{Luxton13} label types of variations as structural, syntactic, or presentation-related. The structural similarity between solutions in a dataset is captured by comparing their control flow graphs. If the control flow of two solutions is the same, then the syntactic variation within the blocks of code is compared by looking at the sequence of token classes. Presentation-based variation, such as variable names and spacing, is only examined when two solutions are structurally and syntactically the same. %In contrast, our approach is not hierarchical, and uses dynamic information in addition to syntactic information.
+
+\todo{add Gross et al. "Feedback Provision Strategies in Intelligent Tutoring Systems Based on Clustered Solution Spaces"}
+
+Huang et al. \citeyear{MOOCshop} worked with short Matlab/Octave functions submitted online by students enrolled in a machine learning MOOC. The authors generate an AST for each solution to a problem, and calculate the tree edit distance between all pairs of ASTs, using the dynamic programming edit distance algorithm presented by Shasha et al. \citeyear{shasha1994exact}. Based on these computed edit distances, clusters of syntactically similar solutions are formed. The algorithm is quadratic in both the number of solutions and the size of the ASTs. Using a computing cluster, the Shasha algorithm was applied to just over a million solutions. Code submissions were also grouped by their performance on a suite of test cases. By pairing behavioral descriptions with structure-based distance measures between submissions, the authors got a fine-grained breakdown of submissions, across correctness and structure. They visualized this structure in a very large, but arguably not human-understandable, graph of thousands of nodes each representing solutions. Calculating tree-edit distances between all pairs of ASTs allows Huang et al. to analyze differences within each line. It’s also computationally expensive, with quadratic complexity both in the number of solutions and the size of the ASTs~\cite{MOOCshop}. %The OverCode analysis pipeline does not reason about differences any finer than a line of code, but it has linear complexity in the number of solutions and in the size of the ASTs.
+
+Codewebs \cite{codewebs} created an index of ``code phrases'' for over a million submissions from the same MOOC and semi-automatically identified equivalence classes across these phrases, using a data-driven, probabilistic approach. The Codewebs search engine accepts queries in the form of subtrees, subforests, and contexts that are subgraphs of an AST. A teacher labels a set of AST subtrees considered semantically meaningful, and then queries the search engine to extract all equivalent subtrees from the dataset. %OverCode does analyze the AST of student solutions but only in order to reformat code and rename variables that behave similarly on a test case. All further code comparison is done through string matching lines of code that have consistent formatting and variable names.
+
+Both Codewebs \cite{codewebs} and Huang et al. \citeyear{MOOCshop} use unit test results and AST edit distance to identify clusters of submissions that could potentially receive the same feedback from a teacher. These are non-interactive systems that require hand-labeling in the case of Codewebs, or a computing cluster in the case of Huang et al. %In contrast, OverCode’s pipeline does not require hand-labeling and runs in minutes on a laptop, then presents the results in an interactive user interface.
+
+
+\subsection{Generating Feedback Based on Clusters}
+
+\subsubsection{Hints}
+%\subsubsection{Intelligent Tutoring Systems}
+Intelligent tutoring systems can provide personalized hints and other assistance to each student based on a pre-programmed student model and a formalization of the underlying domain knowledge \cite{gross2012feedback}. They are time consuming for experts to construct: in one study, experts took 100 person-hours of development time to produce an hour of instruction for a statistics ITS \cite{murray2003authoring}. This burden can be reduced by bootstrapping with student data.
+
+An Intelligent Tutoring System for coding style
+AutoStyle
+
+A self-improving Intelligent Tutoring System:
+
+Rivers and Koedinger \citeyear{riversaied} propose a data-driven approach to create a solution space consisting of all possible paths from the problem statement to a correct solution. To project code onto this solution space, the authors apply a set of normalizing program transformations to simplify, anonymize, and order the program’s syntax. The solution space can then be used to locate the potential learning progression for a student submission and provide hints on how to correct their attempt. Rivers and Koedinger replace student variable names with arbitrary symbols, i.e. \codevar{daysInMonth} might be mapped to \codevar{v0}. 
+
+%\subsubsection{Expert Crowdsourcing Hints}
+Unlike intelligent tutoring systems, the HelpMeOut system \cite{helpmeout} does not require a pre-programmed student model. It assists programmers during their debugging by suggesting code modifications mined from debugging performed by previous programmers. It collects natural language explanations from teachers about the suggested fixes. Codex \cite{codex} employs the same strategy to collect natural language explanations for prevalent idioms in their corpus of Ruby code.
+
+\subsubsection{Grading}
+ACES
+
+Powergrading
+
+The powergrading paradigm \cite{basupowergrading} enables teachers to assign grades or write feedback to many similar answers at once. Basu et al.'s \cite{basupowergrading} interface helped teachers powergrade short-answer questions from the U.S. Citizenship exam. After machine learning clustered answers, the front end allowed teachers to read, grade, or provide feedback on similar answers simultaneously. When compared against a baseline interface, the teachers assigned grades to students substantially faster, gave more feedback to students, and developed a ``high-level view of students' understanding and misconceptions'' \cite{basuDivideAndConquer}.
+
+
+
+\begin{comment}
+Singh et al.'s automated feedback represents one end of the spectrum for providing tailored feedback to students because hints are algorithmically generated \cite{autograder}. Basu et al. \cite{basupowergrading} represent the other end, by ``force multiplying'' human-generated feedback or ``powergrading.''
+
+
+
+However, the suggestions lack explanations in plain language unless they are added by experts (teachers), so the limits imposed by the time, expense, and curse of knowledge of experts still apply.
+\end{comment}
+
+\subsection{Systems for learning from fellow competitors}
+
+The MATLAB programming contest
+
+Cody, a MATLAB programming game
+
+%At the intersection of information visualization and program analysis is 
+Cody\footnote{\url{mathworks.com/matlabcentral/cody}}, an informal learning environment for the Matlab programming language. Cody does not have a teaching staff but does have a {\em solution map} visualization to help students discover alternative ways to solve a problem. A solution map plots each solution as a point against two axes: time of submission on the horizontal axis, and code size on the vertical axis, where \textit{code size} is the number of nodes in the parse tree of the solution. Despite the simplicity of this metric, solution maps can provide quick and valuable insight when assessing large numbers of solutions~\cite{ICERGlassman}.
+
+
+\section{Learnersourcing and Peer Instruction}
+%Several types of solutions have been deployed to help students get the personalized attention they need. These solutions span the spectrum from recruiting more teaching assistants from the ranks of previous students \cite{communityTAs} to automating hints using intelligent tutoring systems. 
+
+Peer-pairing can stand in place of staff assistance, to both reduce the load on teaching staff and give students a chance to gain ownership of material through teaching it to someone else. Weld et al. speculate about peer-pairing in MOOCs based on student competency measures \cite{WeldHcomp12}, and Klemmer et al. demonstrate peer assessments' scalability to large online design-oriented classes \cite{Klemmer}.
+
+Peer instruction \cite{mazur} and peer assessment \cite{peerassessment} have been integrated into many classroom activities and have also formed the basis of several online systems for peer-learning. For example, Talkabout organizes students into discussion groups based on characteristics such as gender or geographic balance \cite{talkabout}.
+
+Recent work on learnersourcing proposes that learners can collectively generate educational content for future learners while engaging in a meaningful learning experience themselves \cite{kim2013learnersourcing,weir2015,mitros2015}. For example, Crowdy enables people to annotate how-to videos while simultaneously learning from the video \cite{weir2015}.
+
+
+
+
+\begin{comment}
+
+In this case, it may be easier to identify subcomponents 
+
+ASTs have also been used to build an index of nodes, as discussed earlier~\cite{codex}, or 'code phrases', which Nguyen et al.~\cite{codewebs} define as one of three different types of AST subtrees. Specifically, Nguyen et al.
+
+\subsubsection{Supervised Machine Learning and Hierarchical Pairwise Comparison}
+
+Taherkhani et al. \citeyear{taherkhani12,taherkhani13} used supervised machine learning methods to successfully identify which of several sorting algorithms a solution used. Each solution is represented by statistics about language constructs, measures of complexity, and detected roles of variables. Variable roles are determined based on variable behavior. OverCode identifies common variables based on variable behavior as well. Both methods consider the sequence of values that variables are assigned to, but OverCode does not attempt to categorize variable behavior as one of a set of predefined roles. Similarly, Taherkhani et al.’s method can identify sorting algorithms that have already been analyzed and included in its training dataset. OverCode, in contrast, handles problems for which the algorithmic schema is not already known. 
+\end{comment}
+
+
+
+
+%Unlike OverCode’s variable renaming method, which reflects the most common names chosen by students,
+
+%Singh et al. and Rivers and Koedinger focus on providing hints to students along their path to a correct solution.
+
+
+%Huang et al. \cite{MOOCshop} considered tens of thousands of solutions submitted to Stanford's Fall 2011 Machine Learning MOOC, and identified clusters of solutions based on measures of syntactic but also functional similarity. The syntactic similarity was the edit distance between solutions' ASTs, using the tree edit distance function described in Shasha et al. \cite{shasha1994exact}. Code submissions were also grouped by their performance on a suite of test cases. By pairing behavioral descriptions with structure-based distance measures between submissions, the authors got a fine-grained breakdown of submissions, across correctness and structure. They visualized this structure in a very large, but not particularly human-understandable, graph of thousands of nodes each representing solutions.
+
+\begin{comment}
+For example, previous systems sought to provide support through the use of adaptive scripts \cite{kumar2007tutorial}, or cues from the student’s problem-solving actions \cite{diziol}. Despite the advantage of automated support, intelligent tutoring systems often require domain experts to design and build them, making them expensive to develop. \todo{Include ``current ITSs require an exact formalization of the underlying domain knowledge
+which is usually a substantial amount of work: researchers have reported 100-1000 hours
+of authoring time needed for one hour of instruction [MBA03] from `Feedback Provision Strategies in Intelligent Tutoring
+Systems Based on Clustered Solution Spaces'''} Furthermore, domain experts who generate these hints may also suffer from the curse of knowledge. 
+\end{comment}
+
+
+%There are also token-based similarity measures that are specifically designed for code, such as CCFinder \cite{CCFinder} and MOSS~\cite{schleimer2003winnowing} (Measure Of Software Similarity). CCFinder \cite{CCFinder} was designed for detecting can be also be use to quantify similarity within the CloneFraction similarity metric \cite{Weissgerber,Biegel}.
+
+%MOSS~\cite{schleimer2003winnowing} (Measure Of Software Similarity) is a popular token-based algorithm for finding similarities across student solutions.
+
+
+%Given the volume of solutions generated by their students, they also do not have time to give more than a single number per solution as feedback.
+
+
+%Given the potential inaccuracies of assigning grades purely on a solution's performance on test , so some teaching staffs hand-grade all many assignments and exams. 
+
+%Variables can be classified~\cite{taherkhani2010recognizing} or characterized by 
+
+
+%Just input-output testing a solution's output in response to each test case applied to it, including whether or not it is considered correct behavior, and detected roles of variables.  sajaniemi2002empirical
+
+\todo{add https://www.microsoft.com/en-us/research/wp-content/uploads/2016/06/icse16seet-similarity-1.pdf}
+
+\todo{review https://berkeleyx.berkeley.edu/wiki/autograding-programming-assignments}
+
+% and counts capturing the relationship between expressions and the code blocks that contain them (context). Roger's feature set contained 26 numbers, including counts of keywords, measures of code complexity, amounts of commented code, scores from linting scripts, line lengths, function name lengths, and some features based on dynamic performance with respect to test cases.
+
+%\subsubsection{Dynamic Behavior}
+%Role of variables [taherkhani]
+%Error vectors [moocshop]
+%fuzz testing to enhance error vectors 
+
+% create each solution's feature vector by
+
+\begin{comment}
+The teaching staff of 6.0001 at MIT review every exam solution from each student and do not have time to give more than a single number per solution as feedback.
+
+Therefore, in addition to the questions asked of large code corpuses in the previous section, teachers are interested in automated or assisted 
+
+The analyses that follow are designed for and tested on student solutions expressed as a single function that fulfills a particular behavioral specification. These functions may only be a few lines long or tens of lines long.
+
+
+
+In addition to the questions asked of large corpuses in the previous section, teachers are interested in automated clustering, labeling and grading, i.e., running unsupervised and supervised machine learning methods on student solutions. 
+
+
+\subsection{Syntactic Similarity Measures}
+
+Methods applied to large corpuses of open-source code most often analyze 
+
+\subsection{Code Similarity Metrics}
+\end{comment}
+%\subsubsection{Canonicalization and Semantics-Preserving Transformations}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%% This is an example first chapter.  You should put chapter/appendix that you
+%% write into a separate file, and add a line \include{yourfilename} to
+%% main.tex, where `yourfilename.tex' is the name of the chapter/appendix file.
+%% You can process specific files by typing their names in at the 
+%% \files=
+%% prompt when you run the file main.tex through LaTeX.
+
+\todo{merge below with above}
+Given Marton et al.'s rubric for effective patterns of variation, and the identification of ``critical features,'' one can discern between more or less theoretically effective examples of the object or concept given to a student to learn. On this basis, Luxton-Reilly et al. \cite{Luxton13} suggest that identifying distinct clusters of solutions can help instructors select appropriate examples of code for helping students learn. They also suggest that it is helpful for teachers' own understanding and quality of feedback and guidance. 
+
+Other pedagogical strategies that involve comparing and contrasting examples have also been shown to have learning benefits. The pedagogical method of comparing and contrasting ways of approaching a solution has now been validated in the literature of mathematics education research \cite{Star07}, cognitive science \cite{loewenstein2003analogical,kurtz01learning,telling}, and computing education research \cite{Suhonen08, PatitsasICER13}. Peer reviews and assessments, surveyed in \cite{peerReview98}, are yet another opportunity for students to learn from compare and contrast.
+
+%Computers' potential as teaching aids was recognized soon after their development; not long after it was physically possible to bring a computer into the classroom, they were used as vehicles for education \cite{computersInEdu}. Modern computer-aided instruction includes intelligent tutoring systems, automated tutorials, power-grading systems, and massive open online course platforms. 
+
+%\todo{add cody! (see ICER submission)}
+\todo{look into PHOG and other interesting work here: http://www.srl.inf.ethz.ch/spas.php http://www.srl.inf.ethz.ch/raychev.php and "Predicting Program Properties from “Big Code” http://www.srl.inf.ethz.ch/papers/jsnice15.pdf and "Tutoring model to guide students in programming courses to create complete and correct solutions" and title = {Solution Spaces} author = {Kasto, Nadia and Whalley, Jacqueline and Philpott, Anne and Whalley, David}}
+\todo{"Code Completion with Statistical Language Models" http://www.srl.inf.ethz.ch/papers/pldi14-statistical.pdf add to related work to OverCode's handling of incorrect solutions}
+
+\todo{Analyzing Engineering Design through the Lens of Computation
+Authors
+Marcelo Worsley, Paulo Blikstein}
+
+\todo{Teaching composition quality at scale: human judgment in the age of autograders
+Authors
+John DeNero, Stephen Martinis}
+
+\todo{Problems Before Solutions: Automated Problem Clarification at Scale
+Authors
+Soumya Basu, Albert Wu, Brian Hou, John DeNero}
+
+\todo{CS10K Teachers by 2017?: Try CS1K+ students NOW! Coping with the Largest CS1 Courses in History Authors Daniel D Garcia, Jennifer Campbell, John DeNero, Mary Lou Dorf, Stuart Reges}
+
+%\todo{Fuzz Testing Projects in Massive Courses Authors Sumukh Sridhara, Brian Hou, Jeffrey Lu, John DeNero}
+
+\todo{https://computinged.wordpress.com/2012/12/14/research-questions-on-moocs-whos-talking-whos-completing-and-wheres-the-teaching/}
+
+\todo{https://computinged.wordpress.com/2012/08/14/daphne-kollers-ted-talk-whats-new-about-moocs/
+
+The Relative Effectiveness of Human Tutoring,
+Intelligent Tutoring Systems, and Other Tutoring
+Systems
+KURT VanLEHN $http://www.public.asu.edu/~kvanlehn/Stringent/PDF/EffectivenessOfTutoring_Vanlehn.pdf$}
+
+\todo{cite Techniques for Plan Recognition
+SANDRA CARBERRY for solution path mining, but I did not do that...}
+\todo{Automated Feedback Generation for Introductory Programming Assignments Rishabh Singh}
+
+\todo{Learning Design Patterns
+with Bayesian Grammar Induction
+Jerry O. Talton et al. http://graphics.stanford.edu/~lfyg/gi.pdf}
+
+\todo{http://cs.stanford.edu/people/sharmar/pubs/ddec.pdf Data-driven equivalence checking}
+
+\todo{Mining Source Code Repositories at Massive Scale
+using Language Modeling
+Miltiadis Allamanis, Charles Sutton}
+
+\todo{Student coding styles as predictors of help-seeking behavior
+Authors
+Engin Bumbacher, Alfredo Sandes, Amit Deutsch, Paulo Blikstein}
+
+\todo{see library on Google Scholar, Vineet's review of literature}
+
+\todo{Programming Pathways: A Technique for Analyzing Novice Programmers’ Learning Trajectories
+Authors
+Marcelo Worsley, Paulo Blikstein}
+
+\todo{Educational data mining and learning analytics: Applications to constructionist research
+Authors
+Matthew Berland, Ryan S Baker, Paulo Blikstein}
+
+\todo{cite WebZeitGeist}
+
+\todo{Programming pluralism: Using learning analytics to detect patterns in the learning of computer programming
+Authors
+Paulo Blikstein, Marcelo Worsley, Chris Piech, Mehran Sahami, Steven Cooper, Daphne Koller}
+
+\todo{cite Using learning analytics to assess students' behavior in open-ended programming tasks
+Authors
+Paulo Blikstein}
+
+\todo{Modeling how students learn to program
+Authors
+Chris Piech, Mehran Sahami, Daphne Koller, Steve Cooper, Paulo Blikstein}
+
+\todo{see Related Work folder in Google Drive and Question Independent Grading using Machine Learning:
+
+The Case of Computer Program Grading
+
+Gursimran Singh
+
+Shashank Srikant
+
+Varun Aggarwal}
+
+\todo{add The Sweep: Essential Examples for In-Flow Peer Review by
+JG Politz, JM Collard, A Guha, K Fisler, S Krishnamurthi and In-flow peer-review of tests in test-first programming
+Authors
+Joe Gibbs Politz, Shriram Krishnamurthi, Kathi Fisler and In-Flow Peer Review
+Authors
+Dave Clarke, Tony Clear, Kathi Fisler, Matthias Hauswirth, Shriram Krishnamurthi, Joe Gibbs Politz, Ville Tirronen, Tobias Wrigstad and CaptainTeach: a platform for in-flow peer review of programming assignments
+Authors
+Joe Gibbs Politz, Shriram Krishnamurthi, Kathi Fisler and CaptainTeach: Multi-stage, in-flow peer review for programming assignments
+Authors
+Joe Gibbs Politz, Daniel Patterson, Shriram Krishnamurthi, Kathi Fisler}
+
+\todo{add this to related work https://computinged.wordpress.com/2016/05/16/implementing-design-studio-pedagogy-with-an-augmented-reality-cs-classroom/}
+
+%\section{Learning from Variation}
+
+\begin{comment}
+Marton et al.'s variation theory \cite{Marton13} holds that in order to learn something, one must see examples that vary along particular dimensions: ``contrast,'' as in pairing it with something it is not; ``generalization,'' as in presenting multiple instances of the object or concept to be learned, varying only that which is irrelevant; ``separation,'' as in presenting multiple instances of the object or concept, varying only that which can vary internally without changing the object or concept into something else; and ``fusion,'' as in seeing multiple examples in which previously analytically separated aspects must be processed together to recognize the object or concept. The aspects which are related to these dimensions of variation and therefore define the object or concept are called ``critical features.''
+\end{comment}
+
+\todo{figure out what to do with this (it's a dead kitten from medium} Thousands of students are simultaneously trying to write code that meets the behavioral specification of a particular assignment. Thousands of coding amateurs and professional software engineers are cooperatively sharing code in public online repositories. Companies are designing and enforcing their own best practices through code reviews prior to commits to corporate code bases.
+
+\begin{comment}
+\subsection{Variation Theory}
+Marton's Variation Theory, as summarized by Suhonen et al. \cite{suhonen}, is defined by the dimensions of variation necessary to fully communicate a concept to a student: \emph{contrast} (``in order to experience something, a person must experience something else to compare it with''); \emph{generalization}, or the ways something can vary without becoming something else; \emph{separation}, or looking at the variation only across specific features; and \emph{fusion}, where multiple critical aspects of the concept are varied simultaneously. In other words, variation reveals which aspects of a phenomenon are superficial/irrelevant and which are innate/critical to its definition \cite{Leung}. These aspects that define the object or concept are called ``critical features.'' The Variation Theory is a framework that now guides the design of some critical reading exercises \cite{Tong} and exercises for novice programmers \cite{eckerdal}. 
+\end{comment}
+
+\begin{comment}
+\subsection{Synthesizing Knowledge Across Sources and Modalities}
+
+The synthesis of understanding derived from multiple sources is critical to journalism and humanities scholarship and in technical fields, like mathematics.
+
+\subsubsection{Humanities Scholarship and Journalistic Analysis}  
+Wineburg \cite{wineburg} shows how students of history come to their understanding of complex events. One important behavior is the students' use of multiple simultaneous documents to understand context. Wineburg finds that ``\ldots context is everything \ldots who wrote something; what their political view is; what the situation in the world is at that moment \ldots you need to see the situation from many points-of-view \ldots''
+
+Software has recently been built to help scholars and journalists analyze and synthesize knowledge across sources. For example, the AP's Overview Project is an example of software designed to help journalists analyze thousands of documents. Similarly, WordSeer \cite{wordseer} allows scholars in the humanities to make sense of a corpus of relevant texts by providing the ability to look at multiple sources and do textual analysis of the content. Crowdlines \cite{luther} employed crowd-sourcing to help people learn and synthesize information from diverse online sources. Since humans are skilled at evaluating high-level structure and making connections between sources, crowdworkers created outlines for important topics that included diverse perspectives from multiple document sources. 
+
+Shahaf et al. \cite{shahaf} created algorithms for ``information cartography,'' algorithmically sub-sampling large collections of documents on a common topic and laying them out as a 2-D map of interrelated documents for users to explore and read. This technique has been applied to scholarly publications and news articles on complex current events, such as the European debt crisis or the Israeli-Palestinian conflict. These domains contain interrelated parallel story-lines that evolve and intersect over time, and are represented as such in the resulting ‘Metro Maps’ of information.
+
+\subsubsection{Science, Technology, Engineering and Math (STEM)} 
+The simple question, ``What machine learning books are accessible and appropriate for my high school-aged daughter?'' recently kicked off a very lively discussion on a corporate engineering mailing list. It is a question that humans with a model of the learner, e.g., high school student, and the subject matter, e.g., machine learning, can answer well. Jardine \cite{jardine} generated reading lists specifically for novices hoping to become experts in a particular area, using a personalized pagerank function and Latent Topic Models. 
+
+Educational psychologists have found that multiple explanations within and across multiple modalities can help students learn mathematical problem solving. Both Tabachneck et al. \cite{Tabachneck} and Cox and Brna \cite{cox} found that students fared better at problem solving when using multiple strategies and/or representations, such as diagrams, written algebra, tables, and natural language. Ainsworth points out that giving students an opportunity to consider different representations may help them overcome the weaknesses of any particular representation.
+
+This is also supported by authors of Metacademy.com, a popular online resource for teaching yourself machine learning: ``A good general piece of advice is to consult multiple resources. Different textbooks or courses will explain something from a different perspective \ldots [O]ften when reading one, you get an ‘aha!’ moment for something which didn't make sense in the other. Unfortunately, this option might not be practical unless you have access to a university library.'' \cite{metacademy}
+
+\subsection{User Interface Design}
+Tufte pioneered a layout technique called ``small multiples,'' designed to help viewers make rapid decisions about a wide array of items or variables: ``Small multiple designs \ldots answer directly by visually enforcing \ldots the differences among objects, \ldots the scope of alternatives.'' %We took inspiration from both of these layouts when designing the flowing grid layout for DocMatrix. 
+
+%The common term sidebar was inspired by Hearst's faceted browsing \cite{facets}. But rather than display facets derived from metadata about each document, we extracted the common terms from a source closer to the content of the documents themselves: the tables of contents. Clicking on any of the terms in this list exposes the tables of contents, with relevant chapter titles highlighted; the actual terms contained in the tables of contents are the key to this ontological alignment.
+
+Grokker is a document-clustering visualization system, with small popup windows to read texts in parallel \cite{slaney}. Unlike DocMatrix, Grokker's primary representation of a corpus of documents is as clusters of dots, but the study design and results are still relevant here. The task for Grokker readers was to quickly browse a large document collection, and then answer a set of questions to test their understanding. A key finding of this study was that small details of document viewability and the amount of time it took the participants to access content dramatically affected how much they understood about the domain.  In other words, small changes in the amount of time to switch between related documents was an important variable.  
+\end{comment}
+
+\section{Methods for Analyzing Solutions}
+
+While the methods described in this section all analyze solutions written in code, either as individuals or as a collection, some focus on supervised classification of solutions using pre-defined schemas and some focus on unsupervised clustering of code within collections; and some focus on explicitly identifying variation.
+
+\subsection{Methods for Supervised Classification of Solutions}
+
+Taherkhani and collaborators have developed several algorithm recognition methods. Two methods feature prominently in their work: (1) a method that creates a feature vector for the \emph{predefined target solution} based on roles of variables, beacons, and various other software metrics and (2) a method that scans solutions for \emph{predefined schemas} that are associated with algorithms of interest. In \cite{taherkhani13}, Taherkhani et al. have combined the two approaches into a more robust version which only compares software metrics and beacons on the code that have the same schema. While the software metrics used in these approaches are relevant to my thesis, the use of predefined schemas and target solutions is distinct from my approach of purely mining student solutions.
+
+\subsection{Methods for Unsupervised Clustering of Code}
+
+Unsupervised clustering encompasses everything from identifying plagiarism within a collection of solutions submitted by different people to loosely grouping solutions with similar approaches to solving a problem.
+
+\subsubsection{Clone Detection}
+There are multiple types of clones. The simplest clone is an exact copy. A parameter-substituted clone only differs from its copy by the values of identifiers and literals. A structure-substituted clone is a copy with something new swapped in for an entire subtree of the syntax tree. This is of particular interest to teachers looking for evidence of plagiarism within or across class offerings and for software engineers performing re-factoring who want to make their code more compliant with the DRY ("Do Not Repeat Yourself") principle of software development.
+
+\citet{tiarks2011extended} does... \todo{expand on what I said earlier: The most powerful algorithm recognition methods can identify clones that are modified beyond just structural substitutions...}
+
+A popular plaigerism detection algorithm, MOSS, uses \todo{winnowed?} document fingerprinting by \citet{schleimer2003winnowing}. A fingerprint is constructed by computing hashes for all $n$-grams in a document (for some chosen $n$). Similar code will contain similar fingerprint components. \todo{it also does parameter substitution, right? and what's this winnowing business? did document fingerprinting exist before this citation?}
+
+%These latter two types of clones are difficult to identify even with current state-of-the-art techniques \cite{taherkhani12, taherkhani13}. 
+
+\subsection{Methods for Describing Solution Variation}
+
+\begin{comment}
+Braun and Clarke \cite{thematic06} argue that its application to qualitative data outside psychological research is justified. It is in direct contrast to methods in which a hypothesis or theory is first declared, and then evidence for and against it is gathered from the data. 
+\end{comment}
+
+\citet{Luxton13} used thematic analysis to capture the variation between correct solutions in their dataset. Thematic analysis comes out of the field of psychology as a way to build theory from observing patterns in organic, free-form statements from subjects, or, in this case, submissions for coding assignments. They aimed to discover the kinds and degree of variation between student-generated solutions that fulfilled the specifications of short introductory Java programming exercises. By thematic analysis of student submissions, the authors generated a taxonomy that captured the variation between correct solutions in their dataset. They then created an Eclipse plug-in for classifying new code examples based on their taxonomy. 
+
+\section{Methods for Analyzing Paths to Solutions}
+
+Using automated classification methods, \citet{Piech} found distinct development paths students take to achieve working solutions that fulfilled the specifications of short introductory programming exercises in Java. Students' incremental paths were classified by pipeline that included milestone discovery, Hidden Markov Modeling of the students' process, and clustering of solution paths. These identified paths are visualized as finite state machine transition diagrams. The evaluation focused on predicting midterm exam grades and detecting milestone difficulty.
+
+\citet{sudol12} also classify and map out distinct paths to solutions to introductory programming exercises. After using a Markov Model to generate a ``problem state graph,'' the authors applied their Probabilistic Distance to Solution (PDS) metric to the graph to estimate the number of states between an observed program model and the model of a correct solution.
+
+Kiesmueller et al. \cite{Kiesmueller} attempted to recognize strategies at a very high level, which are not specific to the challenge at hand. Example high-level problem-independent strategies were a top-down or bottom-up programming style. Helminen et al. \cite{ICERHelminen} introduced novel interactive graphs for examining the problem solving process of students working on small programming-like problems. However, problems with multiple solutions were outside the scope of their investigation.
+
+%\section{Introduction}
+\input{Body/thesisproposal_relatedwork.tex}
+\input{Body/readablecode_relatedwork.tex}
+\input{Body/overcode_relatedwork.tex}
+\input{Body/foobaz_relatedwork.tex}
+\input{Body/classoverflow_relatedwork.tex}
+
+
+Also consider related work folder(s) on machine, Zotero, Mendeley
+
+
+
+
+

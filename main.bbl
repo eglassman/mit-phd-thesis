@@ -1,2085 +1,836 @@
-\begin{thebibliography}{282}
+\begin{thebibliography}{115}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[gal(2003)]{galassi2003gnu}
-\emph{GNU Scientific Library Reference Manual - Second Edition}.
-\newblock Network Theory Ltd., 2003.
-
-\bibitem[Adams and Skopek(1987)]{adams1987statistical}
-W.~T. Adams and T.~R. Skopek.
-\newblock {Statistical test for the comparison of samples from mutational
-  spectra}.
-\newblock \emph{J Mol Biol}, 194\penalty0 (3):\penalty0 391--6, Apr 1987.
-
-\bibitem[Aho and Ullman(1979)]{aho1979theory}
-A.~V. Aho and J.~D. Ullman.
-\newblock \emph{The Theory of Parsing, Translation, and Compiling}, volume I:
-  Parsing of \emph{Series in Automatic Computation}.
-\newblock Prentice Hall, Englewood Cliffs, New Jersey, 1979.
-\newblock ISBN 0-13-914556-7.
-
-\bibitem[Alexandrov(1996)]{alexandrov1996sarfing}
-N.~N. Alexandrov.
-\newblock {SARFing the PDB}.
-\newblock \emph{Protein Eng}, 9\penalty0 (9):\penalty0 727--732, Oct 1996.
-
-\bibitem[Alexandrov and Fischer(1996)]{alexandrov1996analysis}
-N.~N. Alexandrov and D.~Fischer.
-\newblock {Analysis of topological and nontopological structural similarities
-  in the PDB: new examples with old structures}.
-\newblock \emph{Proteins}, 25\penalty0 (3):\penalty0 354--365, Aug 1996.
-
-\bibitem[Alimoglu and Alpaydin(1996)]{alimoglu1996methods}
-F.~Alimoglu and E.~Alpaydin.
-\newblock Methods of combining multiple classifiers based on different
-  representations for pen--based handwriting recognition.
-\newblock In \emph{Proceedings of the Fifth Turkish Artificial Intelligence and
-  Artificial Neural Networks Symposium}, Istanbul, Turkey, 1996.
-
-\bibitem[Alimoglu and Alpaydin(1997)]{alimoglu1997combining}
-F.~Alimoglu and E.~Alpaydin.
-\newblock Combining multiple representations and classifiers for pen--based
-  handwritten digit recognition.
-\newblock In \emph{Proceedings of the Fourth International Conference on
-  Document Analysis and Recognition}, Ulm, Germany, 1997.
-
-\bibitem[Alper et~al.(2005)Alper, Fischer, Nevoigt, and
-  Stephanopoulos]{alper2005tuning}
-H.~Alper, C.~Fischer, E.~Nevoigt, and G.~Stephanopoulos.
-\newblock {Tuning genetic control through promoter engineering}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 102\penalty0 (36):\penalty0
-  12678--83, Sep 2005.
-
-\bibitem[Altschul(1991)]{altschul1991amino}
-S.~F. Altschul.
-\newblock {Amino acid substitution matrices from an information theoretic
-  perspective}.
-\newblock \emph{J Mol Biol}, 219:\penalty0 555--65, 1991.
-
-\bibitem[Altschul et~al.(1990)Altschul, Gish, Miller, Myers, and
-  Lipman]{altschul1990basic}
-S.~F. Altschul, W.~Gish, W.~Miller, E.~W. Myers, and D.~J. Lipman.
-\newblock {Basic local alignment search tool}.
-\newblock \emph{J Mol Biol}, 215:\penalty0 403--10, 1990.
-
-\bibitem[Altschul et~al.(1997)Altschul, Madden, Zhang, J., Zhang, Miller, and
-  Lipman]{altschul1997gapped}
-S.~F. Altschul, T.~L. Madden, A.~A.~S. Zhang, J., Z.~Zhang, W.~Miller, and
-  D.~J. Lipman.
-\newblock {Gapped BLAST and PSI-BLAST: a new generation of protein database
-  search programs}.
-\newblock \emph{Nucleic Acids Res}, 25:\penalty0 3389--402, 1997.
-
-\bibitem[Amsterdam(1996)]{amsterdam1996susceptibility}
-D.~Amsterdam.
-\newblock \emph{Susceptibility testing of antimicrobials in liquid media},
-  pages 52--111.
-\newblock Antibiotics in Laboratory Medicine. Williams \& Wilkins, Baltimore,
-  MD, 4th edition, 1996.
-
-\bibitem[Aravind and Koonin(1998)]{aravind1998hd}
-L.~Aravind and E.~V. Koonin.
-\newblock {The HD domain defines a new superfamily of metal-dependent
-  phosphohydrolases}.
-\newblock \emph{Trends Biochem Sci}, 23\penalty0 (12):\penalty0 469--472, 1998.
-
-\bibitem[Argos et~al.(1982)Argos, Rao, and Hargrave]{argos1982structural}
-P.~Argos, J.~K. Rao, and P.~A. Hargrave.
-\newblock {Structural prediction of membrane-bound proteins}.
-\newblock \emph{Eur J Biochem}, 128\penalty0 (2-3):\penalty0 565--575, Nov.
-  1982.
-
-\bibitem[Arun et~al.(1987)Arun, Huang, and Blostein]{arun1987least}
-K.~S. Arun, T.~S. Huang, and S.~D. Blostein.
-\newblock Least-squares fitting of two 3-d point sets.
-\newblock \emph{IEEE Trans. Pattern Anal. Mach. Intell.}, 9\penalty0
-  (5):\penalty0 698--700, 1987.
-\newblock ISSN 0162-8828.
-
-\bibitem[Atchley et~al.(2005)Atchley, Zhao, Fernandes, and
-  Dr{\"u}ke]{atchley2005solving}
-W.~R. Atchley, J.~Zhao, A.~D. Fernandes, and T.~Dr{\"u}ke.
-\newblock {Solving the protein sequence metric problem}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 102\penalty0 (18):\penalty0
-  6395--400, May 2005.
-
-\bibitem[Attwood et~al.(2003)Attwood, Bradley, Flower, Gaulton, Maudling,
-  Mitchell, Moulton, Nordle, Paine, Taylor, Uddin, and
-  Zygouri]{attwood2003prints}
-T.~K. Attwood, P.~Bradley, D.~R. Flower, A.~Gaulton, N.~Maudling, A.~L.
-  Mitchell, G.~Moulton, A.~Nordle, K.~Paine, P.~Taylor, A.~Uddin, and
-  C.~Zygouri.
-\newblock {PRINTS and its automatic supplement, prePRINTS}.
-\newblock \emph{Nucleic Acids Res}, 31:\penalty0 400--2, 2003.
-
-\bibitem[Bagossi et~al.(2005)Bagossi, Sperka, Feh{\'e}r, K{\'a}das, Zahuczky,
-  Mikl{\'o}ssy, Boross, and T{\"o}zs{\'e}r]{bagossi2005amino}
-P.~Bagossi, T.~Sperka, A.~Feh{\'e}r, J.~K{\'a}das, G.~Zahuczky,
-  G.~Mikl{\'o}ssy, P.~Boross, and J.~T{\"o}zs{\'e}r.
-\newblock {Amino acid preferences for a critical substrate binding subsite of
-  retroviral proteases in type 1 cleavage sites}.
-\newblock \emph{J Virol}, 79\penalty0 (7):\penalty0 4213--4218, Apr 2005.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=15767422}.
-
-\bibitem[Bailey and Elkan(1994)]{bailey1994fitting}
-T.~L. Bailey and C.~Elkan.
-\newblock {Fitting a mixture model by expectation maximization to discover
-  motifs in biopolymers}.
-\newblock \emph{Proc Int Conf Intell Syst Mol Biol}, 2:\penalty0 28--36, 1994.
-
-\bibitem[Bairoch(1991)]{bairoch1991PROSITE}
-A.~Bairoch.
-\newblock Prosite: a dictionary of sites and patterns in proteins.
-\newblock \emph{Nucleic Acids Res}, 19 Suppl:\penalty0 2241--2245, Apr 1991.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=2041810}.
-
-\bibitem[Bairoch(2000)]{bairoch2000enzyme}
-A.~Bairoch.
-\newblock {The ENZYME database in 2000}.
-\newblock \emph{Nucleic Acids Res}, 28\penalty0 (1):\penalty0 304--305, Feb
-  2000.
-
-\bibitem[Bairoch and Apweiler(2000)]{bairoch2000swiss-prot}
-A.~Bairoch and R.~Apweiler.
-\newblock {The SWISS-PROT protein sequence database and its supplement TrEMBL
-  in 2000}.
-\newblock \emph{Nucleic Acids Res}, 28\penalty0 (1):\penalty0 45--48, Jan 2000.
-
-\bibitem[Bairoch and Boeckmann(1992)]{bairoch1992SWISS}
-A.~Bairoch and B.~Boeckmann.
-\newblock The swiss-prot protein sequence data bank.
-\newblock \emph{Nucleic Acids Res}, 20 Suppl:\penalty0 2019--2022, May 1992.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=1598233}.
-
-\bibitem[Barillas-Mury et~al.(2000)Barillas-Mury, Wizel, and
-  Han]{barillas2000mosquito}
-C.~Barillas-Mury, B.~Wizel, and Y.~S. Han.
-\newblock {Mosquito immune responses and malaria transmission: lessons from
-  insect model systems and implications for vertebrate innate immunity and
-  vaccine development}.
-\newblock \emph{Insect Biochem Mol Biol}, 30\penalty0 (6):\penalty0 429--442,
-  June 2000.
-
-\bibitem[Bateman et~al.(2004)Bateman, Coin, Durbin, Finn, Hollich,
-  Griffiths-Jones, Khanna, Marshall, Moxon, Sonnhammer, Studholme, Yeats, and
-  Eddy]{bateman2004pfam}
-A.~Bateman, L.~Coin, R.~Durbin, R.~D. Finn, V.~Hollich, S.~Griffiths-Jones,
-  A.~Khanna, M.~Marshall, S.~Moxon, E.~L.~L. Sonnhammer, D.~J. Studholme,
-  C.~Yeats, and S.~R. Eddy.
-\newblock {The Pfam protein families database}.
-\newblock \emph{Nucleic Acids Res}, 32 Database issue:\penalty0 138--141, Feb
-  2004.
-
-\bibitem[Beck et~al.(2000)Beck, Hervio, Dawson, Elder, and
-  Madison]{beck2000identification}
-Z.~Beck, L.~Hervio, P.~Dawson, J.~Elder, and E.~Madison.
-\newblock {Identification of efficiently cleaved substrates for HIV-1 protease
-  using a phage display library and use in inhibitor development}.
-\newblock \emph{Virology}, 274\penalty0 (2):\penalty0 391--401, Sep 2000.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=10964781}.
-
-\bibitem[Beck et~al.(2001)Beck, Lin, and Elder]{beck2001molecular}
-Z.~Beck, Y.~Lin, and J.~Elder.
-\newblock {Molecular basis for the relative substrate specificity of human
-  immunodeficiency virus type 1 and feline immunodeficiency virus proteases}.
-\newblock \emph{J Virol}, 75\penalty0 (19):\penalty0 9458--9469, Oct 2001.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=11533208}.
-
-\bibitem[Beck et~al.(2002)Beck, Morris, and Elder]{beck2002defining}
-Z.~Beck, G.~Morris, and J.~Elder.
-\newblock {Defining HIV-1 protease substrate selectivity}.
-\newblock \emph{Curr Drug Targets Infect Disord}, 2\penalty0 (1):\penalty0
-  37--50, Mar 2002.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=12462152}.
-
-\bibitem[Bell and Gouyon(2003)]{bell2003arming}
-G.~Bell and P.-H. Gouyon.
-\newblock {Arming the enemy: the evolution of resistance to self-proteins}.
-\newblock \emph{Microbiology}, 149\penalty0 (Pt 6):\penalty0 1367--1375, Jun
-  2003.
-
-\bibitem[Bennett and Bredensteiner(2000)]{bennett2000duality}
-K.~Bennett and E.~Bredensteiner.
-\newblock Duality and gemoetry in svms.
-\newblock In P.~Langley, editor, \emph{Proc. of 17th international Conference
-  on Machine Learning}, pages 65--72. Morgan Kaufmann, 2000.
-
-\bibitem[Bennett and Campbell(2000)]{bennett2000support}
-K.~P. Bennett and C.~Campbell.
-\newblock Support vector machines: Hype or hallelujah?
-\newblock \emph{SIGKDD Explorations}, 2\penalty0 (2):\penalty0 1--13, 2000.
-\newblock URL \url{citeseer.ist.psu.edu/bennett03support.html}.
-
-\bibitem[Benson et~al.(2000)Benson, Karsch-Mizrachi, {Lipman }, Ostell, Rapp,
-  and Wheeler]{benson2000genbank}
-D.~A. Benson, I.~Karsch-Mizrachi, D.~J. {Lipman }, J.~Ostell, B.~A. Rapp, and
-  D.~L. Wheeler.
-\newblock {GenBank}.
-\newblock \emph{Nucleic Acids Res}, 28:\penalty0 15--8, 2000.
-
-\bibitem[Benson et~al.(2006)Benson, Karsch-Mizrachi, Lipman, Ostell, and
-  Wheeler]{benson2006genbank}
-D.~A. Benson, I.~Karsch-Mizrachi, D.~J. Lipman, J.~Ostell, and D.~L. Wheeler.
-\newblock {GenBank}.
-\newblock \emph{Nucleic Acids Res}, 34\penalty0 (Database issue):\penalty0
-  D16--20, Jan 2006.
-
-\bibitem[Berman et~al.(2000)Berman, Westbrook, Feng, Gilliland, Bhat, Weissig,
-  Shindyalov, and Bourne]{berman2000protein}
-H.~M. Berman, J.~Westbrook, Z.~Feng, G.~Gilliland, T.~N. Bhat, H.~Weissig,
-  I.~N. Shindyalov, and P.~E. Bourne.
-\newblock {The Protein Data Bank}.
-\newblock \emph{Nucleic Acids Res}, 28\penalty0 (1):\penalty0 235--242, Feb
-  2000.
-
-\bibitem[Bi and Rogan(2004)]{bi2004bipartite}
-C.~Bi and P.~K. Rogan.
-\newblock {Bipartite pattern discovery by entropy minimization-based multiple
-  local alignment}.
-\newblock \emph{Nucleic Acids Res}, 32\penalty0 (17):\penalty0 4979--91, 2004.
-
-\bibitem[Bigelow(1967)]{bigelow1967on}
-C.~C. Bigelow.
-\newblock {On the average hydrophobicity of proteins and the relation between
-  it and protein structure}.
-\newblock \emph{J Theor Biol}, 16\penalty0 (2):\penalty0 187--211, Aug 1967.
-
-\bibitem[Blackford et~al.(2002)Blackford, Demmel, Dongarra, Duff, Hammarling,
-  Henry, Heroux, Kaufman, Lumsdaine, Petitet, Pozo, Remington, and
-  Whaley]{blackford2002updated}
-L.~S. Blackford, J.~Demmel, J.~Dongarra, I.~Duff, S.~Hammarling, G.~Henry,
-  M.~Heroux, L.~Kaufman, A.~Lumsdaine, A.~Petitet, R.~Pozo, K.~Remington, and
-  R.~C. Whaley.
-\newblock An updated set of {Basic Linear Algebra Subprograms (BLAS)}.
-\newblock \emph{{ACM} Transactions on Mathematical Software}, 28\penalty0
-  (2):\penalty0 135--151, June 2002.
-\newblock ISSN 0098-3500.
-\newblock URL \url{http://doi.acm.org/10.1145/567806.567807}.
-
-\bibitem[Blake and Merz(1998)]{uci1998ucirepository}
-C.~L. Blake and C.~J. Merz.
-\newblock {UCI} repository of machine learning databases, 1998.
-\newblock http://www.ics.uci.edu/$\sim$mlearn/MLRepository.html.
-
-\bibitem[Boden and Markowitz(1998)]{boden1998resistance}
-D.~Boden and M.~Markowitz.
-\newblock {Resistance to human immunodeficiency virus type 1 protease
-  inhibitors}.
-\newblock \emph{Antimicrob Agents Chemother}, 42\penalty0 (11):\penalty0
-  2775--2783, Nov 1998.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=9797203}.
-
-\bibitem[Boman(2003)]{bowman2003antibacterial}
-H.~G. Boman.
-\newblock {Antibacterial peptides: basic facts and emerging concepts}.
-\newblock \emph{J Intern Med}, 254\penalty0 (3):\penalty0 197--215, Sep 2003.
-
-\bibitem[Brazma et~al.(1998)Brazma, Jonassen, Vilo, and
-  Ukkonen]{brazma1998pattern}
-Brazma, Jonassen, Vilo, and Ukkonen.
-\newblock Pattern discovery in biosequences.
-\newblock In \emph{{ICGI}: International Colloquium on Grammatical Inference
-  and Applications}, 1998.
-\newblock URL \url{citeseer.nj.nec.com/brazma98pattern.html}.
-
-\bibitem[Brenner et~al.(2000)Brenner, Koehl, and Levitt]{brenner2000astral}
-S.~E. Brenner, P.~Koehl, and M.~Levitt.
-\newblock {The ASTRAL compendium for protein structure and sequence analysis}.
-\newblock \emph{Nucleic Acids Res}, 28\penalty0 (1):\penalty0 254--6, Jan 2000.
-
-\bibitem[Bresnan et~al.(1982)Bresnan, Kaplan, Peters, and
-  Zaenen]{bresnan1982cross}
-J.~Bresnan, R.~M. Kaplan, S.~Peters, and A.~Zaenen.
-\newblock Cross-serial dependencies in {D}utch.
-\newblock \emph{Linguistic Inquiry}, 13\penalty0 (4):\penalty0 613--635, 1982.
-\newblock Reprinted in W. Savitch et al. (eds) The Formal Complexity of Natural
-  Language, 286--319. Dordrecht: D. Reidel.
-
-\bibitem[Brik and Wong(2003)]{brik2003hiv}
-A.~Brik and C.~Wong.
-\newblock {HIV-1 protease: mechanism and drug discovery}.
-\newblock \emph{Org Biomol Chem}, 1\penalty0 (1):\penalty0 5--14, Jan 2003.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=12929379}.
-
-\bibitem[Buhler and Tompa(2001)]{buhler2001finding}
-J.~Buhler and M.~Tompa.
-\newblock Finding motifs using random projections.
-\newblock In \emph{Proceedings of the fifth annual international conference on
-  Computational biology}, pages 69--76. ACM Press, 2001.
-\newblock ISBN 1-58113-353-7.
-\newblock \doi{http://doi.acm.org/10.1145/369133.369172}.
-
-\bibitem[Buhler and Tompa(2002)]{buhler2002finding}
-J.~Buhler and M.~Tompa.
-\newblock {Finding motifs using random projections}.
-\newblock \emph{J Comput Biol}, 9\penalty0 (2):\penalty0 225--42, 2002.
-
-\bibitem[Bussemaker et~al.(2000)Bussemaker, Li, and
-  Siggia]{bussemaker2000building}
-H.~J. Bussemaker, H.~Li, and E.~D. Siggia.
-\newblock {Building a dictionary for genomes: identification of presumptive
-  regulatory sites by statistical analysis}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 97\penalty0 (18):\penalty0
-  10096--100, Aug 2000.
-
-\bibitem[Cai et~al.(1998)Cai, Yu, and Chou]{cai1998artificial}
-Y.~D. Cai, H.~Yu, and K.~C. Chou.
-\newblock {Artificial neural network method for predicting HIV protease
-  cleavage sites in protein}.
-\newblock \emph{J Protein Chem}, 17\penalty0 (7):\penalty0 607--15, Oct 1998.
-
-\bibitem[Cai et~al.(2002)Cai, Liu, Xu, and Chou]{cai2002support}
-Y.-D. Cai, X.-J. Liu, X.-B. Xu, and K.-C. Chou.
-\newblock {Support Vector Machines for predicting HIV protease cleavage sites
-  in protein}.
-\newblock \emph{J Comput Chem}, 23\penalty0 (2):\penalty0 267--274, Jan 2002.
-
-\bibitem[Cassell and Mekalanos(2001)]{cassell2001development}
-G.~H. Cassell and J.~Mekalanos.
-\newblock {Development of antimicrobial agents in the era of new and reemerging
-  infectious diseases and increasing antibiotic resistance}.
-\newblock \emph{JAMA}, 285:\penalty0 601--5, 2001.
-
-\bibitem[Casteels and Tempst(1994)]{casteels1994apidaecin}
-P.~Casteels and P.~Tempst.
-\newblock {Apidaecin-type peptide antibiotics function through a
-  non-poreforming mechanism involving stereospecificity}.
-\newblock \emph{Biochem Biophys Res Commun}, 199\penalty0 (1):\penalty0
-  339--345, Feb 1994.
-
-\bibitem[Chen et~al.(2001)Chen, Xu, Hong, Chen, Liu, Underhill, Creswell, and
-  Zhang]{chen2001rgdtachyplesin}
-Y.~Chen, X.~Xu, S.~Hong, J.~Chen, N.~Liu, C.~B. Underhill, K.~Creswell, and
-  L.~Zhang.
-\newblock {RGD-Tachyplesin inhibits tumor growth}.
-\newblock \emph{Cancer Res}, 61\penalty0 (6):\penalty0 2434--2438, Mar 2001.
-
-\bibitem[Chomsky(1956)]{chomsky1956three}
-N.~Chomsky.
-\newblock Three models for the description of language.
-\newblock \emph{IRE Transactions on Information Theory}, 2:\penalty0 113--124,
-  1956.
-
-\bibitem[Chomsky(1957)]{chomsky1957syntactic}
-N.~Chomsky.
-\newblock \emph{Syntactic Structures}.
-\newblock Mouton and Co., The Hague, 1957.
-
-\bibitem[Chomsky(1965)]{chomsky1965aspects}
-N.~Chomsky.
-\newblock \emph{{Aspects of the theory of syntax}}.
-\newblock MIT Press, Cambridge, Massachusetts, 1965.
-
-\bibitem[Chou(1996)]{chou1996prediction}
-K.~C. Chou.
-\newblock {Prediction of human immunodeficiency virus protease cleavage sites
-  in proteins}.
-\newblock \emph{Anal Biochem}, 233\penalty0 (1):\penalty0 1--14, Jan 1996.
-
-\bibitem[Chou and Fasman(1978)]{chou1978prediction}
-P.~Y. Chou and G.~D. Fasman.
-\newblock {Prediction of the secondary structure of proteins from their amino
-  acid sequence}.
-\newblock \emph{Adv Enzymol Relat Areas Mol Biol}, 47:\penalty0 45--148, 1978.
-
-\bibitem[Christophides et~al.(2002)Christophides, Zdobnov, Barillas-Mury,
-  Birney, Blandin, Blass, Brey, Collins, Danielli, Dimopoulos, Hetru, Hoa,
-  Hoffmann, Kanzok, Letunic, Levashina, Loukeris, Lycett, Meister, Michel,
-  Moita, Muller, Osta, Paskewitz, Reichhart, Rzhetsky, Troxler, Vernick,
-  Vlachou, Volz, von Mering., Xu, Zheng, Bork, and
-  Kafatos]{christophides2002immunity}
-G.~K. Christophides, E.~Zdobnov, C.~Barillas-Mury, E.~Birney, S.~Blandin,
-  C.~Blass, P.~T. Brey, F.~H. Collins, A.~Danielli, G.~Dimopoulos, C.~Hetru,
-  N.~T. Hoa, J.~A. Hoffmann, S.~M. Kanzok, I.~Letunic, E.~A. Levashina, T.~G.
-  Loukeris, G.~Lycett, S.~Meister, K.~Michel, L.~F. Moita, H.-M. Muller, M.~A.
-  Osta, S.~M. Paskewitz, J.-M. Reichhart, A.~Rzhetsky, L.~Troxler, K.~D.
-  Vernick, D.~Vlachou, J.~Volz, C.~von Mering., J.~Xu, L.~Zheng, P.~Bork, and
-  F.~C. Kafatos.
-\newblock {Immunity--related genes and gene families in Anopheles gambiae}.
-\newblock \emph{Science}, 298\penalty0 (5591):\penalty0 159--165, Oct. 2002.
-
-\bibitem[Cirino et~al.(2003)Cirino, Mayer, and Umeno]{cirino2003generating}
-P.~C. Cirino, K.~M. Mayer, and D.~Umeno.
-\newblock {Generating mutant libraries using error-prone PCR}.
-\newblock \emph{Methods Mol Biol}, 231:\penalty0 3--9, 2003.
-
-\bibitem[Clemente et~al.(2004)Clemente, Moose, Hemrajani, Whitford,
-  Govindasamy, Reutzel, McKenna, Agbandje-McKenna, Goodenow, and
-  Dunn]{clemente2004comparing}
-J.~C. Clemente, R.~E. Moose, R.~Hemrajani, L.~R.~S. Whitford, L.~Govindasamy,
-  R.~Reutzel, R.~McKenna, M.~Agbandje-McKenna, M.~M. Goodenow, and B.~M. Dunn.
-\newblock {Comparing the accumulation of active- and nonactive-site mutations
-  in the HIV-1 protease}.
-\newblock \emph{Biochemistry}, 43\penalty0 (38):\penalty0 12141--51, Sep 2004.
-
-\bibitem[Collins et~al.(2003)Collins, Morgan, and Patrinos]{collins2003human}
-F.~S. Collins, M.~Morgan, and A.~Patrinos.
-\newblock {The Human Genome Project: lessons from large-scale biology}.
-\newblock \emph{Science}, 300\penalty0 (5617):\penalty0 286--90, Apr 2003.
-
-\bibitem[Crisp and Burges(1999)]{crisp1999geometric}
-D.~J. Crisp and C.~J.~C. Burges.
-\newblock A geometric interpretation of v-svm classifiers.
-\newblock In \emph{NIPS}, pages 244--250, 1999.
-
-\bibitem[Cristianini and Shawe-Taylor(2000)]{cristianini2000introduction}
-N.~Cristianini and J.~Shawe-Taylor.
-\newblock \emph{An introduction to support Vector Machines: and other
-  kernel-based learning methods}.
-\newblock Cambridge University Press, New York, NY, USA, 2000.
-\newblock ISBN 0-521-78019-5.
-
-\bibitem[Danilova et~al.(2003)Danilova, Lyubetsky, and Gelfand]{danilova2003an}
-L.~V. Danilova, V.~A. Lyubetsky, and M.~S. Gelfand.
-\newblock {An algorithm for identification of regulatory signals in unaligned
-  DNA sequences, its testing and parallel implementation}.
-\newblock \emph{In Silico Biol}, 3\penalty0 (1--2):\penalty0 33--47, 2003.
-
-\bibitem[Dayhoff et~al.(1978)Dayhoff, Schwartz, and Orcutt]{dayhoff1979amodel}
-M.~O. Dayhoff, R.~M. Schwartz, and B.~C. Orcutt.
-\newblock A model of evolutionary change in proteins.
-\newblock In M.~O. Dayhoff, editor, \emph{Atlas of Protein Structure}, volume
-  5(Suppl. 3), pages 345--352. National Biomedical Reasearch Foundataion,
-  Silver Spring, Md., 1978.
-
-\bibitem[Dietmann and Holm(2001)]{dietmass2001indentification}
-S.~Dietmann and L.~Holm.
-\newblock {Identification of homology in protein structure classification}.
-\newblock \emph{Nat Struct Biol}, 8\penalty0 (11):\penalty0 953--957, Nov 2001.
-
-\bibitem[Dietterich and Bakiri(1995)]{dietterich1995solving}
-T.~G. Dietterich and G.~Bakiri.
-\newblock Solving multiclass learning problems via error--correcting output
-  codes.
-\newblock \emph{Journal of Artificial Intelligence Research}, 2:\penalty0
-  263--286, 1995.
-
-\bibitem[Dongarra(2002{\natexlab{a}})]{dongarra2002basicI}
-J.~Dongarra.
-\newblock Preface: {Basic Linear Algebra Subprograms Technical (Blast) Forum
-  Standard I}.
-\newblock \emph{The International Journal of High Performance Computing
-  Applications}, 16\penalty0 (1):\penalty0 1--111, Spring 2002{\natexlab{a}}.
-\newblock ISSN 1094-3420.
-
-\bibitem[Dongarra(2002{\natexlab{b}})]{dongarra2002basicII}
-J.~Dongarra.
-\newblock Preface: {Basic Linear Algebra Subprograms Technical (Blast) Forum
-  Standard II}.
-\newblock \emph{The International Journal of High Performance Computing
-  Applications}, 16\penalty0 (2):\penalty0 115--199, Summer 2002{\natexlab{b}}.
-
-\bibitem[Down and Hubbard(2005)]{down2005nestedmica}
-T.~A. Down and T.~J.~P. Hubbard.
-\newblock {NestedMICA: sensitive inference of over-represented motifs in
-  nucleic acid sequence}.
-\newblock \emph{Nucleic Acids Res}, 33\penalty0 (5):\penalty0 1445--53, 2005.
-
-\bibitem[Dsouza et~al.(1997)Dsouza, Larsen, and Overbeek]{dsouza1997searching}
-M.~Dsouza, N.~Larsen, and R.~Overbeek.
-\newblock {Searching for patterns in genomic data}.
-\newblock \emph{Trends Genet}, 13:\penalty0 497--8, 1997.
-
-\bibitem[Eddy(1998)]{eddy1998profile}
-S.~R. Eddy.
-\newblock {Profile hidden Markov models}.
-\newblock \emph{Bioinformatics}, 14\penalty0 (9):\penalty0 755--763, 1998.
-
-\bibitem[Eidhammer et~al.(2000)Eidhammer, Jonassen, and
-  Taylor]{eidhammer2000structure}
-I.~Eidhammer, I.~Jonassen, and W.~R. Taylor.
-\newblock {Structure comparison and structure patterns}.
-\newblock \emph{J Comput Biol}, 7\penalty0 (5):\penalty0 685--716, 2000.
-
-\bibitem[Ellerby et~al.(1999)Ellerby, Arap, Ellerby, Kain, Andrusiak, Rio,
-  Krajewski, Lombardo, Rao, Ruoslahti, Bredesen, and
-  Pasqualini]{ellerby1999anticancer}
-H.~M. Ellerby, W.~Arap, L.~M. Ellerby, R.~Kain, R.~Andrusiak, G.~D. Rio,
-  S.~Krajewski, C.~R. Lombardo, R.~Rao, E.~Ruoslahti, D.~E. Bredesen, and
-  R.~Pasqualini.
-\newblock {Anti-cancer activity of targeted pro-apoptotic peptides}.
-\newblock \emph{Nat Med}, 5\penalty0 (9):\penalty0 1032--1038, Sep 1999.
-
-\bibitem[Epand and Vogel(1999)]{epand1999diversity}
-R.~M. Epand and H.~J. Vogel.
-\newblock {Diversity of antimicrobial peptides and their mechanisms of action}.
-\newblock \emph{Biochim Biophys Acta}, 1462:\penalty0 11--28, 1999.
-
-\bibitem[{Eric Sayers and David Wheeler}(2005)]{ncbi2005eutils}
-{Eric Sayers and David Wheeler}.
-\newblock {Building Customized Data Pipelines Using the Entrez Programming
-  Utilities}.
-\newblock \url{http://www.ncbi.nlm.nih.gov/books/}, Accessed in Dec 2005.
-
-\bibitem[Eskin(2004)]{eskin2004from}
-E.~Eskin.
-\newblock From profiles to patterns and back again: a branch and bound
-  algorithm for finding near optimal motif profiles.
-\newblock In \emph{RECOMB '04: Proceedings of the eighth annual international
-  conference on Resaerch in computational molecular biology}, pages 115--124,
-  New York, NY, USA, 2004. ACM Press.
-\newblock ISBN 1-58113-755-9.
-\newblock \doi{http://doi.acm.org/10.1145/974614.974630}.
-
-\bibitem[Eskin and Pevzner(2002)]{eskin2002finding}
-E.~Eskin and P.~A. Pevzner.
-\newblock {Finding composite regulatory patterns in DNA sequences}.
-\newblock \emph{Bioinformatics}, 18 Suppl 1:\penalty0 354--363, 2002.
-\newblock Evaluation Studies.
-
-\bibitem[Fasman(1976)]{fasman1976handbook}
-G.~Fasman, editor.
-\newblock \emph{Physical Chemical Data}, volume~1 of \emph{CRC Handbook of
-  Biochemistry and Molecular Biology}.
-\newblock {CRC Press}, Cleveland, Ohio, 1976.
-
-\bibitem[Fauch{\`e}re et~al.(1988)Fauch{\`e}re, Charton, Kier, Verloop, and
-  Pliska]{fauchere1988amino}
-J.~L. Fauch{\`e}re, M.~Charton, L.~B. Kier, A.~Verloop, and V.~Pliska.
-\newblock {Amino acid side chain parameters for correlation studies in biology
-  and pharmacology}.
-\newblock \emph{Int J Pept Protein Res}, 32\penalty0 (4):\penalty0 269--78, Oct
-  1988.
-
-\bibitem[Felsenstein(1989)]{felsenstein1989phylip}
-J.~Felsenstein.
-\newblock Phylogeny inference package (version 3.2).
-\newblock \emph{Cladistics}, 5:\penalty0 164--166, 1989.
-
-\bibitem[Floratos(1999)]{floratos1999pattern}
-A.~Floratos.
-\newblock \emph{Pattern Discovery in Biology: Theory and Applications}.
-\newblock PhD thesis, New York University, New York, Jan. 1999.
-
-\bibitem[Fogel et~al.(2004)Fogel, Weekes, Varga, Dow, Harlow, Onyia, and
-  Su]{fogel2004discovery}
-G.~B. Fogel, D.~G. Weekes, G.~Varga, E.~R. Dow, H.~B. Harlow, J.~E. Onyia, and
-  C.~Su.
-\newblock {Discovery of sequence motifs related to coexpression of genes using
-  evolutionary computation}.
-\newblock \emph{Nucleic Acids Res}, 32\penalty0 (13):\penalty0 3826--35, 2004.
-
-\bibitem[Friedl(1997)]{friedl1997mastering}
-J.~E. Friedl.
-\newblock \emph{Mastering Regular Expressions}.
-\newblock O'Reilly \&\ Associates, Inc., Sebastopol, California, 1997.
-
-\bibitem[Friedman et~al.(2000)Friedman, Linial, Nachman, and
-  Pe'er]{friedman2000using}
-N.~Friedman, M.~Linial, I.~Nachman, and D.~Pe'er.
-\newblock Using bayesian networks to analyze expression data.
-\newblock In \emph{4th Annual International Conference on Computational
-  Molecular Biology (RECOMB 2000)}, pages 127--135, Apr 2000.
-\newblock URL \url{citeseer.ist.psu.edu/friedman99using.html}.
-
-\bibitem[Frith et~al.(2004)Frith, Hansen, Spouge, and Weng]{frith2004finding}
-M.~C. Frith, U.~Hansen, J.~L. Spouge, and Z.~Weng.
-\newblock {Finding functional sequence elements by multiple local alignment}.
-\newblock \emph{Nucleic Acids Res}, 32\penalty0 (1):\penalty0 189--200, 2004.
-
-\bibitem[Galas et~al.(1985)Galas, Eggert, and Waterman]{galas1985rigorous}
-D.~J. Galas, M.~Eggert, and M.~S. Waterman.
-\newblock {Rigorous pattern-recognition methods for DNA sequences. Analysis of
-  promoter sequences from Escherichia coli}.
-\newblock \emph{J Mol Biol}, 186\penalty0 (1):\penalty0 117--28, Nov 1985.
-
-\bibitem[Ganesh et~al.(2003)Ganesh, Siegele, and Ioerger]{ganesh2003mopac}
-R.~Ganesh, D.~A. Siegele, and T.~R. Ioerger.
-\newblock Mopac: motif finding by preprocessing and agglomerative clustering
-  from microarrays.
-\newblock \emph{Pac Symp Biocomput}, pages 41--52, 2003.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=12603016}.
-
-\bibitem[Ganz(2003)]{ganz2003defensins}
-T.~Ganz.
-\newblock {Defensins: antimicrobial peptides of innate immunity}.
-\newblock \emph{Nat Rev Immunol}, 3:\penalty0 710--20, 2003.
-
-\bibitem[Garey and Johnson(1979)]{garey1979computers}
-M.~Garey and D.~Johnson.
-\newblock \emph{Computers and Intractability: A Guide to the Theory of
-  NP--Completeness}.
-\newblock W.H. Freeman and Company, New York, 1979.
-
-\bibitem[Ge et~al.(1999)Ge, MacDonald, Holroyd, Thornsberry, Wexler, and
-  Zasloff]{ge1999invitro}
-Y.~Ge, D.~L. MacDonald, K.~J. Holroyd, C.~Thornsberry, H.~Wexler, and
-  M.~Zasloff.
-\newblock {In vitro antibacterial properties of pexiganan, an analog of
-  magainin}.
-\newblock \emph{Antimicrob Agents Chemother}, 43\penalty0 (4):\penalty0
-  782--788, Apr. 1999.
-
-\bibitem[{Gelman} and {Rubin}(1992)]{gelman1992inference}
-A.~{Gelman} and D.~B. {Rubin}.
-\newblock Inference from iterative simulation using multiple sequences.
-\newblock \emph{Statistical Science}, 7:\penalty0 457--472, 1992.
-
-\bibitem[{Gerstein Laboratory, Yale University}(2005)]{gerstein2005omes}
-{Gerstein Laboratory, Yale University}.
-\newblock {Omes Table}.
-\newblock \url{http://bioinfo.mbb.yale.edu/what-is-it/omes/omes.html}, Dec
-  2005.
-
-\bibitem[Giangaspero et~al.(2001)Giangaspero, Sandri, and
-  Tossi]{giangaspero2001amphipathic}
-A.~Giangaspero, L.~Sandri, and A.~Tossi.
-\newblock {Amphipathic alpha helical antimicrobial peptides}.
-\newblock \emph{Eur J Biochem}, 268:\penalty0 5589--600, 2001.
-
-\bibitem[Giladi et~al.(1995)Giladi, Goldenberg, Koby, and
-  Oppenheim]{giladi1995enhanced}
-H.~Giladi, D.~Goldenberg, S.~Koby, and A.~B. Oppenheim.
-\newblock {Enhanced activity of the bacteriophage lambda PL promoter at low
-  temperature}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 92\penalty0 (6):\penalty0 2184--8,
-  Mar 1995.
-
-\bibitem[Giladi et~al.(1996)Giladi, Murakami, Ishihama, and
-  Oppenheim]{giladi1996identification}
-H.~Giladi, K.~Murakami, A.~Ishihama, and A.~B. Oppenheim.
-\newblock {Identification of an UP element within the IHF binding site at the
-  PL1-PL2 tandem promoter of bacteriophage lambda}.
-\newblock \emph{J Mol Biol}, 260\penalty0 (4):\penalty0 484--91, Jul 1996.
-
-\bibitem[Giladi et~al.(1998)Giladi, Koby, Prag, Engelhorn, Geiselmann, and
-  Oppenheim]{giladi1998participation}
-H.~Giladi, S.~Koby, G.~Prag, M.~Engelhorn, J.~Geiselmann, and A.~B. Oppenheim.
-\newblock {Participation of IHF and a distant UP element in the stimulation of
-  the phage lambda PL promoter}.
-\newblock \emph{Mol Microbiol}, 30\penalty0 (2):\penalty0 443--51, Oct 1998.
-
-\bibitem[Glieder et~al.(2002)Glieder, Farinas, and
-  Arnold]{glieder2002laboratory}
-A.~Glieder, E.~T. Farinas, and F.~H. Arnold.
-\newblock {Laboratory evolution of a soluble, self-sufficient, highly active
-  alkane hydroxylase}.
-\newblock \emph{Nat Biotechnol}, 20\penalty0 (11):\penalty0 1135--9, Nov 2002.
-
-\bibitem[Goffeau(1998)]{goffeau1998genomic-scale}
-A.~Goffeau.
-\newblock {Genomic-scale analysis goes upstream?}
-\newblock \emph{Nat Biotechnol}, 16\penalty0 (10):\penalty0 907--8, Oct 1998.
-
-\bibitem[Gribskov and Robinson(1996)]{gribskov1996useof}
-M.~Gribskov and N.~L. Robinson.
-\newblock Use of receiver operating characteristic ({ROC}) analysis to evaluate
-  sequence matching.
-\newblock \emph{Computers in Chemistry}, 20\penalty0 (1):\penalty0 25--33,
-  1996.
-
-\bibitem[GuhaThakurta and Stormo(2001)]{guhathakurta2001identifying}
-D.~GuhaThakurta and G.~D. Stormo.
-\newblock {Identifying target sites for cooperatively binding factors}.
-\newblock \emph{Bioinformatics}, 17\penalty0 (7):\penalty0 608--21, Jul 2001.
-
-\bibitem[Hancock and Patrzykat(2002)]{hancock2002clinical}
-R.~E. Hancock and A.~Patrzykat.
-\newblock {Clinical development of cationic antimicrobial peptides: from
-  natural to novel antibiotics}.
-\newblock \emph{Curr Drug Targets Infect Disord}, 2:\penalty0 79--83, 2002.
-
-\bibitem[Hand and Yu(2001)]{hand2001idiots}
-D.~J. Hand and K.~Yu.
-\newblock Idiot's bayes -- not so stupid after all?
-\newblock \emph{International Statistical Review}, 69\penalty0 (3):\penalty0
-  385--399, 2001.
-
-\bibitem[Hargreaves and Berry(1992)]{hargreaves1992regex}
-K.~A. Hargreaves and K.~Berry.
-\newblock Regex.
-\newblock {Free Sotfware Foundation, 675 Mass Ave, Cambridge, MA 02139}, Sept.
-  1992.
-
-\bibitem[Hartemink et~al.(2002)Hartemink, Gifford, Jaakkola, and
-  Young]{hartemink2002bayesian}
-A.~J. Hartemink, D.~K. Gifford, T.~Jaakkola, and R.~A. Young.
-\newblock Bayesian methods for elucidating genetic regulatory networks.
-\newblock \emph{IEEE Intelligent Systems}, 17\penalty0 (2):\penalty0 37--43,
-  2002.
-
-\bibitem[Heckerman(1995)]{heckerman95tutorial}
-D.~Heckerman.
-\newblock A tutorial on learning with bayesian networks, 1995.
-\newblock URL \url{citeseer.ist.psu.edu/heckerman96tutorial.html}.
-
-\bibitem[Henikoff(2005)]{henikoff2005personal}
-J.~G. Henikoff.
-\newblock {Fred Hutchinson Cancer Research Center}.
-\newblock {Personal communication}, October 2005.
-
-\bibitem[Henikoff and Henikoff(1991)]{henikoff1991automated}
-S.~Henikoff and J.~G. Henikoff.
-\newblock {Automated assembly of protein blocks for database searching}.
-\newblock \emph{Nucleic Acids Res}, 19:\penalty0 6565--72, 1991.
-
-\bibitem[Henikoff and Henikoff(1992)]{henikoff1992aminoacid}
-S.~Henikoff and J.~G. Henikoff.
-\newblock {Amino acid substitution matrices from protein blocks}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 89\penalty0 (22):\penalty0
-  10915--10919, Nov 1992.
-
-\bibitem[Henikoff and Henikoff(1993)]{henikoff1993performance}
-S.~Henikoff and J.~G. Henikoff.
-\newblock {Performance evaluation of amino acid substitution matrices}.
-\newblock \emph{Proteins}, 17:\penalty0 49--61, 1993.
-
-\bibitem[Henikoff and Henikoff(1994)]{henikoff1994protein}
-S.~Henikoff and J.~G. Henikoff.
-\newblock Protein family classification based on searching a database of
-  blocks.
-\newblock \emph{Genomics}, 19\penalty0 (1):\penalty0 97--107, Jan 1994.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=8188249}.
-
-\bibitem[Henikoff and Henikoff(2000)]{henikoff2000amino}
-S.~Henikoff and J.~G. Henikoff.
-\newblock \emph{Amino Acid Substitution Matrices}, volume~54 of \emph{Advances
-  in Protein Chemistry}, pages 73--98.
-\newblock Academic Press, San Diego, 2000.
-
-\bibitem[Henikoff et~al.(1995)Henikoff, Henikoff, Alford, and
-  Pietrokovski]{henikoff1995automated}
-S.~Henikoff, J.~G. Henikoff, W.~J. Alford, and S.~Pietrokovski.
-\newblock {Automated construction and graphical presentation of protein blocks
-  from unaligned sequences}.
-\newblock \emph{Gene}, 163\penalty0 (2):\penalty0 GC17--26, Oct 1995.
-
-\bibitem[Hernandez et~al.(2004)Hernandez, Gras, and Appel]{hernandez2004model}
-D.~Hernandez, R.~Gras, and R.~Appel.
-\newblock {MoDEL: an efficient strategy for ungapped local multiple alignment}.
-\newblock \emph{Comput Biol Chem}, 28\penalty0 (2):\penalty0 119--28, Apr 2004.
-
-\bibitem[Hertz and Stormo(1999)]{hertz1999identifying}
-G.~Z. Hertz and G.~D. Stormo.
-\newblock {Identifying DNA and protein patterns with statistically significant
-  alignments of multiple sequences}.
-\newblock \emph{Bioinformatics}, 15\penalty0 (7-8):\penalty0 563--577, Jul
-  1999.
-
-\bibitem[Higgins et~al.(1992)Higgins, Bleasby, and Fuchs]{higgins1992improved}
-D.~G. Higgins, A.~J. Bleasby, and R.~Fuchs.
-\newblock {CLUSTAL V: improved software for multiple sequence alignment}.
-\newblock \emph{Comput Appl Biosci}, 8:\penalty0 189--91, 1992.
-
-\bibitem[Hilpert et~al.(2005)Hilpert, Volkmer-Engert, Walter, and
-  Hancock]{hilpert2005high-throughput}
-K.~Hilpert, R.~Volkmer-Engert, T.~Walter, and R.~E.~W. Hancock.
-\newblock {High-throughput generation of small antibacterial peptides with
-  improved activity}.
-\newblock \emph{Nat Biotechnol}, 23\penalty0 (8):\penalty0 1008--12, Aug 2005.
-
-\bibitem[Hofmann et~al.(1999)Hofmann, Bucher, Falquet, and
-  Bairoch]{hofmann1999prosite}
-K.~Hofmann, P.~Bucher, L.~Falquet, and A.~Bairoch.
-\newblock {The PROSITE database, its status in 1999}.
-\newblock \emph{Nucleic Acids Res}, 27:\penalty0 215--9, 1999.
-
-\bibitem[Holm and Sander(1993)]{holm1993protein}
-L.~Holm and C.~Sander.
-\newblock {Protein structure comparison by alignment of distance matrices}.
-\newblock \emph{J Mol Biol}, 233\penalty0 (1):\penalty0 123--138, Oct 1993.
-
-\bibitem[Holm and Sander(1997)]{holm1997enzyme}
-L.~Holm and C.~Sander.
-\newblock {Enzyme HIT}.
-\newblock \emph{Trends Biochem Sci}, 22\penalty0 (4):\penalty0 116--117, May
-  1997.
-\newblock Letter.
-
-\bibitem[Holm et~al.(1992)Holm, Ouzounis, Sander, Tuparev, and
-  Vriend]{holm1992database}
-L.~Holm, C.~Ouzounis, C.~Sander, G.~Tuparev, and G.~Vriend.
-\newblock {A database of protein structure families with common folding
-  motifs}.
-\newblock \emph{Protein Sci}, 1\penalty0 (12):\penalty0 1691--1698, 1992.
-
-\bibitem[Horn(1987)]{horn1987closed}
-B.~K.~P. Horn.
-\newblock {Closed-form solution of absolute orientation using unit
-  quaternions}.
-\newblock \emph{Journal of the Optical Society of America A}, 4\penalty0
-  (4):\penalty0 629--642, Apr 1987.
-
-\bibitem[Horton(2001)]{horton2001tsukuba}
-P.~Horton.
-\newblock {Tsukuba BB: a branch and bound algorithm for local multiple
-  alignment of DNA and protein sequences}.
-\newblock \emph{J Comput Biol}, 8\penalty0 (3):\penalty0 283--303, 2001.
-
-\bibitem[Hughes et~al.(2000)Hughes, Estep, Tavazoie, and
-  Church]{hughes2000computational}
-J.~D. Hughes, P.~W. Estep, S.~Tavazoie, and G.~M. Church.
-\newblock {Computational identification of cis-regulatory elements associated
-  with groups of functionally related genes in Saccharomyces cerevisiae}.
-\newblock \emph{J Mol Biol}, 296:\penalty0 1205--14, 2000.
-
-\bibitem[Hunter and Subramaniam(2003)]{hunter2003protein}
-C.~G. Hunter and S.~Subramaniam.
-\newblock {Protein fragment clustering and canonical local shapes}.
-\newblock \emph{Proteins}, 50\penalty0 (4):\penalty0 580--588, Apr 2003.
-\newblock Evaluation Studies.
-
-\bibitem[Hwang et~al.(2005)Hwang, Rust, Ramsey, Smith, Leslie, Weston,
-  de~Atauri, Aitchison, Hood, Siegel, and Bolouri]{hwang2005data}
-D.~Hwang, A.~G. Rust, S.~Ramsey, J.~J. Smith, D.~M. Leslie, A.~D. Weston,
-  P.~de~Atauri, J.~D. Aitchison, L.~Hood, A.~F. Siegel, and H.~Bolouri.
-\newblock {A data integration methodology for systems biology}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 102\penalty0 (48):\penalty0
-  17296--301, Nov 2005.
-
-\bibitem[Ideker and Lauffenburger(2003)]{ideker2003building}
-T.~Ideker and D.~Lauffenburger.
-\newblock {Building with a scaffold: emerging strategies for high- to low-level
-  cellular modeling}.
-\newblock \emph{Trends Biotechnol}, 21\penalty0 (6):\penalty0 255--62, Jun
-  2003.
-
-\bibitem[Jacobs~Anderson and Parker(2000)]{jacobs2000computational}
-J.~S. Jacobs~Anderson and R.~Parker.
-\newblock {Computational identification of cis-acting elements affecting
-  post-transcriptional control of gene expression in Saccharomyces cerevisiae}.
-\newblock \emph{Nucleic Acids Res}, 28\penalty0 (7):\penalty0 1604--17, Apr
-  2000.
-
-\bibitem[Jensen et~al.(2006)Jensen, Styczynski, and
-  Stephanopoulos]{jensen2006all}
-K.~L. Jensen, M.~P. Styczynski, and G.~N. Stephanopoulos.
-\newblock All of your blast searches are wrong... sort of.
-\newblock \emph{Bioinformatics}, page submitted, 2006.
-
-\bibitem[John and Langley(2005)]{john1995estimating}
-G.~H. John and P.~Langley.
-\newblock Estimating continuous distributions in {Bayesian} classifiers.
-\newblock In \emph{Proceedings of the Eleventh Conference on Uncertainty in
-  Artificial Intelligence}, pages 338--345, 2005.
-\newblock URL \url{citeseer.ist.psu.edu/john95estimating.html}.
-
-\bibitem[Johnson et~al.(2004)Johnson, Morris, Chen, Stavnezer, and
-  Leis]{johnson2004selection}
-M.~Johnson, S.~Morris, A.~Chen, E.~Stavnezer, and J.~Leis.
-\newblock {Selection of functional mutations in the U5-IR stem and loop regions
-  of the Rous sarcoma virus genome}.
-\newblock \emph{BMC Biol}, 2\penalty0 (1):\penalty0 8, May 2004.
-
-\bibitem[Jonassen et~al.(1995)Jonassen, Collins, and
-  Higgins]{jonassen1995finding}
-I.~Jonassen, J.~F. Collins, and D.~G. Higgins.
-\newblock {Finding flexible patterns in unaligned protein sequences}.
-\newblock \emph{Protein Sci}, 4\penalty0 (8):\penalty0 1587--1595, Aug 1995.
-
-\bibitem[Jonassen et~al.(2002)Jonassen, Eidhammer, Conklin, and
-  Taylor]{jonassen2002structure}
-I.~Jonassen, I.~Eidhammer, D.~Conklin, and W.~R. Taylor.
-\newblock {Structure motif discovery and mining the PDB}.
-\newblock \emph{Bioinformatics}, 18\penalty0 (2):\penalty0 362--367, Feb 2002.
-
-\bibitem[Jurafsky and Martin(2000)]{jurafsky2000speech}
-D.~Jurafsky and J.~H. Martin.
-\newblock \emph{Speech and Language Processing: An Introduction to Natural
-  Language Processing, Computational Linguistics, and Speech Recognition}.
-\newblock Prentice Hall, Upper Saddle River, New Jersey, 2000.
-
-\bibitem[Kawashima et~al.(1999)Kawashima, Ogata, and
-  Kanehisa]{kawashima1999aaindex}
-S.~Kawashima, H.~Ogata, and M.~Kanehisa.
-\newblock {AAindex: Amino Acid Index Database}.
-\newblock \emph{Nucleic Acids Res}, 27\penalty0 (1):\penalty0 368--9, Jan 1999.
-
-\bibitem[Keich and Pevzner(2002{\natexlab{a}})]{keich2002finding}
-U.~Keich and P.~A. Pevzner.
-\newblock {Finding motifs in the twilight zone}.
-\newblock \emph{Bioinformatics}, 18\penalty0 (10):\penalty0 1374--1381, Oct
-  2002{\natexlab{a}}.
-\newblock Evaluation Studies.
-
-\bibitem[Keich and Pevzner(2002{\natexlab{b}})]{keich2002subtle}
-U.~Keich and P.~A. Pevzner.
-\newblock {Subtle motifs: defining the limits of motif finding algorithms}.
-\newblock \emph{Bioinformatics}, 18\penalty0 (10):\penalty0 1382--1390, Oct
-  2002{\natexlab{b}}.
-\newblock Evaluation Studies.
-
-\bibitem[Kie{\l}basa et~al.(2001)Kie{\l}basa, Korbel, Beule, Schuchhardt, and
-  Herzel]{kielbasa2001combining}
-S.~M. Kie{\l}basa, J.~O. Korbel, D.~Beule, J.~Schuchhardt, and H.~Herzel.
-\newblock {Combining frequency and positional information to predict
-  transcription factor binding sites}.
-\newblock \emph{Bioinformatics}, 17\penalty0 (11):\penalty0 1019--26, Nov 2001.
-
-\bibitem[Kim and Choi(1996)]{kim1996semicontinuous}
-D.~M. Kim and C.~Y. Choi.
-\newblock {A semicontinuous prokaryotic coupled transcription/translation
-  system using a dialysis membrane}.
-\newblock \emph{Biotechnol Prog}, 12:\penalty0 645--9, 1996.
-
-\bibitem[Kim et~al.(2003)Kim, Kim, Kim, Seong-Jin, and Lee]{kim2003invitro}
-S.~Kim, S.~S. Kim, Y.-J.~B. Kim, Seong-Jin, and B.~J. Lee.
-\newblock In vitro activities of native and designed peptide antibiotics
-  against drug sensitive and resistant tumor cell lines.
-\newblock \emph{Peptides}, 24\penalty0 (7):\penalty0 945--953, 2003.
-
-\bibitem[Kimbrell and Beutler(2001)]{kimbrell2001evolution}
-D.~A. Kimbrell and B.~Beutler.
-\newblock {The evolution and genetics of innate immunity}.
-\newblock \emph{Nat Rev Genet}, 2:\penalty0 256--67, 2001.
-
-\bibitem[Kirkpatrick et~al.(1983)Kirkpatrick, Gelatt, and
-  Vecchi]{kirkpatrick1983optimization}
-S.~Kirkpatrick, C.~D. Gelatt, and M.~P. Vecchi.
-\newblock Optimization by simulated annealing.
-\newblock \emph{Science, Number 4598, 13 May 1983}, 220, 4598:\penalty0
-  671--680, 1983.
-\newblock URL \url{citeseer.nj.nec.com/kirkpatrick83optimization.html}.
-
-\bibitem[Koehl and Levitt(1999)]{koehl1999structure-based}
-P.~Koehl and M.~Levitt.
-\newblock {Structure-based conformational preferences of amino acids}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 96\penalty0 (22):\penalty0 12524--9,
-  Oct 1999.
-
-\bibitem[Kolodny et~al.(2005)Kolodny, Koehl, and
-  Levitt]{kolodny2005comprehensive}
-R.~Kolodny, P.~Koehl, and M.~Levitt.
-\newblock {Comprehensive evaluation of protein structure alignment methods:
-  scoring by geometric measures}.
-\newblock \emph{J Mol Biol}, 346\penalty0 (4):\penalty0 1173--88, Mar 2005.
-
-\bibitem[Lander et~al.(2001)Lander, Linton, Birren, Nusbaum, Zody, Baldwin,
-  Devon, Dewar, Doyle, FitzHugh, Funke, Gage, Harris, Heaford, Howland, Kann,
-  Lehoczky, LeVine, McEwan, McKernan, Meldrim, Mesirov, Miranda, Morris,
-  Naylor, Raymond, Rosetti, Santos, Sheridan, Sougnez, Stange-Thomann,
-  Stojanovic, Subramanian, Wyman, Rogers, Sulston, Ainscough, Beck, Bentley,
-  Burton, Clee, Carter, Coulson, Deadman, Deloukas, Dunham, Dunham, Durbin,
-  French, Grafham, Gregory, Hubbard, Humphray, Hunt, Jones, Lloyd, McMurray,
-  Matthews, Mercer, Milne, Mullikin, Mungall, Plumb, Ross, Shownkeen, Sims,
-  Waterston, Wilson, Hillier, McPherson, Marra, Mardis, Fulton, Chinwalla,
-  Pepin, Gish, Chissoe, Wendl, Delehaunty, Miner, Delehaunty, Kramer, Cook,
-  Fulton, Johnson, Minx, Clifton, Hawkins, Branscomb, Predki, Richardson,
-  Wenning, Slezak, Doggett, Cheng, Olsen, Lucas, Elkin, Uberbacher, Frazier,
-  Gibbs, Muzny, Scherer, Bouck, Sodergren, Worley, Rives, Gorrell, Metzker,
-  Naylor, Kucherlapati, Nelson, Weinstock, Sakaki, Fujiyama, Hattori, Yada,
-  Toyoda, Itoh, Kawagoe, Watanabe, Totoki, Taylor, Weissenbach, Heilig, Saurin,
-  Artiguenave, Brottier, Bruls, Pelletier, Robert, Wincker, Smith,
-  Doucette-Stamm, Rubenfield, Weinstock, Lee, Dubois, Rosenthal, Platzer,
-  Nyakatura, Taudien, Rump, Yang, Yu, Wang, Huang, Gu, Hood, Rowen, Madan, Qin,
-  Davis, Federspiel, Abola, Proctor, Myers, Schmutz, Dickson, Grimwood, Cox,
-  Olson, Kaul, Raymond, Shimizu, Kawasaki, Minoshima, Evans, Athanasiou,
-  Schultz, Roe, Chen, Pan, Ramser, Lehrach, Reinhardt, McCombie, de~la Bastide,
-  Dedhia, Blocker, Hornischer, Nordsiek, Agarwala, Aravind, Bailey, Bateman,
-  Batzoglou, Birney, Bork, Brown, Burge, Cerutti, Chen, Church, Clamp, Copley,
-  Doerks, Eddy, Eichler, Furey, Galagan, Gilbert, Harmon, Hayashizaki,
-  Haussler, Hermjakob, Hokamp, Jang, Johnson, Jones, Kasif, Kaspryzk, Kennedy,
-  Kent, Kitts, Koonin, Korf, Kulp, Lancet, Lowe, McLysaght, Mikkelsen, Moran,
-  Mulder, Pollara, Ponting, Schuler, Schultz, Slater, Smit, Stupka,
-  Szustakowski, Thierry-Mieg, Thierry-Mieg, Wagner, Wallis, Wheeler, Williams,
-  Wolf, Wolfe, Yang, Yeh, Collins, Guyer, Peterson, Felsenfeld, Wetterstrand,
-  Patrinos, Morgan, de~Jong, Catanese, Osoegawa, Shizuya, Choi, and
-  Chen]{lander2001initial}
-E.~S. Lander, L.~M. Linton, B.~Birren, C.~Nusbaum, M.~C. Zody, J.~Baldwin,
-  K.~Devon, K.~Dewar, M.~Doyle, W.~FitzHugh, R.~Funke, D.~Gage, K.~Harris,
-  A.~Heaford, J.~Howland, L.~Kann, J.~Lehoczky, R.~LeVine, P.~McEwan,
-  K.~McKernan, J.~Meldrim, J.~P. Mesirov, C.~Miranda, W.~Morris, J.~Naylor,
-  C.~Raymond, M.~Rosetti, R.~Santos, A.~Sheridan, C.~Sougnez,
-  N.~Stange-Thomann, N.~Stojanovic, A.~Subramanian, D.~Wyman, J.~Rogers,
-  J.~Sulston, R.~Ainscough, S.~Beck, D.~Bentley, J.~Burton, C.~Clee, N.~Carter,
-  A.~Coulson, R.~Deadman, P.~Deloukas, A.~Dunham, I.~Dunham, R.~Durbin,
-  L.~French, D.~Grafham, S.~Gregory, T.~Hubbard, S.~Humphray, A.~Hunt,
-  M.~Jones, C.~Lloyd, A.~McMurray, L.~Matthews, S.~Mercer, S.~Milne, J.~C.
-  Mullikin, A.~Mungall, R.~Plumb, M.~Ross, R.~Shownkeen, S.~Sims, R.~H.
-  Waterston, R.~K. Wilson, L.~W. Hillier, J.~D. McPherson, M.~A. Marra, E.~R.
-  Mardis, L.~A. Fulton, A.~T. Chinwalla, K.~H. Pepin, W.~R. Gish, S.~L.
-  Chissoe, M.~C. Wendl, K.~D. Delehaunty, T.~L. Miner, A.~Delehaunty, J.~B.
-  Kramer, L.~L. Cook, R.~S. Fulton, D.~L. Johnson, P.~J. Minx, S.~W. Clifton,
-  T.~Hawkins, E.~Branscomb, P.~Predki, P.~Richardson, S.~Wenning, T.~Slezak,
-  N.~Doggett, J.~F. Cheng, A.~Olsen, S.~Lucas, C.~Elkin, E.~Uberbacher,
-  M.~Frazier, R.~A. Gibbs, D.~M. Muzny, S.~E. Scherer, J.~B. Bouck, E.~J.
-  Sodergren, K.~C. Worley, C.~M. Rives, J.~H. Gorrell, M.~L. Metzker, S.~L.
-  Naylor, R.~S. Kucherlapati, D.~L. Nelson, G.~M. Weinstock, Y.~Sakaki,
-  A.~Fujiyama, M.~Hattori, T.~Yada, A.~Toyoda, T.~Itoh, C.~Kawagoe,
-  H.~Watanabe, Y.~Totoki, T.~Taylor, J.~Weissenbach, R.~Heilig, W.~Saurin,
-  F.~Artiguenave, P.~Brottier, T.~Bruls, E.~Pelletier, C.~Robert, P.~Wincker,
-  D.~R. Smith, L.~Doucette-Stamm, M.~Rubenfield, K.~Weinstock, H.~M. Lee,
-  J.~Dubois, A.~Rosenthal, M.~Platzer, G.~Nyakatura, S.~Taudien, A.~Rump,
-  H.~Yang, J.~Yu, J.~Wang, G.~Huang, J.~Gu, L.~Hood, L.~Rowen, A.~Madan,
-  S.~Qin, R.~W. Davis, N.~A. Federspiel, A.~P. Abola, M.~J. Proctor, R.~M.
-  Myers, J.~Schmutz, M.~Dickson, J.~Grimwood, D.~R. Cox, M.~V. Olson, R.~Kaul,
-  C.~Raymond, N.~Shimizu, K.~Kawasaki, S.~Minoshima, G.~A. Evans,
-  M.~Athanasiou, R.~Schultz, B.~A. Roe, F.~Chen, H.~Pan, J.~Ramser, H.~Lehrach,
-  R.~Reinhardt, W.~R. McCombie, M.~de~la Bastide, N.~Dedhia, H.~Blocker,
-  K.~Hornischer, G.~Nordsiek, R.~Agarwala, L.~Aravind, J.~A. Bailey,
-  A.~Bateman, S.~Batzoglou, E.~Birney, P.~Bork, D.~G. Brown, C.~B. Burge,
-  L.~Cerutti, H.~C. Chen, D.~Church, M.~Clamp, R.~R. Copley, T.~Doerks, S.~R.
-  Eddy, E.~E. Eichler, T.~S. Furey, J.~Galagan, J.~G. Gilbert, C.~Harmon,
-  Y.~Hayashizaki, D.~Haussler, H.~Hermjakob, K.~Hokamp, W.~Jang, L.~S. Johnson,
-  T.~A. Jones, S.~Kasif, A.~Kaspryzk, S.~Kennedy, W.~J. Kent, P.~Kitts, E.~V.
-  Koonin, I.~Korf, D.~Kulp, D.~Lancet, T.~M. Lowe, A.~McLysaght, T.~Mikkelsen,
-  J.~V. Moran, N.~Mulder, V.~J. Pollara, C.~P. Ponting, G.~Schuler, J.~Schultz,
-  G.~Slater, A.~F. Smit, E.~Stupka, J.~Szustakowski, D.~Thierry-Mieg,
-  J.~Thierry-Mieg, L.~Wagner, J.~Wallis, R.~Wheeler, A.~Williams, Y.~I. Wolf,
-  K.~H. Wolfe, S.~P. Yang, R.~F. Yeh, F.~Collins, M.~S. Guyer, J.~Peterson,
-  A.~Felsenfeld, K.~A. Wetterstrand, A.~Patrinos, M.~J. Morgan, P.~de~Jong,
-  J.~J. Catanese, K.~Osoegawa, H.~Shizuya, S.~Choi, and Y.~J. Chen.
-\newblock {Initial sequencing and analysis of the human genome}.
-\newblock \emph{Nature}, 409\penalty0 (6822):\penalty0 860--921, Feb 2001.
-
-\bibitem[Landwehr et~al.(2003)Landwehr, Hall, and Frank]{landwehr2003logistic}
-N.~Landwehr, M.~Hall, and E.~Frank.
-\newblock \emph{Logistic model trees}, volume 2837 of \emph{Lecture Notes in
-  Artificial Intelligence}, pages 241--252.
-\newblock {Springer--Verlag}, 2003.
-
-\bibitem[Lawrence et~al.(1993)Lawrence, Altschul, Boguski, Liu, Neuwald, and
-  Wootton]{lawrence1993detecting}
-C.~E. Lawrence, S.~F. Altschul, M.~S. Boguski, J.~S. Liu, A.~F. Neuwald, and
-  J.~C. Wootton.
-\newblock {Detecting subtle sequence signals: a Gibbs sampling strategy for
-  multiple alignment}.
-\newblock \emph{Science}, 262\penalty0 (5131):\penalty0 208--214, Oct 1993.
-
-\bibitem[Leung and Chin(2005)]{leung2005finding}
-H.~C.~M. Leung and F.~Y.~L. Chin.
-\newblock {Finding exact optimal motifs in matrix representation by
-  partitioning}.
-\newblock \emph{Bioinformatics}, 21 Suppl 2:\penalty0 ii86--ii92, Sep 2005.
-
-\bibitem[Leung et~al.(1996)Leung, Marsh, and Speed]{leung1996over}
-M.~Y. Leung, G.~M. Marsh, and T.~P. Speed.
-\newblock {Over- and underrepresentation of short DNA words in herpesvirus
-  genomes}.
-\newblock \emph{J Comput Biol}, 3\penalty0 (3):\penalty0 345--60, 1996.
-
-\bibitem[Li et~al.(2001)Li, Jaroszewski, and Godzik]{li2001clustering}
-W.~Li, L.~Jaroszewski, and A.~Godzik.
-\newblock {Clustering of highly homologous sequences to reduce the size of
-  large protein databases}.
-\newblock \emph{Bioinformatics}, 17\penalty0 (3):\penalty0 282--3, Mar 2001.
-
-\bibitem[Liang et~al.(2004)Liang, Samanta, and Biegel]{liang2004cwinnower}
-S.~Liang, M.~P. Samanta, and B.~A. Biegel.
-\newblock {cWINNOWER algorithm for finding fuzzy dna motifs}.
-\newblock \emph{J Bioinform Comput Biol}, 2\penalty0 (1):\penalty0 47--60, Mar
-  2004.
-
-\bibitem[Lima et~al.(1997)Lima, D'Amico, Naday, Rosenbaum, Westbrook, and
-  Hendrickson]{lima1997mad}
-C.~D. Lima, K.~L. D'Amico, I.~Naday, G.~Rosenbaum, E.~M. Westbrook, and W.~A.
-  Hendrickson.
-\newblock {MAD analysis of FHIT, a putative human tumor suppressor from the HIT
-  protein family}.
-\newblock \emph{Structure}, 5\penalty0 (6):\penalty0 763--774, Jul 1997.
-
-\bibitem[Liu and {DeGrado}(2001)]{liu2001denovo}
-D.~Liu and W.~F. {DeGrado}.
-\newblock \emph{De novo} design, synthesis, and characterization of
-  antimicrobial beta--peptides.
-\newblock \emph{Journal of the American Chemical Society}, 123\penalty0
-  (31):\penalty0 7553--7559, 2001.
-
-\bibitem[Liu(1994)]{liu1994collapsed}
-J.~Liu.
-\newblock The collapsed gibbs sampler in bayesian computations with
-  applications to a gene regulation problem.
-\newblock \emph{Journal of the American Statistical Association},
-  89(427):\penalty0 958--966, 1994.
-
-\bibitem[Liu(2001)]{liu2001monte}
-J.~S. Liu.
-\newblock \emph{{M}onte {C}arlo Strategies in Scientific Computing}.
-\newblock Springer-Verlag, New York, 2001.
-
-\bibitem[Liu et~al.(2005)Liu, Vincenti, and Yokota]{liu2005principal}
-Y.~Liu, M.~P. Vincenti, and H.~Yokota.
-\newblock {Principal component analysis for predicting transcription-factor
-  binding motifs from array-derived data}.
-\newblock \emph{BMC Bioinformatics}, 6:\penalty0 276, 2005.
-
-\bibitem[Lossos et~al.(2000)Lossos, Tibshirani, Narasimhan, and
-  Levy]{lossos2000inference}
-I.~S. Lossos, R.~Tibshirani, B.~Narasimhan, and R.~Levy.
-\newblock {The inference of antigen selection on Ig genes}.
-\newblock \emph{J Immunol}, 165\penalty0 (9):\penalty0 5122--6, Nov 2000.
-
-\bibitem[Lutz and Bujard(1997)]{lutz1997independent}
-R.~Lutz and H.~Bujard.
-\newblock {Independent and tight regulation of transcriptional units in
-  Escherichia coli via the LacR/O, the TetR/O and AraC/I1-I2 regulatory
-  elements}.
-\newblock \emph{Nucleic Acids Res}, 25\penalty0 (6):\penalty0 1203--10, Mar
-  1997.
-
-\bibitem[Macisaac et~al.(2006)Macisaac, Gordon, Nekludova, Odom, Schreiber,
-  Gifford, Young, and Fraenkel]{macisaac2006hypothesis-based}
-K.~D. Macisaac, D.~B. Gordon, L.~Nekludova, D.~T. Odom, J.~Schreiber, D.~K.
-  Gifford, R.~A. Young, and E.~Fraenkel.
-\newblock {A hypothesis-based approach for identifying the binding specificity
-  of regulatory proteins from chromatin immunoprecipitation data}.
-\newblock \emph{Bioinformatics}, 22\penalty0 (4):\penalty0 423--9, Feb 2006.
-
-\bibitem[Madej et~al.(1995)Madej, Gibrat, and Bryant]{madej1995threading}
-T.~Madej, J.~F. Gibrat, and S.~H. Bryant.
-\newblock {Threading a database of protein cores}.
-\newblock \emph{Proteins}, 23\penalty0 (3):\penalty0 356--369, Nov 1995.
-
-\bibitem[Maier(1978)]{maier1978complexity}
-D.~Maier.
-\newblock The complexity of some problems on subsequences and supersequences.
-\newblock \emph{J. ACM}, 25\penalty0 (2):\penalty0 322--336, 1978.
-
-\bibitem[Maizel and Lenk(1981)]{maizel1981enhanced}
-J.~V. Maizel and R.~P. Lenk.
-\newblock {Enhanced graphic matrix analysis of nucleic acid and protein
-  sequences}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 78\penalty0 (12):\penalty0 7665--9,
-  Dec 1981.
-
-\bibitem[Mancheron and Rusu(2003)]{mancheron2003pattern}
-A.~Mancheron and I.~Rusu.
-\newblock {Pattern discovery allowing wild-cards, substitution matrices, and
-  multiple score functions}.
-\newblock In \emph{{Algorithms in Bioinformatics, Proceedings Lecture notes in
-  Bioinformatics}}, pages 124--138. Springer--Verlag, 2003.
-
-\bibitem[Mangalam(2002)]{mangalam2002tacg}
-H.~J. Mangalam.
-\newblock {tacg--a grep for DNA}.
-\newblock \emph{BMC Bioinformatics}, 3:\penalty0 8, 2002.
-
-\bibitem[Marchler-Bauer et~al.(2003)Marchler-Bauer, Anderson, DeWeese-Scott,
-  Fedorova, Geer, He, Hurwitz, Jackson, Jacobs, Lanczycki, Liebert, Liu, Madej,
-  Marchler, Mazumder, Nikolskaya, Panchenko, Rao, Shoemaker, Simonyan, Song,
-  Thiessen, Vasudevan, Wang, Yamashita, Yin, and Bryant]{marchler2003cdd}
-A.~Marchler-Bauer, J.~B. Anderson, C.~DeWeese-Scott, N.~D. Fedorova, L.~Y.
-  Geer, S.~He, D.~I. Hurwitz, J.~D. Jackson, A.~R. Jacobs, C.~J. Lanczycki,
-  C.~A. Liebert, C.~Liu, T.~Madej, G.~H. Marchler, R.~Mazumder, A.~N.
-  Nikolskaya, A.~R. Panchenko, B.~S. Rao, B.~A. Shoemaker, V.~Simonyan, J.~S.
-  Song, P.~A. Thiessen, S.~Vasudevan, Y.~Wang, R.~A. Yamashita, J.~J. Yin, and
-  S.~H. Bryant.
-\newblock {CDD: a curated Entrez database of conserved domain alignments}.
-\newblock \emph{Nucleic Acids Res}, 31\penalty0 (1):\penalty0 383--387, Feb
-  2003.
-
-\bibitem[Markstein et~al.(2004)Markstein, Zinzen, Markstein, Yee, Erives,
-  Stathopoulos, and Levine]{markstein2004regulatory}
-M.~Markstein, R.~Zinzen, P.~Markstein, K.-P. Yee, A.~Erives, A.~Stathopoulos,
-  and M.~Levine.
-\newblock {A regulatory code for neurogenic gene expression in the Drosophila
-  embryo}.
-\newblock \emph{Development}, 131\penalty0 (10):\penalty0 2387--94, May 2004.
-
-\bibitem[Marsan and Sagot(2000)]{marsan2000algorithms}
-L.~Marsan and M.~F. Sagot.
-\newblock {Algorithms for extracting structured motifs using a suffix tree with
-  an application to promoter and regulatory site consensus identification}.
-\newblock \emph{J Comput Biol}, 7\penalty0 (3--4):\penalty0 345--62, 2000.
-
-\bibitem[Martemyanov et~al.(2001)Martemyanov, Shirokov, Kurnasov, Gudkov, and
-  Spirin]{martemyanov2001cell}
-K.~A. Martemyanov, V.~A. Shirokov, O.~V. Kurnasov, A.~T. Gudkov, and A.~S.
-  Spirin.
-\newblock {Cell-free production of biologically active polypeptides:
-  application to the synthesis of antibacterial peptide cecropin}.
-\newblock \emph{Protein Expr Purif}, 21\penalty0 (3):\penalty0 456--461, Apr
-  2001.
-
-\bibitem[Mengeritsky and Smith(1987)]{mengeritsky1987recognition}
-G.~Mengeritsky and T.~F. Smith.
-\newblock {Recognition of characteristic patterns in sets of functionally
-  equivalent DNA sequences}.
-\newblock \emph{Comput Appl Biosci}, 3\penalty0 (3):\penalty0 223--7, Sep 1987.
-
-\bibitem[Metropolis et~al.(1953)Metropolis, Rosenbluth, Rosenbluth, and
-  Teller]{metropolis1953equation}
-N.~Metropolis, A.~W. Rosenbluth, M.~N. Rosenbluth, and A.~H. Teller.
-\newblock Equation of state calculations by fast computing machines.
-\newblock \emph{Journal of Chemical Physics}, 21\penalty0 (6):\penalty0
-  1087--1092, Jun 1953.
-
-\bibitem[Mitaku et~al.(2002)Mitaku, Hirokawa, and
-  Tsuji]{mitaku2002amphiphilicity}
-S.~Mitaku, T.~Hirokawa, and T.~Tsuji.
-\newblock {Amphiphilicity index of polar amino acids as an aid in the
-  characterization of amino acid preference at membrane-water interfaces}.
-\newblock \emph{Bioinformatics}, 18\penalty0 (4):\penalty0 608--16, Apr 2002.
-
-\bibitem[Moerman et~al.(2002)Moerman, Bosteels, Noppe, Willems, Clynen,
-  Schoofs, Thevissen, Tytgat, Van~Eldere., Van Der.~Walt., and
-  Verdonck]{moerman2002antibacterial}
-L.~Moerman, S.~Bosteels, W.~Noppe, J.~Willems, E.~Clynen, L.~Schoofs,
-  K.~Thevissen, J.~Tytgat, J.~Van~Eldere., J.~Van Der.~Walt., and F.~Verdonck.
-\newblock {Antibacterial and antifungal properties of alpha-helical, cationic
-  peptides in the venom of scorpions from southern Africa}.
-\newblock \emph{Eur J Biochem}, 269\penalty0 (19):\penalty0 4799--4810, Oct
-  2002.
-
-\bibitem[Mueller(1993)]{mueller1993library}
-F.~Mueller.
-\newblock A library implementation of {POSIX} threads under unix.
-\newblock In \emph{Proceedings of {the Winter} 1993 {USENIX} Technical
-  Conference and Exhibition}, pages 29--41, San Diego, CA, USA, 1993.
-
-\bibitem[Murthy and Rose(2003)]{murthy2003rnabase}
-V.~L. Murthy and G.~D. Rose.
-\newblock {RNABase: an annotated database of RNA structures}.
-\newblock \emph{Nucleic Acids Res}, 31\penalty0 (1):\penalty0 502--504, Jan
-  2003.
-
-\bibitem[Murzin et~al.(1995)Murzin, Brenner, Hubbard, and
-  Chothia]{murzin1995scop}
-A.~G. Murzin, S.~E. Brenner, T.~Hubbard, and C.~Chothia.
-\newblock {SCOP: a structural classification of proteins database for the
-  investigation of sequences and structures}.
-\newblock \emph{J Mol Biol}, 247\penalty0 (4):\penalty0 536--40, Apr 1995.
-
-\bibitem[Nakai et~al.(1988)Nakai, Kidera, and Kanehisa]{nakai1988cluster}
-K.~Nakai, A.~Kidera, and M.~Kanehisa.
-\newblock {Cluster analysis of amino acid indices for prediction of protein
-  structure and function}.
-\newblock \emph{Protein Eng}, 2\penalty0 (2):\penalty0 93--100, Jul 1988.
-
-\bibitem[Narayanan et~al.(2002)Narayanan, Wu, and Yang]{narayanan2002mining}
-A.~Narayanan, X.~Wu, and Z.~R. Yang.
-\newblock {Mining viral protease data to extract cleavage knowledge}.
-\newblock \emph{Bioinformatics}, 18 Suppl 1:\penalty0 S5--13, 2002.
-
-\bibitem[Navarro(2001)]{navarro2001nrgrep}
-G.~Navarro.
-\newblock {NR--grep}: a fast and flexible pattern-matching tool.
-\newblock \emph{Software Practice and Experience}, 31\penalty0 (13):\penalty0
-  1265--1312, ???? 2001.
-
-\bibitem[Neuwald and Green(1994)]{neuwald1994detecting}
-A.~Neuwald and P.~Green.
-\newblock Detecting patterns in protein sequences.
-\newblock \emph{Journal of Molecular Biology}, 239:\penalty0 698--712, 1994.
-
-\bibitem[Ney and Ortmanns(2000)]{ney2000progress}
-H.~Ney and S.~Ortmanns.
-\newblock Progress in dynamic programming search for {LVCSR}.
-\newblock \emph{Proceedings of the IEEE}, 88\penalty0 (8):\penalty0 1244--1240,
-  2000.
-
-\bibitem[Ng and Henikoff(2001)]{ng2001predicting}
-P.~C. Ng and S.~Henikoff.
-\newblock Predicting deleterious amino acid substitutions.
-\newblock \emph{Genome Res}, 11\penalty0 (5):\penalty0 863--874, May 2001.
-\newblock \doi{10.1101/gr.176601}.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=11337480}.
-
-\bibitem[Normark and Normark(2002)]{normark2002evolution}
-B.~H. Normark and S.~Normark.
-\newblock {Evolution and spread of antibiotic resistance}.
-\newblock \emph{J Intern Med}, 252:\penalty0 91--106, 2002.
-
-\bibitem[Notredame et~al.(2000)Notredame, Higgins, and
-  Heringa]{notredame2000tcoffee}
-C.~Notredame, D.~G. Higgins, and J.~Heringa.
-\newblock T-coffee: A novel method for fast and accurate multiple sequence
-  alignment.
-\newblock \emph{J Mol Biol}, 302\penalty0 (1):\penalty0 205--217, Sep 2000.
-\newblock \doi{10.1006/jmbi.2000.4042}.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=10964570}.
-
-\bibitem[of~Medicine(1998)]{harrison1998antimicrobial}
-I.~of~Medicine.
-\newblock \emph{Antimicrobial Resistance: Issues and Options}.
-\newblock National Academy Press, 1998.
-
-\bibitem[Orengo and Taylor(1996)]{orengo1996ssap}
-C.~A. Orengo and W.~R. Taylor.
-\newblock {SSAP: sequential structure alignment program for protein structure
-  comparison}.
-\newblock \emph{Methods Enzymol}, 266:\penalty0 617--635, 1996.
-
-\bibitem[Orr(2003)]{orr2003minimum}
-H.~A. Orr.
-\newblock {A minimum on the mean number of steps taken in adaptive walks}.
-\newblock \emph{J Theor Biol}, 220\penalty0 (2):\penalty0 241--7, Jan 2003.
-
-\bibitem[Ortiz et~al.(2002)Ortiz, Strauss, and Olmea]{ortiz2002mammoth}
-A.~R. Ortiz, C.~E.~M. Strauss, and O.~Olmea.
-\newblock {MAMMOTH (matching molecular models obtained from theory): an
-  automated method for model comparison}.
-\newblock \emph{Protein Sci}, 11\penalty0 (11):\penalty0 2606--2621, Nov 2002.
-\newblock Evaluation Studies.
-
-\bibitem[Palau et~al.(1982)Palau, Argos, and Puigdomenech]{palau1982protein}
-J.~Palau, P.~Argos, and P.~Puigdomenech.
-\newblock {Protein secondary structure. Studies on the limits of prediction
-  accuracy}.
-\newblock \emph{Int J Pept Protein Res}, 19\penalty0 (4):\penalty0 394--401,
-  Apr 1982.
-
-\bibitem[Parida et~al.(1998)Parida, Rigoutsos, and Floratos]{parida1998musca}
-L.~Parida, I.~Rigoutsos, and A.~Floratos.
-\newblock {MUSCA:} an algorithm for constrained alignment of multiple data
-  sequences.
-\newblock In \emph{Proceedings of the Twelfth International Conference on
-  Genome Informatics (GIW)}, Tokyo, 1998.
-
-\bibitem[Parrish-Novak et~al.(2000)Parrish-Novak, Dillon, Nelson, Hammond,
-  Sprecher, Gross, Johnston, Madden, Xu, West, Schrader, Burkhead, Heipel,
-  Brandt, Kuijper, Kramer, Conklin, Presnell, Berry, Shiota, Bort, Hambly,
-  Mudri, Clegg, Moore, Grant, Lofton-Day, Gilbert, Rayond, Ching, Yao, Smith,
-  Webster, Whitmore, Maurer, Kaushansky, Holly, and
-  Foster]{parrish-novak2000interleukin}
-J.~Parrish-Novak, S.~R. Dillon, A.~Nelson, A.~Hammond, C.~Sprecher, J.~A.
-  Gross, J.~Johnston, K.~Madden, W.~Xu, J.~West, S.~Schrader, S.~Burkhead,
-  M.~Heipel, C.~Brandt, J.~L. Kuijper, J.~Kramer, D.~Conklin, S.~R. Presnell,
-  J.~Berry, F.~Shiota, S.~Bort, K.~Hambly, S.~Mudri, C.~Clegg, M.~Moore, F.~J.
-  Grant, C.~Lofton-Day, T.~Gilbert, F.~Rayond, A.~Ching, L.~Yao, D.~Smith,
-  P.~Webster, T.~Whitmore, M.~Maurer, K.~Kaushansky, R.~D. Holly, and
-  D.~Foster.
-\newblock {Interleukin 21 and its receptor are involved in NK cell expansion
-  and regulation of lymphocyte function}.
-\newblock \emph{Nature}, 408\penalty0 (6808):\penalty0 57--63, Nov 2000.
-
-\bibitem[Pavesi et~al.(2004)Pavesi, Mereghetti, Mauri, and
-  Pesole]{pavesi2004weeder}
-G.~Pavesi, P.~Mereghetti, G.~Mauri, and G.~Pesole.
-\newblock {Weeder Web: discovery of transcription factor binding sites in a set
-  of sequences from co-regulated genes}.
-\newblock \emph{Nucleic Acids Res}, 32\penalty0 (Web Server issue):\penalty0
-  W199--203, Jul 2004.
-
-\bibitem[Pearson(1990)]{pearson1990rapid}
-W.~R. Pearson.
-\newblock {Rapid and sensitive sequence comparison with FASTP and FASTA}.
-\newblock \emph{Methods Enzymol}, 183:\penalty0 63--98, 1990.
-
-\bibitem[Pearson(1991)]{pearson1991searching}
-W.~R. Pearson.
-\newblock {Searching protein sequence libraries: comparison of the sensitivity
-  and selectivity of the Smith-Waterman and FASTA algorithms}.
-\newblock \emph{Genomics}, 11\penalty0 (3):\penalty0 635--50, Nov 1991.
-
-\bibitem[Pearson and Lipman(1988)]{pearson1998improved}
-W.~R. Pearson and D.~J. Lipman.
-\newblock Improved tools for biological sequence comparison.
-\newblock \emph{Proceedings of the National Academy of Sciences}, 85:\penalty0
-  2444--2448, 1988.
-
-\bibitem[Pevzner and Sze(2000)]{pevzner2000combinatorial}
-P.~A. Pevzner and S.~Sze.
-\newblock Combinatorial approaches to finding subtle signals in {DNA}
-  sequences.
-\newblock In \emph{Proceedings International Conference on Intelligent Systems
-  for Molecular Biology}, pages 269--278. {AAAI }Press, 2000.
-
-\bibitem[Piegorsch and Bailer(1994)]{piegorsch1994statistical}
-W.~W. Piegorsch and A.~J. Bailer.
-\newblock {Statistical approaches for analyzing mutational spectra: some
-  recommendations for categorical data}.
-\newblock \emph{Genetics}, 136\penalty0 (1):\penalty0 403--16, Jan 1994.
-
-\bibitem[Pietrokovski(1996)]{pietrokovski1996searching}
-S.~Pietrokovski.
-\newblock Searching databases of conserved sequence regions by aligning protein
-  multiple-alignments.
-\newblock \emph{Nucleic Acids Res}, 24\penalty0 (19):\penalty0 3836--3845, Oct
-  1996.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=8871566}.
-
-\bibitem[Prabhakaran(1990)]{prabhakaran1990distribution}
-M.~Prabhakaran.
-\newblock {The distribution of physical, chemical and conformational properties
-  in signal and nascent peptides}.
-\newblock \emph{Biochem J}, 269\penalty0 (3):\penalty0 691--6, Aug 1990.
-
-\bibitem[Price et~al.(2003)Price, Ramabhadran, and Pevzner]{price2003finding}
-A.~Price, S.~Ramabhadran, and P.~A. Pevzner.
-\newblock {Finding subtle motifs by branching from sample strings}.
-\newblock \emph{Bioinformatics}, 19 Suppl 2:\penalty0 II149--II155, Oct 2003.
-
-\bibitem[Price et~al.(2005)Price, Crooks, Green, and
-  Brenner]{price2005statistical}
-G.~A. Price, G.~E. Crooks, R.~E. Green, and S.~E. Brenner.
-\newblock Statistical evaluation of pairwise protein sequence comparison with
-  the bayesian bootstrap.
-\newblock \emph{Bioinformatics}, 21\penalty0 (20):\penalty0 3824--3831, Oct
-  2005.
-\newblock \doi{10.1093/bioinformatics/bti627}.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=16105900}.
-
-\bibitem[Putsep et~al.(2002)Putsep, Carlsson, Boman, and
-  Andersson]{putsep2002deficiency}
-K.~Putsep, G.~Carlsson, H.~G. Boman, and M.~Andersson.
-\newblock {Deficiency of antibacterial peptides in patients with morbus
-  Kostmann: an observation study}.
-\newblock \emph{Lancet}, 360:\penalty0 1144--9, 2002.
-
-\bibitem[Queen et~al.(1982)Queen, Wegman, and Korn]{queen1982improvements}
-C.~Queen, M.~Wegman, and L.~Korn.
-\newblock Improvements to a program for dna analysis: a procedure to find
-  homologies among many sequences.
-\newblock \emph{Nucleic Acids Research}, 10:\penalty0 449--456, 1982.
-
-\bibitem[Quinlan(1992)]{quinlan1992c4}
-J.~R. Quinlan.
-\newblock \emph{{C4}.5: Programs for Machine Learning}.
-\newblock Morgan Kaufmann, San Francisco, CA, USA, 1992.
-
-\bibitem[Raphael et~al.(2004)Raphael, Liu, and Varghese]{raphael2004uniform}
-B.~Raphael, L.-T. Liu, and G.~Varghese.
-\newblock A uniform projection method for motif discovery in dna sequences.
-\newblock \emph{IEEE/ACM Trans. Comput. Biol. Bioinformatics}, 1\penalty0
-  (2):\penalty0 91--94, 2004.
-\newblock ISSN 1545-5963.
-\newblock \doi{http://dx.doi.org/10.1109/TCBB.2004.14}.
-
-\bibitem[Reif(2002)]{reif2002computing}
-J.~H. Reif.
-\newblock {Computing. Successes and challenges}.
-\newblock \emph{Science}, 296\penalty0 (5567):\penalty0 478--9, Apr 2002.
-
-\bibitem[Rice et~al.(2000)Rice, Longden, and Bleasby]{rice2000emboss}
-P.~Rice, I.~Longden, and A.~Bleasby.
-\newblock {EMBOSS: the European Molecular Biology Open Software Suite}.
-\newblock \emph{Trends Genet}, 16:\penalty0 276--7, 2000.
-
-\bibitem[Rigoutsos and Floratos(1998)]{rigoutsos1998combinatorial}
-I.~Rigoutsos and A.~Floratos.
-\newblock {Combinatorial pattern discovery in biological sequences: The
-  TEIRESIAS algorithm}.
-\newblock \emph{Bioinformatics}, 14:\penalty0 55--67, 1998.
-
-\bibitem[Rigoutsos et~al.(1999)Rigoutsos, Floratos, Ouzounis, Gao, and
-  Parida]{rigoutsos1999dictionary}
-I.~Rigoutsos, A.~Floratos, C.~Ouzounis, Y.~Gao, and L.~Parida.
-\newblock {Dictionary building via unsupervised hierarchical motif discovery in
-  the sequence space of natural proteins}.
-\newblock \emph{Proteins}, 37:\penalty0 264--77, 1999.
-
-\bibitem[Rivas and Eddy(2000)]{rivas2000language}
-E.~Rivas and S.~R. Eddy.
-\newblock {The language of RNA: a formal grammar that includes pseudoknots}.
-\newblock \emph{Bioinformatics}, 16\penalty0 (4):\penalty0 334--40, Apr 2000.
-
-\bibitem[Robson and Suzuki(1976)]{robson1976conformational}
-B.~Robson and E.~Suzuki.
-\newblock {Conformational properties of amino acid residues in globular
-  proteins}.
-\newblock \emph{J Mol Biol}, 107\penalty0 (3):\penalty0 327--56, Nov 1976.
-
-\bibitem[Rognvaldsson and You(2004)]{rognvaldsson2004why}
-T.~Rognvaldsson and L.~You.
-\newblock {Why neural networks should not be used for HIV-1 protease cleavage
-  site prediction}.
-\newblock \emph{Bioinformatics}, 20\penalty0 (11):\penalty0 1702--1709, Jul
-  2004.
-
-\bibitem[Rokyta et~al.(2005)Rokyta, Joyce, Caudle, and
-  Wichman]{rokyta2005empirical}
-D.~R. Rokyta, P.~Joyce, S.~B. Caudle, and H.~A. Wichman.
-\newblock {An empirical test of the mutational landscape model of adaptation
-  using a single-stranded DNA virus}.
-\newblock \emph{Nat Genet}, 37\penalty0 (4):\penalty0 441--4, Apr 2005.
-
-\bibitem[Rolff and Siva-Jothy(2003)]{rolff2003invertebrate}
-J.~Rolff and M.~T. Siva-Jothy.
-\newblock {Invertebrate Ecological Immunology}.
-\newblock \emph{Science}, 301\penalty0 (5632):\penalty0 472--475, 2003.
-
-\bibitem[Rose et~al.(1998)Rose, Schultz, Henikoff, Pietrokovski, McCallum, and
-  Henikoff]{rose1998consensus}
-T.~M. Rose, E.~R. Schultz, J.~G. Henikoff, S.~Pietrokovski, C.~M. McCallum, and
-  S.~Henikoff.
-\newblock Consensus-degenerate hybrid oligonucleotide primers for amplification
-  of distantly related sequences.
-\newblock \emph{Nucleic Acids Res}, 26\penalty0 (7):\penalty0 1628--1635, Apr
-  1998.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=9512532}.
-
-\bibitem[Sagot et~al.(1997)Sagot, Viari, and Soldano]{sagot1997multiple}
-M.~Sagot, A.~Viari, and H.~Soldano.
-\newblock Multiple sequence comparison --- {A} peptide matching approach.
-\newblock \emph{Theoretical Computer Science}, 180\penalty0 (1--2):\penalty0
-  115--137, 1997.
-
-\bibitem[Salazar et~al.(2006)Salazar, Sch{\"u}tze, and
-  Ebenh{\"o}h]{salazar2006bioinformatics}
-C.~Salazar, J.~Sch{\"u}tze, and O.~Ebenh{\"o}h.
-\newblock {Bioinformatics meets systems biology}.
-\newblock \emph{Genome Biol}, 7\penalty0 (1):\penalty0 303, 2006.
-
-\bibitem[Salgado et~al.(2004)Salgado, Gama-Castro, Martinez-Antonio,
-  Diaz-Peredo, Sanchez-Solano, Peralta-Gil, Garcia-Alonso, Jimenez-Jacinto,
-  Santos-Zavaleta, Bonavides-Martinez, and Collado-Vides]{salgado2004regulondb}
-H.~Salgado, S.~Gama-Castro, A.~Martinez-Antonio, E.~Diaz-Peredo,
-  F.~Sanchez-Solano, M.~Peralta-Gil, D.~Garcia-Alonso, V.~Jimenez-Jacinto,
-  A.~Santos-Zavaleta, C.~Bonavides-Martinez, and J.~Collado-Vides.
-\newblock {RegulonDB (version 4.0): transcriptional regulation, operon
-  organization and growth conditions in Escherichia coli K-12}.
-\newblock \emph{Nucleic Acids Res}, 32\penalty0 (Database issue):\penalty0
-  303--306, Jan 2004.
-
-\bibitem[Salzman et~al.(2003)Salzman, Ghosh, Huttner, Paterson, and
-  Bevins]{salzman2003protection}
-N.~H. Salzman, D.~Ghosh, K.~M. Huttner, Y.~Paterson, and C.~L. Bevins.
-\newblock {Protection against enteric salmonellosis in transgenic mice
-  expressing a human intestinal defensin}.
-\newblock \emph{Nature}, 422:\penalty0 522--6, 2003.
-
-\bibitem[Schittek et~al.(2001)Schittek, Hipfel, Sauer, Bauer, Kalbacher,
-  Stevanovic, Schirle, Schroeder, Blin, Meier, Rassner, and
-  Garbe]{schittek2001dermcidin}
-B.~Schittek, R.~Hipfel, B.~Sauer, J.~Bauer, H.~Kalbacher, S.~Stevanovic,
-  M.~Schirle, K.~Schroeder, N.~Blin, F.~Meier, G.~Rassner, and C.~Garbe.
-\newblock {Dermcidin: a novel human antibiotic peptide secreted by sweat
-  glands}.
-\newblock \emph{Nat Immunol}, 2:\penalty0 1133--7, 2001.
-
-\bibitem[Schuster-B{\"o}ckler et~al.(2004)Schuster-B{\"o}ckler, Schultz, and
-  Rahmann]{schuster2004hmm}
-B.~Schuster-B{\"o}ckler, J.~Schultz, and S.~Rahmann.
-\newblock {HMM Logos for visualization of protein families}.
-\newblock \emph{BMC Bioinformatics}, 5:\penalty0 7, Jan 2004.
-
-\bibitem[Scott et~al.(2004)Scott, Thomas, and Hallett]{scott2004predicting}
-M.~S. Scott, D.~Y. Thomas, and M.~T. Hallett.
-\newblock {Predicting subcellular localization via protein motif
-  co-occurrence}.
-\newblock \emph{Genome Res}, 14\penalty0 (10A):\penalty0 1957--66, Oct 2004.
-
-\bibitem[Searls(1992)]{searls1992thecomputational}
-D.~B. Searls.
-\newblock The computational linguistics of biological sequences.
-\newblock In L.~Hunter, editor, \emph{Artificial Intelligence and Molecular
-  Biology}, pages 47--120. AAAI Press, 1992.
-
-\bibitem[Searls(1997)]{searls1997linguistic}
-D.~B. Searls.
-\newblock {Linguistic approaches to biological sequences}.
-\newblock \emph{Comput Appl Biosci}, 13:\penalty0 333--44, 1997.
-
-\bibitem[Searls(2001)]{searls2001reading}
-D.~B. Searls.
-\newblock Reading the book of life.
-\newblock \emph{Bioinformatics}, 17\penalty0 (7):\penalty0 579--580, 2001.
-
-\bibitem[Searls(2002)]{searls2002language}
-D.~B. Searls.
-\newblock {The language of genes}.
-\newblock \emph{Nature}, 420:\penalty0 211--7, 2002.
-
-\bibitem[Shai(2002)]{shai2002mode}
-Y.~Shai.
-\newblock {Mode of action of membrane active antimicrobial peptides}.
-\newblock \emph{Biopolymers}, 66:\penalty0 236--48, 2002.
-
-\bibitem[Shendure et~al.(2004)Shendure, Mitra, Varma, and
-  Church]{shendure2004advanced}
-J.~Shendure, R.~D. Mitra, C.~Varma, and G.~M. Church.
-\newblock {Advanced sequencing technologies: methods and goals}.
-\newblock \emph{Nat Rev Genet}, 5\penalty0 (5):\penalty0 335--44, May 2004.
-
-\bibitem[Shieber(1985)]{shieber1985evidence}
-S.~M. Shieber.
-\newblock Evidence against the context-freeness of natural language.
-\newblock \emph{Linguistics and Philosophy}, 8:\penalty0 333--343, 1985.
-
-\bibitem[Siddharthan et~al.(2005)Siddharthan, Siggia, and van
-  Nimwegen]{siddharthan2005phylogibbs}
-R.~Siddharthan, E.~D. Siggia, and E.~van Nimwegen.
-\newblock {PhyloGibbs: a gibbs sampling motif finder that incorporates
-  phylogeny}.
-\newblock \emph{PLoS Comput Biol}, 1\penalty0 (7):\penalty0 e67, Dec 2005.
-
-\bibitem[Simmaco et~al.(1999)Simmaco, Mignogna, and
-  Barra]{simmaco1999antimicrobial}
-M.~Simmaco, G.~Mignogna, and D.~Barra.
-\newblock Antimicrobial peptides from amphibian skin: What do they tell us?
-\newblock \emph{Biopolymers}, 47\penalty0 (6):\penalty0 435--450, 1999.
-
-\bibitem[Sinha(2003)]{sinha2003discriminative}
-S.~Sinha.
-\newblock {Discriminative motifs}.
-\newblock \emph{J Comput Biol}, 10\penalty0 (3-4):\penalty0 599--615, 2003.
-
-\bibitem[Sinha and Tompa(2002)]{sinha2002discovery}
-S.~Sinha and M.~Tompa.
-\newblock Discovery of novel transcription factor binding sites by statistical
-  overrepresentation.
-\newblock Deparment of Computer Science and Engineering, University of
-  Washington, 2002.
-
-\bibitem[Sipser(1997)]{sipser1997introduction}
-M.~Sipser.
-\newblock \emph{Introduction to the Theory of Computation}.
-\newblock PWS Publishing Company, 1997.
-
-\bibitem[Smith et~al.(1996)Smith, Travis, Greenberg, and
-  Welsh]{smith1996cystic}
-J.~J. Smith, S.~M. Travis, E.~P. Greenberg, and M.~J. Welsh.
-\newblock {Cystic fibrosis airway epithelia fail to kill bacteria because of
-  abnormal airway surface fluid}.
-\newblock \emph{Cell}, 85:\penalty0 229--36, 1996.
-
-\bibitem[Smith and Waterman(1981)]{smith1981identification}
-T.~F. Smith and M.~S. Waterman.
-\newblock {Identification of common molecular subsequences}.
-\newblock \emph{J Mol Biol}, 147\penalty0 (1):\penalty0 195--7, Mar 1981.
-
-\bibitem[Solem and Jensen(2002)]{solem2002modulation}
-C.~Solem and P.~R. Jensen.
-\newblock {Modulation of gene expression made easy}.
-\newblock \emph{Appl Environ Microbiol}, 68\penalty0 (5):\penalty0 2397--403,
-  May 2002.
-
-\bibitem[Staden(1989)]{staden1989methods}
-R.~Staden.
-\newblock {Methods for discovering novel motifs in nucleic acid sequences}.
-\newblock \emph{Comput Appl Biosci}, 5\penalty0 (4):\penalty0 293--8, Oct 1989.
-
-\bibitem[Stormo and Hartzell(1989)]{stormo1989identifying}
-G.~D. Stormo and G.~W. Hartzell.
-\newblock {Identifying protein-binding sites from unaligned DNA fragments}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 86\penalty0 (4):\penalty0 1183--7,
-  Feb 1989.
-
-\bibitem[Strom et~al.(2003)Strom, Haug, Skar, Stensen, Stiberg, and
-  Svendsen]{strom2003pharmacophore}
-M.~B. Strom, B.~E. Haug, M.~L. Skar, W.~Stensen, T.~Stiberg, and J.~S.
-  Svendsen.
-\newblock {The pharmacophore of short cationic antibacterial peptides}.
-\newblock \emph{J Med Chem}, 46:\penalty0 1567--70, 2003.
-
-\bibitem[Sumazin et~al.(2005)Sumazin, Chen, Hata, Smith, Zhang, and
-  Zhang]{sumazin2005dwe}
-P.~Sumazin, G.~Chen, N.~Hata, A.~D. Smith, T.~Zhang, and M.~Q. Zhang.
-\newblock {DWE: discriminating word enumerator}.
-\newblock \emph{Bioinformatics}, 21\penalty0 (1):\penalty0 31--8, Jan 2005.
-
-\bibitem[Swain et~al.(1990)Swain, Miller, Green, Rich, Schneider, Kent, and
-  Wlodawer]{swain1990x-ray}
-A.~L. Swain, M.~M. Miller, J.~Green, D.~H. Rich, J.~Schneider, S.~B. Kent, and
-  A.~Wlodawer.
-\newblock {X-ray crystallographic structure of a complex between a synthetic
-  protease of human immunodeficiency virus 1 and a substrate-based
-  hydroxyethylamine inhibitor}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 87\penalty0 (22):\penalty0 8805--9,
-  Nov 1990.
-
-\bibitem[Tappert et~al.(1990)Tappert, Suen, and Wakahara]{tappert1990thestate}
-C.~C. Tappert, C.~Y. Suen, and T.~Wakahara.
-\newblock The state of the art in online handwriting recognition.
-\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
-  Intelligence}, 12\penalty0 (8):\penalty0 787--808, 1990.
-
-\bibitem[Tharakaraman et~al.(2005)Tharakaraman, Mari{\~n}o-Ram{\'\i}rez,
-  Sheetlin, Landsman, and Spouge]{tharakaraman2005alignments}
-K.~Tharakaraman, L.~Mari{\~n}o-Ram{\'\i}rez, S.~Sheetlin, D.~Landsman, and
-  J.~L. Spouge.
-\newblock {Alignments anchored on genomic landmarks can aid in the
-  identification of regulatory elements}.
-\newblock \emph{Bioinformatics}, 21 Suppl 1:\penalty0 i440--i448, Jun 2005.
-
-\bibitem[{The computational biology and functional genomics laboratory at the
-  Dana--Farber Cancer Institute and Harvard School of Public
-  Health}(2005)]{dana2005omics}
-{The computational biology and functional genomics laboratory at the
-  Dana--Farber Cancer Institute and Harvard School of Public Health}.
-\newblock {The -omics revolution count}.
-\newblock \url{http://biocomp.dfci.harvard.edu/tgi/omics_count.html}, Dec 2005.
-
-\bibitem[Thompson et~al.(1994)Thompson, Higgins, and
-  Gibson]{thompson1994clustal}
-J.~D. Thompson, D.~G. Higgins, and T.~J. Gibson.
-\newblock {CLUSTAL W: improving the sensitivity of progressive multiple
-  sequence alignment through sequence weighting, position-specific gap
-  penalties and weight matrix choice}.
-\newblock \emph{Nucleic Acids Res}, 22\penalty0 (22):\penalty0 4673--4680, Nov
+\bibitem[Alharbi and Yeh(2015)]{Alharbi}
+K.~Alharbi and T.~Yeh.
+\newblock Collect, decompile, extract, stats, and diff: Mining design pattern
+  changes in android apps.
+\newblock In \emph{Proceedings of the 17th International Conference on
+  Human-Computer Interaction with Mobile Devices and Services}, MobileHCI '15,
+  pages 515--524, New York, NY, USA, 2015. ACM.
+\newblock ISBN 978-1-4503-3652-9.
+\newblock \doi{10.1145/2785830.2785892}.
+\newblock URL \url{http://doi.acm.org/10.1145/2785830.2785892}.
+
+\bibitem[Allamanis and Sutton(2014)]{allamanis2014mining}
+M.~Allamanis and C.~Sutton.
+\newblock Mining idioms from source code.
+\newblock In \emph{Proceedings of the 22nd ACM SIGSOFT International Symposium
+  on Foundations of Software Engineering}, pages 472--483. ACM, 2014.
+
+\bibitem[Ammons et~al.(2002)Ammons, Bod{\'\i}k, and Larus]{ammons2002mining}
+G.~Ammons, R.~Bod{\'\i}k, and J.~R. Larus.
+\newblock Mining specifications.
+\newblock \emph{ACM Sigplan Notices}, 37\penalty0 (1):\penalty0 4--16, 2002.
+
+\bibitem[Basu et~al.()Basu, Jacobs, and Vanderwende]{basupowergrading}
+S.~Basu, C.~Jacobs, and L.~Vanderwende.
+\newblock Powergrading: a clustering approach to amplify human effort for short
+  answer grading.
+
+\bibitem[Baxter et~al.(1998)Baxter, Yahin, Moura, Sant'Anna, and Bier]{baxter}
+I.~D. Baxter, A.~Yahin, L.~Moura, M.~Sant'Anna, and L.~Bier.
+\newblock Clone detection using abstract syntax trees.
+\newblock In \emph{Proceedings of the International Conference on Software
+  Maintenance}, ICSM '98, pages 368--377, Washington, DC, USA, 1998. IEEE
+  Computer Society.
+
+\bibitem[Biegel et~al.(2011)Biegel, Soetens, Hornig, Diehl, and
+  Demeyer]{Biegel}
+B.~Biegel, Q.~D. Soetens, W.~Hornig, S.~Diehl, and S.~Demeyer.
+\newblock Comparison of similarity metrics for refactoring detection.
+\newblock In \emph{Proceedings of the 8th Working Conference on Mining Software
+  Repositories}, MSR '11, pages 53--62, New York, NY, USA, 2011. ACM.
+\newblock ISBN 978-1-4503-0574-7.
+\newblock \doi{10.1145/1985441.1985452}.
+\newblock URL \url{http://doi.acm.org/10.1145/1985441.1985452}.
+
+\bibitem[Binkley et~al.(2014)Binkley, Heinz, Lawrie, and
+  Overfelt]{binkley2014understanding}
+D.~Binkley, D.~Heinz, D.~Lawrie, and J.~Overfelt.
+\newblock Understanding lda in source code analysis.
+\newblock In \emph{Proceedings of the 22Nd International Conference on Program
+  Comprehension}, pages 26--36. ACM, 2014.
+
+\bibitem[Birch and Bloom(2007)]{birch2007curse}
+S.~A. Birch and P.~Bloom.
+\newblock The curse of knowledge in reasoning about false beliefs.
+\newblock \emph{Psychological Science}, 18\penalty0 (5):\penalty0 382--386,
+  2007.
+
+\bibitem[Bloom(1984)]{bloom}
+B.~S. Bloom.
+\newblock The 2 sigma problem: The search for methods of group instruction as
+  effective as one-to-one tutoring.
+\newblock \emph{Educational researcher}, pages pp. 4--16, 1984.
+
+\bibitem[Broder et~al.(1997)Broder, Glassman, Manasse, and
+  Zweig]{BRODER19971157}
+A.~Z. Broder, S.~C. Glassman, M.~S. Manasse, and G.~Zweig.
+\newblock Papers from the sixth international world wide web conference
+  syntactic clustering of the web.
+\newblock \emph{Computer Networks and ISDN Systems}, 29\penalty0 (8):\penalty0
+  1157 -- 1166, 1997.
+\newblock ISSN 0169-7552.
+\newblock \doi{http://dx.doi.org/10.1016/S0169-7552(97)00031-7}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0169755297000317}.
+
+\bibitem[Brooks et~al.(2014)Brooks, Basu, Jacobs, and
+  Vanderwende]{basuDivideAndConquer}
+M.~Brooks, S.~Basu, C.~Jacobs, and L.~Vanderwende.
+\newblock Divide and correct: using clusters to grade short answers at scale.
+\newblock In \emph{Learning at Scale}, pages 89--98, 2014.
+
+\bibitem[Buse and Weimer(2012)]{buse2012synthesizing}
+R.~P. Buse and W.~Weimer.
+\newblock Synthesizing api usage examples.
+\newblock In \emph{Software Engineering (ICSE), 2012 34th International
+  Conference on}, pages 782--792. IEEE, 2012.
+
+\bibitem[Bussey et~al.(2013)Bussey, Orgill, and Crippen]{C2RP20145C}
+T.~J. Bussey, M.~Orgill, and K.~J. Crippen.
+\newblock Variation theory: A theory of learning and a useful theoretical
+  framework for chemical education research.
+\newblock \emph{Chem. Educ. Res. Pract.}, 14:\penalty0 9--22, 2013.
+\newblock \doi{10.1039/C2RP20145C}.
+\newblock URL \url{http://dx.doi.org/10.1039/C2RP20145C}.
+
+\bibitem[Carstensen and Bernhard(2004)]{carstensen2004laplace}
+A.-K. Carstensen and J.~Bernhard.
+\newblock Laplace transforms: Too difficult to teach, learn, and apply, or just
+  a matter of how to do it?
+\newblock 2004.
+
+\bibitem[Case(2008)]{case2008education}
+J.~Case.
+\newblock Education theories on learning: an informal guide for the engineering
+  education scholar.
+\newblock 2008.
+
+\bibitem[Catrambone and Holyoak(1989)]{catrambone1989overcoming}
+R.~Catrambone and K.~J. Holyoak.
+\newblock Overcoming contextual limitations on problem-solving transfer.
+\newblock \emph{Journal of Experimental Psychology: Learning, Memory, and
+  Cognition}, 15\penalty0 (6):\penalty0 1147, 1989.
+
+\bibitem[Chen et~al.(2006)Chen, Whittinghill, and Kadlowec]{ieeeRapidFeedback}
+J.~C. Chen, D.~C. Whittinghill, and J.~A. Kadlowec.
+\newblock Using rapid feedback to enhance student learning and satisfaction.
+\newblock In \emph{Proceedings. Frontiers in Education. 36th Annual
+  Conference}, pages 13--18, Oct 2006.
+\newblock \doi{10.1109/FIE.2006.322306}.
+
+\bibitem[Chi et~al.(1994)Chi, De~Leeuw, Chiu, and Lavancher]{selfexplanation}
+M.~T. Chi, N.~De~Leeuw, M.-H. Chiu, and C.~Lavancher.
+\newblock Eliciting self-explanations improves understanding.
+\newblock \emph{Cognitive Science}, 18\penalty0 (3):\penalty0 pp. 439--477,
   1994.
+\newblock ISSN 1551-6709.
+\newblock \doi{10.1207/s15516709cog1803_3}.
+\newblock URL \url{http://dx.doi.org/10.1207/s15516709cog1803_3}.
 
-\bibitem[Tiozzo et~al.(1998)Tiozzo, Rocco, Tossi, and Romeo]{tiozzo1998wide}
-E.~Tiozzo, G.~Rocco, A.~Tossi, and D.~Romeo.
-\newblock {Wide-spectrum antibiotic activity of synthetic, amphipathic
-  peptides}.
-\newblock \emph{Biochem Biophys Res Commun}, 249:\penalty0 202--6, 1998.
+\bibitem[Chi et~al.(2001)Chi, Siler, Jeong, Yamauchi, and
+  Hausmann]{chi2001learning}
+M.~T. Chi, S.~A. Siler, H.~Jeong, T.~Yamauchi, and R.~G. Hausmann.
+\newblock Learning from human tutoring.
+\newblock \emph{Cognitive Science}, 25\penalty0 (4):\penalty0 471--533, 2001.
 
-\bibitem[Tomii and Kanehisa(1996)]{tomii1996analysis}
-K.~Tomii and M.~Kanehisa.
-\newblock {Analysis of amino acid indices and mutation matrices for sequence
-  comparison and structure prediction of proteins}.
-\newblock \emph{Protein Eng}, 9\penalty0 (1):\penalty0 27--36, Jan 1996.
+\bibitem[Choudhury et~al.(2016)Choudhury, Yin, Moghadam, and
+  Fox]{choudhury2016autostyle}
+R.~R. Choudhury, H.~Yin, J.~Moghadam, and A.~Fox.
+\newblock Autostyle: Toward coding style feedback at scale.
+\newblock In \emph{Proceedings of the 19th ACM Conference on Computer Supported
+  Cooperative Work and Social Computing Companion}, pages 21--24. ACM, 2016.
 
-\bibitem[Tomita et~al.(1989)Tomita, Tanaka, and Takahasi]{tomita1989optimal}
-E.~Tomita, A.~Tanaka, and H.~Takahasi.
-\newblock An optimal algorithm for finding all the cliques.
-\newblock \emph{SIG Algorithms}, 12:\penalty0 91--98, 1989.
+\bibitem[Coetzee et~al.(2014)Coetzee, Fox, Hearst, and Hartmann]{reputation}
+D.~Coetzee, A.~Fox, M.~A. Hearst, and B.~Hartmann.
+\newblock Should your mooc forum use a reputation system?
+\newblock In \emph{Proceedings of the 17th ACM Conference on Computer Supported
+  Cooperative Work and Social Computing}, CSCW '14, pages 1176--1187, New York,
+  NY, USA, 2014. ACM.
+\newblock ISBN 978-1-4503-2540-0.
 
-\bibitem[Tompa et~al.(2005)Tompa, Li, Bailey, Church, De~Moor, Eskin, Favorov,
-  Frith, Fu, Kent, Makeev, Mironov, Noble, Pavesi, Pesole, Regnier, Simonis,
-  Sinha, Thijs, van Helden, Vandenbogaert, Weng, Workman, Ye, and
-  Zhu]{tompa2005assessing}
-M.~Tompa, N.~Li, T.~L. Bailey, G.~M. Church, B.~De~Moor, E.~Eskin, A.~V.
-  Favorov, M.~C. Frith, Y.~Fu, W.~J. Kent, V.~J. Makeev, A.~A. Mironov, W.~S.
-  Noble, G.~Pavesi, G.~Pesole, M.~Regnier, N.~Simonis, S.~Sinha, G.~Thijs,
-  J.~van Helden, M.~Vandenbogaert, Z.~Weng, C.~Workman, C.~Ye, and Z.~Zhu.
-\newblock {Assessing computational tools for the discovery of transcription
-  factor binding sites}.
-\newblock \emph{Nat Biotechnol}, 23\penalty0 (1):\penalty0 137--144, Jan 2005.
+\bibitem[Cohen(1960)]{cohen1960coefficient}
+J.~Cohen.
+\newblock A coefficient of agreement for nominal scales.
+\newblock \emph{Educational and Psychological Measurement}, 20\penalty0
+  (1):\penalty0 37--46, 1960.
 
-\bibitem[Tossi(2002)]{tossi2002antimicrobial}
-A.~Tossi.
-\newblock Antimicrobial sequences database ({AMSDb}), 2002.
-\newblock http://www.bbcm.univ.trieste.it/~tossi/amsdb.html.
+\bibitem[Deslauriers et~al.(2011)Deslauriers, Schelew, and
+  Wieman]{Deslauriers862}
+L.~Deslauriers, E.~Schelew, and C.~Wieman.
+\newblock Improved learning in a large-enrollment physics class.
+\newblock \emph{Science}, 332\penalty0 (6031):\penalty0 862--864, 2011.
+\newblock ISSN 0036-8075.
+\newblock \doi{10.1126/science.1201783}.
+\newblock URL \url{http://science.sciencemag.org/content/332/6031/862}.
 
-\bibitem[Tossi et~al.(2000)Tossi, Sandri, and
-  Giangaspero]{tossi2000amphipathic}
-A.~Tossi, L.~Sandri, and A.~Giangaspero.
-\newblock {Amphipathic, alpha-helical antimicrobial peptides}.
-\newblock \emph{Biopolymers}, 55:\penalty0 4--30, 2000.
+\bibitem[Dewey(1933)]{dewey1933}
+J.~Dewey.
+\newblock How we think: A restatement of the relation of reflective thinking to
+  the educational process.
+\newblock \emph{Lexington, MA: Heath}, 1933.
 
-\bibitem[van Helden et~al.(1998)van Helden, Andr{\'e}, and
-  Collado-Vides]{van1998extracting}
-J.~van Helden, B.~Andr{\'e}, and J.~Collado-Vides.
-\newblock {Extracting regulatory sites from the upstream region of yeast genes
-  by computational analysis of oligonucleotide frequencies}.
-\newblock \emph{J Mol Biol}, 281\penalty0 (5):\penalty0 827--42, Sep 1998.
+\bibitem[D'Mello et~al.(2014)D'Mello, Lehman, Pekrun, and
+  Graesser]{productiveconfusion}
+S.~D'Mello, B.~Lehman, R.~Pekrun, and A.~Graesser.
+\newblock Confusion can be beneficial for learning.
+\newblock \emph{Learning and Instruction}, 29\penalty0 (0):\penalty0 pp.
+  153--170, 2014.
+\newblock ISSN 0959-4752.
+\newblock \doi{http://dx.doi.org/10.1016/j.learninstruc.2012.05.003}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0959475212000357}.
 
-\bibitem[van Helden et~al.(2000)van Helden, Rios, and
-  Collado-Vides]{van2000discovering}
-J.~van Helden, A.~F. Rios, and J.~Collado-Vides.
-\newblock {Discovering regulatory elements in non-coding sequences by analysis
-  of spaced dyads}.
-\newblock \emph{Nucleic Acids Res}, 28\penalty0 (8):\penalty0 1808--18, Apr
-  2000.
+\bibitem[Doshi-Velez et~al.(2009)]{doshi2009indian}
+F.~Doshi-Velez et~al.
+\newblock The indian buffet process: Scalable inference and extensions.
+\newblock \emph{Master's thesis, The University of Cambridge}, 2009.
 
-\bibitem[Vapnik(1995)]{vapnik1995nature}
-V.~N. Vapnik.
-\newblock \emph{The nature of statistical learning theory}.
-\newblock Springer-Verlag New York, Inc., New York, NY, USA, 1995.
-\newblock ISBN 0-387-94559-8.
+\bibitem[Driver et~al.(2015)Driver, Elliott, and
+  Wilson]{doi:10.1108/IJLLS-10-2014-0038}
+A.~Driver, K.~Elliott, and A.~Wilson.
+\newblock Variation theory based approaches to teaching subject-specific
+  vocabulary within differing practical subjects.
+\newblock \emph{International Journal for Lesson and Learning Studies},
+  4\penalty0 (1):\penalty0 72--90, 2015.
+\newblock \doi{10.1108/IJLLS-10-2014-0038}.
 
-\bibitem[Vapnik(1998)]{vapnik1998statistical}
-V.~N. Vapnik.
-\newblock \emph{Statistical learning theory}.
-\newblock Wiley, 1998.
-\newblock ISBN 0-471-03003-1.
-\newblock VAP v 98:1 1.Ex.
+\bibitem[Drummond et~al.(2014)Drummond, Lu, Chaudhuri, Jermaine, Warren, and
+  Rixner]{drummond2014learning}
+A.~Drummond, Y.~Lu, S.~Chaudhuri, C.~M. Jermaine, J.~Warren, and S.~Rixner.
+\newblock Learning to grade student programs in a massive open online course.
+\newblock In \emph{ICDM}, pages 785--790, 2014.
 
-\bibitem[Venter et~al.(2001)Venter, Adams, Myers, Li, Mural, Sutton, Smith,
-  Yandell, Evans, Holt, Gocayne, Amanatides, Ballew, Huson, Wortman, Zhang,
-  Kodira, Zheng, Chen, Skupski, Subramanian, Thomas, Zhang, Gabor~Miklos,
-  Nelson, Broder, Clark, Nadeau, McKusick, Zinder, Levine, Roberts, Simon,
-  Slayman, Hunkapiller, Bolanos, Delcher, Dew, Fasulo, Flanigan, Florea,
-  Halpern, Hannenhalli, Kravitz, Levy, Mobarry, Reinert, Remington,
-  Abu-Threideh, Beasley, Biddick, Bonazzi, Brandon, Cargill,
-  Chandramouliswaran, Charlab, Chaturvedi, Deng, Di~Francesco, Dunn, Eilbeck,
-  Evangelista, Gabrielian, Gan, Ge, Gong, Gu, Guan, Heiman, Higgins, Ji, Ke,
-  Ketchum, Lai, Lei, Li, Li, Liang, Lin, Lu, Merkulov, Milshina, Moore, Naik,
-  Narayan, Neelam, Nusskern, Rusch, Salzberg, Shao, Shue, Sun, Wang, Wang,
-  Wang, Wang, Wei, Wides, Xiao, Yan, Yao, Ye, Zhan, Zhang, Zhang, Zhao, Zheng,
-  Zhong, Zhong, Zhu, Zhao, Gilbert, Baumhueter, Spier, Carter, Cravchik,
-  Woodage, Ali, An, Awe, Baldwin, Baden, Barnstead, Barrow, Beeson, Busam,
-  Carver, Center, Cheng, Curry, Danaher, Davenport, Desilets, Dietz, Dodson,
-  Doup, Ferriera, Garg, Gluecksmann, Hart, Haynes, Haynes, Heiner, Hladun,
-  Hostin, Houck, Howland, Ibegwam, Johnson, Kalush, Kline, Koduru, Love, Mann,
-  May, McCawley, McIntosh, McMullen, Moy, Moy, Murphy, Nelson, Pfannkoch,
-  Pratts, Puri, Qureshi, Reardon, Rodriguez, Rogers, Romblad, Ruhfel, Scott,
-  Sitter, Smallwood, Stewart, Strong, Suh, Thomas, Tint, Tse, Vech, Wang,
-  Wetter, Williams, Williams, Windsor, Winn-Deen, Wolfe, Zaveri, Zaveri, Abril,
-  Guigo, Campbell, Sjolander, Karlak, Kejariwal, Mi, Lazareva, Hatton,
-  Narechania, Diemer, Muruganujan, Guo, Sato, Bafna, Istrail, Lippert,
-  Schwartz, Walenz, Yooseph, Allen, Basu, Baxendale, Blick, Caminha,
-  Carnes-Stine, Caulk, Chiang, Coyne, Dahlke, Mays, Dombroski, Donnelly, Ely,
-  Esparham, Fosler, Gire, Glanowski, Glasser, Glodek, Gorokhov, Graham,
-  Gropman, Harris, Heil, Henderson, Hoover, Jennings, Jordan, Jordan, Kasha,
-  Kagan, Kraft, Levitsky, Lewis, Liu, Lopez, Ma, Majoros, McDaniel, Murphy,
-  Newman, Nguyen, Nguyen, Nodell, Pan, Peck, Peterson, Rowe, Sanders, Scott,
-  Simpson, Smith, Sprague, Stockwell, Turner, Venter, Wang, Wen, Wu, Wu, Xia,
-  Zandieh, and Zhu]{venter2001sequence}
-J.~C. Venter, M.~D. Adams, E.~W. Myers, P.~W. Li, R.~J. Mural, G.~G. Sutton,
-  H.~O. Smith, M.~Yandell, C.~A. Evans, R.~A. Holt, J.~D. Gocayne,
-  P.~Amanatides, R.~M. Ballew, D.~H. Huson, J.~R. Wortman, Q.~Zhang, C.~D.
-  Kodira, X.~H. Zheng, L.~Chen, M.~Skupski, G.~Subramanian, P.~D. Thomas,
-  J.~Zhang, G.~L. Gabor~Miklos, C.~Nelson, S.~Broder, A.~G. Clark, J.~Nadeau,
-  V.~A. McKusick, N.~Zinder, A.~J. Levine, R.~J. Roberts, M.~Simon, C.~Slayman,
-  M.~Hunkapiller, R.~Bolanos, A.~Delcher, I.~Dew, D.~Fasulo, M.~Flanigan,
-  L.~Florea, A.~Halpern, S.~Hannenhalli, S.~Kravitz, S.~Levy, C.~Mobarry,
-  K.~Reinert, K.~Remington, J.~Abu-Threideh, E.~Beasley, K.~Biddick,
-  V.~Bonazzi, R.~Brandon, M.~Cargill, I.~Chandramouliswaran, R.~Charlab,
-  K.~Chaturvedi, Z.~Deng, V.~Di~Francesco, P.~Dunn, K.~Eilbeck, C.~Evangelista,
-  A.~E. Gabrielian, W.~Gan, W.~Ge, F.~Gong, Z.~Gu, P.~Guan, T.~J. Heiman, M.~E.
-  Higgins, R.~R. Ji, Z.~Ke, K.~A. Ketchum, Z.~Lai, Y.~Lei, Z.~Li, J.~Li,
-  Y.~Liang, X.~Lin, F.~Lu, G.~V. Merkulov, N.~Milshina, H.~M. Moore, A.~K.
-  Naik, V.~A. Narayan, B.~Neelam, D.~Nusskern, D.~B. Rusch, S.~Salzberg,
-  W.~Shao, B.~Shue, J.~Sun, Z.~Wang, A.~Wang, X.~Wang, J.~Wang, M.~Wei,
-  R.~Wides, C.~Xiao, C.~Yan, A.~Yao, J.~Ye, M.~Zhan, W.~Zhang, H.~Zhang,
-  Q.~Zhao, L.~Zheng, F.~Zhong, W.~Zhong, S.~Zhu, S.~Zhao, D.~Gilbert,
-  S.~Baumhueter, G.~Spier, C.~Carter, A.~Cravchik, T.~Woodage, F.~Ali, H.~An,
-  A.~Awe, D.~Baldwin, H.~Baden, M.~Barnstead, I.~Barrow, K.~Beeson, D.~Busam,
-  A.~Carver, A.~Center, M.~L. Cheng, L.~Curry, S.~Danaher, L.~Davenport,
-  R.~Desilets, S.~Dietz, K.~Dodson, L.~Doup, S.~Ferriera, N.~Garg,
-  A.~Gluecksmann, B.~Hart, J.~Haynes, C.~Haynes, C.~Heiner, S.~Hladun,
-  D.~Hostin, J.~Houck, T.~Howland, C.~Ibegwam, J.~Johnson, F.~Kalush, L.~Kline,
-  S.~Koduru, A.~Love, F.~Mann, D.~May, S.~McCawley, T.~McIntosh, I.~McMullen,
-  M.~Moy, L.~Moy, B.~Murphy, K.~Nelson, C.~Pfannkoch, E.~Pratts, V.~Puri,
-  H.~Qureshi, M.~Reardon, R.~Rodriguez, Y.~H. Rogers, D.~Romblad, B.~Ruhfel,
-  R.~Scott, C.~Sitter, M.~Smallwood, E.~Stewart, R.~Strong, E.~Suh, R.~Thomas,
-  N.~N. Tint, S.~Tse, C.~Vech, G.~Wang, J.~Wetter, S.~Williams, M.~Williams,
-  S.~Windsor, E.~Winn-Deen, K.~Wolfe, J.~Zaveri, K.~Zaveri, J.~F. Abril,
-  R.~Guigo, M.~J. Campbell, K.~V. Sjolander, B.~Karlak, A.~Kejariwal, H.~Mi,
-  B.~Lazareva, T.~Hatton, A.~Narechania, K.~Diemer, A.~Muruganujan, N.~Guo,
-  S.~Sato, V.~Bafna, S.~Istrail, R.~Lippert, R.~Schwartz, B.~Walenz,
-  S.~Yooseph, D.~Allen, A.~Basu, J.~Baxendale, L.~Blick, M.~Caminha,
-  J.~Carnes-Stine, P.~Caulk, Y.~H. Chiang, M.~Coyne, C.~Dahlke, A.~Mays,
-  M.~Dombroski, M.~Donnelly, D.~Ely, S.~Esparham, C.~Fosler, H.~Gire,
-  S.~Glanowski, K.~Glasser, A.~Glodek, M.~Gorokhov, K.~Graham, B.~Gropman,
-  M.~Harris, J.~Heil, S.~Henderson, J.~Hoover, D.~Jennings, C.~Jordan,
-  J.~Jordan, J.~Kasha, L.~Kagan, C.~Kraft, A.~Levitsky, M.~Lewis, X.~Liu,
-  J.~Lopez, D.~Ma, W.~Majoros, J.~McDaniel, S.~Murphy, M.~Newman, T.~Nguyen,
-  N.~Nguyen, M.~Nodell, S.~Pan, J.~Peck, M.~Peterson, W.~Rowe, R.~Sanders,
-  J.~Scott, M.~Simpson, T.~Smith, A.~Sprague, T.~Stockwell, R.~Turner,
-  E.~Venter, M.~Wang, M.~Wen, D.~Wu, M.~Wu, A.~Xia, A.~Zandieh, and X.~Zhu.
-\newblock {The sequence of the human genome}.
-\newblock \emph{Science}, 291\penalty0 (5507):\penalty0 1304--1351, Feb 2001.
+\bibitem[Ehrlich and Soloway(1984)]{variableplans}
+K.~Ehrlich and E.~Soloway.
+\newblock An empirical investigation of the tacit plan knowledge in
+  programming.
+\newblock In \emph{Human factors in computer systems}, pages 113--133. Norwood,
+  NJ: Ablex Publishing Co, 1984.
 
-\bibitem[Vizioli et~al.(2001)Vizioli, Bulet, Hoffmann, Kafatos, Muller, and
-  Dimopoulos]{vizioli2001gambicin}
-J.~Vizioli, P.~Bulet, J.~A. Hoffmann, F.~C. Kafatos, H.-M. Muller, and
-  G.~Dimopoulos.
-\newblock {Gambicin: A novel immune responsive antimicrobial peptide from the
-  malaria vector Anopheles gambiae}.
-\newblock \emph{PNAS}, 98\penalty0 (22):\penalty0 12630--12635, 2001.
+\bibitem[Elenbogen and Seliya(2008)]{Elenbogen}
+B.~S. Elenbogen and N.~Seliya.
+\newblock Detecting outsourced student programming assignments.
+\newblock \emph{J. Comput. Sci. Coll.}, 23\penalty0 (3):\penalty0 50--57, Jan.
+  2008.
+\newblock ISSN 1937-4771.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=1295109.1295123}.
 
-\bibitem[Vogt et~al.(1995)Vogt, Etzold, and Argos]{vogt1995assessment}
-G.~Vogt, T.~Etzold, and P.~Argos.
-\newblock {An assessment of amino acid exchange matrices in aligning protein
-  sequences: the twilight zone revisited}.
-\newblock \emph{J Mol Biol}, 249:\penalty0 816--31, 1995.
+\bibitem[et~al.()]{6005notes}
+R.~M. et~al.
+\newblock 6.005 software construction.
 
-\bibitem[Walker et~al.(1999)Walker, Bond, Tarone, Harris, Makalowski, Boguski,
-  and Greenblatt]{walker1999evolutionary}
-D.~R. Walker, J.~P. Bond, R.~E. Tarone, C.~C. Harris, W.~Makalowski, M.~S.
-  Boguski, and M.~S. Greenblatt.
-\newblock {Evolutionary conservation and somatic mutation hotspot maps of p53:
-  correlation with p53 protein structural and functional features}.
-\newblock \emph{Oncogene}, 18\penalty0 (1):\penalty0 211--8, Jan 1999.
+\bibitem[Fast et~al.(2014)Fast, Steffee, Wang, Brandt, and Bernstein]{codex}
+E.~Fast, D.~Steffee, L.~Wang, J.~R. Brandt, and M.~S. Bernstein.
+\newblock Emergent, crowd-scale programming practice in the ide.
+\newblock In \emph{Proceedings of the 32nd annual ACM conference on Human
+  factors in computing systems}, pages 2491--2500. ACM, 2014.
 
-\bibitem[Walsh(2000)]{walsh2000molecular}
-C.~Walsh.
-\newblock {Molecular mechanisms that confer antibacterial drug resistance}.
-\newblock \emph{Nature}, 406:\penalty0 775--81, 2000.
+\bibitem[Fox et~al.(2013)Fox, Patterson, and Joseph]{fox2013engineering}
+A.~Fox, D.~A. Patterson, and S.~Joseph.
+\newblock \emph{Engineering software as a service: An Agile approach using
+  Cloud Computing}.
+\newblock Strawberry Canyon LLC, 2013.
 
-\bibitem[Wang et~al.(2005)Wang, Li, and Li]{wang2005correlation}
-G.~Wang, Y.~Li, and X.~Li.
-\newblock {Correlation of three-dimensional structures with the antibacterial
-  activity of a group of peptides designed based on a nontoxic bacterial
-  membrane anchor}.
-\newblock \emph{J Biol Chem}, 280\penalty0 (7):\penalty0 5803--11, Feb 2005.
+\bibitem[Gaudencio et~al.(2014{\natexlab{a}})Gaudencio, Dantas, and
+  Guerrero]{Gaudencio}
+M.~Gaudencio, A.~Dantas, and D.~D. Guerrero.
+\newblock Can computers compare student code solutions as well as teachers?
+\newblock In \emph{Proceedings of the 45th ACM Technical Symposium on Computer
+  Science Education}, SIGCSE '14, pages 21--26, New York, NY, USA,
+  2014{\natexlab{a}}. ACM.
+\newblock ISBN 978-1-4503-2605-6.
+\newblock \doi{10.1145/2538862.2538973}.
+\newblock URL \url{http://doi.acm.org/10.1145/2538862.2538973}.
 
-\bibitem[Wang and Kollman(2001)]{wang2001computational}
-W.~Wang and P.~A. Kollman.
-\newblock {Computational study of protein specificity: the molecular basis of
-  HIV-1 protease drug resistance}.
-\newblock \emph{Proc Natl Acad Sci U S A}, 98\penalty0 (26):\penalty0
-  14937--42, Dec 2001.
+\bibitem[Gaudencio et~al.(2014{\natexlab{b}})Gaudencio, Dantas, and
+  Guerrero]{gradingsigcse14}
+M.~Gaudencio, A.~Dantas, and D.~D. Guerrero.
+\newblock Can computers compare student code solutions as well as teachers?
+\newblock In \emph{Proceedings of the 45th ACM Technical Symposium on Computer
+  Science Education}, SIGCSE '14, pages 21--26, New York, NY, USA,
+  2014{\natexlab{b}}. ACM.
 
-\bibitem[Wang and Wang(2004)]{wang2004apd}
-Z.~Wang and G.~Wang.
-\newblock {APD: the Antimicrobial Peptide Database}.
-\newblock \emph{Nucleic Acids Res}, 32\penalty0 (Database issue):\penalty0
-  D590--2, Jan 2004.
+\bibitem[Glassman et~al.(2013)Glassman, Gulley, and Miller]{ICERGlassman}
+E.~L. Glassman, N.~Gulley, and R.~C. Miller.
+\newblock Toward facilitating assistance to students attempting engineering
+  design problems.
+\newblock In \emph{Proceedings of the Tenth Annual International Conference on
+  International Computing Education Research}, ICER '13, New York, NY, USA,
+  2013. ACM.
+\newblock \doi{http://dx.doi.org/10.1145/2493394.2493400}.
 
-\bibitem[Waterman(1984)]{waterman1984efficient}
-M.~S. Waterman.
-\newblock {Efficient sequence alignment algorithms}.
-\newblock \emph{J Theor Biol}, 108:\penalty0 333--7, 1984.
+\bibitem[Glassman et~al.(2014)Glassman, Singh, and Miller]{glassman2014feature}
+E.~L. Glassman, R.~Singh, and R.~C. Miller.
+\newblock Feature engineering for clustering student solutions.
+\newblock In \emph{Proceedings of the first ACM conference on Learning@ scale
+  conference}, pages 171--172. ACM, 2014.
 
-\bibitem[Waterston et~al.(2002)Waterston, Lindblad-Toh, Birney, Rogers, Abril,
-  Agarwal, Agarwala, Ainscough, Alexandersson, An, Antonarakis, Attwood,
-  Baertsch, Bailey, Barlow, Beck, Berry, Birren, Bloom, Bork, Botcherby, Bray,
-  Brent, Brown, Brown, Bult, Burton, Butler, Campbell, Carninci, Cawley,
-  Chiaromonte, Chinwalla, Church, Clamp, Clee, Collins, Cook, Copley, Coulson,
-  Couronne, Cuff, Curwen, Cutts, Daly, David, Davies, Delehaunty, Deri,
-  Dermitzakis, Dewey, Dickens, Diekhans, Dodge, Dubchak, Dunn, Eddy, Elnitski,
-  Emes, Eswara, Eyras, Felsenfeld, Fewell, Flicek, Foley, Frankel, Fulton,
-  Fulton, Furey, Gage, Gibbs, Glusman, Gnerre, Goldman, Goodstadt, Grafham,
-  Graves, Green, Gregory, Guig{\'o}, Guyer, Hardison, Haussler, Hayashizaki,
-  Hillier, Hinrichs, Hlavina, Holzer, Hsu, Hua, Hubbard, Hunt, Jackson, Jaffe,
-  Johnson, Jones, Jones, Joy, Kamal, Karlsson, Karolchik, Kasprzyk, Kawai,
-  Keibler, Kells, Kent, Kirby, Kolbe, Korf, Kucherlapati, Kulbokas, Kulp,
-  Landers, Leger, Leonard, Letunic, Levine, Li, Li, Lloyd, Lucas, Ma, Maglott,
-  Mardis, Matthews, Mauceli, Mayer, McCarthy, McCombie, McLaren, McLay,
-  McPherson, Meldrim, Meredith, Mesirov, Miller, Miner, Mongin, Montgomery,
-  Morgan, Mott, Mullikin, Muzny, Nash, Nelson, Nhan, Nicol, Ning, Nusbaum,
-  O'Connor, Okazaki, Oliver, Overton-Larty, Pachter, Parra, Pepin, Peterson,
-  Pevzner, Plumb, Pohl, Poliakov, Ponce, Ponting, Potter, Quail, Reymond, Roe,
-  Roskin, Rubin, Rust, Santos, Sapojnikov, Schultz, Schultz, Schwartz,
-  Schwartz, Scott, Seaman, Searle, Sharpe, Sheridan, Shownkeen, Sims, Singer,
-  Slater, Smit, Smith, Spencer, Stabenau, Stange-Thomann, Sugnet, Suyama,
-  Tesler, Thompson, Torrents, Trevaskis, Tromp, Ucla, Ureta-Vidal, Vinson,
-  Von~Niederhausern, Wade, Wall, Weber, Weiss, Wendl, West, Wetterstrand,
-  Wheeler, Whelan, Wierzbowski, Willey, Williams, Wilson, Winter, Worley,
-  Wyman, Yang, Yang, Zdobnov, Zody, and Lander]{waterston2002initial}
-R.~H. Waterston, K.~Lindblad-Toh, E.~Birney, J.~Rogers, J.~F. Abril,
-  P.~Agarwal, R.~Agarwala, R.~Ainscough, M.~Alexandersson, P.~An, S.~E.
-  Antonarakis, J.~Attwood, R.~Baertsch, J.~Bailey, K.~Barlow, S.~Beck,
-  E.~Berry, B.~Birren, T.~Bloom, P.~Bork, M.~Botcherby, N.~Bray, M.~R. Brent,
-  D.~G. Brown, S.~D. Brown, C.~Bult, J.~Burton, J.~Butler, R.~D. Campbell,
-  P.~Carninci, S.~Cawley, F.~Chiaromonte, A.~T. Chinwalla, D.~M. Church,
-  M.~Clamp, C.~Clee, F.~S. Collins, L.~L. Cook, R.~R. Copley, A.~Coulson,
-  O.~Couronne, J.~Cuff, V.~Curwen, T.~Cutts, M.~Daly, R.~David, J.~Davies,
-  K.~D. Delehaunty, J.~Deri, E.~T. Dermitzakis, C.~Dewey, N.~J. Dickens,
-  M.~Diekhans, S.~Dodge, I.~Dubchak, D.~M. Dunn, S.~R. Eddy, L.~Elnitski, R.~D.
-  Emes, P.~Eswara, E.~Eyras, A.~Felsenfeld, G.~A. Fewell, P.~Flicek, K.~Foley,
-  W.~N. Frankel, L.~A. Fulton, R.~S. Fulton, T.~S. Furey, D.~Gage, R.~A. Gibbs,
-  G.~Glusman, S.~Gnerre, N.~Goldman, L.~Goodstadt, D.~Grafham, T.~A. Graves,
-  E.~D. Green, S.~Gregory, R.~Guig{\'o}, M.~Guyer, R.~C. Hardison, D.~Haussler,
-  Y.~Hayashizaki, L.~W. Hillier, A.~Hinrichs, W.~Hlavina, T.~Holzer, F.~Hsu,
-  A.~Hua, T.~Hubbard, A.~Hunt, I.~Jackson, D.~B. Jaffe, L.~S. Johnson,
-  M.~Jones, T.~A. Jones, A.~Joy, M.~Kamal, E.~K. Karlsson, D.~Karolchik,
-  A.~Kasprzyk, J.~Kawai, E.~Keibler, C.~Kells, W.~J. Kent, A.~Kirby, D.~L.
-  Kolbe, I.~Korf, R.~S. Kucherlapati, E.~J. Kulbokas, D.~Kulp, T.~Landers,
-  J.~P. Leger, S.~Leonard, I.~Letunic, R.~Levine, J.~Li, M.~Li, C.~Lloyd,
-  S.~Lucas, B.~Ma, D.~R. Maglott, E.~R. Mardis, L.~Matthews, E.~Mauceli, J.~H.
-  Mayer, M.~McCarthy, W.~R. McCombie, S.~McLaren, K.~McLay, J.~D. McPherson,
-  J.~Meldrim, B.~Meredith, J.~P. Mesirov, W.~Miller, T.~L. Miner, E.~Mongin,
-  K.~T. Montgomery, M.~Morgan, R.~Mott, J.~C. Mullikin, D.~M. Muzny, W.~E.
-  Nash, J.~O. Nelson, M.~N. Nhan, R.~Nicol, Z.~Ning, C.~Nusbaum, M.~J.
-  O'Connor, Y.~Okazaki, K.~Oliver, E.~Overton-Larty, L.~Pachter, G.~Parra,
-  K.~H. Pepin, J.~Peterson, P.~Pevzner, R.~Plumb, C.~S. Pohl, A.~Poliakov,
-  T.~C. Ponce, C.~P. Ponting, S.~Potter, M.~Quail, A.~Reymond, B.~A. Roe, K.~M.
-  Roskin, E.~M. Rubin, A.~G. Rust, R.~Santos, V.~Sapojnikov, B.~Schultz,
-  J.~Schultz, M.~S. Schwartz, S.~Schwartz, C.~Scott, S.~Seaman, S.~Searle,
-  T.~Sharpe, A.~Sheridan, R.~Shownkeen, S.~Sims, J.~B. Singer, G.~Slater,
-  A.~Smit, D.~R. Smith, B.~Spencer, A.~Stabenau, N.~Stange-Thomann, C.~Sugnet,
-  M.~Suyama, G.~Tesler, J.~Thompson, D.~Torrents, E.~Trevaskis, J.~Tromp,
-  C.~Ucla, A.~Ureta-Vidal, J.~P. Vinson, A.~C. Von~Niederhausern, C.~M. Wade,
-  M.~Wall, R.~J. Weber, R.~B. Weiss, M.~C. Wendl, A.~P. West, K.~Wetterstrand,
-  R.~Wheeler, S.~Whelan, J.~Wierzbowski, D.~Willey, S.~Williams, R.~K. Wilson,
-  E.~Winter, K.~C. Worley, D.~Wyman, S.~Yang, S.~P. Yang, E.~M. Zdobnov, M.~C.
-  Zody, and E.~S. Lander.
-\newblock Initial sequencing and comparative analysis of the mouse genome.
-\newblock \emph{Nature}, 420\penalty0 (6915):\penalty0 520--562, Dec 2002.
-\newblock \doi{10.1038/nature01262}.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=12466850}.
+\bibitem[Glassman et~al.(2015)Glassman, Scott, Singh, Guo, and
+  Miller]{overcode}
+E.~L. Glassman, J.~Scott, R.~Singh, P.~J. Guo, and R.~C. Miller.
+\newblock Overcode: Visualizing variation in student solutions to programming
+  problems at scale.
+\newblock \emph{ACM Transactions on Computer-Human Interaction (TOCHI)},
+  22\penalty0 (2):\penalty0 7, 2015.
 
-\bibitem[Wedekind et~al.(1996)Wedekind, Frey, and
-  Rayment]{wedekind1996structure}
-J.~E. Wedekind, P.~A. Frey, and I.~Rayment.
-\newblock {The structure of nucleotidylated histidine-166 of
-  galactose-1-phosphate uridylyltransferase provides insight into phosphoryl
-  group transfer}.
-\newblock \emph{Biochemistry}, 35\penalty0 (36):\penalty0 11560--11569, Oct
-  1996.
+\bibitem[Gobet(2012)]{Gobet2012}
+F.~Gobet.
+\newblock \emph{Deliberate Practice and Its Role in Expertise Development},
+  pages 917--919.
+\newblock Springer US, Boston, MA, 2012.
+\newblock ISBN 978-1-4419-1428-6.
+\newblock \doi{10.1007/978-1-4419-1428-6_104}.
+\newblock URL \url{http://dx.doi.org/10.1007/978-1-4419-1428-6_104}.
 
-\bibitem[Wheeler et~al.(2006)Wheeler, Barrett, Benson, Bryant, Canese,
-  Chetvernin, Church, DiCuccio, Edgar, Federhen, Geer, Helmberg, Kapustin,
-  Kenton, Khovayko, Lipman, Madden, Maglott, Ostell, Pruitt, Schuler, Schriml,
-  Sequeira, Sherry, Sirotkin, Souvorov, Starchenko, Suzek, Tatusov, Tatusova,
-  Wagner, and Yaschenko]{wheeler2006database}
-D.~L. Wheeler, T.~Barrett, D.~A. Benson, S.~H. Bryant, K.~Canese,
-  V.~Chetvernin, D.~M. Church, M.~DiCuccio, R.~Edgar, S.~Federhen, L.~Y. Geer,
-  W.~Helmberg, Y.~Kapustin, D.~L. Kenton, O.~Khovayko, D.~J. Lipman, T.~L.
-  Madden, D.~R. Maglott, J.~Ostell, K.~D. Pruitt, G.~D. Schuler, L.~M. Schriml,
-  E.~Sequeira, S.~T. Sherry, K.~Sirotkin, A.~Souvorov, G.~Starchenko, T.~O.
-  Suzek, R.~Tatusov, T.~A. Tatusova, L.~Wagner, and E.~Yaschenko.
-\newblock {Database resources of the National Center for Biotechnology
-  Information}.
-\newblock \emph{Nucleic Acids Res}, 34\penalty0 (Database issue):\penalty0
-  D173--80, Jan 2006.
+\bibitem[Gulwani et~al.(2014)Gulwani, Radi\v{c}ek, and Zuleger]{gulwani_fse14}
+S.~Gulwani, I.~Radi\v{c}ek, and F.~Zuleger.
+\newblock Feedback generation for performance problems in introductory
+  programming assignments.
+\newblock In \emph{Proceedings of the 22Nd ACM SIGSOFT International Symposium
+  on Foundations of Software Engineering}, FSE 2014, pages 41--51, New York,
+  NY, USA, 2014. ACM.
+\newblock ISBN 978-1-4503-3056-5.
+\newblock \doi{10.1145/2635868.2635912}.
+\newblock URL \url{http://doi.acm.org/10.1145/2635868.2635912}.
 
-\bibitem[Wilson et~al.(1999)Wilson, Ouellette, Satchell, Ayabe, Lopez-Boado,
-  Stratman, Hultgren, Matrisian, and Parks]{wilson1999regulation}
-C.~L. Wilson, A.~J. Ouellette, D.~P. Satchell, T.~Ayabe, Y.~S. Lopez-Boado,
-  J.~L. Stratman, S.~J. Hultgren, L.~M. Matrisian, and W.~C. Parks.
-\newblock {Regulation of intestinal alpha-defensin activation by the
-  metalloproteinase matrilysin in innate host defense}.
-\newblock \emph{Science}, 286:\penalty0 113--7, 1999.
+\bibitem[Gulwani et~al.(2016)Gulwani, Radi{\v{c}}ek, and
+  Zuleger]{gulwani2016automated}
+S.~Gulwani, I.~Radi{\v{c}}ek, and F.~Zuleger.
+\newblock Automated clustering and program repair for introductory programming
+  assignments.
+\newblock \emph{arXiv preprint arXiv:1603.03165}, 2016.
 
-\bibitem[Witten and Frank(2005)]{witten2005data}
-I.~H. Witten and E.~Frank.
-\newblock \emph{Data mining: practical machine learning tools and techniques
-  with Java implementations}.
-\newblock Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 2005.
+\bibitem[Guo(2013)]{pgbovineOPT}
+P.~J. Guo.
+\newblock {Online Python Tutor}: Embeddable web-based program visualization for
+  {CS} education.
+\newblock In \emph{Proceeding of the 44th ACM Technical Symposium on Computer
+  Science Education}, SIGCSE '13, pages 579--584, New York, NY, USA, 2013. ACM.
+\newblock ISBN 978-1-4503-1868-6.
 
-\bibitem[Wolferstetter et~al.(1996)Wolferstetter, French, Herrmann, and
-  Werner]{wolferstetter1996identification}
-F.~Wolferstetter, K.~French, G.~Herrmann, and T.~Werner.
-\newblock Identification of functional.
-\newblock \emph{Computer Applications in the Biosciences}, 12\penalty0
-  (1):\penalty0 71--80, 1996.
+\bibitem[Hindle et~al.(2012)Hindle, Barr, Su, Gabel, and Devanbu]{Hindle2012}
+A.~Hindle, E.~T. Barr, Z.~Su, M.~Gabel, and P.~Devanbu.
+\newblock On the naturalness of software.
+\newblock In \emph{Proceedings of the 34th International Conference on Software
+  Engineering}, ICSE '12, pages 837--847, Piscataway, NJ, USA, 2012. IEEE
+  Press.
+\newblock ISBN 978-1-4673-1067-3.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=2337223.2337322}.
 
-\bibitem[Wolpert and Macready(1995)]{wolpert1995no}
-D.~H. Wolpert and W.~G. Macready.
-\newblock No free lunch theorems for search.
-\newblock Technical Report SFI-TR-95-02-010, Santa Fe, NM, 1995.
-\newblock URL \url{citeseer.ist.psu.edu/wolpert95no.html}.
+\bibitem[H{\o}st and {\O}stvold(2008)]{host2008java}
+E.~W. H{\o}st and B.~M. {\O}stvold.
+\newblock The java programmer’s phrase book.
+\newblock In \emph{Software Language Engineering}, pages 322--341. Springer,
+  2008.
 
-\bibitem[Wootton and Federhen(1993)]{wootton1993statistics}
-J.~C. Wootton and S.~Federhen.
-\newblock Statistics of local complexity in amino acid sequences and sequence
-  databases.
-\newblock \emph{Computers in Chemistry}, 17:\penalty0 149--163, 1993.
+\bibitem[H{\o}st and {\O}stvold(2009)]{host2009debugging}
+E.~W. H{\o}st and B.~M. {\O}stvold.
+\newblock Debugging method names.
+\newblock In \emph{ECOOP 2009--Object-Oriented Programming}, pages 294--317.
+  Springer, 2009.
 
-\bibitem[Workman and Stormo(2000)]{workman2000ann-spec}
-C.~T. Workman and G.~D. Stormo.
-\newblock Ann-spec: a method for discovering transcription factor binding sites
-  with improved specificity.
-\newblock \emph{Pac Symp Biocomput}, pages 467--478, 2000.
-\newblock URL \url{http://www.hubmed.org/display.cgi?uids=10902194}.
+\bibitem[Huang et~al.(2013)Huang, Piech, Nguyen, and Guibas]{MOOCshop}
+J.~Huang, C.~Piech, A.~Nguyen, and L.~J. Guibas.
+\newblock Syntactic and functional variability of a million code submissions in
+  a machine learning mooc.
+\newblock In \emph{AIED Workshops}, 2013.
 
-\bibitem[Wu and Hancock(1999)]{wu1999interaction}
-M.~Wu and R.~E. Hancock.
-\newblock {Interaction of the cyclic antimicrobial cationic peptide bactenecin
-  with the outer and cytoplasmic membrane}.
-\newblock \emph{J Biol Chem}, 274\penalty0 (1):\penalty0 29--35, Jan 1999.
+\bibitem[Jones(2008)]{jones2008operand}
+D.~M. Jones.
+\newblock Operand names influence operator precedence decisions (part.
+\newblock 2008.
 
-\bibitem[Wu and Manber(1992)]{wu1992agrep}
-S.~Wu and U.~Manber.
-\newblock Agrep --- {A} fast approximate pattern-matching tool.
-\newblock In \emph{Usenix Winter 1992 Technical Conference}, pages 153--162,
-  San Francisco, Jan. 1992.
+\bibitem[Kaleeswaran et~al.(2016)Kaleeswaran, Santhiar, Kanade, and
+  Gulwani]{kaleeswaran2016semi}
+S.~Kaleeswaran, A.~Santhiar, A.~Kanade, and S.~Gulwani.
+\newblock Semi-supervised verified feedback generation.
+\newblock \emph{arXiv preprint arXiv:1603.04584}, 2016.
 
-\bibitem[You et~al.(2005)You, Garwicz, and
-  R{\"o}gnvaldsson]{you2005comprehensive}
-L.~You, D.~Garwicz, and T.~R{\"o}gnvaldsson.
-\newblock {Comprehensive bioinformatic analysis of the specificity of human
-  immunodeficiency virus type 1 protease}.
-\newblock \emph{J Virol}, 79\penalty0 (19):\penalty0 12477--86, Oct 2005.
+\bibitem[Kamiya et~al.(2002)Kamiya, Kusumoto, and Inoue]{CCFinder}
+T.~Kamiya, S.~Kusumoto, and K.~Inoue.
+\newblock Ccfinder: a multilinguistic token-based code clone detection system
+  for large scale source code.
+\newblock \emph{IEEE Transactions on Software Engineering}, 28\penalty0
+  (7):\penalty0 654--670, Jul 2002.
+\newblock ISSN 0098-5589.
+\newblock \doi{10.1109/TSE.2002.1019480}.
 
-\bibitem[Zaki(2000)]{zaki2000scalable}
-M.~J. Zaki.
-\newblock Scalable algorithms for association mining.
-\newblock \emph{Knowledge and Data Engineering}, 12\penalty0 (2):\penalty0
-  372--390, 2000.
-\newblock URL \url{citeseer.ist.psu.edu/zaki00scalable.html}.
+\bibitem[Kavanagh and O'Moore(2008)]{kavanagh}
+L.~Kavanagh and L.~O'Moore.
+\newblock Reflecting on reflection-10 years, engineering, and uq.
+\newblock In \emph{Proceedings of the 19th Annual Conference of the
+  Australasian Association for Engineering Education: To Industry and Beyond}.
+  Institution of Engineers, Australia, 2008.
 
-\bibitem[Zaki and Ogihara(1998)]{zaki1998theoretical}
-M.~J. Zaki and M.~Ogihara.
-\newblock Theoretical foundations of association rules.
-\newblock In \emph{In Proceedings of 3 rd SIGMOD'98 Workshop on Research Issues
-  in Data Mining and Knowledge Discovery (DMKD'98)}, Seattle, Washington, 1998.
-\newblock URL \url{citeseer.ist.psu.edu/zaki98theoretical.html}.
+\bibitem[Kibler(2011)]{disequilibrium}
+J.~Kibler.
+\newblock Cognitive disequilibrium.
+\newblock In S.~Goldstein and J.~Naglieri, editors, \emph{Encyclopedia of Child
+  Behavior and Development}, pages pp. 380--380. Springer US, 2011.
+\newblock ISBN 978-0-387-77579-1.
+\newblock \doi{10.1007/978-0-387-79061-9_598}.
+\newblock URL \url{http://dx.doi.org/10.1007/978-0-387-79061-9_598}.
 
-\bibitem[Zasloff(2002{\natexlab{a}})]{zasloff2002antimicrobial}
-M.~Zasloff.
-\newblock {Antimicrobial peptides of multicellular organisms}.
-\newblock \emph{Nature}, 415:\penalty0 389--95, 2002{\natexlab{a}}.
+\bibitem[Kim(2015)]{beenthesis}
+B.~Kim.
+\newblock Interactive and interpretable machine learning models for human
+  machine collaboration, 2015.
+\newblock PhD thesis.
 
-\bibitem[Zasloff(2002{\natexlab{b}})]{zasloff2002antimicrobialpeptides}
-M.~Zasloff.
-\newblock {Antimicrobial peptides in health and disease}.
-\newblock \emph{New England Journal of Medicine}, 347\penalty0 (15):\penalty0
-  1199--1200, Oct. 2002{\natexlab{b}}.
+\bibitem[Kim et~al.(2014)Kim, Rudin, and Shah]{beenNIPS}
+B.~Kim, C.~Rudin, and J.~A. Shah.
+\newblock The bayesian case model: A generative approach for case-based
+  reasoning and prototype classification.
+\newblock In Z.~Ghahramani, M.~Welling, C.~Cortes, N.~Lawrence, and
+  K.~Weinberger, editors, \emph{Advances in Neural Information Processing
+  Systems 27}, pages 1952--1960. Curran Associates, Inc., 2014.
 
-\bibitem[Zhang et~al.(2002)Zhang, Yu, He, Yu, Caffrey, Dalmasso, Fu, Pham, Mei,
-  Ho, Zhang, Lopez, and Ho]{zhang2002contribution}
-L.~Zhang, W.~Yu, T.~He, J.~Yu, R.~E. Caffrey, E.~A. Dalmasso, S.~Fu, T.~Pham,
-  J.~Mei, J.~J. Ho, W.~Zhang, P.~Lopez, and D.~D. Ho.
-\newblock {Contribution of human alpha-defensin 1, 2, and 3 to the anti-HIV-1
-  activity of CD8 antiviral factor}.
-\newblock \emph{Science}, 298:\penalty0 995--1000, 2002.
+\bibitem[Kim et~al.(2015)Kim, Shah, and Doshi-Velez]{kim2015mind}
+B.~Kim, J.~A. Shah, and F.~Doshi-Velez.
+\newblock Mind the gap: A generative approach to interpretable feature
+  selection and extraction.
+\newblock In \emph{Advances in Neural Information Processing Systems}, pages
+  2251--2259, 2015.
 
-\bibitem[Zhong et~al.(2005)Zhong, Zeng, Ma, Liu, and Zhu]{zhong2005rsir}
-W.~Zhong, P.~Zeng, P.~Ma, J.~S. Liu, and Y.~Zhu.
-\newblock {RSIR: regularized sliced inverse regression for motif discovery}.
-\newblock \emph{Bioinformatics}, 21\penalty0 (22):\penalty0 4169--75, Nov 2005.
+\bibitem[Kim et~al.(2013)Kim, Miller, and Gajos]{kim2013learnersourcing}
+J.~Kim, R.~C. Miller, and K.~Z. Gajos.
+\newblock Learnersourcing subgoal labeling to support learning from how-to
+  videos.
+\newblock In \emph{CHI'13 Extended Abstracts on Human Factors in Computing
+  Systems}, pages 685--690. ACM, 2013.
+
+\bibitem[Klemmer(2012)]{Klemmer}
+S.~Klemmer.
+\newblock Scaling studio critique: success, bruises, and future directions.
+\newblock MIT CSAIL Seminar, 2012.
+
+\bibitem[Kolodner(1997)]{Kolodner}
+J.~L. Kolodner.
+\newblock Educational implications of analogy: A view from case-based
+  reasoning.
+\newblock \emph{American psychologist}, 52\penalty0 (1):\penalty0 57, 1997.
+
+\bibitem[Kulkarni et~al.(2015)Kulkarni, Cambre, Kotturi, Bernstein, and
+  Klemmer]{talkabout}
+C.~Kulkarni, J.~Cambre, Y.~Kotturi, M.~S. Bernstein, and S.~R. Klemmer.
+\newblock Talkabout: Making distance matter with small groups in massive
+  classes.
+\newblock In \emph{Proceedings of the 18th ACM Conference on Computer Supported
+  Cooperative Work and Social Computing}, CSCW '15, pages 1116--1128, New York,
+  NY, USA, 2015. ACM.
+\newblock ISBN 978-1-4503-2922-4.
+
+\bibitem[Kumar et~al.(2013)Kumar, Satyanarayan, Torres, Lim, Ahmad, Klemmer,
+  and Talton]{webzeitgeist}
+R.~Kumar, A.~Satyanarayan, C.~Torres, M.~Lim, S.~Ahmad, S.~R. Klemmer, and
+  J.~O. Talton.
+\newblock Webzeitgeist: Design mining the web.
+\newblock In \emph{Proceedings of the SIGCHI Conference on Human Factors in
+  Computing Systems}, pages 3083--3092. ACM, 2013.
+
+\bibitem[Kurtz et~al.(2001{\natexlab{a}})Kurtz, Miao, and Gentner]{Kurtz}
+K.~J. Kurtz, C.-H. Miao, and D.~Gentner.
+\newblock Learning by analogical bootstrapping.
+\newblock \emph{The Journal of the Learning Sciences}, 10\penalty0
+  (4):\penalty0 417--446, 2001{\natexlab{a}}.
+
+\bibitem[Kurtz et~al.(2001{\natexlab{b}})Kurtz, Miao, and
+  Gentner]{kurtz01learning}
+K.~J. Kurtz, C.-H. Miao, and D.~Gentner.
+\newblock Learning by analogical bootstrapping.
+\newblock \emph{The Journal of the Learning Sciences}, 10\penalty0
+  (4):\penalty0 417--446, 2001{\natexlab{b}}.
+
+\bibitem[Lim et~al.(2012)Lim, Kumar, Satyanarayan, Torres, Talton, and
+  Klemmer]{lim2012learning}
+M.~Lim, R.~Kumar, A.~Satyanarayan, C.~Torres, J.~Talton, and S.~Klemmer.
+\newblock Learning structural semantics for the web.
+\newblock Technical report, Tech. rep. CSTR 2012-03. Stanford University, 2012.
+
+\bibitem[Ling et~al.(2006)Ling, Chik, and Pang]{Ling2006}
+L.~M. Ling, P.~Chik, and M.~F. Pang.
+\newblock Patterns of variation in teaching the colour of light to primary 3
+  students.
+\newblock \emph{Instructional Science}, 34\penalty0 (1):\penalty0 1--19, 2006.
+\newblock ISSN 1573-1952.
+\newblock \doi{10.1007/s11251-005-3348-y}.
+\newblock URL \url{http://dx.doi.org/10.1007/s11251-005-3348-y}.
+
+\bibitem[Ling~Lo(2012)]{ling2012variation}
+M.~Ling~Lo.
+\newblock \emph{Variation theory and the improvement of teaching and learning}.
+\newblock G{\"o}teborg: Acta Universitatis Gothoburgensis, 2012.
+
+\bibitem[Linstead et~al.(2007)Linstead, Rigor, Bajracharya, Lopes, and
+  Baldi]{Linstead}
+E.~Linstead, P.~Rigor, S.~Bajracharya, C.~Lopes, and P.~Baldi.
+\newblock Mining concepts from code with probabilistic topic models.
+\newblock In \emph{Proceedings of the Twenty-second IEEE/ACM International
+  Conference on Automated Software Engineering}, ASE '07, pages 461--464, New
+  York, NY, USA, 2007. ACM.
+\newblock ISBN 978-1-59593-882-4.
+\newblock \doi{10.1145/1321631.1321709}.
+\newblock URL \url{http://doi.acm.org/10.1145/1321631.1321709}.
+
+\bibitem[Lo et~al.(2005)Lo, Pong, and Chik]{lo2005each}
+M.~L. Lo, W.~Y. Pong, and P.~P.~M. Chik.
+\newblock \emph{For each and everyone: Catering for individual differences
+  through learning studies}, volume~1.
+\newblock Hong Kong University Press, 2005.
+
+\bibitem[Loewenstein et~al.(2003{\natexlab{a}})Loewenstein, Thompson, and
+  Gentner]{Loewenstein}
+J.~Loewenstein, L.~Thompson, and D.~Gentner.
+\newblock Analogical learning in negotiation teams: Comparing cases promotes
+  learning and transfer.
+\newblock \emph{Academy of Management Learning \& Education}, 2\penalty0
+  (2):\penalty0 119--127, 2003{\natexlab{a}}.
+
+\bibitem[Loewenstein et~al.(2003{\natexlab{b}})Loewenstein, Thompson, and
+  Gentner]{loewenstein2003analogical}
+J.~Loewenstein, L.~Thompson, and D.~Gentner.
+\newblock Analogical learning in negotiation teams: Comparing cases promotes
+  learning and transfer.
+\newblock \emph{Academy of Management Learning \& Education}, 2\penalty0
+  (2):\penalty0 119--127, 2003{\natexlab{b}}.
+
+\bibitem[Luxton-Reilly et~al.(2013)Luxton-Reilly, Denny, Kirk, Tempero, and
+  Yu]{Luxton13}
+A.~Luxton-Reilly, P.~Denny, D.~Kirk, E.~Tempero, and S.-Y. Yu.
+\newblock On the differences between correct student solutions.
+\newblock In \emph{Proceedings of the 18th ACM conference on Innovation and
+  technology in computer science education}, ITiCSE '13, pages 177--182, New
+  York, NY, USA, 2013. ACM.
+\newblock ISBN 978-1-4503-2078-8.
+\newblock \doi{10.1145/2462476.2462505}.
+\newblock URL \url{http://doi.acm.org/10.1145/2462476.2462505}.
+
+\bibitem[Marton and Booth(1997)]{marton1997learning}
+F.~Marton and S.~A. Booth.
+\newblock \emph{Learning and awareness}.
+\newblock Psychology Press, 1997.
+
+\bibitem[Marton and Pang(2006)]{marton2006some}
+F.~Marton and M.~F. Pang.
+\newblock On some necessary conditions of learning.
+\newblock \emph{The Journal of the Learning sciences}, 15\penalty0
+  (2):\penalty0 193--220, 2006.
+
+\bibitem[Marton et~al.(2004)Marton, Tsui, Chik, Ko, and
+  Lo]{marton2004classroom}
+F.~Marton, A.~B. Tsui, P.~P. Chik, P.~Y. Ko, and M.~L. Lo.
+\newblock \emph{Classroom discourse and the space of learning}.
+\newblock Routledge, 2004.
+
+\bibitem[Marton et~al.(2013)Marton, Tsui, Chik, Ko, and Lo]{marton13}
+F.~Marton, A.~Tsui, P.~Chik, P.~Ko, and M.~Lo.
+\newblock \emph{Classroom Discourse and the Space of Learning}.
+\newblock Taylor \& Francis, 2013.
+\newblock ISBN 9781135642334.
+\newblock URL \url{http://books.google.com/books?id=zNWwqdhL5AYC}.
+
+\bibitem[Mazur(1997)]{mazur}
+E.~Mazur.
+\newblock \emph{Peer Instruction: A User's Manual}.
+\newblock Series in Educational Innovation. Prentice Hall, 1997.
+\newblock URL
+  \url{http://mazur-www.harvard.edu/publications.php?function=display&rowid=0}.
+
+\bibitem[Mhlolo(2013)]{Pythagoras233}
+M.~Mhlolo.
+\newblock The merits of teaching mathematics with variation.
+\newblock \emph{Pythagoras}, 34\penalty0 (2), 2013.
+\newblock ISSN 2223-7895.
+\newblock URL
+  \url{http://pythagoras.org.za/index.php/pythagoras/article/view/233}.
+
+\bibitem[Mitros(2015)]{mitros2015}
+P.~Mitros.
+\newblock Learnersourcing of complex assessments.
+\newblock In \emph{Proceedings of the Second (2015) ACM Conference on Learning
+  @ Scale}, L@S '15, pages 317--320, New York, NY, USA, 2015. ACM.
+\newblock ISBN 978-1-4503-3411-2.
+
+\bibitem[Nguyen et~al.(2014)Nguyen, Piech, Huang, and Guibas]{codewebs}
+A.~Nguyen, C.~Piech, J.~Huang, and L.~J. Guibas.
+\newblock Codewebs: scalable homework search for massive open online
+  programming courses.
+\newblock In \emph{WWW}, pages 491--502, 2014.
+
+\bibitem[Noble et~al.(1998)Noble, Tabar, and Scott]{noble1998contents}
+G.~Noble, P.~Tabar, and P.~Scott.
+\newblock Contents image of publication peer reviewed citation only bookmark
+  and share more information about this publication'if anyone called me a wog,
+  they wouldn't be speaking to me alone'.
+\newblock 1998.
+
+\bibitem[{Paas} and van {Merrienboer}(1994)]{workedexamplesvariability}
+F.~G. {Paas} and J.~J. van {Merrienboer}.
+\newblock Variability of worked examples and transfer of geometrical
+  problem-solving skills : a cognitive-load approach.
+\newblock \emph{Journal of Educational Psychology}, 86\penalty0 (1):\penalty0
+  122--133, 1994.
+\newblock URL \url{http://doc.utwente.nl/26427/}.
+
+\bibitem[Peters(2010)]{peters2010zen}
+T.~Peters.
+\newblock The zen of python.
+\newblock In \emph{Pro Python}, pages 301--302. Springer, 2010.
+
+\bibitem[Quilici and Mayer(1996)]{quilicimayer}
+J.~L. Quilici and R.~E. Mayer.
+\newblock Role of examples in how students learn to categorize statistics word
+  problems.
+\newblock \emph{Journal of Educational Psychology}, 88\penalty0 (1):\penalty0
+  144, 1996.
+
+\bibitem[Rees(1982)]{Rees:1982}
+M.~J. Rees.
+\newblock Automatic assessment aids for pascal programs.
+\newblock \emph{SIGPLAN Not.}, 17\penalty0 (10):\penalty0 33--42, Oct. 1982.
+\newblock ISSN 0362-1340.
+\newblock \doi{10.1145/948086.948088}.
+\newblock URL \url{http://doi.acm.org/10.1145/948086.948088}.
+
+\bibitem[Ritchie et~al.(2011)Ritchie, Kejriwal, and Klemmer]{ritchie2011d}
+D.~Ritchie, A.~A. Kejriwal, and S.~R. Klemmer.
+\newblock d. tour: Style-based exploration of design example galleries.
+\newblock In \emph{Proceedings of the 24th annual ACM symposium on User
+  interface software and technology}, pages 165--174. ACM, 2011.
+
+\bibitem[Rittle-Johnson and Star(2007)]{rittle2007does}
+B.~Rittle-Johnson and J.~R. Star.
+\newblock Does comparing solution methods facilitate conceptual and procedural
+  knowledge? an experimental study on learning to solve equations.
+\newblock \emph{Journal of Educational Psychology}, 99\penalty0 (3):\penalty0
+  561, 2007.
+
+\bibitem[Rivers and Koedinger(2015)]{rivers2015data}
+K.~Rivers and K.~R. Koedinger.
+\newblock Data-driven hint generation in vast solution spaces: a self-improving
+  python programming tutor.
+\newblock \emph{International Journal of Artificial Intelligence in Education},
+  pages 1--28, 2015.
+
+\bibitem[Robinson and Soffa(1980)]{Robinson:1980}
+S.~S. Robinson and M.~L. Soffa.
+\newblock An instructional aid for student programs.
+\newblock \emph{SIGCSE Bull.}, 12\penalty0 (1):\penalty0 118--129, Feb. 1980.
+\newblock ISSN 0097-8418.
+\newblock \doi{10.1145/953032.804623}.
+\newblock URL \url{http://doi.acm.org/10.1145/953032.804623}.
+
+\bibitem[Rogers et~al.(2014)Rogers, Garcia, Canny, Tang, and Kang]{ACESthesis}
+S.~Rogers, D.~Garcia, J.~F. Canny, S.~Tang, and D.~Kang.
+\newblock \emph{ACES: Automatic evaluation of coding style}.
+\newblock PhD thesis, Master’s thesis, EECS Department, University of
+  California, Berkeley, 2014.
+
+\bibitem[Roy et~al.(2009)Roy, Cordy, and Koschke]{roy2009comparison}
+C.~K. Roy, J.~R. Cordy, and R.~Koschke.
+\newblock Comparison and evaluation of code clone detection techniques and
+  tools: A qualitative approach.
+\newblock \emph{Science of Computer Programming}, 74\penalty0 (7):\penalty0
+  470--495, 2009.
+
+\bibitem[Sahami~Shirazi et~al.(2013)Sahami~Shirazi, Henze, Schmidt, Goldberg,
+  Schmidt, and Schmauder]{Shirazi}
+A.~Sahami~Shirazi, N.~Henze, A.~Schmidt, R.~Goldberg, B.~Schmidt, and
+  H.~Schmauder.
+\newblock Insights into layout patterns of mobile user interfaces by an
+  automatic analysis of android apps.
+\newblock In \emph{Proceedings of the 5th ACM SIGCHI Symposium on Engineering
+  Interactive Computing Systems}, EICS '13, pages 275--284, New York, NY, USA,
+  2013. ACM.
+\newblock ISBN 978-1-4503-2138-9.
+\newblock \doi{10.1145/2494603.2480308}.
+\newblock URL \url{http://doi.acm.org/10.1145/2494603.2480308}.
+
+\bibitem[Sajaniemi(2002)]{sajaniemi2002empirical}
+J.~Sajaniemi.
+\newblock An empirical analysis of roles of variables in novice-level
+  procedural programs.
+\newblock In \emph{null}, page~37. IEEE, 2002.
+
+\bibitem[Schleimer et~al.(2003)Schleimer, Wilkerson, and
+  Aiken]{schleimer2003winnowing}
+S.~Schleimer, D.~S. Wilkerson, and A.~Aiken.
+\newblock Winnowing: local algorithms for document fingerprinting.
+\newblock In \emph{Proceedings of the 2003 ACM SIGMOD international conference
+  on Management of data}, pages 76--85. ACM, 2003.
+
+\bibitem[Shasha et~al.(1994)Shasha, Wang, Zhang, and Shih]{shasha1994exact}
+D.~Shasha, J.-L. Wang, K.~Zhang, and F.~Y. Shih.
+\newblock Exact and approximate algorithms for unordered tree matching.
+\newblock \emph{Systems, Man and Cybernetics, IEEE Transactions on},
+  24\penalty0 (4):\penalty0 668--678, 1994.
+
+\bibitem[Shute(2008)]{formative}
+V.~J. Shute.
+\newblock Focus on formative feedback.
+\newblock \emph{Review of educational research}, 78\penalty0 (1):\penalty0
+  153--189, 2008.
+
+\bibitem[Singh et~al.(2013)Singh, Gulwani, and Solar-Lezama]{autograder}
+R.~Singh, S.~Gulwani, and A.~Solar-Lezama.
+\newblock Automated feedback generation for introductory programming
+  assignments.
+\newblock In \emph{Proceedings of the 34th ACM SIGPLAN Conference on
+  Programming Language Design and Implementation}, PLDI '13, pages 15--26, New
+  York, NY, USA, 2013. ACM.
+\newblock ISBN 978-1-4503-2014-6.
+\newblock \doi{10.1145/2491956.2462195}.
+\newblock URL \url{http://doi.acm.org/10.1145/2491956.2462195}.
+
+\bibitem[Soloway and Ehrlich(1984)]{Soloway1984}
+E.~Soloway and K.~Ehrlich.
+\newblock Empirical studies of programming knowledge.
+\newblock \emph{IEEE Trans. Softw. Eng.}, 10\penalty0 (5):\penalty0 595--609,
+  Sept. 1984.
+\newblock ISSN 0098-5589.
+
+\bibitem[Sottilare et~al.(2014)Sottilare, Graesser, Hu, and
+  Goldberg]{sottilare2014design}
+R.~A. Sottilare, A.~Graesser, X.~Hu, and B.~Goldberg.
+\newblock \emph{Design Recommendations for Intelligent Tutoring Systems: Volume
+  2-Instructional Management}, volume~2.
+\newblock US Army Research Laboratory, 2014.
+
+\bibitem[Sridhara et~al.(2016)Sridhara, Hou, Lu, and DeNero]{fuzztesting}
+S.~Sridhara, B.~Hou, J.~Lu, and J.~DeNero.
+\newblock Fuzz testing projects in massive courses.
+\newblock In \emph{Proceedings of the Third (2016) ACM Conference on Learning@
+  Scale}, pages 361--367. ACM, 2016.
+
+\bibitem[Srikant and Aggarwal(2014)]{srikant2014system}
+S.~Srikant and V.~Aggarwal.
+\newblock A system to grade computer programming skills using machine learning.
+\newblock In \emph{Proceedings of the 20th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 1887--1896. ACM, 2014.
+
+\bibitem[Suhonen et~al.(2007)Suhonen, Davies, Thompson,
+  et~al.]{suhonen2007applications}
+J.~Suhonen, J.~Davies, E.~Thompson, et~al.
+\newblock Applications of variation theory in computing education.
+\newblock In \emph{Proceedings of the Seventh Baltic Sea Conference on
+  Computing Education Research-Volume 88}, pages 217--220. Australian Computer
+  Society, Inc., 2007.
+
+\bibitem[Taherkhani et~al.(2010)Taherkhani, Korhonen, and
+  Malmi]{taherkhani2010recognizing}
+A.~Taherkhani, A.~Korhonen, and L.~Malmi.
+\newblock Recognizing algorithms using language constructs, software metrics
+  and roles of variables: An experiment with sorting algorithms.
+\newblock \emph{The Computer Journal}, page bxq049, 2010.
+
+\bibitem[Topping(1998)]{peerassessment}
+K.~Topping.
+\newblock Peer assessment between students in colleges and universities.
+\newblock \emph{Review of Educational Research}, 68\penalty0 (3):\penalty0 pp.
+  249--276, 1998.
+
+\bibitem[Turns et~al.(2014)Turns, Sattler, Yasuhara, Borgford-Parnell, and
+  Atman]{asee}
+J.~Turns, B.~Sattler, K.~Yasuhara, J.~Borgford-Parnell, and C.~Atman.
+\newblock Integrating reflection into engineering education.
+\newblock In \emph{Proceedings of the ASEE Annual Conference and Exposition}.
+  ACM, 2014.
+
+\bibitem[Van~Merri{\"e}nboer et~al.(2002)Van~Merri{\"e}nboer, Clark, and
+  De~Croock]{van2002blueprints}
+J.~J. Van~Merri{\"e}nboer, R.~E. Clark, and M.~B. De~Croock.
+\newblock Blueprints for complex learning: The 4c/id-model.
+\newblock \emph{Educational technology research and development}, 50\penalty0
+  (2):\penalty0 39--61, 2002.
+
+\bibitem[van Merri{\"e}nboer(2012)]{Variabilityofpractice}
+J.~J.~G. van Merri{\"e}nboer.
+\newblock \emph{Variability of Practice}, pages 3389--3390.
+\newblock Springer US, Boston, MA, 2012.
+\newblock ISBN 978-1-4419-1428-6.
+\newblock \doi{10.1007/978-1-4419-1428-6_415}.
+\newblock URL \url{http://dx.doi.org/10.1007/978-1-4419-1428-6_415}.
+
+\bibitem[Vanlehn et~al.(2005)Vanlehn, Lynch, Schulze, Shapiro, Shelby, Taylor,
+  Treacy, Weinstein, and Wintersgill]{andes}
+K.~Vanlehn, C.~Lynch, K.~Schulze, J.~A. Shapiro, R.~Shelby, L.~Taylor,
+  D.~Treacy, A.~Weinstein, and M.~Wintersgill.
+\newblock The andes physics tutoring system: Lessons learned.
+\newblock \emph{International Journal of Artificial Intelligence in Education},
+  15\penalty0 (3):\penalty0 147--204, 2005.
+
+\bibitem[Viera and Garrett(2005)]{viera2005understanding}
+A.~J. Viera and J.~M. Garrett.
+\newblock Understanding interobserver agreement: the kappa statistic.
+\newblock \emph{Fam Med}, 37\penalty0 (5):\penalty0 360--363, 2005.
+
+\bibitem[Vygotsky(1987)]{ZMP}
+L.~Vygotsky.
+\newblock Zone of proximal development.
+\newblock \emph{Mind in society: The development of higher psychological
+  processes}, 5291, 1987.
+
+\bibitem[Walberg(1984)]{walberg1984improving}
+H.~J. Walberg.
+\newblock Improving the productivity of america's schools.
+\newblock \emph{Educational leadership}, 41\penalty0 (8):\penalty0 19--27,
+  1984.
+
+\bibitem[Wass and Golding(2014)]{zpd14}
+R.~Wass and C.~Golding.
+\newblock Sharpening a tool for teaching: the zone of proximal development.
+\newblock \emph{Teaching in Higher Education}, 19\penalty0 (6):\penalty0
+  671--684, 2014.
+\newblock \doi{10.1080/13562517.2014.901958}.
+
+\bibitem[Weir et~al.(2015)Weir, Kim, Gajos, and Miller]{weir2015}
+S.~Weir, J.~Kim, K.~Z. Gajos, and R.~C. Miller.
+\newblock Learnersourcing subgoal labels for how-to videos.
+\newblock In \emph{Proceedings of the 18th ACM Conference on Computer Supported
+  Cooperative Work and Social Computing}, CSCW '15, pages 405--416, New York,
+  NY, USA, 2015. ACM.
+\newblock ISBN 978-1-4503-2922-4.
+
+\bibitem[Weld et~al.(2012)Weld, Adar, Chilton, Hoffmann, Horvitz, Koch, Landay,
+  Lin, and Mausam]{WeldHcomp12}
+D.~Weld, E.~Adar, L.~Chilton, R.~Hoffmann, E.~Horvitz, M.~Koch, J.~Landay,
+  C.~Lin, and Mausam.
+\newblock Personalized online education -- a crowdsourcing challenge.
+\newblock In \emph{Proceedings of the 4th Human Computation Workshop (HCOMP
+  '12) at AAAI}, 2012.
+
+\bibitem[Wood et~al.(1976)Wood, Bruner, and Ross]{woodscaffolding}
+D.~Wood, J.~S. Bruner, and G.~Ross.
+\newblock The role of tutoring in problem solving*.
+\newblock \emph{Journal of child psychology and psychiatry}, 17\penalty0
+  (2):\penalty0 89--100, 1976.
+
+\bibitem[Wood and Tanner(2012)]{wood2012role}
+W.~B. Wood and K.~D. Tanner.
+\newblock The role of the lecturer as tutor: doing what effective tutors do in
+  a large lecture class.
+\newblock \emph{CBE-Life Sciences Education}, 11\penalty0 (1):\penalty0 3--9,
+  2012.
+
+\bibitem[Xu and Chee(2003)]{xutransformation}
+S.~Xu and Y.~S. Chee.
+\newblock Transformation-based diagnosis of student programs for programming
+  tutoring systems.
+\newblock \emph{IEEE Trans. Softw. Eng.}, 29\penalty0 (4):\penalty0 360--384,
+  2003.
+
+\bibitem[Yin et~al.(2015)Yin, Moghadam, and Fox]{yin2015clustering}
+H.~Yin, J.~Moghadam, and A.~Fox.
+\newblock Clustering student programming assignments to multiply instructor
+  leverage.
+\newblock In \emph{Proceedings of the Second (2015) ACM Conference on Learning@
+  Scale}, pages 367--372. ACM, 2015.
 
 \end{thebibliography}

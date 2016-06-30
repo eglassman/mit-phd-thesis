@@ -44,7 +44,7 @@ Intelligent tutoring systems (ITSes), Massive Open Online Courses (MOOCs), and w
 %\includegraphics[width=1.0\linewidth]{figures/frontPageInterfacePreview.png}
 \includegraphics[width=1.0\linewidth]{Body/figures/overcode/interfaceScreenShot.png}
 \caption{The OverCode user interface. The top left panel shows the number of clusters, called {\it stacks}, and the total number of solutions visualized. The next panel down in the first column shows the largest stack, while the second column shows the remaining stacks. The third column shows the lines of code occurring in the cleaned solutions of the stacks together with their frequencies.}
-\label{fullinterface}
+\label{overcode_fullinterface}
 \end{figure*}
 
 Sifting through thousands of solutions to understand their variation and find pedagogically valuable examples is a daunting task, even if the programming exercises are simple and the solutions are only tens of lines of code long. Without tool support, a teacher may not read more than 50-100 of them before growing frustrated with the tedium of the task. Given this small sample size, teachers cannot be expected to develop a thorough understanding of the variety of strategies used to solve the problem, or produce instructive feedback that is relevant to a large proportion of learners, or find unexpected interesting solutions.
@@ -53,7 +53,7 @@ An information visualization approach would enable teachers to explore the varia
 
 In this paper we present OverCode, a system for visualizing and exploring the variation in thousands of programming solutions. OverCode is designed to visualize correct solutions, in the sense that they already passed the automatic grading tests typically used in a programming class at scale. The autograder cannot offer any further feedback on these correct solutions, and yet there may still be good and bad variations on correct solutions that are pedagogically valuable to highlight and discuss. OverCode aims to help teachers understand solution variation so that they can provide appropriate feedback to students at scale.
 
-OverCode uses a novel clustering technique that creates clusters of identical cleaned code, in time linear in both the number of solutions and the size of each solution. The cleaned code is readable, executable, and describes every solution in that cluster.  The cleaned code is shown in a visualization that puts code front-and-center (Figure~\ref{fullinterface}). In OverCode, the teacher reads through code solutions that each represent an entire cluster of solutions that look and act the same. The differences between clusters are highlighted to help teachers discover and understand the variations among submitted solutions. Clusters can be filtered by the lines of code within them.  Clusters can also be merged together with {\em rewrite rules} that collapse variations that the teacher decides are unimportant. 
+OverCode uses a novel clustering technique that creates clusters of identical cleaned code, in time linear in both the number of solutions and the size of each solution. The cleaned code is readable, executable, and describes every solution in that cluster.  The cleaned code is shown in a visualization that puts code front-and-center (Figure~\ref{overcode_fullinterface}). In OverCode, the teacher reads through code solutions that each represent an entire cluster of solutions that look and act the same. The differences between clusters are highlighted to help teachers discover and understand the variations among submitted solutions. Clusters can be filtered by the lines of code within them.  Clusters can also be merged together with {\em rewrite rules} that collapse variations that the teacher decides are unimportant. 
 
 A cluster in OverCode is a set of solutions that perform the same computations, but may use different variable names or statement order.  OverCode uses a lightweight dynamic analysis to generate clusters, which scales linearly with the number of solutions. It clusters solutions whose variables take the same sequence of values when executed on test inputs and whose set of constituent lines of code are syntactically the same. An important component of this analysis is to rename variables that behave the same across different solutions. The renaming of variables serves three main purposes. First, it lets teachers create a mental mapping between variable names and their behavior which is consistent across the entire set of solutions. This may reduce the cognitive load for a teacher to understand different solutions. Second, it helps clustering by reducing variation between similar solutions. Finally, it also helps make the remaining differences between different solutions more salient. 
 
@@ -62,7 +62,7 @@ In two user studies with a total of 24 participants who each looked at thousands
 \section{OverCode} \label{overcode}
 We now describe the OverCode user interface. OverCode is an information visualization application for teachers to explore student program solutions. The OverCode interface allows the user to scroll, filter, and \emph{stack} solutions. OverCode uses the metaphor of stacks to denote collections of similar solutions, where each stack shows a \emph{cleaned} solution from the corresponding collection of identical cleaned solutions it represents. These cleaned solutions have strategically renamed variables and can be filtered by the cleaned lines of code they contain. Cleaned solutions can also be rewritten when users compose and apply a \emph{rewrite rule}, which can eliminate differences between cleaned solutions and therefore combine stacks of cleaned solutions that have become identical.
 
-We iteratively designed and developed the OverCode interface based on continuous evaluation by the authors, feedback from teachers and peers, and by consulting principles from the information visualization literature. A screenshot of OverCode visualizing \codevar{iterPower}, one of the problems from our dataset, is shown in Figure~\ref{fullinterface}. In this section, we describe the intended use cases and the user interface. In Section \ref{pipeline}, the backend program analysis pipeline is described in detail. 
+We iteratively designed and developed the OverCode interface based on continuous evaluation by the authors, feedback from teachers and peers, and by consulting principles from the information visualization literature. A screenshot of OverCode visualizing \codevar{iterPower}, one of the problems from our dataset, is shown in Figure~\ref{overcode_fullinterface}. In this section, we describe the intended use cases and the user interface. In Section \ref{pipeline}, the backend program analysis pipeline is described in detail. 
 \subsection{Target Users and Applications}
 The target users of OverCode are teaching staff of introductory programming courses. Teaching staff may be undergraduate lab assistants who help students debug their code; graduate students who grade assignments, help students debug, and manage recitations and course forums; and lecturing professors who also compose the major course assessments. Teachers using OverCode may be looking for common misconceptions, creating a grading rubric, or choosing pedagogically valuable examples to review with students in a future lesson.
 
@@ -80,12 +80,12 @@ The OverCode user interface is the product of an iterative design process with m
 
 The OverCode user interface is divided into three columns. The top-left panel in the first column shows the problem name, the \emph{done} progress bar, the number of stacks, the number of visualized stacks given the current filters and rewrite rules, and the total number of solutions those visualized stacks contain. The panel below shows the largest stack that represents the most common solution. Side by side with the largest stack, the remaining solution stacks appear in the second panel. Through scrolling, any stack can be horizontally aligned with the largest stack for easier comparison. The third panel has three different tabs that provide static and dynamic information about the solutions, and the ability to filter and combine stacks. 
 
-As shown in Figure~\ref{fullinterface}, the default tab shows a list of lines of code that occur in different cleaned solutions together with their corresponding frequencies. The stacks can be filtered based on the occurrence of one or more lines (Filter tab). The column also has tabs for \emph{Rewrite} and \emph{Legend}. The Rewrite tab allows a teacher to provide rewrite rules to collapse different stacks with small differences into a larger single stack. The Legend tab shows the dynamic values that different program variables take during the execution of programs over a test case. We now describe different features of OverCode in more detail.
+As shown in Figure~\ref{overcode_fullinterface}, the default tab shows a list of lines of code that occur in different cleaned solutions together with their corresponding frequencies. The stacks can be filtered based on the occurrence of one or more lines (Filter tab). The column also has tabs for \emph{Rewrite} and \emph{Legend}. The Rewrite tab allows a teacher to provide rewrite rules to collapse different stacks with small differences into a larger single stack. The Legend tab shows the dynamic values that different program variables take during the execution of programs over a test case. We now describe different features of OverCode in more detail.
 
 
 \subsubsection{Stacks} A stack in OverCode denotes a set of similar solutions that are grouped together based on a similarity criterion defined in Section \ref{pipeline}. For example, a stack for the \codevar{iterPower} problem is shown in Figure~\ref{stacks}(a). The size of each stack is shown in a pillbox at the top-left corner of the stack. The count denotes how many solutions are in the stack, and can also be referred to as the stack {\it size}. Stacks are listed in the scrollable second panel from largest to smallest. The solution on the top of the stack is a cleaned solution that describes all the solutions in the stack. See Section \ref{pipeline} for details on the cleaning process.
 
-Each stack can also be clicked. After clicking a stack, the border color of the stack changes and the \emph{done} progress bar is updated to reflect the percentage of total solutions clicked, as shown in Figure~\ref{stacks}(b). This feature is intended to help users remember which stacks they have already read or analyzed, and keep track of their progress. Clicking on a large stack, which represents a significant fraction of the total solutions, is reflected by a large change in the \emph{done} progress bar. 
+Each stack can also be clicked. After clicking a stack, the border color of the stack changes and the \emph{done} progress bar is updated to reflect the percentage of total solutions clicked, as shown in Figure~\ref{stacks}(b). This feature is intended to help users remember which stacks they have already read or analyzed, and keep track of their progress. Clicking on a large stack, which represents a significant fraction of the total solutions, is reflected by a large change in the \emph{done} progress bar. \todo{add that now the raw solutions inside the stack are also displayed, but this was not included during user study tests}
 
 \begin{figure*}[htpb]
 \begin{tabular}{c | c}
@@ -140,7 +140,7 @@ Users can filter the stacks by selecting one or more lines of code from the list
 
 \subsubsection{Rewrite Rules} There are often small differences between the cleaned solutions that can lead to a large number of stacks for a teacher to review. OverCode provides \emph{rewrite rules} by which users can collapse these differences and ignore variation they do not need to see. This feature comes from experience with early prototypes. After observing a difference between stacks, like the use of \codevar{xrange} instead of \codevar{range}, users wanted to ignore that difference in order to more easily find other differences.
 
-A rewrite rule is described with a left hand side and a right hand side as shown in Figure~\ref{rewriterule}(a). The semantics of a rewrite rule is to replace all occurrences of the left hand side expression in the cleaned solutions with the corresponding right hand side. As the rewrite rules are entered, OverCode presents a preview of the changes in the cleaned solutions as shown in Figure~\ref{rewriterule}(b). After the application of the rewrite rules, OverCode collapses stacks that now have the same cleaned solutions because of the rewrites. For example, after the application of the rewrite rule in Figure~\ref{rewriterule}(a), OverCode collapses the two biggest iterPower stacks from Figure~\ref{fullinterface} of sizes $1534$ and $374$, respectively, into a single stack of size $1908$. Other pairs of stacks whose differences have now been removed by the rewrite rule are also collapsed into single stacks. As shown in Figure~\ref{afterrewrite}(a), the number of stacks now drop from $862$ to $814$.
+A rewrite rule is described with a left hand side and a right hand side as shown in Figure~\ref{rewriterule}(a). The semantics of a rewrite rule is to replace all occurrences of the left hand side expression in the cleaned solutions with the corresponding right hand side. As the rewrite rules are entered, OverCode presents a preview of the changes in the cleaned solutions as shown in Figure~\ref{rewriterule}(b). After the application of the rewrite rules, OverCode collapses stacks that now have the same cleaned solutions because of the rewrites. For example, after the application of the rewrite rule in Figure~\ref{rewriterule}(a), OverCode collapses the two biggest iterPower stacks from Figure~\ref{overcode_fullinterface} of sizes $1534$ and $374$, respectively, into a single stack of size $1908$. Other pairs of stacks whose differences have now been removed by the rewrite rule are also collapsed into single stacks. As shown in Figure~\ref{afterrewrite}(a), the number of stacks now drop from $862$ to $814$.
 
 \begin{figure*}[htpb]
 \begin{tabular}{c | c}
@@ -663,7 +663,7 @@ Unlike previous pairwise AST edit distance-based clustering approaches that have
 
 \section{Dataset} \label{dataset}
 
-For evaluating both the analysis pipeline and the user interface of OverCode, we use a dataset of solutions from 6.00x, an introductory programming course in Python that was offered on edX in fall 2012. We chose Python solutions from three exercise problems, and this dataset consists of student solutions submitted within two weeks of the posting of the those three problems. We obtained thousands of submissions to these problems, from which we selected all correct solutions (tested over a set of test cases) for our analysis. The number of solutions analyzed for each problem is shown in Figure~\ref{solutioncounttable}.
+For evaluating both the analysis pipeline and the user interface of OverCode, we use a dataset of solutions from 6.00x, an introductory programming course in Python that was offered on edX in fall 2012. We chose Python solutions from three exercise problems, and this dataset consists of student solutions submitted within two weeks of the posting of the those three problems. We obtained thousands of submissions to these problems, from which we selected all correct solutions (tested over a set of test cases) for our analysis. The number of solutions analyzed for each problem is shown in Figure~\ref{overcode_solutioncounttable}.
 
 
 
@@ -690,7 +690,7 @@ We chose these three exercises for our dataset because they are representative o
 \end{tabular}
 \end{center}}
 \caption{Number of solutions for the three problems in our 6.00x dataset.}
-\label{solutioncounttable}
+\label{overcode_solutioncounttable}
 \end{figure*}
 
 \begin{figure*}
@@ -1237,25 +1237,62 @@ We also found that subjects' feedback on solutions for the \codevar{compDeriv} p
 \subsection{Perceived coverage}
 In addition to the actual read and feedback coverage that subjects achieved, an important finding was that (i) subjects felt they had developed a better high-level understanding of student solutions and (ii) subjects stated they were more confident that identified strategies were frequent issues in the dataset. While a low self-reported confidence score did not necessarily correlate with low feedback coverage, these results suggest that OverCode enables the teacher to gauge the impact that their feedback will have.
 
+\section{Post-Publication Modifications}
+
+%\subsection{Handling Multiple Test Cases}
+%For the convenience and speed of adding more solutions without unnecessary repeated computation,
+
+\subsection{Multiple Test Cases and Efficiency} 
+Since publication, the OverCode pipeline has been modified in several ways. It has been split into two phases: solution preprocessing and batch processing. During preprocessing, each solution's formatting is standardized and all comments are removed. It is then executed on one or more test cases, which makes the resulting canonicalization more robust to any individual poorly chosen test case. The full program trace and output is recorded for every test case. 
+
+This logging of solution execution can be one of the longer steps in the OverCode analysis pipeline, so preprocessing occurs once were solution and is saved in its own pickle file. New solutions can be preprocessed once, without affecting previously preprocessed solutions. Batch processing takes, as input, all the existing preprocessed results and canonializes variable names. This must occur as a batch operation because variable renaming depends on the behavior and name of every variable in every solution.
+
+\subsection{Collecting Additional Information per Line}~\label{subsec:morelineinfo}
+It was also noticed that a single-line difference between two solutions could, by affecting a variable's behavior, cause the variable renaming process to propagate that difference as a variable name change throughout all the lines that mention the affected variable. This non-locality of difference made it harder to spot in the user interface where the actual syntactic difference between two canonicalized solutions was. As a result, stacks are rendered in the user interface slightly differently. Now, even if the canonicalized variable names are different between two syntactically identical lines of code in two different stacks, if the variables take on the same sequence of values {\it just within that line of code}, it will not be highlighted as different in the user interface. Only the line with the syntactic difference will be highlighted.
+
+In order to implement this, the modified pipeline examines the program trace collected during preprocessing and the AST for each solution and compiles the following information for each line of code in each solution:
+\begin{enumerate}
+\item a template, i.e., the line of code with variables replaced by blanks, e.g., \texttt{\underline{\hspace{1em}} += 1} and \texttt{for \underline{\hspace{1em}} in range(\underline{\hspace{1em}}):}
+\item an ordered list of the common variables' behavior and their canonicalized names corresponding to each blank in the line, e.g., the blank in \texttt{\underline{\hspace{1em}} += 1} can be associated with one of several common variables, depending on the rest of the solution
+\item an ordered list of the sequences of values each blanked-out variable in the line took on during execution, e.g., the first blank in \texttt{for \underline{\hspace{1em}} in range(\underline{\hspace{1em}}):} might iterate through \texttt{1,2,3} while, with each visitation of this line during execution, the second blank stays constant at \texttt{[1,2,3],[1,2,3],[1,2,3]}
+\end{enumerate}
+Items 1 and 2 in this list together contain the information in the original canonicalized lines in OverCode and information about the line's syntax, regardless of the variables' identities. Items 1 and 3 capture the information necessary to tell what the variable behavior is just within that one line and whether two lines in two different stacks will be highlighted as different from each other.% is, without being affected a very similar concept, except it is more robust to non-local variations in variable behavior. For example, if the line of code \texttt{for ___ in range(___):}initialization of two common variables 
+
+This information is also used for variable renaming in incorrect solutions, as described in Section~\ref{subsec:grovercodepipeline}.
+
 \begin{comment}
 
-- Limitations
-  - Language agnostic?
-  - Complex variable values (recursive data types, objects)
+ For example, in the two examples of raw solutions below, there is one syntactic difference: in the second solution, \texttt{result} is initialized as a float instead of an int. Given that, in Python, the difference between \texttt{float}s and \texttt{int}s can cause problems for novice Python students, such as accidental integer division, \texttt{1} and \texttt{1.0} are considered to be different values, and therefore the \texttt{result} variables in each solution will be given distinct names in the canonicalized solutions. Now, r
+\begin{tabular}{cc} 
+\begin{minipage}{0.4\linewidth}
+\begin{lstlisting}[]
+def iterPower(base, exp):
+    result=1
+    i=0
+    while i < exp:
+        result *= base
+        i += 1
+    return result
+\end{lstlisting}
+\end{minipage}
+&
+\begin{minipage}{0.4\linewidth}
+\begin{lstlisting}[]
+def iterPower(base, exp):
+    result=1
+    i=0
+    while i < exp:
+        result *= base
+        i += 1
+    return result * 1.0
+\end{lstlisting}
+\end{minipage}
+\end{tabular}
 \end{comment}
-\section{Future Work}
 
-Currently, we have used OverCode to look at solutions from an introductory programming course. We have yet to explore how well it scales to increasingly complex code solutions. OverCode enabled higher feedback coverage on one of the two more complicated problems in the Coverage Study; applying the OverCode system to even more complicated code will demonstrate how well it scales up, and may also expose the need for new pipeline and interface features that be addressed. One foreseeable complication is the need to handle complex variable values. OverCode could also readily handle more programming languages. For a language to be displayable in OverCode, one would need (1) a logger of variable values inside tested functions, (2) a variable renamer and (3) a formatting standardization script.
+For clarity in the OverCode user interface, the modifiers appended to common variables to resolve Common/Common collisions are no longer capitalized letters. Instead, they are rendered in the interface as numerical subscripts indicating whether they are the second or third or fourth (etc.) most frequently occurring common variable with that name across all the solutions in the collection analyzed.
 
-OverCode could be integrated with the autograder that tests functions for input-output correctness. The execution could be performed once in such a way that it serves both systems, since both OverCode and many autograders require actually executing the code on specified test cases. If integrated into the autograder, users of OverCode could also give `power feedback' by writing line- or stack-specific feedback to be sent back to students along with the input-output test results. This would require pipeline and user interface modifications, in order to account for the fact that not all solutions would be returning the same values for each test case.
 
-OverCode may also provide benefit to students, not just the teaching staff, after students have solved the problem on their own, like Cody. However, the current interface may need to be adjusted for use by non-expert students, instead of teaching staff.
-
-Our user study participants produced a variety of suggestions for additional features. In addition to those but unmentioned by users, variable renaming obscures pedagogically relevant information. The user-tested UI does not include access to raw solutions represented by a stack's cleaned code, or to the original variable names represented by a common variable name. This can be accomplished by adding tooltips and dropdown menus. This may also be part of better communicating to users that they are looking at cleaned, not raw, code.
-
-When the program tracing, renaming, or reformatting scripts generate an error while processing a solution, we exclude the solution from our analysis. Less than five percent of solutions were excluded from each problem, but that can be reduced further by adding support for handling more special cases and language constructs to these library functions. 
-
-Also, our current backend analysis computes the set of common variables by comparing the sequence of values the variables take over a single test case, but this can be easily generalized and extended to work over multiple test cases. The definition of common variables would then be slightly modified to be those variables that take the same \emph{set} of sequence of values.
 
 \section{Conclusion}
 We have designed the OverCode system for visualizing thousands of Python programming solutions to help teachers explore the variations among them. Unlike previous approaches, OverCode uses a lightweight static and dynamic analysis to generate stacks of similar solutions and uses variable renaming to present cleaned solutions for each stack in an interactive user interface. It allows teachers to filter stacks by line occurrence and to further merge different stacks by composing rewrite rules. Based on two user studies with 24 current and potential teaching assistants, we found OverCode allowed teachers to more quickly develop a high-level view of students' understanding and misconceptions, and provide feedback that is relevant to more students' solutions. We believe an information visualization approach is necessary for teachers to explore the variations among solutions at the scale of MOOCs, and OverCode is an important step towards that goal.          

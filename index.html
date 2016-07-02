@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Clustering and Visualizing Solution Variation in Programming Classes</title>
+        <title>Clustering and Visualizing Solution Variation in Massive Programming Classes</title>
 
         <meta name="description" content="Phd Defense">
         <meta name="author" content="Elena L. Glassman">
@@ -24,7 +24,9 @@
         <!-- reveal-ally for accessibility -->
         <link rel="stylesheet" href="plugin/accessibility/helper.css">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!--bootstrap-->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
 
         <!-- Printing and PDF exports -->
         <script>
@@ -59,13 +61,77 @@
             <div class="slides">
                 <section data-markdown>
                     <script type="text/template">
-                        # Clustering and Visualizing Solution Variation
-
-                        ### in Programming Classes
+                        ##Clustering and Visualizing 
+                        ##Solution Variation 
+                        ##in Programming Classes
                         
                         Elena L. Glassman
                         
                         #### MIT CSAIL UID Group
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Big Programming Classes 
+                        
+                        <img data-src="img/big_class.jpg" alt="Big Class">
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####One-on-One Tutoring
+
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <ul>
+                              <li>Great tutors have:</li>
+                              <ul>
+                                <li>domain knowledge</li>
+                                <li>pedagogical content knowledge</li>
+                                <li>nurturing relationship</li>
+                                <li>Socratic style</li>
+                                <li>progressive content</li>
+                                <li>feedback on solutions, not students</li>
+                              </ul>
+                            </ul>
+                          </div>
+                          <div class="col-sm-6"><img data-src="img/one_on_one.jpg" alt="Tutoring Session"></div>
+                        </div>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Many Different Solutions 
+                        
+                        <img data-src="img/solution1.jpg" alt="Solution 1">
+                        <img data-src="img/solution2.jpg" alt="Solution 2">
+                        <img data-src="img/solution3.jpg" alt="Solution 3">
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <h4>Problem</h4>
+
+                            How do you scale up one-on-one interactions?
+                          </div>
+                          <div class="col-sm-6">
+                            <h4>Opportunity</h4>
+
+                            What value <i>only</i> exists in a massive classroom?
+                          </div>
+                        </div>
+
+                        <!-- - Problem:
+                            - Scale up one-on-one practices
+
+                        - Opportunity
+                            - Give teachers & students population-level perspective -->
                     </script>
                 </section>
 
@@ -723,7 +789,7 @@ Reveal.addEventListener( 'customevent', function() {
                 controls: true,
                 progress: true,
                 history: true,
-                center: true,
+                //center: true,
 
                 transition: 'none', // none/fade/slide/convex/concave/zoom
                 slideNumber: true, // Shows the slide number using default formatting

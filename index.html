@@ -70,6 +70,8 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <header style="position: absolute;top: 25px; left: 25px; z-index:500; font-size:30px;background-color: white"></header>
+            <footer style="position: absolute;bottom: 25px; right: 200px; z-index:500; font-size:30px;background-color: white">
+            </footer>
 
             
             <div class="slides">
@@ -92,7 +94,7 @@
                     </script>
                 </section>
 
-                <section data-markdown>
+                <section data-markdown data-state="footer1">
                     <script type="text/template">
                         ###One-on-One Tutoring
 
@@ -103,18 +105,20 @@
                               <ul>
                                 <li>knowledge</li>
                                 <ul>
-                                    <li>domain, pedagogy</li>
+                                    <li>domain</li>
+                                    <li>pedagogy</li>
                                 </ul>
                                 <li>good relationships</li>
                                 <ul>
-                                    <li>nurturing, encouraging</li>
+                                    <li>nurturing</li>
+                                    <li>encouraging</li>
                                     <li>feedback on solutions, not students</li>
                                 </ul>
                                 <li>Socratic style</li>
                                 <li>progressive content</li>
                               </ul>
                             </ul>
-                             [CITATION]
+                             
                           </div>
                           <div class="col-sm-6"><img data-src="img/one_on_one.jpg" alt="Tutoring Session"></div>
                         </div>
@@ -354,6 +358,10 @@
                 </section>
                 <section data-state="header2">
                     <style>.header2 header:after { content: "OverCode"; }</style>
+                    <!-- <p>header1 example</p> -->
+                </section>
+                <section data-state="footer1">
+                    <style>.footer1 footer:after { content: "[Lepper and Wolverton’s INSPIRE model]"; }</style>
                     <!-- <p>header1 example</p> -->
                 </section>
 

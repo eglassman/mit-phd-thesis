@@ -409,17 +409,109 @@
 
                 <section data-markdown>
                     <script type="text/template">
+                        ###What next?
+                        
+                        - received piles of thousands of student-written Python solutions
+                            - each pile solves the same programming exercise
+                            
+                        - **Insight**
+                            - Meaningful patterns emerge from logging values of variables during execution on test cases
+                            - Analogous to logging Turing machine movement
+
+                        <aside class="notes">
+                            - Encouraged by my early success analyzing Turing machine, I tried employing a similar methodology to student-written simulated digital circuits. However, I was using the language I was most comfortable with at the time, MATLAB. Not the right language. I got nowhere.
+                            - Rishabh Singh arrived on my virtual doorstep, with a pile of solutions
+                                - freshly dumped MIT’s intro Python programming course on edX
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
                         ###OverCode
 
                         <!-- <iframe src="http://0.0.0.0:8000/?src=iterpower" width='100%' height='600'></iframe> -->
                         <a href="http://0.0.0.0:8000/?src=iterpower"><img data-src="https://raw.githubusercontent.com/eglassman/mit-phd-thesis/master/Body/figures/overcode/interfaceScreenShot.png"></a>
 
                         <aside class="notes">
-                            
+                            - Philip Guo contributed variable value-logging code from his Online Python Tutor
+                            - Jeremy Scott implemented the UI
                         </aside>
 
                     </script>
                 </section>
+
+                <section data-markdown data-state="header-overcode">
+                    <script type="text/template">
+                        ###How OverCode Works
+                        
+                        <pre><code>inputArray = [a,b,c]</code></pre>
+
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <b>Code Space</b><br>
+                            <pre><code>for i in range(len(inputArray)):
+    a += myFunction(i)</code></pre>
+                          </div>
+                          <div class="col-sm-6">
+                            <b>Variable Space</b><br>
+                            <pre><code>i: 0—>1—>2</code></pre>
+                          </div>
+                        </div>
+                        <div class="row fragment">
+                          <div class="col-sm-6">
+                            <!-- <b>Code Space</b><br> -->
+                            <pre><code>for i in inputArray:
+    result += i</code></pre>
+                          </div>
+                          <div class="col-sm-6">
+                            <!-- <b>Variable Space</b><br> -->
+                            <pre><code>i: a—>b—>c</code></pre>
+                          </div>
+                        </div>
+
+                        <aside class="notes">
+                            ####Variable Roles
+
+                            - Variable roles are defined by their sequence of values.
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-overcode">
+                    <script type="text/template">
+                        ###How OverCode Works
+                        
+                        - **Stack**: a set of solutions containing
+                            - same *set* of variable roles 
+                            - same *set* of lines manipulating those variables
+
+                        <img data-src="https://pixabay.com/static/uploads/photo/2014/12/21/23/56/papers-576385_960_720.png" alt="piles of paper" width="300px">
+
+                        <aside class="notes">
+                            - **(dynamic)**
+                            - **(syntactic)**
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-overcode">
+                    <script type="text/template">
+                        ###How OverCode Works
+                        
+                        <i>see Keynote</i>
+
+                        <aside class="notes">
+                            TODO
+                        </aside>
+
+                    </script>
+                </section>
+
+                
 
                 <section data-markdown>
                     <script type="text/template">

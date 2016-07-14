@@ -101,18 +101,18 @@
                         <div class="row">
                           <div class="col-sm-6">
                             <ul>
-                              <li>Great tutors have:</li>
+                              <li>Great tutors have</li>
                               <ul>
                                 <li>knowledge</li>
                                 <ul>
                                     <li>domain</li>
                                     <li>pedagogy</li>
                                 </ul>
-                                <li>good relationships</li>
+                                <li>nurturing relationships with students</li>
                                 <ul>
-                                    <li>nurturing</li>
-                                    <li>encouraging</li>
-                                    <li>feedback on solutions, not students</li>
+                                    <!-- <li>nurturing</li> -->
+                                    <!-- <li>encouraging</li> -->
+                                    <li>feedback on solutions not students</li>
                                 </ul>
                                 <li>Socratic style</li>
                                 <li>progressive content</li>
@@ -139,12 +139,132 @@
                             What value <i>only</i> exists in a massive classroom?
                           </div>
                         </div>
+                    </script>
+                </section>
 
-                        <!-- - Problem:
-                            - Scale up one-on-one practices
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Outline
 
-                        - Opportunity
-                            - Give teachers & students population-level perspective -->
+                        <div class="row">
+                          <div class="col-sm-4 left-aligned">
+                            Status Quo
+                          </div>
+                          <!-- <div class="col-sm-8 left-aligned">
+                            Skimmability, diversity, student hints 
+                          </div> -->
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 left-aligned">
+                            Missed Opportunity
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 left-aligned">
+                            1st Follow-Up
+                          </div>
+                          <!-- <div class="col-sm-8 left-aligned">
+                            <i>Categorizing Turing machines</i>
+                          </div> -->
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 left-aligned">
+                            <b>OverCode</b>
+                          </div>
+                          <div class="col-sm-8 left-aligned">
+                            <i>Skimmable, diverse Python solutions</i><!-- .element: class="fragment" -->
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 left-aligned">
+                            <b>Foobaz</b>
+                          </div>
+                          <div class="col-sm-8 left-aligned">
+                            <i>Scalable, personalized naming feedback</i><!-- .element: class="fragment" -->
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 left-aligned">
+                            <b>ClassOverflow</b>
+                          </div>
+                          <div class="col-sm-8 left-aligned">
+                            <i>Learnersourcing personalized hints</i><!-- .element: class="fragment" -->
+                          </div>
+                        </div>
+                        <!-- <div class="row">
+                          <div class="col-sm-4 left-aligned">
+                            <b>GroverCode</b>
+                          </div>
+                          <div class="col-sm-8 left-aligned">
+                            <i>Learnersourcing personalized hints</i>
+                          </div>
+                        </div> -->
+                        <div class="row">
+                          <div class="col-sm-4 left-aligned">
+                            Discussion
+                          </div>
+                          <!-- <div class="col-sm-8 left-aligned">
+                            <i>Learnersourcing personalized hints</i>
+                          </div> -->
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4 left-aligned">
+                            Epilogue
+                          </div>
+                          <!-- <div class="col-sm-8 left-aligned">
+                            <i>Learnersourcing personalized hints</i>
+                          </div> -->
+                        </div>
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-status-quo">
+                    <script type="text/template">
+                        ###Teaching (hardware) Programming
+
+                        - Computation Structures 
+                            - Every student creates a processor out of logic gates 
+                            - ~200 enrolled students debug their simulated circuits
+
+                        - Fun but sometimes frustrating to teach
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-status-quo">
+                    <script type="text/template">
+                        ###Three Frustrations
+
+                        1. Simulated circuits created
+                            - in a language invented by professor
+                            - **difficult to read or skim**
+
+                        2. Student solutions evaluated on input-output behavior
+                            - Students create different designs 
+                            - **Diversity of designs never systematically examined** 
+
+                        3. Students often failed tests for the same reasons
+                            - Reduced to an inefficient middleman of debugging advice serving a long queue of customers
+
+                        <aside class="notes">
+                            - One student had the courage to publish his own innovative design on the course forum, and we teaching assistants spent much of the rest of the week helping everyone else understand and implement it. How many other students came up with a cool idea but were afraid to share it, or did not even realize that it was new and different? Some students had no idea whether their solutions were “normal” or unusual.
+                            - These <test failure, problem> patterns would evolve in my mind as I helped more and more students. “Oh, you failed test 286? Check your Z logic!” The class forum did not seem to alleviate this problem, possibly because students did not encode their test failure problems in a consistent manner for easy searchability.
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-status-quo">
+                    <script type="text/template">
+                        ###Augmenting Teacher Cognition
+
+                        - Professor created multiple implementations of circuits
+                            - I shadowed him helping students
+                            - I wanted to **augment my cognition**
+
+                        <aside class="notes">
+                            Without knowledge of human-computer interaction, UI design, or any toolkits for creating an interface, I did not even know how to start.
+                        </aside>
+
                     </script>
                 </section>
 
@@ -158,7 +278,7 @@
                                 - give personalized style feedback at scale<!-- .element: class="fragment" -->
                                 - detect autograder failures<!-- .element: class="fragment" -->
                             2. computers
-                                - connect students with matching design expertise and needs<!-- .element: class="fragment" -->
+                                - connect students with complementary expertise and needs<!-- .element: class="fragment" -->
                     </script>
                 </section>
 
@@ -492,6 +612,10 @@
 
                     Thanks to my family & Victor
 
+                </section>
+                <section data-state="header-status-quo">
+                    <style>.header-status-quo header:after { content: "Status Quo"; }</style>
+                    <!-- <p>header1 example</p> -->
                 </section>
                 <section data-state="header1">
                     <style>.header1 header:after { content: "Goals and Related Work"; }</style>

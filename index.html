@@ -91,6 +91,7 @@
                         ###Big Programming Classes 
                         
                         <img data-src="img/big_class.jpg" alt="Big Class">
+
                     </script>
                 </section>
 
@@ -263,6 +264,113 @@
 
                         <aside class="notes">
                             Without knowledge of human-computer interaction, UI design, or any toolkits for creating an interface, I did not even know how to start.
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-missed-opportunity">
+                    <script type="text/template">
+                        ###Late-night struggle
+
+                        - "Paul" asked for help with the Turing machine lab
+                            - Could his approach work or is it fatally flawed?
+                                - He shouldn't abandon his efforts unless necessary
+                                - Is he on the path to a novel solution?
+                            - Difficult to relate Paul's solution to others
+                                - Have hundreds of students’ correct Turing machines
+                                - Superficial static & dynamic differences
+
+                        <aside class="notes">
+                            - His Turning machine could not detect whether a string of open and closed parentheses was properly balanced, i.e., had an appropriate closing parenthesis for every open parenthesis. He was running out of time. The semester was almost over, and if he was not successful within the next day or two, he would fail our course.
+                            - I had a hard time helping Paul turn his Turing machine into one that would pass all the automatic grader’s test tapes.
+                            - wish I knew Similar working solution in the pool of previous student submissions would serve as an existence proof.
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-missed-opportunity">
+                    <script type="text/template">
+                        ###Static & Dynamic Differences
+
+                        - Static
+                            - students design their own symbol library, state names
+                            - students can list behavioral specifications in any order
+                        - Dynamic
+                            1. represent Turing machines as FSM diagrams
+                            2. after squinting, they still look different
+
+                        <aside class="notes">
+                            - for the finite state machine (FSM) portion of their Turing machine
+                            - Each behavior-specifying rule is a computer-readable version of the form “if you’re in state X and you read symbol Y on the tape, overwrite symbol Y with symbol Z, move the tape-reader in direction W, and transition to state Q.”
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-missed-opportunity">
+                    <script type="text/template">
+                        ###Take-aways
+
+                        - Paul eventually got his Turing machine to work
+                        - I felt 
+                            - the information was in staff servers
+                            - my brain could not 
+                                - see through superficial textual differences
+                                - mentally execute all student solutions
+                                    - to have perspective that would help me help Paul
+
+                        <aside class="notes">
+
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-first-followup">
+                    <script type="text/template">
+                        ###Running All TM's at Once
+
+                        - Ran all correct two-state Turing machines on same test
+                            - Tape-reading head movement logged during execution
+                        <img data-src="img/turingtapelocations.png" alt="Big Class">
+                        - Most machines exhibited one of two common movement patterns 
+
+                        <aside class="notes">
+                            -logged in coordinates relative to the common starting point at the left end of the test tape (see Figure 1). I had watched so many students’ Turning machines execute before that I knew there were be some patterns, I just did not know exactly what or how many there would be.
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown data-state="header-first-followup">
+                    <script type="text/template">
+                        ###Two common strategies
+
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <img data-src="https://raw.githubusercontent.com/eglassman/mit-phd-thesis/master/Body/figures/tmvisualization_InnerParensMatched_allkidsAnno2.png">
+                          </div>
+                          <div class="col-sm-6">
+                            <img data-src="https://raw.githubusercontent.com/eglassman/mit-phd-thesis/master/Body/figures/tmvisualization_NtoNParensMatched_allkidsAnno2.png">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <b>Strategy A</b><br>
+                            pairing inner sets of parentheses<br>
+                            (~50% of solutions)
+                          </div>
+                          <div class="col-sm-6">
+                            <b>Strategy B</b><br>
+                            pairing the first open, first closed etc.<br>
+                            (~40% of solutions)
+                          </div>
+                        </div>
+
+                        <aside class="notes">
+                            - The bold trajectories in these figures represent particularly clean representative examples.
                         </aside>
 
                     </script>
@@ -615,6 +723,14 @@
                 </section>
                 <section data-state="header-status-quo">
                     <style>.header-status-quo header:after { content: "Status Quo"; }</style>
+                    <!-- <p>header1 example</p> -->
+                </section>
+                <section data-state="header-missed-opportunity">
+                    <style>.header-missed-opportunity header:after { content: "Missed Opportunity"; }</style>
+                    <!-- <p>header1 example</p> -->
+                </section>
+                <section data-state="header-first-followup">
+                    <style>.header-first-followup header:after { content: "First Follow-Up"; }</style>
                     <!-- <p>header1 example</p> -->
                 </section>
                 <section data-state="header1">

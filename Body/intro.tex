@@ -80,11 +80,13 @@ I was able to brief fellow staff members on the space of solutions, both good an
 
 \section{OverCode}
 
-Analogous to tracking Turing machine movement, my colleague Rishabh Singh and I realized that we could identify meaningful patterns in Python solutions by tracking the values of variables during execution on test cases. He had a pile of student-written Python solutions to the same programming exercise, freshly dumped from the logs of MIT's introductory Python programming course on edX. We brought in Philip Guo, who contributed variable value-logging code from his Online Python Tutor, and Jeremy Scott, who helped implement the UI, and together, we created and tested OverCode, a system for visualizing and exploring thousands of programming solutions.
-
 Understanding solution variation is important for providing appropriate feedback to students at scale. In one-on-one scenarios, understanding the space of potential solutions can help teachers counsel students struggling to implement their own solutions. The wide variation among these solutions can be a source of pedagogically valuable examples, and can be used to refine the autograder for the exercise by exposing corner cases. 
 
-OverCode uses both static and dynamic analysis to cluster similar solutions, and lets teachers further filter and cluster solutions based on different criteria. We evaluated OverCode against a non-clustering baseline in a within-subjects study with 24 teaching assistants, and found that the OverCode interface allows teachers to more quickly develop a high-level view of student understanding and misconceptions, and to provide feedback that is relevant to more student solutions.
+I acquired a dataset of thousands of correct student-written Python solutions to the same programming exercise, freshly collected from MIT's introductory Python programming course on edX. Analogous to tracking Turing machine movement, my colleague Rishabh Singh and I realized that we could identify meaningful patterns in Python solutions by tracking the values of variables during execution on test cases. With the help of Philip Guo, who contributed variable value-logging code from his Online Python Tutor~\cite{pgbovineOPT} and Jeremy Scott, who built the user interface, we created and tested OverCode, a system for visualizing and exploring thousands of programming solutions.
+
+OverCode uses both static and dynamic analysis to cluster similar correct solutions, and lets teachers further filter and cluster solutions based on different criteria. OverCode rewrites solutions to make them understandable as a collection. To do this, OverCode runs all the solutions to the same programming problem on the same test case(s) and extracts the sequence of values every variable in every solution takes on during execution. Variables that take on the same sequence of values across multiple correct solutions are assumed to be the same {\it common variable}. The most {\it common name} given to each {\it common variable} across all solutions is then used to rename all instances of that common variable in all solutions. At the same time, students' individual comments are removed and formatting is standardized. The resulting set of solutions are rendered in such a way that variable names are semantically meaningful and shared across solutions, as a common vocabulary. All solutions whose {\it set} of lines are the same after this normalization process are clustered together, with a single normalized solution as the cluster's representative.
+
+We evaluated OverCode against a non-clustering baseline in a within-subjects study with 24 teaching assistants, and found that the OverCode interface allows teachers to more quickly develop a high-level view of student understanding and misconceptions, and to provide feedback that is relevant to more student solutions.
 
 OverCode addressed the first two of my three frustrations as a teaching assistant:
 \begin{enumerate}
@@ -95,7 +97,7 @@ OverCode addressed the first two of my three frustrations as a teaching assistan
 \begin{figure}
 \centering
 \includegraphics[width=1.0\linewidth]{Body/figures/interfaceScreenShot.png}
-\caption{The OverCode user interface. The top left panel shows the number of clusters, called {\it stacks}, and the total number of solutions visualized. The next panel down in the first column shows the largest stack, while the second column shows the remaining stacks. The third column shows the lines of code occurring in the cleaned solutions of the stacks together with their frequencies.}
+\caption{The OverCode user interface. The top left panel shows the number of clusters, called {\it stacks}, and the total number of solutions visualized. The next panel down in the first column shows the largest stack, while the second column shows the remaining stacks. The third column shows the lines of code occurring in the normalized solutions of the stacks together with their frequencies.}
 \label{fullinterface}
 \end{figure}
 
@@ -197,8 +199,8 @@ Clustering and visualizing solution variation collected from programming courses
 
 The main contributions of this thesis are:
 \begin{itemize}
-\item A novel visualization that shows similarity and variation among thousands of Python solutions, with cleaned code shown for each variant. 
-\item An algorithm that uses the behavior of variables to help cluster Python solutions and generate the cleaned code for each cluster of solutions.
+\item A novel visualization that shows similarity and variation among thousands of Python solutions, with normalized code shown for each variant. 
+\item An algorithm that uses the behavior of variables to help cluster Python solutions and generate the normalized code for each cluster of solutions.
 \item Two user studies that show this visualization is useful for giving teachers a birds-eye view of thousands of students' Python solutions.
 \item A grading interface that shows similarity and variation among Python solutions, with faceted browsing so that users can filter solutions by error signature, i.e., the test cases they pass and fail. 
 \item Two field deployments of the grading interface within an introductory Python programming staff's exam grading sessions.

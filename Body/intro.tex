@@ -10,24 +10,33 @@ Learners individually solving programming or digital hardware design problems ca
 
 Understanding large-scale variation in student solutions requires identifying appropriate features of solutions, developing ways to automatically extract those features from each solution, designing user interfaces to communicate the results to teachers or students, and, when appropriate, collecting additional information from students through crowdsourcing techniques, i.e., learnersourcing \cite{kim2013learnersourcing}. This thesis includes the development of three systems that take advantage of the solution variation in large classes: OverCode for viewing thousands of Python solutions, Foobaz for delivering personalized feedback on variable names, ClassOverflow for learnersourcing curcuit debugging and optimization hints. All three systems, as well as an extension of OverCode adapted to grading, have been evaluated using data or live deployments in on-campus or edX courses with hundreds or thousands of students.
 
-\section{A Tale of Two Turing Machines}
+\section{The Status Quo}
 
-This work began after midnight in the basement computer lab of the Stata Center, where a student was struggling to create a Turing Machine that could detect whether a string of open and closed parentheses was properly balanced. If he was not successful within the next day or two, he would fail Computer Architecture (6.004). I will refer to him as Paul. I had a hard time helping Paul turn his Turing machine into one that would pass all the automatic grader's test tapes. I could not tell if his approach could work with a little debugging or was fatally flawed. I did not want to demoralize him by telling him to abandon his efforts so far and start over unless it was truly necessary. And what if he was on the path to a novel solution no one else had created before?
+Several years ago, I was hired as a teaching assistant in Computation Structures (6.004). This class is famous for its culminating semester-long project; every student must make an entire processor out of simulated logic gates. Much of my time was spent helping approximately 200 enrolled students debug their simulated circuits. This was fun, but it had several frustrating elements:
 
-While not a necessary condition for the correctness of his intended approach, finding a similar working solution in the pool of previous student submissions would serve as an existence proof and evidence that he should persevere. I had copies of hundreds of other students' correct Turing machines, but it was difficult to see by inspection whether any of these solutions were successful implementations of his intended approach. This was due to both superficial static and dynamic differences between solutions. There are two sources of static superficial differences: (1) students design their own symbol library and state names for the finite state machine portion of their Turing machine (2) students can list behavioral specifications in terms of their custom symbol and state names in any arbitrary order. Each behavior-specifying rule is a computer-readable version of the form ``if you're in state X and you read symbol Y on the tape, overwrite symbol Y with symbol Z, move the tape-reader in direction W, and transition to state Q." Dynamic superficial differences arise because even after translating these textual statements into a finite state machine diagram, the diagrams look very different from one correct solution to the next.
+\begin{enumerate}
+\item The simulated circuits were created by students using a language developed by the lecturing professor. It was difficult to read or skim.
+\item Since student solutions were only evaluated based on input-output behavior, they could create many different innovative (or inefficient) designs. Established optimizations, like ripple carry adders, were discussed in class, but the diversity of good and bad designs found within our own crowd of students' solutions were never systematically examined. One student had the courage to publish his own innovative design on the course forum, and we teaching assistants spent much of the rest of the week helping everyone else understand and implement it. How many other students came up with an innovative idea but were afraid to share it, or did not even realize that it was new and different? Some students had no idea whether their solutions were ``normal'' or unusual.
+\item Students failed many of the same teacher-provided tests for the same reasons. These (test failure, problem) patterns would evolve in my mind as I helped more and more students. I was sometimes reduced to an inefficient middleman of debugging advice serving a long queue of customers: ``Oh, you failed test 286? Check your Z logic!'' The class forum did not seem to alleviate this problem, possibly because students did not encode their test failure problems in a consistent manner for easy searchability.
+\end{enumerate}
 
-Eventually, through trial and error, he got his Turing Machine to work on all the test tapes, and passed the course. But I was deeply troubled by the experience. I felt like the information was there, in our staff server, but my brain could not see through the superficial textual differences nor mentally execute all the student solutions I had access to in order to have the perspective that would have helped me help Paul, when I could not see the bugs in his Turing Machine directly.
+The professor, who had created the course decades ago, had created multiple implementations of every major circuit design assignment over the years. He was the real resident expert. I shadowed him helping students like medical student might shadow a senior physician. And yet, in order to have the perspective he had without also spending decades teaching the same class, I wanted to augment my cognition with technology. 
 
-After the semester ended, I looked into this further. I ran all the correct two-state Turing machines collected during the semester on the same test tape containing a string of open and closed parentheses. The movement of the tape-reading head across this input was logged in coordinates relative to the common starting point, at the left end of the test tape, and displayed along the vertical axis. The horizontal axis represents the number of steps taken by the Turing machine on its way to completing the task. These discrete steps are analogous to time. 
+\subsection{A Tale of Two Turing Machines}
 
-The majority (88\%) of the solutions employ one of two mutually exclusive strategies. These strategies were identified just from visual inspection of the movement of many Turing machines across the common test tape. Figure \ref{turingFig} shows their locations on the common input tape over time, separated by strategy into Figures \ref{tapeMoveA} and \ref{tapeMoveB}. These two strategies for determining whether or not the tape's string of parentheses is balanced are (1) matching the innermost open parenthesis with the innermost closed parenthesis, i.e., standard semantic interpretation in math, and (2) matching the $n^{th}$ \todo{fix this font} open parenthesis with the $n^{th}$ closed parenthesis. The remaining 12\% of solutions (not shown) include less common strategies. This analysis also exposes room for improvement in the suite of test tapes: at least two strategies in this group are known to pass the test tapes but are actually incorrect because they cannot handle an arbitrary depth of nested parentheses. 
+I was wrapping up my late-night shift helping students in the computer lab, when a student asked for help with the Turing machine lab. His Turing machine could not detect whether a string of open and closed parentheses was properly balanced, i.e., had an appropriate closing parenthesis for every open parenthesis. He was running out of time. The semester was almost over, and if he was not successful within the next day or two, he would fail our course.
 
-%Each staff member is encouraged to complete the Turing Machine lab on their own before counseling students. 
-Staff members were aware of the Turing machine solution they each had found on their own time, and yet were not aware that there were two mutually exclusive common solutions. At least one staff member admitted steering students away from solutions they did not recognize, but in retrospect may have indeed been valid solutions. 
+On that late night, I had a hard time helping this student turn his Turing machine into one that would pass all the automatic grader's test tapes. I could not tell whether his approach could work with a little debugging or was fatally flawed. I did not want to demoralize him by telling him to abandon his efforts so far and start over unless it was truly necessary. And what if he was on the path to a novel solution no one else had created before?
 
-Based on my analysis, I was able to brief fellow 6.004 staff members on the space of solutions--both good and bad--in preparation for subsequent semesters and could suggest additions to the test tape suite to catch submissions that were previously erroneously marked as correct. 
+While not a necessary condition for the correctness of his intended approach, finding a similar working solution in the pool of previous student submissions would serve as an existence proof and evidence that he should persevere. I had copies of hundreds of other students' correct Turing machines, but it was difficult to see by inspection whether any of these solutions were successful implementations of his intended approach.
 
-This experience was a critical and formative one for me. It has inspired the design approach and technical approach taken in many of the systems that follow.
+This was due to both superficial static and dynamic differences between solutions. Students design their own symbol library and state names for the finite state machine portion of their Turing machine. Using their custom symbol and state names, students can list behavioral specifications in any arbitrary order. Even after translating these textual statements into a diagram, the diagrams can look very different from one correct solution to the next. It is difficult to immediately see any differences in behavior or strategy based on these representations.
+
+Eventually, through trial and error, he got his Turing machine to work on all the test tapes, and passed the course. But I was deeply troubled by the experience. I felt like the information was there, in our staff server, but my brain could not see through the superficial textual differences nor mentally execute all the student solutions I had access to in order to have the perspective that would help me help students.
+
+After the semester ended, I looked into this further. I ran all the correct two-state Turing machines collected during the semester on the same test tape containing a string of open and closed parentheses. The movement of the tape-reading head across this input was logged in coordinates relative to the common starting point at the left end of the test tape (see Figure \ref{tapeLocations}). I had watched so many students' Turning machines execute before that I knew there were be some patterns, I just did not know exactly what or how many there would be.
+
+Most machines exhibited one of two common movement patterns. Roughly 50\% of students used Strategy A: pairing inner sets of open and closed parentheses (Figure \ref{tapeMoveA}). Another 40\% used Strategy B: pairing the first open with the first closed parenthesis, the second open with the second closed parenthesis, etc. (Figure \ref{tapeMoveB}). The bold trajectories in these figures represent particularly clean representative examples.
 
 \begin{figure*}[p]
 
@@ -52,22 +61,30 @@ This experience was a critical and formative one for me. It has inspired the des
 \label{tapeMoveB}
 \end{subfigure}
 
-% \begin{subfigure}[b]{1.0\textwidth}
-% \includegraphics[scale=0.85]{Body/figures/tmvisualization_Other_allkidsAnno}
-% \caption{The trajectories of the 17 remaining Turing machines, run on the same common test tape as above, which have yet to be categorized. Both bold trajectories correspond to solutions that do not work in general, but passed the provided, fixed test suite.}
-% \label{tapeMoveC}
-% \end{subfigure}
-
 \caption{The two most common strategies for a two-state Turing machine to determine if a string of parentheses is balanced. Figures \ref{tapeMoveA} and \ref{tapeMoveB} show tape head position over time on the tape illustrated in Fig. \ref{tapeLocations}. The bold trajectories represent particularly clean examples.}
 \label{turingFig}
 \end{figure*}
 
+The remaining approximately 10\% solutions (not shown) include less common strategies, including at least two that are actually incorrect, i.e., cannot handle arbitrarily deep nesting of parentheses, but are marked as correct because they pass all the test cases in the teacher-designed suite. Many teaching staff members:
+\begin{enumerate}
+\item were aware of the Turing machine solution they each had found on their own time.
+\item not aware that there were two mutually exclusive common solutions. At least one staff member admitted steering students away from solutions they did not recognize, but in retrospect may have indeed been valid solutions.
+\item not aware that the test suite was insufficient to determine correctness.
+\end{enumerate}
 
+I was able to brief fellow staff members on the space of solutions, both good and bad, in preparation for subsequent semesters and suggested additions to the test tape suite to catch more submissions that were previously erroneously marked as correct.
 
 \section{OverCode}
 
-In MOOCs, a single programming exercise may produce thousands of solutions from learners. Understanding solution variation is important for providing appropriate feedback to students at scale. The wide variation among these solutions can be a source of pedagogically valuable examples, and can be used to refine the autograder for the exercise by exposing corner cases. We developed OverCode to visualize and explore thousands of small Python programs that solve the same problem. OverCode uses both static and dynamic analysis to cluster similar solutions, and lets teachers further filter and cluster solutions based on different criteria. We evaluated OverCode against a non-clustering baseline in a within-subjects study with 24 teaching assistants, and found that the OverCode interface allows teachers to more quickly develop a high-level view of student understanding and misconceptions, and to provide feedback that is relevant to more student solutions.
+Analogous to tracking Turing machine movement, my colleague Rishabh Singh and I realized that we could identify meaningful patterns in Python solutions by tracking the values of variables during execution on test cases. He had a pile of student-written Python solutions to the same programming exercise, freshly dumped from the logs of MIT's introductory Python programming course on edX. We brought in Philip Guo, who contributed variable value-logging code from his Online Python Tutor, and Jeremy Scott, who helped implement the UI, and together, we created and tested OverCode.
 
+OverCode uses both static and dynamic analysis to cluster similar solutions, and lets teachers further filter and cluster solutions based on different criteria. We evaluated OverCode against a non-clustering baseline in a within-subjects study with 24 teaching assistants, and found that the OverCode interface allows teachers to more quickly develop a high-level view of student understanding and misconceptions, and to provide feedback that is relevant to more student solutions.
+
+OverCode addressed the first two of my three frustrations as a teaching assistant:
+\begin{enumerate}
+\item It canonicalizes students' code so that I can skim their answers as a group or as individuals without first adjusting to each of their variable naming, statement ordering, and style choices.
+\item The diversity and distribution of good and bad designs generated by our students is made explicit and explorable. For example, OverCode shows common solutions, which are often reasonable since many students independently arrived at them, and as the user scrolls to less common solutions, solutions can become more convoluted, include unnecessary code, use reasonable alternative Python language keywords and constructs, or solve the problem using teacher-forbidden strategies, e.g., recursively rather than interatively.
+\end{enumerate}
 
 \begin{figure}
 \centering
@@ -79,23 +96,59 @@ In MOOCs, a single programming exercise may produce thousands of solutions from 
 
 \section{Foobaz}
 
-Traditional feedback methods, such as hand-grading student code for substance and style, are labor intensive and do not scale. We created a new user interface that addresses feedback at scale for a particular and important aspect of code quality: variable names (see Figure \ref{fig:figure2}). Foobaz distinguishes variables by their behavior in the program, allowing teachers to comment not only on poor names, but also on names that mislead the reader about the variable's role. We ran two lab studies of Foobaz, one with teachers and the other with students. In the first study, 10 Python teachers used Foobaz to comment on variable names in thousands of student solutions from an introductory programming MOOC. In the second study, 6 students composed fresh solutions to the same programming problems, and immediately received personalized variable-name quizzes composed in the previous user study.
+I approached Ana Bell, the lecturer who served both MIT's residential and online introductory Python programming courses. She found the OverCode interface interesting and hoped to use it, then asked if OverCode could also show her more about students' variable name choices. In a second meeting, her co-teacher, Professor John Guttag, explained that some introductory students mix themselves up by creating names that suggest something other than what the variable contains, e.g., swapping names for the index into an array with the name for the value in the array at that index. It can throw a wrench into their program comprehension process.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1.0\linewidth]{Body/figures/FoobazInitialFat.png}
-	\caption{The Foobaz teacher interface. The teacher is presented with a scrollable list of normalized solutions, each followed by a table of student-chosen variable names. Some names shown here have been labeled by the teacher as ``misleading or vague,'' ``too short,'' or ``fine.''}
-	\label{fig:figure2}
-\end{figure}
+Some people undervalue variable names, but they are the most basic form of documentation that helps humans read programs. Donald Knuth compares a good programmer to an essayist who, ``with thesaurus in hand, chooses the names of variables carefully and explains what each variable means'' \cite{literateprogramming}. Without modifying execution, names can express to the human reader the type and purpose of an object, as well as suggest what the kinds of operators used to manipulate it \cite{operands}. Various naming conventions, like Hungarian notation, have evolved to help developers use their freedom wisely. The Google C++ Style Guide authors assert that their most important consistency rules govern naming, which are arbitrary but consistent in order to increase human readability. 
 
-\todo{include the student view}
+Programmers can develop their own heuristics for good variable names through the experiential learning process of building, debugging, and sharing increasingly large programs with others and their future selves. During informal interviews with programmers in my social network, one professor explained an elaborate set of guidelines that she personally developed and teaches to her students, e.g., all method names must be verbs \cite{doshiconversation}.
 
-\section{Extensions of OverCode Clustering}
+In practice, very little time is spent on variable naming in introductory classes. One student-taught month-long introductory Python course offered at MIT spends one lecture on it, and does not systematically assess students' naming choices afterwards. Maybe, with new tools, giving feedback on variable names could become time-efficient and scalable enough to become common place.
 
-In order to perform more comprehensive clustering, several extensions of the original OverCode clustering methods have been explored and some have been fully implemented.
-GroverCode is an extension of OverCode built to canonicalize and cluster both correct and incorrect solutions. This was also done in the context of hundreds of exam-level solutions instead of thousands of solutions to "finger exercises" and problem set problems. This change in regime was inspired by need-finding interviews with the lecturer who teaches both the online and residential versions of MIT's introductory Python programming class. She was appreciative of the insights OverCode could give her extracted from the thousands of correct solutions submitted by her online students, but the semi-regular pain of hand-grading the hundreds of incorrect solutions submitted by tuition-paying residential students was a more immediate concern. Adapting to the needs of a team of graders grading a smaller number of more complex solutions, many of which were incorrect, required significant changes to the pipeline and interface. The resulting system was deployed to the staff for use during two grading sessions. The results of this field deployment are also promising; the staff welcomes its continued use in future semesters. More preliminary explorations of statistical methods for clustering solutions are also described.
+Building on top of OverCode and the support of my co-authors Jeremy Scott and Lyla Fischer, I designed and implemented Foobaz, a system that enables time-efficient, scalable, personalized variable name feedback within the context of existing assigned programming exercises. Foobaz distinguishes variables by their behavior in the program, allowing teachers to comment not only on poor names, but also on names that mislead the reader about the variable's role. As shown in Figure \ref{fig:foobaz_teacherview}, the teacher's view is a variable name browser where names are shown along with all the context necessary to judge their quality. Teachers only need to annotate a small number of variable names with qualitative judgements in order to generate personalized formative assessments about variable naming for the majority of their students.
+
+In our first user study, the Foobaz system helped each of 10 teachers give personalized variable name feedback on thousands of student solutions from MIT's edX introductory Python programming course. In the second study, students composed solutions to the same programming assignments and immediately received personalized quizzes composed by the teachers in the previous user study, like the one shown in Figure~\ref{fig:foobaz_studentview}.
+
+Traditional feedback methods, such as hand-grading student code for substance and style, are labor intensive and do not scale. Foobaz addresses feedback at scale for a particular and important aspect of code quality. And, like OverCode, Foobaz addressed the second of my three frustrations as a teaching assistant: making the diversity and distribution of good and bad choices, i.e., variable names, explicit. But what about my last frustration as a teaching assistant, about helping students even get to a correct solution?
+
+\begin{figure*}[p]
+
+\begin{subfigure}[b]{1.0\textwidth}
+\centering
+\includegraphics[width=1.0\linewidth]{Body/figures/FoobazInitialFat.png}
+\caption{The Foobaz teacher interface. The teacher is presented with a scrollable list of normalized solutions, each followed by a table of student-chosen variable names. Some names shown here have been labeled by the teacher as ``misleading or vague,'' ``too short,'' or ``fine.''}
+\label{fig:foobaz_teacherview}
+\end{subfigure}
+
+\begin{subfigure}[b]{1.0\textwidth}
+\centering
+\includegraphics[width=0.5\linewidth]{Body/figures/foobaz/feedbackQuizExample.png}
+\caption{A personalized quiz as seen by the student, delivered by an edX-based system maintained by a large university. Students are shown their own code, with a variable name replaced by an arbitrary symbol, followed by variable names for the student to consider and label using the same labels that were available to the teacher. After the student has submitted their own judgments, the teacher’s labels are revealed, along with their explanatory comments.}
+\label{fig:foobaz_studentview}
+\end{subfigure}
+
+\caption{Snapshots of the Foobaz teacher interface and student variable name quiz}
+\end{figure*}
+
 
 \section{ClassOverflow}
+
+I had built, validated, and published two systems now, all for correct solutions. It is not unreasonable to focus on correct solution in an environment where most students in introductory programming classes can check and check and check their code against teacher-designed test suites until they pass. However, a huge amount of teaching staff time, especially in residential environments, on helping students get to a correct solution.
+
+I recalled yet another stressful moment in the computer lab as a teaching assistant:
+
+    Student A: “I cannot figure out why I’m having this bug.”
+
+    Me: “Oh, I haven’t seen this behavior before. Strange…”
+
+    <We sit together, brainstorming, trying things, debugging, stuck…>
+
+    Student B walks in, overhears us: “Oh, I just had that buggy behavior. Have you considered…?”
+
+    They chatted. Yes, they had separately created the same bug, one after the other. Student B helped Student A debug it. Mystery solved!
+
+By random chance or because I am not a novice, I had not generated that problem in my own code before, but Student B had. I could model good debugging skills, but Student B could be just as, if not more, helpful to Student A in a short amount of time. Student B had earned expertise through experience that I had not.
+
+I felt a mixture of pride at this peer-teaching moment, relief that Student A could move on, and embarrassment that I had not found the bug myself, as the supposed expert in the room.
 
 Personalized support for students is a gold standard in education, but it scales poorly with the number of students. Prior work on \textit{learnersourcing} presented an approach for learners to engage in human computation tasks while trying to learn a new skill. Our key insight is that students, through their own experience struggling with a particular problem, can become experts on the particular optimizations they implement or bugs they resolve. The students can then generate hints for fellow students based on their new expertise. ClassOverflow  uses new workflows to harvest and organize students' collective knowledge and advice for helping fellow novices through design problems in engineering (see Figure \ref{fig:workflow}). ClassOverflow was evaluated in an undergraduate digital hardware design class with hundreds of students. We show that, given our design choices, students can create helpful hints for their peers that augment or even replace teachers' personalized assistance, especially when that assistance is not available.
 
@@ -107,7 +160,10 @@ Personalized support for students is a gold standard in education, but it scales
 \label{fig:workflow}
 \end{figure}
 
+\section{Extensions of OverCode Clustering}
 
+In order to perform more comprehensive clustering, several extensions of the original OverCode clustering methods have been explored and some have been fully implemented.
+GroverCode is an extension of OverCode built to canonicalize and cluster both correct and incorrect solutions. This was also done in the context of hundreds of exam-level solutions instead of thousands of solutions to "finger exercises" and problem set problems. This change in regime was inspired by need-finding interviews with the lecturer who teaches both the online and residential versions of MIT's introductory Python programming class. She was appreciative of the insights OverCode could give her extracted from the thousands of correct solutions submitted by her online students, but the semi-regular pain of hand-grading the hundreds of incorrect solutions submitted by tuition-paying residential students was a more immediate concern. Adapting to the needs of a team of graders grading a smaller number of more complex solutions, many of which were incorrect, required significant changes to the pipeline and interface. The resulting system was deployed to the staff for use during two grading sessions. The results of this field deployment are also promising; the staff welcomes its continued use in future semesters. More preliminary explorations of statistical methods for clustering solutions are also described.
 
 
 \begin{comment}

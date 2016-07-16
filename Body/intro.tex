@@ -8,7 +8,7 @@ The challenge of scaling up computer science education is usually framed as simp
 
 Learners individually solving programming or digital hardware design problems can collectively generate a wide variety of possible bugs and solutions. A single programming or digital hardware design exercise may yield thousands of student solutions that vary in many ways, some superficial and some fundamental. For teachers, this variation can, for example, be a source of pedagogically valuable examples and corner cases that slipped past an automatic grader. For students, the variation in a large class means that other students may have struggled along a similar solution path, hit the same bugs, and can offer hints based on that earned expertise. 
 
-Understanding large-scale variation in student solutions requires identifying appropriate features of solutions, developing ways to automatically extract those features from each solution, designing user interfaces to communicate the results to teachers or students, and, when appropriate, collecting additional information from students through crowdsourcing techniques, i.e., learnersourcing \cite{kim2013learnersourcing}. This thesis includes the development of three systems that take advantage of the solution variation in large classes: OverCode for viewing thousands of Python solutions, Foobaz for delivering personalized feedback on variable names, ClassOverflow for learnersourcing curcuit debugging and optimization hints. All three systems, as well as an extension of OverCode adapted to grading, have been evaluated using data or live deployments in on-campus or edX courses with hundreds or thousands of students.
+Understanding large-scale variation in student solutions requires identifying appropriate features of solutions, developing ways to automatically extract those features from each solution, designing user interfaces to communicate the results to teachers or students, and, when appropriate, collecting additional information from students through crowdsourcing techniques, i.e., learnersourcing \cite{kim2013learnersourcing}. This thesis includes the development of three systems that take advantage of the solution variation in large classes: OverCode for viewing thousands of Python solutions, Foobaz for delivering personalized feedback on variable names, self-reflection and comparison workflows for learnersourcing curcuit debugging and optimization hints. These systems and workflows, as well as an extension of OverCode adapted to grading, have been evaluated using data or live deployments in on-campus or edX courses with hundreds or thousands of students.
 
 \section{The Status Quo}
 
@@ -26,11 +26,15 @@ The professor, who had created the course decades ago, had created multiple impl
 
 I was wrapping up my late-night shift helping students in the computer lab, when a student asked for help with the Turing machine lab. His Turing machine could not detect whether a string of open and closed parentheses was properly balanced, i.e., had an appropriate closing parenthesis for every open parenthesis. He was running out of time. The semester was almost over, and if he was not successful within the next day or two, he would fail our course.
 
-On that late night, I had a hard time helping this student turn his Turing machine into one that would pass all the automatic grader's test tapes. I could not tell whether his approach could work with a little debugging or was fatally flawed. I did not want to demoralize him by telling him to abandon his efforts so far and start over unless it was truly necessary. And what if he was on the path to a novel solution no one else had created before?
+On that late night, I had a hard time helping this student turn his Turing machine into one that would pass all the automatic grader's test tapes. I could not tell whether his approach could work with a little debugging or was fatally flawed. I did not want to demoralize him by telling him to abandon his efforts so far and start over unless it was truly necessary. And what if he was on the path to a novel solution no one else had created before? While not a necessary condition for the correctness of his intended approach, finding a similar working solution in the pool of previous student submissions would serve as an existence proof and evidence that he should persevere. 
 
-While not a necessary condition for the correctness of his intended approach, finding a similar working solution in the pool of previous student submissions would serve as an existence proof and evidence that he should persevere. I had copies of hundreds of other students' correct Turing machines, but it was difficult to see by inspection whether any of these solutions were successful implementations of his intended approach.
-
-This was due to both superficial static and dynamic differences between solutions. Students design their own symbol library and state names for the finite state machine portion of their Turing machine. Using their custom symbol and state names, students can list behavioral specifications in any arbitrary order. Even after translating these textual statements into a diagram, the diagrams can look very different from one correct solution to the next. It is difficult to immediately see any differences in behavior or strategy based on these representations.
+I had copies of hundreds of other students' correct Turing machines, but it was difficult to see by inspection whether any of these solutions were successful implementations of his intended approach. This was due to superficial differences between solutions: 
+\begin{enumerate}
+\item Students design their own symbol library and state names for the finite state machine portion of their Turing machine. 
+\item Using their custom symbol and state names, students can list behavioral specifications in any arbitrary order. 
+\item After translating these textual statements into a diagram, the diagrams can look very different from one correct solution to the next. 
+\end{enumerate}
+It is difficult to immediately see any differences in behavior or strategy based on these representations.
 
 Eventually, through trial and error, he got his Turing machine to work on all the test tapes, and passed the course. But I was deeply troubled by the experience. I felt like the information was there, in our staff server, but my brain could not see through the superficial textual differences nor mentally execute all the student solutions I had access to in order to have the perspective that would help me help students.
 
@@ -76,9 +80,9 @@ I was able to brief fellow staff members on the space of solutions, both good an
 
 \section{OverCode}
 
-Analogous to tracking Turing machine movement, my colleague Rishabh Singh and I realized that we could identify meaningful patterns in Python solutions by tracking the values of variables during execution on test cases. He had a pile of student-written Python solutions to the same programming exercise, freshly dumped from the logs of MIT's introductory Python programming course on edX. 
+Analogous to tracking Turing machine movement, my colleague Rishabh Singh and I realized that we could identify meaningful patterns in Python solutions by tracking the values of variables during execution on test cases. He had a pile of student-written Python solutions to the same programming exercise, freshly dumped from the logs of MIT's introductory Python programming course on edX. We brought in Philip Guo, who contributed variable value-logging code from his Online Python Tutor, and Jeremy Scott, who helped implement the UI, and together, we created and tested OverCode, a system for visualizing and exploring thousands of programming solutions.
 
-Understanding solution variation is important for providing appropriate feedback to students at scale. The wide variation among these solutions can be a source of pedagogically valuable examples, and can be used to refine the autograder for the exercise by exposing corner cases. We brought in Philip Guo, who contributed variable value-logging code from his Online Python Tutor, and Jeremy Scott, who helped implement the UI, and together, we created and tested OverCode, a system for visualizing and exploring thousands of programming solutions.
+Understanding solution variation is important for providing appropriate feedback to students at scale. In one-on-one scenarios, understanding the space of potential solutions can help teachers counsel students struggling to implement their own solutions. The wide variation among these solutions can be a source of pedagogically valuable examples, and can be used to refine the autograder for the exercise by exposing corner cases. 
 
 OverCode uses both static and dynamic analysis to cluster similar solutions, and lets teachers further filter and cluster solutions based on different criteria. We evaluated OverCode against a non-clustering baseline in a within-subjects study with 24 teaching assistants, and found that the OverCode interface allows teachers to more quickly develop a high-level view of student understanding and misconceptions, and to provide feedback that is relevant to more student solutions.
 
@@ -110,7 +114,7 @@ Building on top of OverCode and the support of my co-authors Jeremy Scott and Ly
 
 In our first user study, the Foobaz system helped each of 10 teachers give personalized variable name feedback on thousands of student solutions from MIT's edX introductory Python programming course. In the second study, students composed solutions to the same programming assignments and immediately received personalized quizzes composed by the teachers in the previous user study, like the one shown in Figure~\ref{fig:foobaz_studentview}.
 
-Traditional feedback methods, such as hand-grading student code for substance and style, are labor intensive and do not scale. Foobaz addresses feedback at scale for a particular and important aspect of code quality. And, like OverCode, Foobaz addressed the second of my three frustrations as a teaching assistant: making the diversity and distribution of good and bad choices, i.e., variable names, explicit. But what about my last frustration as a teaching assistant, about helping students even get to a correct solution?
+Traditional feedback methods, such as hand-grading student code for substance and style, are labor intensive and do not scale. Foobaz addresses feedback at scale for a particular and important aspect of code quality. And, like OverCode, Foobaz addressed the second of my three frustrations as a teaching assistant: making the diversity and distribution of good and bad choices, i.e., variable names, explicit. %But what about my last frustration as a teaching assistant, about helping students even get to a correct solution?
 
 \begin{figure*}[p]
 
@@ -133,28 +137,40 @@ Traditional feedback methods, such as hand-grading student code for substance an
 \todo{replace quiz screenshot with system screenshot}
 
 
-\section{ClassOverflow}
+\section{Self-Reflection and Comparison Workflows}
 
-I had built, validated, and published two systems now, all for correct solutions. It is not unreasonable to focus on correct solution in an environment where most students in introductory programming classes can check and check and check their code against teacher-designed test suites until they pass. However, a huge amount of teaching staff time, especially in residential environments, on helping students get to a correct solution.
+%It is not unreasonable to focus on correct solution in an environment when many students in introductory programming classes can repeatedly check their code against teacher-designed test suites until it passes. However, based on personal experience, a large fraction of teachers' time, especially in residential environments, is spent helping students get to a correct solution. Personalized support for students is a gold standard in education, but it scales poorly with the number of students. %Prior work on \textit{learnersourcing} presented an approach for learners to engage in human computation tasks while trying to learn a new skill.
 
-I recalled yet another stressful moment in the computer lab as a teaching assistant:
+The final section of this thesis is a response to another personal experience in the lab as a teaching assistant, paraphrased here:
+\begin{displayquote}
+    Student A: ``I cannot figure out why I'm having this bug.''
 
-    Student A: “I cannot figure out why I’m having this bug.”
+    Teacher (me): ``Oh, I have not seen this behavior before. Strange...''
 
-    Me: “Oh, I haven’t seen this behavior before. Strange…”
+    {\it We sit together, brainstorming, trying things, debugging, stuck...}
 
-    <We sit together, brainstorming, trying things, debugging, stuck…>
+    Student B walks in, overhears us: ``Oh, I just had that buggy behavior. Have you considered...?''
+\end{displayquote}
+They had separately created the same bug, one after the other. Student B helped Student A debug it. By random chance or because I am not a novice, I had not generated that problem in my own code before. I could model good debugging skills, but Student B could be just as, if not more, helpful to Student A. Student B had earned expertise through experience that I had not. As demonstrated in the user studies that follow, students can and do often restrain themselves from ``giving away the answer'' when asked to generate a hint after struggling to correct a bug or finish an implementation. 
 
-    Student B walks in, overhears us: “Oh, I just had that buggy behavior. Have you considered…?”
+Shortly after my experience of coincidental peer teaching, I stopped thinking of myself as a ``resident expert'' and started thinking about how to help students more directly share their earned expertise with other students, in a way that would be beneficial for both the giver and the receiver. After helping each student fix a bug and observe a test case go from failed to passed, I asked the student to compose a hint for other students like them who are still failing the same test. I then asked them to enter that hint, indexed by the id of the test case it might resolve, in a web application I wrote, where it would be accessible to all students in the course. Other teaching assistants started pointing students to the web application before helping them, to decrease repeating themselves. I also released it to edX students taking the same course online. 
 
-    They chatted. Yes, they had separately created the same bug, one after the other. Student B helped Student A debug it. Mystery solved!
+When I saw two students with complementary optimizations of an adder circuit, I made them teach each other their respective optimizations before I gave them their required lab check off. Then I pushed on toward automating this peer-to-peer help on optimalizing circuits. I used the number of transistors in the circuit (circuit size) as an approximate metric of optimality, examined the space of solutions as a function of circuit size, and picked out several key points on that landscape. 
 
-By random chance or because I am not a novice, I had not generated that problem in my own code before, but Student B had. I could model good debugging skills, but Student B could be just as, if not more, helpful to Student A in a short amount of time. Student B had earned expertise through experience that I had not.
+During a later semester, when each student enrolled in Computation Structures submitted a correct adder circuit, they were automatically shown a slightly more optimal student solution and a slightly less optimal student solution. They then had to write hints about (1) how to turn a solution like theirs into the more optimal solution, forcing them to engage with and hopefully learn from a more optimal solution and (2) how to turn a solution like the less optimal solution into a more optimal solution like theirs, using their earned implementation expertise in the process. 
 
-I felt a mixture of pride at this peer-teaching moment, relief that Student A could move on, and embarrassment that I had not found the bug myself, as the supposed expert in the room.
+My co-authors and I hand-analyzed hundreds of optimization hints collected through these targeted prompts and categorized them into the types of hints an expert might write when going through the expensive process of building an intelligent tutoring system for this domain. In a small lab study, we found that students enrolled in later semesters of the same course could improve their own solutions based on these hints written for solutions like theirs by other students who had the experience to write them. 
 
-Personalized support for students is a gold standard in education, but it scales poorly with the number of students. Prior work on \textit{learnersourcing} presented an approach for learners to engage in human computation tasks while trying to learn a new skill. Our key insight is that students, through their own experience struggling with a particular problem, can become experts on the particular optimizations they implement or bugs they resolve. The students can then generate hints for fellow students based on their new expertise. ClassOverflow  uses new workflows to harvest and organize students' collective knowledge and advice for helping fellow novices through design problems in engineering (see Figure \ref{fig:workflow}). ClassOverflow was evaluated in an undergraduate digital hardware design class with hundreds of students. We show that, given our design choices, students can create helpful hints for their peers that augment or even replace teachers' personalized assistance, especially when that assistance is not available.
+In general, students in engineering courses can create many different solutions to the same problem, and the space of possible bugs accumulated over all paths to each solution can be very large. Teachers can model good debugging strategies and give feedback on a solutions they have not themselves already created, but students, through their own experience struggling with a particular problem, can become experts on the particular optimizations they implement or bugs they resolve. %The students can generate hints for fellow students based on their new expertise. 
 
+In summary, I designed two workflows to harvest and organize students' collective knowledge and advice for helping fellow novices through design problems in engineering (see Figure \ref{fig:workflow}). Unlike general learnersourcing, this targeted form of learnersourcing allows or prompts specific students to help current or future students on challenges they have already conquered. In the process of participating in the workflows, students engage in self-reflection, self-explanation, and comparison with alternatives, hopefully within their zone of proximal development. The literature described in the chapter on Related Work suggests that these activities promote learning. Both workflows were evaluated in an undergraduate digital circuit design class with hundreds of students. Within these targeted learnersourcing workflows, students can create helpful hints for their peers that augment or even replace teachers' personalized assistance, especially when that assistance is not available. 
+
+By taking better advantage of the knowledge distributed across many students, these workflows addressed the third and final of my three frustrations as a teaching assistant. Using these workflows, I hope future teaching assistants feel less like inefficient middlemen and more like the efficient debugging and optimization consultants they can be, augmented by explicit knowledge of the space of common and uncommon bugs and optimizations.%, by taking advantage of the knowledge distributed across many students.
+
+%To take advantage of students' earned expertise, 
+%The self-reflection workflow attempts to streamline the informal peer-debugging moment I saw in the lab. In the comparison workflow, this is generalized to peer-optimization of working solutions; students write hints about solutions slightly better and slightly worse than theirs. 
+
+%Both workflows were evaluated in an undergraduate digital circuit design class with hundreds of students. We show that, within these targeted learnersourcing workflows, students can create helpful hints for their peers that augment or even replace teachers' personalized assistance, especially when that assistance is not available.
 
 \begin{figure}
 \centering
@@ -163,51 +179,36 @@ Personalized support for students is a gold standard in education, but it scales
 \label{fig:workflow}
 \end{figure}
 
-\section{Extensions of OverCode Clustering}
 
-In order to perform more comprehensive clustering, several extensions of the original OverCode clustering methods have been explored and some have been fully implemented.
-GroverCode is an extension of OverCode built to canonicalize and cluster both correct and incorrect solutions. This was also done in the context of hundreds of exam-level solutions instead of thousands of solutions to "finger exercises" and problem set problems. This change in regime was inspired by need-finding interviews with the lecturer who teaches both the online and residential versions of MIT's introductory Python programming class. She was appreciative of the insights OverCode could give her extracted from the thousands of correct solutions submitted by her online students, but the semi-regular pain of hand-grading the hundreds of incorrect solutions submitted by tuition-paying residential students was a more immediate concern. Adapting to the needs of a team of graders grading a smaller number of more complex solutions, many of which were incorrect, required significant changes to the pipeline and interface. The resulting system was deployed to the staff for use during two grading sessions. The results of this field deployment are also promising; the staff welcomes its continued use in future semesters. More preliminary explorations of statistical methods for clustering solutions are also described.
+\section{Additional Clustering and Visualization}
 
+To further explore the power of clustering and visualizing solutions, several extensions of the OverCode methods were explored and one variant, GroverCode for grading, has been fully implemented. Adapting to the needs of a team of graders grading a smaller number of more complex solutions, many of which were incorrect, required significant changes to the pipeline and interface. The resulting system was deployed to the staff for use during two grading sessions. The results of this field deployment are also promising; the staff welcomes its continued use in future semesters. More preliminary explorations of statistical methods, such as Bayesian inference, for clustering solutions are explored (see Chapter ~\ref{chapter:grovercode}.
 
-\begin{comment}
-\section{Discussion}
-Learnersourcing has been a recurring topic at CSCW recently, and these systems show various mechanisms for leveraging learners in large engineering classes. Learners produce many variations of solutions to a problem, running into common and uncommon bugs along the way. Learners can be part of a closed system workflow that prompts them to generate analysis of their own activity and sends it to selected fellow learners as feedback. Alternatively, learners can be pure producers whose activity is analyzed by systems and distilled by teachers into personalized feedback for fellow learners. We would like to demo these systems together, as a suite of learnersourcing systems that allow teachers to turn the challenges of teaching at scale into an opportunity for discussion, self-reflection, peer-teaching, and more learning from examples.
-\end{comment}
+%GroverCode is an extension of OverCode built to canonicalize and cluster both correct and incorrect solutions. This was also done in the context of hundreds of exam-level solutions instead of thousands of solutions to "finger exercises" and problem set problems. This change in regime was inspired by need-finding interviews with the lecturer who teaches both the online and residential versions of MIT's introductory Python programming class. She was appreciative of the insights OverCode could give her extracted from the thousands of correct solutions submitted by her online students, but the semi-regular pain of hand-grading the hundreds of incorrect solutions submitted by tuition-paying residential students was a more immediate concern.
 
+\section{Thesis Statement and Contributions}
+
+The systems described in this thesis show various mechanisms for leveraging learners in massive programming-based engineering classes. Learners produce many variations of solutions to a problem, running into common and uncommon bugs along the way. Learners can be pure producers whose solutions are analyzed and displayed to teachers to augment their cognition and help them generate feedback. Alternatively, learners can be prompted to generate analysis of their own and others' solutions, for the benefit of both themselves and current and future students. %, and sends it to selected fellow learners as feedback. %We would like to demo these systems together, as a suite of learnersourcing systems that allow teachers to turn the challenges of teaching at scale into an opportunity for discussion, self-reflection, peer-teaching, and more learning from examples.
 
 My thesis statement is: 
 \begin{displayquote}
 Clustering and visualizing solution variation collected from programming courses can help teachers gain insights into student design choices, detect autograder failures, award partial credit, use targeted learnersourcing to collect hints for other students, and give personalized style feedback at scale.
 \end{displayquote}
-\todo{make sure targeted learnersourcing is defined}
 
-\section{Terminology}
-
-\todo{Finish defining: solutions, programming exercise/problem, collections of solutions to an exercise....}
-
-Since terminology across research domains can vary, I will define the terms in which I will describe previous research and my own: 
-\begin{itemize}
-\item A {\it solution} is code that a particular person wrote in response to a prompt or problem description.
-\item {\it Solution clusters} represent different patterns of implementation. For example, there may be two distinct solution clusters, both achieving the same input-output behavior but by different means. \todo{better name for this, that respects topic model approach?}
-\item A {\it solution path} is a series of code snapshots generated while a person is working toward meeting a particular input-output behavior specification. 
-\item The {\it space of student solutions} refers to the aggregation of student-generated solutions and the solution clusters they form.
-\item {\it Learnersourcing}... \todo{define, using my own wording if necessary}
-\end{itemize}
-
-\section{Contributions}
-
-\todo{add grovercode contributions, turn into prose}The main contributions of this thesis are:
+The main contributions of this thesis are:
 \begin{itemize}
 \item A novel visualization that shows similarity and variation among thousands of Python solutions, with cleaned code shown for each variant. 
 \item An algorithm that uses the behavior of variables to help cluster Python solutions and generate the cleaned code for each cluster of solutions.
 \item Two user studies that show this visualization is useful for giving teachers a birds-eye view of thousands of students' Python solutions.
-\item A technique for displaying clusters of Python solutions with only a slice of each cluster exposed, revealing the features that are relevant to the task. In this application, the relevant features are variable names and roles.
-\item A workflow for generating personalized active learning exercises, emulating how a teacher might socratically discuss good and bad choices with a student while they review the student's solution together.
-\item A working system which implements the above technique and method for datasets from both MOOCs and large residential classes on introductory Python programming.
-\item Two lab studies which evaluate both the teachers' and students' experience of the variable name feedback workflow.
-\item{A self-reflection learnersourcing workflow in which students generate hints for each other by reflecting on an obstacle they themselves have recently overcome while debugging their solution to a Python or digital design exercise.}
-\item{A comparison learnersourcing workflow in which students generate design hints for each other by comparing their own solutions to alternative designs submitted by other students.} 
-\item{A deployment of the self-reflection workflow in a 200-student class and a lab study of the comparison workflow with 9 participants. Results from these studies show that personalized hints can be viably learnersourced, and that these hints serve as helpful guides to fellow students encountering the same obstacle or attempting to reach the same goal.}
+\item A grading interface that shows similarity and variation among Python solutions, with faceted browsing so that users can filter solutions by error signature, i.e., the test cases they pass and fail. 
+\item Two field deployments of the grading interface within an introductory Python programming staff's exam grading sessions.
+\item A technique for displaying clusters of Python solutions with only a slice, i.e., variable names and roles, of each cluster exposed, revealing the details that are relevant to the task. %In this application, the relevant features are variable names and roles.
+\item A workflow for generating personalized active learning exercises, emulating how a teacher might socratically discuss good and bad choices with a student while they review the student's solution together. 
+\item An implementation of the above technique and method for variable naming. % within datasets from both MOOCs and large residential classes on introductory Python programming.
+\item Two lab studies which evaluate both the teachers' and students' experience of the workflow applied to variable names.
+\item A self-reflection learnersourcing workflow in which students generate hints for each other by reflecting on an obstacle they themselves have recently overcome while debugging their solution to a Python or digital design exercise.
+\item A comparison learnersourcing workflow in which students generate design hints for each other by comparing their own solutions to alternative designs submitted by other students.
+\item A deployment of the self-reflection workflow in a 200-student class and a lab study of the comparison workflow with 9 participants.
 \end{itemize}
 
 \section{Thesis Overview}
@@ -221,12 +222,12 @@ The four chapters that follow describe, in detail, the four systems developed, a
 
 \item Foobaz (Chapter \ref{chapter:foobaz}) clusters variables in student programs by their names and behavior so that teachers can give feedback on variable naming. Rather than requiring the teacher to comment on thousands of students individually, Foobaz generates personalized quizzes that help students evaluate their own names by comparing them with good and bad names from other students. 
 
-\item ClassOverflow (Chapter \ref{chapter:classoverflow}) collects and organizes solution hints indexed by the autograder test that failed or a performance characteristic like size or speed. It helps students reflect on their debugging or optimization process, generates hints that can help other students with the same problem, and could potentially bootstrap an intelligent tutor tailored to the problem.
+\item Chapter \ref{chapter:classoverflow} describes two workflows that collect and organize solution hints indexed by (1) the autograder test that failed or (2) a performance characteristic like size or speed. It helps students reflect on their debugging or optimization process, generates hints that can help other students with the same problem, and could potentially bootstrap an intelligent tutor tailored to the problem.
 
 \item OverCode Extensions (Chapter \ref{chapter:grovercode}) describes (1) GroverCode, an extension to OverCode optimized for processing and displaying incorrect as well as correct student submissions and (2) clustering and mixture modeling algorithms applied to the OverCode pipeline's output for additional insight into patterns within student solutions. %The GroverCode user interface is optimized and deployed in the field for teachers awarding partial credit to each of the hundreds of students who submitted programs in computer-based quizzes and final exams for the residential Python-based introductory programming (6.0001) and data science (6.0002) courses at MIT.
 \end{itemize}
 
-Chapter \ref{chapter:discussion} discusses the design lessons that apply to the entire collection of systems in this thesis. Chapter \ref{chapter:futurework} outlines avenues of future work this thesis work, in combination with the complementary work of others in this space, paves the way for.
+Chapter \ref{chapter:discussion} discusses the design lessons that apply to the entire collection of systems in this thesis. Chapter \ref{chapter:conclusion} outlines avenues of future work this thesis work, in combination with the complementary work of others in this space, paves the way for.
 
 
 

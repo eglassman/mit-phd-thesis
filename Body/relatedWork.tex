@@ -341,16 +341,29 @@ In contrast to point-based displays, the OverCode interface puts the code front 
 %\subsection{Handling Incorrect Solutions}
 
 %\todo{summarize Singh's Autograder, evan pu's paper?}
+\section{Personalized Support}
+Several types of solutions have been deployed to help students get the personalized attention they need. These solutions span the spectrum from recruiting more teaching assistants from the ranks of previous students \cite{communityTAs} to automating hints using intelligent tutoring systems. 
 
-\section{Learnersourcing and Peer Instruction}
-%Several types of solutions have been deployed to help students get the personalized attention they need. These solutions span the spectrum from recruiting more teaching assistants from the ranks of previous students \cite{communityTAs} to automating hints using intelligent tutoring systems. 
+%\subsection{Intelligent Tutoring Systems}
+Intelligent tutoring systems can provide personalized hints and other assistance to each student based on a pre-programmed student model. For example, previous systems sought to provide support through the use of adaptive scripts \cite{kumar2007tutorial}, or cues from the student’s problem-solving actions \cite{diziol}. Despite the advantage of automated support, intelligent tutoring systems often require domain experts to design and build them, making them expensive to develop. \todo{Include ``current ITSs require an exact formalization of the underlying domain knowledge
+which is usually a substantial amount of work: researchers have reported 100-1000 hours
+of authoring time needed for one hour of instruction [MBA03] from `Feedback Provision Strategies in Intelligent Tutoring
+Systems Based on Clustered Solution Spaces'''} Furthermore, domain experts who generate these hints may also suffer from the ``curse of knowledge’’: the difficulty experts have when trying to see something from a novice’s point of view \cite{curse}. 
 
+%\subsection{Through Data Mining}
+Unlike intelligent tutoring systems, the HelpMeOut system \cite{helpmeout} does not require a pre-programmed student model. It assists programmers during their debugging by suggesting code modifications mined from debugging performed by previous programmers. However, the suggestions lack explanations in plain language unless they are added by experts (teachers), so the limits imposed by the time, expense, and curse of knowledge of experts still apply.
+
+Discussion forums derive their value from the content produced by the teachers and students who use them. These systems can harness the benefits of peer learning, where students can benefit from generating and receiving help from each other. However, as the system has no student model, the information is available to all students whether or not it is ultimately relevant. Students can receive personalized attention only if they post a question and receive a response. 
+
+%\subsection{Learnersourcing and Peer Instruction}
 Peer-pairing can stand in place of staff assistance, to both reduce the load on teaching staff and give students a chance to gain ownership of material through teaching it to someone else. Weld et al. speculate about peer-pairing in MOOCs based on student competency measures \cite{WeldHcomp12}, and Klemmer et al. demonstrate peer assessments' scalability to large online design-oriented classes~\cite{Klemmer}. Peer instruction~\cite{mazur} and peer assessment~\cite{peerassessment} have been integrated into many classroom activities and have also formed the basis of several online systems for peer-learning. For example, Talkabout organizes students into discussion groups based on characteristics such as gender or geographic balance \cite{talkabout}.
 
 Recent work on learnersourcing proposes that learners can collectively generate educational content for future learners while engaging in a meaningful learning experience themselves \cite{kim2013learnersourcing,weir2015,mitros2015}. For example, Crowdy enables people to annotate how-to videos while simultaneously learning from the video \cite{weir2015}. Within the ClassOverflow work, I expand on learnersourcing by requesting the contributions of specific learners who, by virtue of their work so far, are uniquely situated to compose a hint for fellow learners. I will refer to this as targeted learnersourcing.
 
 \todo{consider adding additional papers from notes}
 
+\begin{comment}
 \section{Augmented Intelligence}
      "The power of the unaided mind is highly overrated… The real powers come from devising external aids that enhance cognitive abilities. " —Donald Norman 
      http://www.dougengelbart.org/pubs/augment-3906.html
+\end{comment}

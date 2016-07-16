@@ -76,7 +76,9 @@ I was able to brief fellow staff members on the space of solutions, both good an
 
 \section{OverCode}
 
-Analogous to tracking Turing machine movement, my colleague Rishabh Singh and I realized that we could identify meaningful patterns in Python solutions by tracking the values of variables during execution on test cases. He had a pile of student-written Python solutions to the same programming exercise, freshly dumped from the logs of MIT's introductory Python programming course on edX. We brought in Philip Guo, who contributed variable value-logging code from his Online Python Tutor, and Jeremy Scott, who helped implement the UI, and together, we created and tested OverCode.
+Analogous to tracking Turing machine movement, my colleague Rishabh Singh and I realized that we could identify meaningful patterns in Python solutions by tracking the values of variables during execution on test cases. He had a pile of student-written Python solutions to the same programming exercise, freshly dumped from the logs of MIT's introductory Python programming course on edX. 
+
+Understanding solution variation is important for providing appropriate feedback to students at scale. The wide variation among these solutions can be a source of pedagogically valuable examples, and can be used to refine the autograder for the exercise by exposing corner cases. We brought in Philip Guo, who contributed variable value-logging code from his Online Python Tutor, and Jeremy Scott, who helped implement the UI, and together, we created and tested OverCode, a system for visualizing and exploring thousands of programming solutions.
 
 OverCode uses both static and dynamic analysis to cluster similar solutions, and lets teachers further filter and cluster solutions based on different criteria. We evaluated OverCode against a non-clustering baseline in a within-subjects study with 24 teaching assistants, and found that the OverCode interface allows teachers to more quickly develop a high-level view of student understanding and misconceptions, and to provide feedback that is relevant to more student solutions.
 
@@ -114,20 +116,21 @@ Traditional feedback methods, such as hand-grading student code for substance an
 
 \begin{subfigure}[b]{1.0\textwidth}
 \centering
-\includegraphics[width=1.0\linewidth]{Body/figures/FoobazInitialFat.png}
+\includegraphics[width=0.75\linewidth]{Body/figures/foobaz/FoobazInitialView4.jpg}
 \caption{The Foobaz teacher interface. The teacher is presented with a scrollable list of normalized solutions, each followed by a table of student-chosen variable names. Some names shown here have been labeled by the teacher as ``misleading or vague,'' ``too short,'' or ``fine.''}
 \label{fig:foobaz_teacherview}
 \end{subfigure}
 
 \begin{subfigure}[b]{1.0\textwidth}
 \centering
-\includegraphics[width=0.5\linewidth]{Body/figures/foobaz/feedbackQuizExample.png}
+\includegraphics[width=0.4\linewidth]{Body/figures/foobaz/feedbackQuizExample.png}
 \caption{A personalized quiz as seen by the student, delivered by an edX-based system maintained by a large university. Students are shown their own code, with a variable name replaced by an arbitrary symbol, followed by variable names for the student to consider and label using the same labels that were available to the teacher. After the student has submitted their own judgments, the teacher’s labels are revealed, along with their explanatory comments.}
 \label{fig:foobaz_studentview}
 \end{subfigure}
 
 \caption{Snapshots of the Foobaz teacher interface and student variable name quiz}
 \end{figure*}
+\todo{replace quiz screenshot with system screenshot}
 
 
 \section{ClassOverflow}

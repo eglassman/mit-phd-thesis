@@ -594,6 +594,7 @@ def iterPower(base,exp):
 Rather than injecting a name collision into an otherwise correct solution, the pipeline preserves the solution author's variable name choice for all the instances of that common variable in that solution. If a solution author's preserved variable name collides with any common variable name in any program trace and does not share that common variable's sequence of values, the pipeline appends a double underscore to the solution authors preserved variable name, so that the interface, and the human reader, do not conflate them.
 
 In the following example, the solution author made a copy of the \codevar{exp} variable, called it \codevar{exp1}, and modified neither. Both map to the same common variable, \codevar{expB}. Therefore, both have had their author-given names preserved, with an underscore appended to the local \codevar{exp} so it does not look like common variable \codevar{exp}. 
+
 \begin{tabular}{cc}
 {\bf Code with Multiple Instances of a Common Variable} & {\bf Common Variable Mappings} \\
 \begin{minipage}{0.5\linewidth}

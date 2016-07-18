@@ -135,12 +135,14 @@
                     <script type="text/template">
                         ### In this thesis
                         - Problems
-                            3. Personalized feedback
-                            4. Personalized hints
+                            - Personalized feedback
+                            - Personalized hints
 
                         - Opportunities
-                            1. Skimmability of thousands of solutions
-                            2. Exploit diversity of good and bad design choices
+                            - Cluster and visualize all the different common and uncommon solutions
+                            - Appreciate and exploit diversity of student choices
+                                <!-- - Identify pedagogically valuable examples -->
+                                <!-- - Discuss tradeoffs -->
                     </script>
                 </section>
 
@@ -157,22 +159,51 @@
                 <section data-markdown>
                     <script type="text/template">
                         ### Outline
+                        1. Solution Variation
                         1. **OverCode**
-                            - Skimmability of thousands of solutions
-                            - Appreciate diversity of solutions
-                            - Feedback to whole class
+                            - Skim thousands of solutions
+                            <!-- - Appreciate diversity of solutions -->
+                            - Feedback for whole class
                         2. **Foobaz**
                             - Exploit diversity of students choices
                             - Personalized feedback on choices
                         3. **Dear Beta & Dear Gamma**
                             <!-- - Targeted learnersourcing -->
                             - Personalized support <!-- debugging & optimization hints -->
+                        4. Additional Clustering and Visualization
                         4. Discussion and Future Work
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
+                        ### Introductory Programming Classes
+                        <div class="row">
+                          <div class="col-sm-6">
+                            100's or 1000's of students
+                          </div>
+                          <div class="col-sm-6">
+                            Public test suite<br>
+                            unlimited testing
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            100's or 1000's of solutions
+                            <img data-src="img/so_many_solutions.jpg" alt="So many solutions">
+                          </div>
+                          <div class="col-sm-6">
+                            Many reach "correct" state
+                            <img data-src="img/mostly_correct.jpg" alt="mostly correct solutions">
+                          </div>
+                        </div>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Solution Variation
                         Some vary in superficial ways
 <pre><code>def iterPower(base, exp):
     '''
@@ -195,12 +226,13 @@
         wynik *= base
     return wynik
 </code></pre>
-
+                    <!-- Different comments, statement order, variable names -->
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
+                        ###Solution Variation
                         Some vary in fundamental ways
 <pre><code>def iterPower(base, exp):
     result = 1
@@ -227,6 +259,44 @@
                     </script>
                 </section>  
 
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Solution Variation
+                        Some correct solutions reveal<br>misconceptions, confusion, or sloppy thinking
+<pre><code>def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    exp1=exp  
+    if base==0:
+        return 0
+    if base<0:
+        p=-base
+    else:
+        p=base
+    if exp==0:
+        return 1
+    else:
+        while exp>1:
+            p=p*abs(base)
+            exp=exp-1
+    if base<0:
+        if exp1%2==1:
+            return -p
+        else:
+            return p
+    else:
+        return p
+</code></pre>
+
+                    </script>
+                </section>  
+
+
                 <!-- <section data-markdown>
                     <script type="text/template">
                         ###A resource for teachers
@@ -238,127 +308,26 @@
 
                 <!-- For teachers, this variation can be a source of pedagogically valuable examples and expose corner cases not yet covered by autograding. For students, the variation in a large class means that other students may have struggled along a similar solution path, hit the same bugs, and can offer hints based on that earned expertise. -->
 
-                <section data-markdown data-state="footer1">
+                <section data-markdown>
                     <script type="text/template">
-                        ###One-on-One Tutoring
+                        ###Opportunity
+                        - Cluster and visualize all the different correct solutions
+                        <!-- - Better help students still working on the problem -->
+                            - Identify pedagogically valuable examples
+                            - Discuss tradeoffs
 
-                        <div class="row">
-                          <div class="col-sm-6">
-                            <ul>
-                              <li>Great tutors have</li>
-                              <ul>
-                                <li>knowledge</li>
-                                <ul>
-                                    <li>domain</li>
-                                    <li>pedagogy</li>
-                                </ul>
-                                <li>nurturing relationships with students</li>
-                                <ul>
-                                    <!-- <li>nurturing</li> -->
-                                    <!-- <li>encouraging</li> -->
-                                    <li>feedback on solutions not students</li>
-                                </ul>
-                                <li>Socratic style</li>
-                                <li>progressive content</li>
-                              </ul>
-                            </ul>
-                             
-                          </div>
-                          <div class="col-sm-6"><img data-src="img/one_on_one.jpg" alt="Tutoring Session"></div>
-                        </div>
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        <div class="row">
-                          <div class="col-sm-6">
-                            <h3>Problem</h3>
-
-                            How do you scale up one-on-one interactions?
-                          </div>
-                          <div class="col-sm-6">
-                            <h3>Opportunity</h3>
-
-                            What value <i>only</i> exists in a massive classroom?
-                          </div>
-                        </div>
+                        
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ###Outline
-
-                        <div class="row">
-                          <div class="col-sm-4 left-aligned">
-                            Status Quo
-                          </div>
-                          <!-- <div class="col-sm-8 left-aligned">
-                            Skimmability, diversity, student hints 
-                          </div> -->
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-4 left-aligned">
-                            Missed Opportunity
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-4 left-aligned">
-                            1st Follow-Up
-                          </div>
-                          <!-- <div class="col-sm-8 left-aligned">
-                            <i>Categorizing Turing machines</i>
-                          </div> -->
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-4 left-aligned">
-                            <b>OverCode</b>
-                          </div>
-                          <div class="col-sm-8 left-aligned">
-                            <i>Skimmable, diverse Python solutions</i><!-- .element: class="fragment" -->
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-4 left-aligned">
-                            <b>Foobaz</b>
-                          </div>
-                          <div class="col-sm-8 left-aligned">
-                            <i>Scalable, personalized naming feedback</i><!-- .element: class="fragment" -->
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-4 left-aligned">
-                            <b>ClassOverflow</b>
-                          </div>
-                          <div class="col-sm-8 left-aligned">
-                            <i>Learnersourcing personalized hints</i><!-- .element: class="fragment" -->
-                          </div>
-                        </div>
-                        <!-- <div class="row">
-                          <div class="col-sm-4 left-aligned">
-                            <b>GroverCode</b>
-                          </div>
-                          <div class="col-sm-8 left-aligned">
-                            <i>Learnersourcing personalized hints</i>
-                          </div>
-                        </div> -->
-                        <div class="row">
-                          <div class="col-sm-4 left-aligned">
-                            Discussion
-                          </div>
-                          <!-- <div class="col-sm-8 left-aligned">
-                            <i>Learnersourcing personalized hints</i>
-                          </div> -->
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-4 left-aligned">
-                            Epilogue
-                          </div>
-                          <!-- <div class="col-sm-8 left-aligned">
-                            <i>Learnersourcing personalized hints</i>
-                          </div> -->
-                        </div>
+                        
                     </script>
                 </section>
 

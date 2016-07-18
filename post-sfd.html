@@ -449,49 +449,15 @@
                     <script type="text/template">
                         ###Clusters
                         - Same set of lines
+                            - modulo variable names, comments, formatting
                         - During execution on test cases
-                            - Variables take on same set of values
-                        - Called "stacks" of code
-                            - Interpretable
-                            - Cluster name is a solution
+                            - variables take on same sequence of values
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ###Stacks
-                        <!-- <div class="row">
-                          <div class="col-sm-6"> -->
-                        <img data-src="img/largest_stack.jpg">
-                          <!-- </div>
-                          <div class="col-sm-6">
-                            <img data-src="img/within_largest_stack.jpg">
-                          </div>
-                        </div> -->
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Stacks
-                        <!-- <div class="row">
-                          <div class="col-sm-6">
-                            <img data-src="img/largest_stack.jpg">
-                          </div>
-                          <div class="col-sm-6"> -->
-                        <img data-src="img/within_largest_stack.jpg">
-                          <!-- </div>
-                        </div> -->
-                    </script>
-                </section>
-
-
-
-                                        
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Within Stacks
+                        ###Within one Cluster
 <pre><code>def iterPower(base, exp):
     '''
     base: int or float.
@@ -1847,6 +1813,111 @@ def iterPower(base, exp):
 
                 <section data-markdown>
                     <script type="text/template">
+                        ###Variables within a cluster
+
+                        - Take on same sequence of values
+                        <pre><code>def iterPower(base, exp):
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+</code></pre>
+                        <pre><code>iterPower(5, 3)</code></pre>
+
+                        <pre><code>base: 5
+exp: 3 -> 2 -> 1 -> 0
+result: 1 -> 5 -> 25 -> 125</code></pre>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Variables across all clusters
+
+                        - Variable that takes on sequence <pre><code>1 -> 5 -> 25 -> 125</code></pre>
+                            <!-- - Most common (3081/3842 solutions) -->
+                            - Most common name <pre><code>result</code></pre>
+                            - Other names <pre><code>wynik, out, total, ans, acum, num, mult</code></pre>
+                            - Occurs in 3081/3842 solutions
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Variables across all clusters
+
+                        - Variable that takes on sequence <pre><code>3 -> 2 -> 1 -> 0</code></pre>
+                            <!-- - Most common (3081/3842 solutions) -->
+                            - Most common name <pre><code>exp</code></pre>
+                            - Other names <pre><code>count, temp, exp3, exp2, exp1, inexp, old_exp</code></pre>
+                            - Occurs in 2744/3842 solutions
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Normalizing Solutions
+
+                        - Rename variables to their most common name
+                        - Remove comments
+                        - Standardize formatting
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Describing Clusters in UI
+                        - Cluster name is a normalized solution
+                            - Interpretable based on deterministic rules
+
+                        <img data-src="img/largest_stack_cropped.jpg">
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Clusters in UI
+                        <div class="row">
+                          <div class="col-sm-1">
+                            <!-- Collapsed -->
+                            <!-- <img data-src="img/largest_stack.jpg"> -->
+                          </div>
+                          <div class="col-sm-5">
+                            Collapsed
+                            <img data-src="img/largest_stack.jpg">
+                          </div>
+                          <div class="col-sm-5">
+                            Expanded
+                            <img data-src="img/within_largest_stack.jpg">
+                          </div>
+                          <div class="col-sm-1">
+                            <!-- Collapsed -->
+                            <!-- <img data-src="img/largest_stack.jpg"> -->
+                          </div>
+                        </div>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Analysis pipeline Advantages
+                        - Reduces this type of program equivalence to comparing sets of strings
+                            - Linear with number of solutions
+                            - Runs on a laptop on thousands of solutions in < 15 min
+                        - Other clustering approaches
+                            - quadratic in number of solutions
+                            - run on a computing cluster
+                        <!-- <img data-src="img/largest_stack_cropped.jpg"> -->
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
                         ###OverCode
 
                         <img data-src="img/OverCode_iterPower_new.jpg">
@@ -1854,10 +1925,7 @@ def iterPower(base, exp):
                     </script>
                 </section>
 
-                
-
-
-
+            
                 <section data-markdown data-state="header-status-quo">
                     <script type="text/template">
                         ###Teaching (hardware) Programming

@@ -127,7 +127,7 @@
 
                         - Opportunities
                             - Cluster and visualize common and uncommon solutions
-                            - Appreciate and exploit diversity of student choices
+                            - Exploit diversity of student choices
                                 <!-- - Identify pedagogically valuable examples -->
                                 <!-- - Discuss tradeoffs -->
                     </script>
@@ -137,10 +137,11 @@
                     <script type="text/template">
                         ### Specific Applications
                         - Problems
-                            - Personalized feedback *on variable names*
+                            - Personalized feedback
+                                - *on variable names* with **Foobaz**
                             - Personalized hints
-                                - *for debugging processors*
-                                - *for optimizing 4-bit adders*
+                                - *for debugging processors* with **Dear Beta**
+                                - *for optimizing 4-bit adders* with **Dear Gamma**
                     </script>
                 </section>
 
@@ -149,8 +150,11 @@
                         ### Specific Applications
                         
                         - Opportunities
-                            - Cluster and visualize common and uncommon *Python* solutions and *4-bit adders*
-                            - Appreciate and exploit diversity of student *Python solutions and variable names*
+                            - Cluster and visualize common and uncommon solutions
+                                - *Python solutions* with **OverCode**
+                                - *4-bit adders* with **Dear Gamma**
+                            - Exploit diversity of student choices
+                                - *variable names* with **Foobaz**
                     </script>
                 </section>
 
@@ -182,22 +186,50 @@
                     <script type="text/template">
                         ### Outline
                         1. Status Quo
-                        1. Solution Variation
-                        1. Cluster and visualize solutions <!-- (opportunity) -->
-                            - **OverCode**
-                                <!-- - Skim thousands of solutions -->
-                                <!-- - Appreciate diversity of solutions -->
-                                <!-- - Feedback for whole class -->
-                        2. Exploit diversity, provide personalized feedback <!-- (problem) -->
-                            - **Foobaz**
-                                <!-- - Teacher curate & label student choices -->
-                                <!-- - Students receive personalized feedback -->
-                        3. Personalized hints <!-- (problem) -->
-                            - **Dear Beta & Dear Gamma**
+                        2. Solution Variation
+                        3. Related Work
+                        <!-- 1. Cluster and visualize solutions <!-- (opportunity) -->
+                        3. **OverCode**
+                            <!-- - Skim thousands of solutions -->
+                            <!-- - Appreciate diversity of solutions -->
+                            <!-- - Feedback for whole class -->
+                            <!-- 2. Exploit diversity, provide personalized feedback  -->
+                            <!-- (problem) -->
+                        4. **Foobaz**
+                            <!-- - Teacher curate & label student choices -->
+                            <!-- - Students receive personalized feedback -->
+                            <!-- 3. Personalized hints <!-- (problem) --> 
+                        5. **Dear Beta & Dear Gamma**
                             <!-- - Targeted learnersourcing -->
-                                <!-- - Collect and distribute students' earned expertise -->
+                            <!-- - Collect and distribute students' earned expertise -->
                         4. Additional clustering and visualization
-                        4. Discussion and future work
+                        6. Discussion and future work
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### Introductory Programming Classes
+                        <div class="row">
+                          <div class="col-sm-6">
+                            100's or 1000's of students
+                          </div>
+                          <div class="col-sm-6">
+                            Public test suite<br>
+                            unlimited testing
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            100's or 1000's of solutions
+                            <img data-src="img/so_many_solutions.jpg" alt="So many solutions">
+                          </div>
+                          <div class="col-sm-6">
+                            Many reach "correct" state
+                            <img data-src="img/mostly_correct.jpg" alt="mostly correct solutions">
+                          </div>
+                        </div>
                     </script>
                 </section>
 
@@ -229,38 +261,6 @@
                         <!-- - Autograders -->
                         - cannot give feedback on readability
                         - "noisy signal" w.r.t. awarding partial credit
-                    </script>
-                </section>
-
-                
-
-                
-
-                
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ### Introductory Programming Classes
-                        <div class="row">
-                          <div class="col-sm-6">
-                            100's or 1000's of students
-                          </div>
-                          <div class="col-sm-6">
-                            Public test suite<br>
-                            unlimited testing
-                          </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                          <div class="col-sm-6">
-                            100's or 1000's of solutions
-                            <img data-src="img/so_many_solutions.jpg" alt="So many solutions">
-                          </div>
-                          <div class="col-sm-6">
-                            Many reach "correct" state
-                            <img data-src="img/mostly_correct.jpg" alt="mostly correct solutions">
-                          </div>
-                        </div>
                     </script>
                 </section>
 
@@ -360,16 +360,48 @@
                 </section>  
 
 
-                <!-- <section data-markdown>
+                <section data-markdown>
                     <script type="text/template">
-                        ###A resource for teachers
-                        - Mine pedagogically valuable examples
-                        - Expose corner cases
+                        ###Related Work
+                        - AST-based comparison
+                        <img data-src="http://jonathan-huang.org/research/pubs/moocshop13/codeweb_1_3.png">
 
                     </script>
-                </section>  -->                 
+                </section>  
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Related Work
+                        - Intelligent Tutoring Systems (ITS)
+                            - "Artificial intelligence" not augmented intelligence
+                            - Time-intensive
+                            - Written with domain experts
+                                - Expensive
+                                - Suffer from curse of knowledge
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Related Work
+                        - Example-based learning
+                            - Compare & contrast
+                            - Productive confusion
+                            - Variation Theory
+                                <!-- - robust understanding through systematic variation in superficial and structural features across examples -->
+
+                    </script>
+                </section>                  
 
                 <!-- For teachers, this variation can be a source of pedagogically valuable examples and expose corner cases not yet covered by autograding. For students, the variation in a large class means that other students may have struggled along a similar solution path, hit the same bugs, and can offer hints based on that earned expertise. -->
+
+                <section data-markdown>
+                    <script type="text/template">
+                        #OverCode
+
+                        <!-- <img data-src="img/OverCode_iterPower_new.jpg"> -->
+
+                    </script>
+                </section>
 
                 <section data-markdown data-background-image="img/turing_anecdote.jpg">
                     <script type="text/template">
@@ -391,9 +423,9 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ###OverCode
-
-                        <img data-src="img/OverCode_iterPower_new.jpg">
+                        ###Opportunity
+                        - Thousands of correct solutions to Python programming problems
+                            - collected from edX offering of MIT EECS 6.0001
 
                     </script>
                 </section>
@@ -415,9 +447,1416 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        
+                        ###Clusters
+                        - Same set of lines
+                        - During execution on test cases
+                            - Variables take on same set of values
+                        - Called "stacks" of code
+                            - Interpretable
+                            - Cluster name is a solution
                     </script>
                 </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Stacks
+                        <!-- <div class="row">
+                          <div class="col-sm-6"> -->
+                        <img data-src="img/largest_stack.jpg">
+                          <!-- </div>
+                          <div class="col-sm-6">
+                            <img data-src="img/within_largest_stack.jpg">
+                          </div>
+                        </div> -->
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Stacks
+                        <!-- <div class="row">
+                          <div class="col-sm-6">
+                            <img data-src="img/largest_stack.jpg">
+                          </div>
+                          <div class="col-sm-6"> -->
+                        <img data-src="img/within_largest_stack.jpg">
+                          <!-- </div>
+                        </div> -->
+                    </script>
+                </section>
+
+
+
+                                        
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Within Stacks
+<pre><code>def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result=1
+    while (exp>0):
+        result*=base
+        exp-=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result=1
+    while exp>0:
+           result*=base
+           exp-=1
+    return result
+    
+
+def iterPower(base, exp):
+  ret = 1
+  while (exp > 0):
+    ret *= base
+    exp -= 1
+  return ret 
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base 
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    answer = 1
+    while exp > 0:
+        answer *= base
+        exp -= 1
+    return answer
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0 :
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp>0:
+        result *= base
+        exp -=1
+    
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code her
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp >0:
+       result *= base
+       exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+    
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+        
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    Tbase = 1
+    while exp > 0:
+        Tbase *= base
+        exp -= 1
+    return Tbase
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+    
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result 
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result*=base
+        exp-=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return(result)
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+ 
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    ans=1
+    while(exp>0):
+        ans*=base
+        exp-=1
+    return ans    
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -=1
+    return result    
+    # Your code here
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+
+    result=1
+    while exp> 0:
+         result*=base
+         exp-=1
+    return result
+  
+    
+    
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    a = 1
+    while exp > 0:
+        a *= base
+        exp -= 1
+    return a
+    
+
+def iterPower(base, exp):
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while(exp > 0):
+        result *=base
+        exp -=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+
+    while exp > 0:
+        result *= base
+        exp -= 1
+
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result=1
+    while exp > 0:
+        result*=base
+        exp-=1
+    return result
+
+def iterPower (a, b):
+    result =1  
+    while b > 0:
+        result *= a
+        b -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result=1 
+    while exp>0:
+        result*=base
+        exp-=1
+
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+
+    result = 1
+    while (exp > 0):
+        result *= base
+        exp -= 1;
+
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    power = 1
+    while exp > 0:
+        power *= base
+        exp -= 1
+    return power
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+    # Your code here
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result*=base
+        exp-=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+     result *= base
+     exp -= 1
+     
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0 :
+        result *= base
+        exp -= 1
+        
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        exp -= 1
+        result *= base
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base 
+        exp -= 1
+    return result;
+        
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''    
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return result
+        
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+  
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+        
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result*=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp >0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+   
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+        
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp >0:
+        result *= base
+        exp -=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+      
+    result = 1
+                   
+    while (exp > 0):
+        result *= base
+        exp -= 1
+        
+    return result
+
+def iterPower(base, exp):
+    result =1
+    while exp > 0:
+        result *= base
+        exp -=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    resultado=1
+    while exp>0:
+        resultado*=base
+        exp-=1
+    return resultado
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result 
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result=1
+    while (exp>0):
+     result*=base
+     exp-=1
+    return result
+     
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result*=base
+        exp -=1
+    return result    
+        
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result    
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result    
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    power=1
+    while exp > 0:
+        power*=base
+        exp-=1
+    return power
+        
+   
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    ans = 1
+    while exp > 0:
+        ans *= base
+        exp -= 1
+    return ans
+    
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    power=1
+    while exp>0:
+        power*=base
+        exp-=1
+    return power
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+         result *= base
+         exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp>0:
+        result *= base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp >0:
+        result *=base
+        exp-=1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+</code></pre>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###OverCode
+
+                        <img data-src="img/OverCode_iterPower_new.jpg">
+
+                    </script>
+                </section>
+
+                
+
+
 
                 <section data-markdown data-state="header-status-quo">
                     <script type="text/template">

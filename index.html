@@ -78,6 +78,13 @@
             <div class="slides">
                 <section data-markdown>
                     <script type="text/template">
+                        ####you're in the computer lab
+                        ####helping students
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
                         <pre><code>def iterPower(base, exp):
     '''
     base: int or float.
@@ -145,6 +152,102 @@ def iterPower(base, exp):
     return result</code></pre>
                     </script>
                 </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Analysis Pipeline Pseudocode
+                        Step 1 
+                        1. Remove comments from all solutions
+                        2. Remove solutions that are now duplicates
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Analysis Pipeline Pseudocode
+                        Step 2
+                        1. Reformat all solutions, so they all have the same formatting
+                        2. Remove solutions that are now duplicates
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <pre><code>iterPower(5,3)</code></pre>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Online Python tutor
+                    </script>
+                </section>
+
+            
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Analysis Pipeline Pseudocode
+                        Step 3
+                        1. Rename all variables in all solutions to their most popular names
+                        2. Remove solutions that are now duplicates
+                    </script>
+                </section>
+
+                
+                <section data-markdown>
+                    <script type="text/template">
+                        <pre><code>def iterPower(mybase, exp):
+    res=1
+    while exp>0:
+        exp-=1
+        res=res*mybase
+    return res
+
+def iterPower(base, exp):
+    result=1
+    while exp>0:
+        exp-=1
+        result=result*base
+    return result</code></pre>
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <pre><code>def iterPower(base, exp):
+    result=1
+    while exp>0:
+        exp-=1
+        result=result*base
+    return result
+
+def iterPower(base, exp):
+    result=1
+    while exp>0:
+        result=result*base
+        exp-=1
+    return result</code></pre>
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Analysis Pipeline Pseudocode
+                        Step 4
+                        1. Find all the solutions that only differ by statement order
+                        2. Keep the solution with the most popular statement order
+                        3. Remove all the others
+                    </script>
+                </section>     
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###OverCode
+
+                        <a href="http://0.0.0.0:8000/?src=iterpower"><img data-src="img/iterPower.jpg"></a>
+
+                    </script>
+                </section>      
 
                 <section data-markdown>
                     <script type="text/template">

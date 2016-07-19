@@ -78,6 +78,76 @@
             <div class="slides">
                 <section data-markdown>
                     <script type="text/template">
+                        <pre><code>def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    res=1.
+    while exp>0:
+        exp-=1
+        res=res*base
+    return res
+
+def iterPower(base, exp):
+    if exp == 0:
+        return 1
+    ans = base
+    while exp >1 :
+        ans *= base
+        print base
+        exp -= 1
+        print exp
+    print ans
+    return ans
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    # Your code here
+    result = 1
+    while exp > 0:
+        result *=base
+        exp -= 1
+    return result
+
+def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    ans = base
+    if (exp == 0):
+        return round(base/base, 4)
+    else:
+        for n in range(exp-1):
+            ans *= base
+        return round(ans, 4)
+
+def iterPower(base, exp):
+    result = base
+    if exp==0:
+        return 1
+    if exp==1:
+        return result
+    while exp > 1:
+        result *= base
+        exp -= 1
+    return result</code></pre>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
                         ##Clustering and Visualizing 
                         ##Solution Variation 
                         ##in Massive Programming Classes

@@ -115,21 +115,181 @@
                         
                         <aside class="notes">
                             Since many lives now revolve around computers, the skill of programming, i.e., getting computers to do what you want, can be empowering, both personally and financially. Students of programming must practice translating what they want a computer to do, i.e., a goal, into instructions that computers can interpret, i.e., a program. Programming teachers provide practice opportunities and feedback.
+
+                            In a typical assignment, the teacher writes down a goal, like “compute the logarithm of any number I give you.” The students translate that goal into a program and send it to the teacher for evaluation.
                         </aside>
                     </script>
                 </section>
 
-
                 <section data-markdown>
                     <script type="text/template">
-                        #Reading Thousands of Python Solutions at Once
+                        ####"Correctness" by test cases
+
+                        1. <code>power(5,3)</code> should return <code>125</code>
+                        2. <code>power(3,4)</code> should return <code>81</code>
+                        3. <code>power(2,5)</code> should return <code>32</code>
+                        4. <code>...</code>
+
+                        <aside class="notes">
+                            Two forms of evaluation are common for programmers in industry. The first is correctness. If the program does not achieve the desired goal, it is incorrect. Proving the correctness of an arbitrary program is difficult, so instead, an approximation is often used: if the computer does what the programmer wanted for each input in a hand-designed list, it is “correct.” Once a human has designed the list of inputs and desired outcomes, referred to as test cases, computers can take over and check each new program for approximate correctness.
+                        </aside>
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####in the computer lab
-                        ####helping students
+                        ####Quality & Readability
+
+                        - Correct w.r.t. test cases
+                        - Difficult to read
+                        <pre style="width: 100%;"><code>def power(base, exp):
+    tempBase=base
+    result = base
+
+    if type(base)==int:
+        while exp==0:
+            result = 1
+            print(result)
+            break    
+        exp=exp-1
+        while exp >0:
+            tempCal=abs(tempBase)
+            exp=exp-1
+            while exp<0:
+                break
+            for i in range (1,tempCal):
+                result=result+base
+                tempCal=tempCal-1
+                tempRes=base
+            base=result
+        return(result)
+
+    else:
+        result = 1
+        while exp > 0:
+            result = result* base
+            exp = exp- 1
+        return result</code></pre>
+
+                        <aside class="notes">
+                            Computers cannot yet take over the second common form of evaluation: quality & readability. A program that is correct, with respect to the test cases, can still be difficult to read. 
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Quality & Readability
+
+                        <!-- - Correct w.r.t. test cases -->
+                        - Disregards teacher's request to write it themselves
+                        <pre style="width: 100%;"><code>def power(base, exp):
+    return base**exp</code></pre>
+                        - Reveals possible misconceptions, e.g., unnecessary statements
+                        <pre style="width: 100%;"><code>def power(base,exp):
+   result=1
+   while exp>0:
+       result=result*base
+       exp-=1
+       continue #keyword here does not change execution
+   return result</code></pre>
+
+                        <aside class="notes">
+                            It can subvert the teacher’s intentions by disregarding instructions or reveal the author’s misconceptions. It use a common approach, or an innovative one.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Quality & Readability
+
+                        <!-- - Correct w.r.t. test cases -->
+                        - Very common
+                        <pre style="width: 100%;"><code>def power(base,exp):
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return result</code></pre>
+                        - Uncommon, possibly innovative
+                        <pre style="width: 100%;"><code>def power(base,exp):
+    if exp == 0:
+        return 1
+    else:
+        return base * iterPower(base, exp-1)</code></pre>
+
+                        <aside class="notes">
+                            It use a common approach, or an innovative one.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <img data-src="img/wordiness.jpg">
+
+                    <aside class="notes">
+                        There is a strong connection between writing “computer” languages and writing “natural” language, e.g., English. With some caveats, both programs and paragraphs are intended to be read by fellow humans. And both programs and paragraphs can be written clearly or inscrutably. In industry, a human looks over the programmer’s shoulder and often has to say, “Looks good to me!” before it is added to the company’s official code base. If a program is difficult to read, it may require lots of extra time, effort, and money to modify or work around in the future.
+                    </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- #Reading Thousands of Python Solutions at Once -->
+                        <img data-src="img/so_many_solutions.jpg" alt="So many solutions">
+                    <aside class="notes">
+                        It is not unusual for college-level programming teachers to have hundreds or thousands of students, either over several semesters or all at once. It can feel like a burden to evaluate hundreds of student programs for every assignment. It is impractical for a programming teacher to evaluate thousands of student programs for every assignment.
+                    </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- #Reading Thousands of Python Solutions at Once -->
+                        <!-- <img data-src="img/so_many_solutions.jpg" alt="So many solutions"> -->
+                        ####Research questions
+                        When the teacher cannot read all the solutions in a collection,
+
+                        - (R1) ... how can they evaluate the quality & readability of as many solutions as possible?<!-- .element: class="fragment" -->
+
+                        - (R2) ... how can they give personalized feedback about quality and readability on as many solutions as possible?<!-- .element: class="fragment" -->
+
+                        <!-- 3. How do you collect and distribute the knowledge and advice of students who know more than the teacher does about the bugs that they fixed and the solutions they made? -->
+                        <aside class="notes">
+                            It is not unusual for college-level programming teachers to have hundreds or thousands of students, either over several semesters or all at once. It can feel like a burden to evaluate hundreds of student programs for every assignment. It is impractical for a programming teacher to evaluate thousands of student programs for every assignment.
+
+                            While it is nice for the teacher to read and understand all the programs, it may not be necessary, if the teacher’s goal is to help students receive personalized advice. As students put the finishing touches on their own programs, they earn expertise about their way of solving the problem. They become resources of knowledge that can be tapped, bypassing the teacher.
+
+                            This is not only true of finished solutions. It is true for the bugs they fix as well. Teachers will not encounter and fix every possible bug or write every possible solution, but someone in the crowd of students may have already. The teacher can still model good debugging strategies, but someone in the crowd may have more knowledge about a particular bug or solution.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- #Reading Thousands of Python Solutions at Once -->
+                        <!-- <img data-src="img/so_many_solutions.jpg" alt="So many solutions"> -->
+                        ####Research questions
+
+                        - (R3) How do you collect and distribute the knowledge and advice of students who know more than the teacher about bugs they fixed and solutions they made?<!-- .element: class="fragment" -->
+                        <aside class="notes">
+                            While it is nice for the teacher to read and understand all the programs, it may not be necessary, if the teacher’s goal is to help students receive personalized advice. As students put the finishing touches on their own programs, they earn expertise about their way of solving the problem. They become resources of knowledge that can be tapped, bypassing the teacher.
+
+                            This is not only true of finished solutions. It is true for the bugs they fix as well. Teachers will not encounter and fix every possible bug or write every possible solution, but someone in the crowd of students may have already. The teacher can still model good debugging strategies, but someone in the crowd may have more knowledge about a particular bug or solution.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####
+
+                        <aside class="notes">
+                            
+                        </aside>
                     </script>
                 </section>
 

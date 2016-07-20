@@ -91,12 +91,27 @@
 
                 <section data-markdown>
                     <script type="text/template">
+                    <!-- #### Translating Goals into Code -->
 
-                        - exponentiate a number &rarr; <code>iterPower(base,exp)</code>
-                        - compute a deriviative &rarr; code
-                        - Goal 3 &rarr; code
-                        - Goal 4 &rarr; code
-                        - Goal 5 &rarr; code
+                    - exponentiate a number:
+<pre><code>def iterPower(base,exp):
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return result</code></pre>
+                    - compute a deriviative:
+<pre style="width: 100%;"><code>def computeDeriv(poly):
+    result=[]
+    for i in range(1,len(poly)):
+        result.append(float(poly[i]*i))
+    return result</code></pre>
+                    - take the log: 
+<pre><code>def myLog(x,b):
+    power=0
+    while b**power&lt;=x:
+        power+=1
+    return power-1</code></pre>
                         
                         <aside class="notes">
                             Since many lives now revolve around computers, the skill of programming, i.e., getting computers to do what you want, can be empowering, both personally and financially. Students of programming must practice translating what they want a computer to do, i.e., a goal, into instructions that computers can interpret, i.e., a program. Programming teachers provide practice opportunities and feedback.

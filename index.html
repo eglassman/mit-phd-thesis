@@ -104,7 +104,7 @@
                     <!-- #### Translating Goals into Code -->
 
                     - exponentiate a number:
-<pre><code>def iterPower(base,exp):
+<pre><code>def power(base,exp):
     result=1
     while exp>0:
         result*=base
@@ -133,7 +133,43 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####"Correctness" by test cases
+                        <!-- Clustering and Visualizing Solution Variation in Massive Programming Classes -->
+                        <img data-src="http://jonathan-huang.org/research/pubs/moocshop13/codeweb_1_3.png">
+
+                        <aside class="notes">
+                            - acknowledge that this probably what you’re expecting
+                            - this was by Huang et al.
+                            - ran on a computing cluster (pairwise tree edit distance)
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####IDEA 1: Synthesize representative solution
+                        <img data-src="img/largest_stack_cropped.jpg">
+                        - This synthesized program represents 1538/3852 student programs.
+
+                        <aside class="notes">
+                            - show a stack of programs produced by my fast linear pipeline
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ##Understanding Code
+
+                        <aside class="notes">
+                            - Several forms of evaluation are common
+                        </aside>
+                    </script>
+                </section>
+
+                 
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Correctness with respect to test cases
 
                         1. <code>power(5,3)</code> should return <code>125</code>
                         2. <code>power(3,4)</code> should return <code>81</code>
@@ -141,14 +177,74 @@
                         4. <code>...</code>
 
                         <aside class="notes">
-                            Two forms of evaluation are common for programmers in industry. The first is correctness. If the program does not achieve the desired goal, it is incorrect. Proving the correctness of an arbitrary program is difficult, so instead, an approximation is often used: if the computer does what the programmer wanted for each input in a hand-designed list, it is “correct.” Once a human has designed the list of inputs and desired outcomes, referred to as test cases, computers can take over and check each new program for approximate correctness.
+                            The first is correctness. If the program does not achieve the desired goal, it is incorrect. Proving the correctness of an arbitrary program is difficult, so instead, an approximation is often used: test cases. A test case is a pair of expected inputs and outputs. If, for every input the program is run on, it returns the expected output, it is correct (with respect to that set of test cases). Without a human in the loop, computers can apply these test cases to check student programs for this kind of approximate correctness.
                         </aside>
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####Quality & Readability
+                        ####Approach
+
+                        <!-- - Correct w.r.t. test cases -->
+                        - Disregards teacher's request to write it themselves
+                        <pre style="width: 100%;"><code>def power(base, exp):
+    return base**exp</code></pre>
+                        - Reveals possible misconceptions, e.g., unnecessary statements
+                        <pre style="width: 100%;"><code>def power(base,exp):
+   result=1
+   while exp>0:
+       result=result*base
+       exp-=1
+       continue #keyword here does not change execution
+   return result</code></pre>
+
+                        <aside class="notes">
+                            Computers cannot yet take over the second common form of evaluation: approach & readability. 
+                            It can subvert the teacher’s intentions by disregarding instructions or reveal the author’s misconceptions. It use a common approach, or an innovative one.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Approach
+
+                        <!-- - Correct w.r.t. test cases -->
+                        - Common
+                        <pre style="width: 100%;"><code>def power(base,exp):
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return result</code></pre>
+                        - Unusual, possibly innovative
+                        <pre style="width: 100%;"><code>def power(base,exp):
+    if exp == 0:
+        return 1
+    else:
+        return base * power(base, exp-1)</code></pre>
+
+                        <aside class="notes">
+                            It use a common approach, or an innovative one.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####A brief story about innovative solutions
+                        <img data-src="img/big_class.jpg" alt="Big Class">
+                    <aside class="notes">
+                        The (Cohen) optimization in 3 sentences
+                    </aside>
+                    </script>
+                </section>
+
+                
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Readability
 
                         - Correct w.r.t. test cases
                         - Difficult to read
@@ -182,55 +278,7 @@
         return result</code></pre>
 
                         <aside class="notes">
-                            Computers cannot yet take over the second common form of evaluation: quality & readability. A program that is correct, with respect to the test cases, can still be difficult to read. 
-                        </aside>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ####Quality & Readability
-
-                        <!-- - Correct w.r.t. test cases -->
-                        - Disregards teacher's request to write it themselves
-                        <pre style="width: 100%;"><code>def power(base, exp):
-    return base**exp</code></pre>
-                        - Reveals possible misconceptions, e.g., unnecessary statements
-                        <pre style="width: 100%;"><code>def power(base,exp):
-   result=1
-   while exp>0:
-       result=result*base
-       exp-=1
-       continue #keyword here does not change execution
-   return result</code></pre>
-
-                        <aside class="notes">
-                            It can subvert the teacher’s intentions by disregarding instructions or reveal the author’s misconceptions. It use a common approach, or an innovative one.
-                        </aside>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ####Quality & Readability
-
-                        <!-- - Correct w.r.t. test cases -->
-                        - Very common
-                        <pre style="width: 100%;"><code>def power(base,exp):
-    result=1
-    while exp>0:
-        result*=base
-        exp-=1
-    return result</code></pre>
-                        - Uncommon, possibly innovative
-                        <pre style="width: 100%;"><code>def power(base,exp):
-    if exp == 0:
-        return 1
-    else:
-        return base * iterPower(base, exp-1)</code></pre>
-
-                        <aside class="notes">
-                            It use a common approach, or an innovative one.
+                            A program that is correct, with respect to the test cases, can still be difficult to read. 
                         </aside>
                     </script>
                 </section>
@@ -241,7 +289,26 @@
 
                     <aside class="notes">
                         There is a strong connection between writing “computer” languages and writing “natural” language, e.g., English. With some caveats, both programs and paragraphs are intended to be read by fellow humans. And both programs and paragraphs can be written clearly or inscrutably. In industry, a human looks over the programmer’s shoulder and often has to say, “Looks good to me!” before it is added to the company’s official code base. If a program is difficult to read, it may require lots of extra time, effort, and money to modify or work around in the future.
+
+                        Just as learning to write well is essential to written communication, learning to write readable programs is essential to communicating the "how" of solving the problem with your future self and others.
+
+                        Given the struggle of introductory programming students to generate a correct solution, you may believe that teaching the art of writing readable programs is too much to ask. However, this may be the first and last programming course many of these students ever take, because it is a requirement for their own non-CS majors or generally viewed as a necessary skill regardless of major. It's easier to learn good habits at the beginning than unlearn them later, through painful debugging experiences. And unreadable programs both are symptomatic of and can cause confusion.
                     </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Definition
+                        - *Student design choice*
+
+                            - A choice that affects the student program's approach or readability
+
+                            - Examples:
+                                - <code>for</code> vs. <code>while</code>
+                                - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code>
+                                - recursion vs. iteration
 
                     </script>
                 </section>
@@ -263,39 +330,159 @@
                         ####Research questions
                         When the teacher cannot read all the solutions in a collection,
 
-                        - (R1) ... how can they evaluate the quality & readability of as many solutions as possible?<!-- .element: class="fragment" -->
+                        - (R1) ... how can the teacher understand the landscape of student design choices?<!-- .element: class="fragment" -->
 
-                        - (R2) ... how can they give personalized feedback about quality and readability on as many solutions as possible?<!-- .element: class="fragment" -->
+                        - (R2) ... how can the teacher evaluate the approach & readability of as many solutions as possible?<!-- .element: class="fragment" -->
+
+                        - (R3) ... how can the teacher give personalized feedback on approach and readability?
+                        <!--  about approach and readability on as many solutions as possible?<!-- .element: class="fragment" -->
 
                         <!-- 3. How do you collect and distribute the knowledge and advice of students who know more than the teacher does about the bugs that they fixed and the solutions they made? -->
                         <aside class="notes">
                             It is not unusual for college-level programming teachers to have hundreds or thousands of students, either over several semesters or all at once. It can feel like a burden to evaluate hundreds of student programs for every assignment. It is impractical for a programming teacher to evaluate thousands of student programs for every assignment.
-
-                            While it is nice for the teacher to read and understand all the programs, it may not be necessary, if the teacher’s goal is to help students receive personalized advice. As students put the finishing touches on their own programs, they earn expertise about their way of solving the problem. They become resources of knowledge that can be tapped, bypassing the teacher.
-
-                            This is not only true of finished solutions. It is true for the bugs they fix as well. Teachers will not encounter and fix every possible bug or write every possible solution, but someone in the crowd of students may have already. The teacher can still model good debugging strategies, but someone in the crowd may have more knowledge about a particular bug or solution.
                         </aside>
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        <!-- #Reading Thousands of Python Solutions at Once -->
-                        <!-- <img data-src="img/so_many_solutions.jpg" alt="So many solutions"> -->
+                    <aside class="notes">
+                        While it is nice for the teacher to read and understand all the programs, it may not be necessary, if the teacher’s goal is to help students receive personalized advice. As students put the finishing touches on their own programs, they earn expertise about their way of solving the problem. They become resources of knowledge that can be tapped, bypassing the teacher.
+
+                        This is not only true of finished solutions. It is true for the bugs they fix as well. Teachers will not encounter and fix every possible bug or write every possible solution, but someone in the crowd of students may have already. The teacher can still model good debugging strategies, but someone in the crowd may have more knowledge about a particular bug or solution.
+                    </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
                         ####Research questions
 
-                        - (R3) How do you collect and distribute the knowledge and advice of students who know more than the teacher about bugs they fixed and solutions they made?<!-- .element: class="fragment" -->
-                        <aside class="notes">
-                            While it is nice for the teacher to read and understand all the programs, it may not be necessary, if the teacher’s goal is to help students receive personalized advice. As students put the finishing touches on their own programs, they earn expertise about their way of solving the problem. They become resources of knowledge that can be tapped, bypassing the teacher.
+                        - (R4) How can systems collect and distribute the advice of students about bugs they fixed and solutions they made?
 
-                            This is not only true of finished solutions. It is true for the bugs they fix as well. Teachers will not encounter and fix every possible bug or write every possible solution, but someone in the crowd of students may have already. The teacher can still model good debugging strategies, but someone in the crowd may have more knowledge about a particular bug or solution.
+
+                        <aside class="notes">
+                           <!--  - These students may know more than the teacher about their bugs and solutions -->
                         </aside>
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####
+                        ### Outline
+                        - (R1) landscape of student design choices
+                        - (R2) evaluating approach & readability at scale
+                        - (R3) personalized feedback on approach & readability at scale
+                        - (R4) collect and distribute student advice
+                        - Discussion and future work
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####(R1) How can the teacher understand the landscape of student design choices?
+
+                        (without reading every solution)
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code>res=1.
+while exp>0:
+  exp-=1
+  res=res&#42;base
+return res</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>if exp == 0:
+  return 1
+ans = base
+while exp >1 :
+  ans &#42;= base
+  exp -= 1
+return ans</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = 1
+while exp > 0:
+  result &#42;=base
+  exp -= 1
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = 1
+while exp > 0:
+  exp -= 1
+  result &#42;=base
+return result</code></pre></div></div>
+
+<div class="row">
+                          <div class="col-sm-3">
+<pre><code>result = 1
+while exp > 0:
+  result &#42;=base
+  exp -= 1
+return result</code></pre></div>
+                          <div class="col-sm-6">
+<pre><code>ans = base
+if (exp == 0):
+  return round(base/base, 4)
+else:
+  for n in range(exp-1):
+    ans &#42;= base
+  return round(ans, 4)</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp > 1:
+  result &#42;= base
+  exp -= 1
+return result</code></pre></div>
+                          </div>
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####(R2) How can the teacher evaluate the approach & readability of as many solutions as possible?
+
+                        (without reading every solution)
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####(R3) How can the teacher give personalized feedback on approach and readability?
+
+                        (without reading every solution)
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####(R4) How can systems collect and distribute the advice of students about bugs they fixed and solutions they made?
 
                         <aside class="notes">
                             
@@ -4222,6 +4409,9 @@ Reveal.addEventListener( 'customevent', function() {
                 transition: 'none', // none/fade/slide/convex/concave/zoom
                 slideNumber: true, // Shows the slide number using default formatting
                 slideNumber: 'c/t', // Slide number formatting: "c/t":  flattened slide number / total slides
+
+                // width: '100%',
+                // height: '100%',
 
                 // More info https://github.com/hakimel/reveal.js#dependencies
                 dependencies: [

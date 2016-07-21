@@ -300,15 +300,14 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####Definition
-                        - *Student design choice*
+                        ####Student design choices
 
-                            - A choice that affects the student program's approach or readability
+                        - Choices affects the program's approach or readability
 
-                            - Examples:
-                                - <code>for</code> vs. <code>while</code>
-                                - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code>
-                                - recursion vs. iteration
+                        - Examples:
+                            - <code>for</code> vs. <code>while</code>
+                            - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code>
+                            - recursion vs. iteration
 
                     </script>
                 </section>
@@ -319,7 +318,26 @@
                         <img data-src="img/so_many_solutions.jpg" alt="So many solutions">
                     <aside class="notes">
                         It is not unusual for college-level programming teachers to have hundreds or thousands of students, either over several semesters or all at once. It can feel like a burden to evaluate hundreds of student programs for every assignment. It is impractical for a programming teacher to evaluate thousands of student programs for every assignment.
+
+                        This is both an opportunity and a challenge.
                     </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <h3>Challenge</h3>
+
+                            How do you understand what students wrote and give feedback at scale?
+                          </div>
+                          <div class="col-sm-6">
+                            <h3>Opportunity</h3>
+
+                            What value <i>only</i> exists in a massive classroom?
+                          </div>
+                        </div>
                     </script>
                 </section>
 
@@ -396,7 +414,7 @@
 <code>def power(base, exp):</code>
                         <div class="row">
                           <div class="col-sm-3">
-<pre><code>res=1.
+<pre><code>res=1
 while exp>0:
   exp-=1
   res=res&#42;base
@@ -425,7 +443,7 @@ return result</code></pre></div></div>
 
 <div class="row">
                           <div class="col-sm-3">
-<pre><code>result = 1
+<pre><code>result = 1.
 while exp > 0:
   result &#42;=base
   exp -= 1

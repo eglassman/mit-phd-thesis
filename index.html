@@ -33,6 +33,7 @@
         .left-aligned {text-align: left}
         .right-aligned {text-align: right}
         .white-background {background-color:white;}
+        .grayed-out {color: gray;}
         hr {
             border: 0; 
             height: 1px; 
@@ -92,9 +93,9 @@
                 <section data-markdown>
                     <script type="text/template">
                         <aside class="notes">
-                            Since many lives now revolve around computers, the skill of programming, i.e., getting computers to do what you want, can be empowering, both personally and financially. Students of programming must practice translating what they want a computer to do, i.e., a goal, into instructions that computers can interpret, i.e., a program. Programming teachers provide practice opportunities and feedback.
+                            Since many lives now revolve around computers, the skill of programming, i.e., getting computers to do what you want, can be empowering, both personally and financially. Students of programming must practice composing instructions for computers that meet their goals or solve their problems. Programming teachers provide practice opportunities and feedback.
 
-                            In a typical assignment, the teacher writes down a goal, like “compute the logarithm of any number I give you.” The students translate that goal into a program and send it to the teacher for evaluation.
+                            In a typical assignment, the teacher writes down a problem, like “compute the logarithm of any number I give you.” The students write instructions for a computer to do it for them and then send it to the teacher for evaluation.
                         </aside>
                     </script>
                 </section>
@@ -102,32 +103,59 @@
                 <section data-markdown>
                     <script type="text/template">
                     <!-- #### Translating Goals into Code -->
-
-                    - exponentiate a number:
-<pre><code>def power(base,exp):
+                    <div class="row">
+                          <div class="col-sm-4">
+                            <b>Problem</b>
+                          </div>
+                          <div class="col-sm-8">
+                            <b>One student solution</b>
+                          </div>
+                    </div>
+                    <div class="row">
+                          <div class="col-sm-4">
+                            1. exponentiate a number
+                          </div>
+                          <div class="col-sm-8">
+                            <pre><code>def power(base,exp):
     result=1
     while exp>0:
         result*=base
         exp-=1
     return result</code></pre>
-                    - compute a deriviative:
-<pre style="width: 100%;"><code>def computeDeriv(poly):
+                          </div>
+                    </div>
+                    <div class="row">
+                          <div class="col-sm-4">
+                           2. compute a deriviative
+                          </div>
+                          <div class="col-sm-8">
+                            <pre><code>def computeDeriv(poly):
     result=[]
     for i in range(1,len(poly)):
-        result.append(float(poly[i]*i))
+        result.append(float(poly[i]&#42;i))
     return result</code></pre>
-                    - take the log: 
-<pre><code>def myLog(x,b):
+                          </div>
+                    </div>
+                    <div class="row">
+                          <div class="col-sm-4">
+                            3. compute a logarithm
+                          </div>
+                          <div class="col-sm-8">
+                            <pre><code>def myLog(x,b):
     power=0
-    while b**power&lt;=x:
+    while b&#42;&#42;power&lt;=x:
         power+=1
     return power-1</code></pre>
-                        
-                        <!-- <aside class="notes">
-                            Since many lives now revolve around computers, the skill of programming, i.e., getting computers to do what you want, can be empowering, both personally and financially. Students of programming must practice translating what they want a computer to do, i.e., a goal, into instructions that computers can interpret, i.e., a program. Programming teachers provide practice opportunities and feedback.
+                          </div>
+                    </div>
+</script></section>
 
-                            In a typical assignment, the teacher writes down a goal, like “compute the logarithm of any number I give you.” The students translate that goal into a program and send it to the teacher for evaluation.
-                        </aside> -->
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <aside class="notes">
+                            When you think of my thesis title, clustering and visualizing solution variation in massive programming courses
+                        </aside>
                     </script>
                 </section>
 
@@ -138,27 +166,48 @@
 
                         <aside class="notes">
                             - acknowledge that this probably what you’re expecting
-                            - this was by Huang et al.
+                            - on millions of correct and incorrect programs
                             - ran on a computing cluster (pairwise tree edit distance)
+                            - this was by Huang et al.
+                            
+                            - Many existing techniques use a combination of clustering to group solutions and graph visualization to show the variation between these clusters. These clustering algorithms perform pairwise comparisons that are quadratic in both the number of solutions and the size of each solution, which scales poorly to thousands of solutions. Graph visualization also struggles with how to label the graph node for a cluster, because it has been formed by a complex combination of code features. Without meaningful labels for clusters in the graph, the rich information of the learners’ solutions is lost and the teacher’s ability to understand variation is weakened
                         </aside>
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####IDEA 1: Synthesize representative solution
+                        ####IDEA 1: Synthesize representative solutions you can read
                         <img data-src="img/largest_stack_cropped.jpg">
-                        - This synthesized program represents 1538/3852 student programs.
+                        
+                        represents 1538/3852 solutions
 
                         <aside class="notes">
                             - show a stack of programs produced by my fast linear pipeline
+                            - generate an information visualization approach that does enable teachers to explore the variation in solutions at scale.
                         </aside>
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ##Understanding Code
+                        ### Outline
+                        - Solution Variation (**SV**)
+                        - Research Questions
+                            - (R1) understand **SV**
+                            - (R2) feedback on **SV** at scale
+                            - (R3) personalized feedback **SV** at scale
+                            - (R4) collect and distribute student advice, given **SV**
+                        - Discussion and future work
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ##Solution Variation
+                        - Correctness
+                        - Approach
+                        - Readability
 
                         <aside class="notes">
                             - Several forms of evaluation are common
@@ -175,6 +224,8 @@
                         2. <code>power(3,4)</code> should return <code>81</code>
                         3. <code>power(2,5)</code> should return <code>32</code>
                         4. <code>...</code>
+
+                        (automated with an "autograder")
 
                         <aside class="notes">
                             The first is correctness. If the program does not achieve the desired goal, it is incorrect. Proving the correctness of an arbitrary program is difficult, so instead, an approximation is often used: test cases. A test case is a pair of expected inputs and outputs. If, for every input the program is run on, it returns the expected output, it is correct (with respect to that set of test cases). Without a human in the loop, computers can apply these test cases to check student programs for this kind of approximate correctness.
@@ -198,6 +249,8 @@
        exp-=1
        continue #keyword here does not change execution
    return result</code></pre>
+
+   (Active area of research)<!-- .element: class="fragment" -->
 
                         <aside class="notes">
                             Computers cannot yet take over the second common form of evaluation: approach & readability. 
@@ -225,13 +278,15 @@
     else:
         return base * power(base, exp-1)</code></pre>
 
+    (Active area of research)<!-- .element: class="fragment" -->
+
                         <aside class="notes">
                             It use a common approach, or an innovative one.
                         </aside>
                     </script>
                 </section>
 
-                <section data-markdown>
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ####A brief story about innovative solutions
                         <img data-src="img/big_class.jpg" alt="Big Class">
@@ -239,7 +294,7 @@
                         The (Cohen) optimization in 3 sentences
                     </aside>
                     </script>
-                </section>
+                </section> -->
 
                 
                 <section data-markdown>
@@ -277,6 +332,8 @@
             exp = exp- 1
         return result</code></pre>
 
+    (Active area of research)<!-- .element: class="fragment" -->
+
                         <aside class="notes">
                             A program that is correct, with respect to the test cases, can still be difficult to read. 
                         </aside>
@@ -300,14 +357,14 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####Student design choices
-
-                        - Choices affects the program's approach or readability
+                        - **Student design choices** affect correctness, approach and readability
 
                         - Examples:
                             - <code>for</code> vs. <code>while</code>
                             - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code>
                             - recursion vs. iteration
+
+                        *Solution variation is a result of these choices*<!-- .element: class="fragment" -->
 
                     </script>
                 </section>
@@ -329,15 +386,50 @@
                         <div class="row">
                           <div class="col-sm-6">
                             <h3>Challenge</h3>
-
-                            How do you understand what students wrote and give feedback at scale?
+                            How do you understand<br>(1) what students wrote<br>(2) give feedback at scale?
                           </div>
                           <div class="col-sm-6">
                             <h3>Opportunity</h3>
-
                             What value <i>only</i> exists in a massive classroom?
                           </div>
                         </div>
+                        <!-- <div class="row">
+                          <div class="col-sm-6">
+                            Cannot read thousands of solutions
+                          </div>
+                          <div class="col-sm-6">
+                            Wide variation a
+                          </div>
+                        </div> -->
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Opportunity:
+                        ###Understanding Solution Variation within large datasets
+
+                        - Teachers could do the following *better*:
+                            - provide appropriate, tailored feedback
+                            - identify good examples for discussion
+                            - expose corner cases not covered by test cases
+                            - refine evaluation rubrics
+                        <aside class="notes">
+                            Sifting through thousands of solutions to understand their variation and find pedagogically valuable examples is a daunting task, even if the programming exercises are simple and the solutions are only tens of lines of code long. Without tool support, a teacher may not read more than 50 to 100 of them before growing frustrated with the tedium of the task. Given this small sample size, teachers cannot be expected to develop a thorough understanding of the variety of strategies used to solve the problem, produce instructive feedback that is relevant to a large proportion of learners, or find unexpected interesting solutions.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### Outline
+                        - Solution Variation (SV)<!-- .element: class="grayed-out" -->
+                        - Research Questions
+                            - (R1) understand **SV**
+                            - (R2) feedback on **SV** at scale
+                            - (R3) personalized feedback **SV** at scale
+                            - (R4) collect and distribute student advice, given **SV**
+                        - Discussion and future work
                     </script>
                 </section>
 
@@ -348,11 +440,11 @@
                         ####Research questions
                         When the teacher cannot read all the solutions in a collection,
 
-                        - (R1) ... how can the teacher understand the landscape of student design choices?<!-- .element: class="fragment" -->
+                        - (R1) ... how can the teacher understand solution variation?<!-- .element: class="fragment" -->
 
-                        - (R2) ... how can the teacher evaluate the approach & readability of as many solutions as possible?<!-- .element: class="fragment" -->
+                        - (R2) ... how can the teacher give feedback on the approach & readability at scale?<!-- .element: class="fragment" -->
 
-                        - (R3) ... how can the teacher give personalized feedback on approach and readability?
+                        - (R3) ... in a personalized way?
                         <!--  about approach and readability on as many solutions as possible?<!-- .element: class="fragment" -->
 
                         <!-- 3. How do you collect and distribute the knowledge and advice of students who know more than the teacher does about the bugs that they fixed and the solutions they made? -->
@@ -385,20 +477,11 @@
                     </script>
                 </section>
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ### Outline
-                        - (R1) landscape of student design choices
-                        - (R2) evaluating approach & readability at scale
-                        - (R3) personalized feedback on approach & readability at scale
-                        - (R4) collect and distribute student advice
-                        - Discussion and future work
-                    </script>
-                </section>
+                
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####(R1) How can the teacher understand the landscape of student design choices?
+                        ####(R1) How can the teacher understand solution variation?
 
                         (without reading every solution)
 
@@ -468,6 +551,8 @@ while exp > 1:
 return result</code></pre></div>
                           </div>
 
+                          (6 programs / 3800)<!-- .element: class="fragment" -->
+
                         <aside class="notes">
                             
                         </aside>
@@ -476,7 +561,17 @@ return result</code></pre></div>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####(R2) How can the teacher evaluate the approach & readability of as many solutions as possible?
+                        
+
+                        <aside class="notes">
+                            Sifting through thousands of solutions to understand their variation and find pedagogically valuable examples is a daunting task, even if the programming exercises are simple and the solutions are only tens of lines of code long. Without tool support, a teacher may not read more than 50 to 100 of them before growing frustrated with the tedium of the task. Given this small sample size, teachers cannot be expected to develop a thorough understanding of the variety of strategies used to solve the problem, produce instructive feedback that is relevant to a large proportion of learners, or find unexpected interesting solutions.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####(R2) How can the teacher give feedback on the approach & readability of as many solutions as possible?
 
                         (without reading every solution)
 

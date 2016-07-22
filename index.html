@@ -527,9 +527,12 @@ return ans</code></pre></div>
                           <div class="col-sm-3">
 <pre><code># Your code here
 result = 1
-while exp > 0:
-  result &#42;=base
-  exp -= 1
+
+while(exp>0):
+  exp-=1
+  result=result\
+         &#42;base
+
 return result</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result = 1
@@ -578,6 +581,430 @@ return result</code></pre></div>
                         </aside>
                     </script>
                 </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <aside class="notes">
+                            - You cannot read thousands of solutions in a reasonable amount of time. You want to summarize these solutions somehow. You decide you want your summary to be in the form of solutions too, because you're used to reading solutions, not network graphs. So what would you want to read, to get you as close to the real thing as possible?
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <div class="row">
+                          <div class="col-sm-6">
+<pre><code>def power(base, exp):
+    '''iterative compute base to the exponent'''
+    result=1 #initialization
+    while exp>0:
+        exp-=1 #using input argument as counter
+        result=result&#42;base
+    return result</code></pre>
+                          </div>
+                          <div class="col-sm-6">
+<pre><code>def power(base, exp):
+    result=1
+    while exp>0:
+        exp-=1
+        result=result&#42;base
+    return result</code></pre></div></div>
+
+                        <aside class="notes">
+                            - You find two solutions that are identical, except have different comments. You decide that you don’t need to read both of them.
+                        </aside>
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Analysis Pipeline Pseudocode
+                        Step 1 
+                        1. Remove comments from all solutions
+                        2. Remove solutions that are now duplicates
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code>res=1
+while exp>0:
+  exp-=1
+  res=res&#42;base
+return res</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>if exp == 0:
+  return 1
+ans = base
+while exp >1 :
+  ans &#42;= base
+  exp -= 1
+return ans</code></pre></div>
+                          <div class="col-sm-3">
+<pre class="fragment fade-out"><code># Your code here</code></pre>
+<pre><code>result = 1
+
+while(exp>0):
+  exp-=1
+  result=result\
+         &#42;base
+
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = 1
+while exp > 0:
+  exp -= 1
+  result &#42;=base
+return result</code></pre></div></div>
+
+<div class="row">
+                          <div class="col-sm-3">
+<pre class="fragment fade-out"><code>'''
+base: int or float.
+exp: int >= 0
+returns: int or float, base^exp
+'''
+# Your code here</code></pre>
+<pre><code>result =1.
+while exp > 0:
+  result &#42;=base
+  exp -= 1
+return result</code></pre></div>
+                          <div class="col-sm-6">
+<pre><code>ans = base
+if (exp == 0):
+  return round(base/base, 4)
+else:
+  for n in range(exp-1):
+    ans &#42;= base
+  return round(ans, 4)</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp > 1:
+  result &#42;= base
+  exp -= 1
+return result</code></pre></div>
+                          </div>
+
+                        
+                    </script>
+                </section>  
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code>res=1
+while exp>0:
+  exp-=1
+  res=res&#42;base
+return res</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>if exp == 0:
+  return 1
+ans = base
+while exp >1 :
+  ans &#42;= base
+  exp -= 1
+return ans</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = 1
+
+while(exp>0):
+  exp-=1
+  result=result\
+         &#42;base
+
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = 1
+while exp > 0:
+  exp -= 1
+  result &#42;=base
+return result</code></pre></div></div>
+
+<div class="row">
+                          <div class="col-sm-3">
+<pre><code>result =1.
+while exp > 0:
+  result &#42;=base
+  exp -= 1
+return result</code></pre></div>
+                          <div class="col-sm-6">
+<pre><code>ans = base
+if (exp == 0):
+  return round(base/base, 4)
+else:
+  for n in range(exp-1):
+    ans &#42;= base
+  return round(ans, 4)</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp > 1:
+  result &#42;= base
+  exp -= 1
+return result</code></pre></div>
+                          </div>
+
+                        <aside class="notes">
+                            - And re-render
+                        </aside>
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <div class="row">
+                          <div class="col-sm-6">
+<pre><code>def power(base, exp):
+    result=1
+    while exp>0:
+        exp-=1
+        result=result&#42;base
+    return result</code></pre>
+                          </div>
+                          <div class="col-sm-6">
+<pre><code>def power(base, exp):
+    result = 1
+
+    while(exp>0):
+        exp -= 1
+        result=result&#42;base
+
+    return result</code></pre></div></div>
+
+                        <aside class="notes">
+                            - You find another solution that is identical to the first, but with different formatting choices, such as extra white space within and between lines. You decide you do not need to read that one either. You add another step to your analysis pipeline.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Analysis Pipeline Pseudocode
+                        Step 2
+                        1. Reformat all solutions, so they all have the same formatting
+                        2. Remove solutions that are now duplicates
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code>res=1
+while exp>0:
+  exp-=1
+  res=res&#42;base
+return res</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>if exp == 0:
+  return 1
+ans = base
+while exp >1 :
+  ans &#42;= base
+  exp -= 1
+return ans</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = 1
+
+while(exp>0):
+  exp-=1
+  result=result\
+         &#42;base
+
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = 1
+while exp > 0:
+  exp -= 1
+  result &#42;=base
+return result</code></pre></div></div>
+
+<div class="row">
+                          <div class="col-sm-3">
+<pre><code>result =1.
+while exp > 0:
+  result &#42;=base
+  exp -= 1
+return result</code></pre></div>
+                          <div class="col-sm-6">
+<pre><code>ans = base
+if (exp == 0):
+  return round(base/base, 4)
+else:
+  for n in range(exp-1):
+    ans &#42;= base
+  return round(ans, 4)</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result = base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp > 1:
+  result &#42;= base
+  exp -= 1
+return result</code></pre></div>
+                          </div>
+
+                        <aside class="notes">
+                            - And re-render
+                        </aside>
+                    </script>
+                </section>  
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code>res=1
+while exp>0:
+  exp-=1
+  res=res&#42;base
+return res</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>if exp==0:
+  return 1
+ans=base
+while exp>1 :
+  ans&#42;=base
+  exp-=1
+return ans</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result&#42;=base
+return result</code></pre></div></div>
+
+<div class="row">
+                          <div class="col-sm-3">
+<pre><code>result=1.
+while exp>0:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          <div class="col-sm-6">
+<pre><code>ans=base
+if exp==0:
+  return round(base/base,4)
+else:
+  for n in range(exp-1):
+    ans&#42;=base
+  return round(ans,4)</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp>1:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          </div>
+
+                        
+                    </script>
+                </section>   
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <div class="row">
+                          <div class="col-sm-6">
+<pre><code>def power(mybase, exp):
+    res=1
+    while exp>0:
+        exp-=1
+        res=res&#42;mybase
+    return res</code></pre>
+                          </div>
+                          <div class="col-sm-6">
+<pre><code>def power(base, exp):
+    result=1
+    while exp>0:
+        exp-=1
+        result=result&#42;base
+    return result</code></pre></div></div>
+                        <aside class="notes">
+                            - You find another solution that is identical to the first, but with different variable names. You decide that you do not need to read this one either. You pause.
+                            - Variable names are pretty critical to the readability of code. You don’t want to be stuck reading student code with variable names ‘temp1’, ‘temp2’, ‘temp3’… How do you pick which one of the two solutions, which only differ by variable names, to read?
+                            - You don’t pick. You let the students vote, and pray that the wisdom of the crowd solves it for you. And the students have already voted. They already submitted solutions with their own choices of variable names, independent of everyone else. You could figure out the most popular name given to each variable, and use those names for the variables in the solution you, the teacher, has to read. 
+                            
+                            - PAUSE
+
+                            - How do you tell if two students voted for the same variable name? How do we tell that the variable ‘res’ in one solution is the “same” as the variable ‘result’ in another solution? What does the “same variable in two different solutions” even mean?
+
+                            - You could probably hand-label variables across student solutions as the “same” if they are playing the same “role,” e.g., indexing into the same array or accumulating the same result. How do you automate labeling variables as the “same” across student solutions?            
+                        </aside>
+                    </script>
+                </section>  
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <div class="row">
+                          <div class="col-sm-4">
+<pre><code>def power(mybase,exp):
+  res=1
+  while exp>0:
+    exp-=1
+    res=res&#42;mybase
+  return res</code></pre>
+                          </div>
+                          <div class="col-sm-4">
+<pre><code>def power(base,exp):
+  result=1
+  while exp>0:
+    exp-=1
+    result=result\
+            &#42;base
+  return result</code></pre></div>
+                          <div class="col-sm-4">
+<pre><code>def power(base,exp):
+  ans = 1
+  for n in range(exp\
+                 -1):
+    ans&#42;=base
+  return ans</code></pre></div>
+                        </div>
+                        Run all on test case(s):
+                        
+                        <code>iterPower(5,3)</code>
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>  
 
                 
 
@@ -685,23 +1112,9 @@ def iterPower(base, exp):
                     </script>
                 </section>
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ####Analysis Pipeline Pseudocode
-                        Step 1 
-                        1. Remove comments from all solutions
-                        2. Remove solutions that are now duplicates
-                    </script>
-                </section>
+                
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ####Analysis Pipeline Pseudocode
-                        Step 2
-                        1. Reformat all solutions, so they all have the same formatting
-                        2. Remove solutions that are now duplicates
-                    </script>
-                </section>
+                
 
                 <section data-markdown>
                     <script type="text/template">
@@ -726,23 +1139,8 @@ def iterPower(base, exp):
                 </section>
 
                 
-                <section data-markdown>
-                    <script type="text/template">
-                        <pre><code>def iterPower(mybase, exp):
-    res=1
-    while exp>0:
-        exp-=1
-        res=res*mybase
-    return res
-
-def iterPower(base, exp):
-    result=1
-    while exp>0:
-        exp-=1
-        result=result*base
-    return result</code></pre>
-                    </script>
-                </section> 
+                
+                
 
                 <section data-markdown>
                     <script type="text/template">

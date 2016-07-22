@@ -1138,25 +1138,25 @@ ans: 5, 25, 125</code></pre>
                             <div class="col-sm-4">
                                 <pre class="fragment" data-fragment-index="1"><code>mybase: 5</code></pre>
 <pre class="fragment" data-fragment-index="2"><code>exp: 3, 2, 1, 0</code></pre>
-<pre class="fragment" data-fragment-index="3"><code>...</code></pre>
-<pre class="fragment" data-fragment-index="4"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="3"><code>---</code></pre>
+<pre class="fragment" data-fragment-index="4"><code>---</code></pre>
 <pre class="fragment" data-fragment-index="5"><code>res: 1, 5, 25, 125</code></pre>
-<pre class="fragment" data-fragment-index="6"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="6"><code>---</code></pre>
                             </div>
                             <div class="col-sm-4">
                                 <pre class="fragment" data-fragment-index="1"><code>base: 5</code></pre>
 <pre class="fragment" data-fragment-index="2"><code>exp: 3, 2, 1, 0</code></pre>
-<pre class="fragment" data-fragment-index="3"><code>...</code></pre>
-<pre class="fragment" data-fragment-index="4"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="3"><code>---</code></pre>
+<pre class="fragment" data-fragment-index="4"><code>---</code></pre>
 <pre class="fragment" data-fragment-index="5"><code>result: 1, 5, 25, 125</code></pre>
-<pre class="fragment" data-fragment-index="6"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="6"><code>---</code></pre>
                             </div>
                             <div class="col-sm-4">
                                 <pre class="fragment" data-fragment-index="1"><code>base: 5</code></pre>
-<pre class="fragment" data-fragment-index="2"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="2"><code>---</code></pre>
 <pre class="fragment" data-fragment-index="3"><code>exp: 3</code></pre>
 <pre class="fragment" data-fragment-index="4"><code>n: 0, 1, 2</code></pre>
-<pre class="fragment" data-fragment-index="5"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="5"><code>---</code></pre>
 <pre class="fragment" data-fragment-index="6"><code>ans: 5, 25, 125</code></pre>
                             </div>
                         </div>
@@ -1177,7 +1177,7 @@ ans: 5, 25, 125</code></pre>
                             - Occurs in 3081/3842 solutions
                             - Most common name <pre><code>result</code></pre>
                             - Other names <pre><code>wynik, out, total, ans, acum, num, mult</code></pre>
-                            
+                        - Refer to it as the 'common variable result'<!-- .element: class="fragment" -->
 
                     </script>
                 </section>
@@ -1190,8 +1190,25 @@ ans: 5, 25, 125</code></pre>
                             - Occurs in 2744/3842 solutions
                             - Most common name <pre><code>exp</code></pre>
                             - Other names <pre><code>count, temp, exp3, exp2, exp1, inexp, old_exp</code></pre>
-                            
+                        - Refer to it as the 'common variable exp'<!-- .element: class="fragment" -->
 
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        #### preserve 1-to-1 mapping between name and behavior
+
+                        - Common variable <code>1, 5, 25, 125</code> (3081 solutions)
+                            - Most common name: 'result'
+                            - renamed 'result'
+                        - Common variable <code>5, 25, 125</code> (fewer solutions)
+                            - Most common name: *also 'result'*<!-- .element: class="fragment" -->
+                            - renamed 'result2'<!-- .element: class="fragment" -->
+
+                        <aside class="notes">
+                            - Add modifiers to less popular common variables' conflicting names
+                        </aside>
                     </script>
                 </section>
 
@@ -1284,11 +1301,11 @@ return result</code></pre>
                           <div class="col-sm-3">
 <pre><code>if exp==0:
   return 1
-ans=base
+result_2=base
 while exp>1:
-  ans&#42;=base
+  result_2&#42;=base
   exp-=1
-return ans</code></pre></div>
+return result_2</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result=1
 while exp>0:
@@ -1305,19 +1322,19 @@ return result</code></pre></div></div>
 
 <div class="row">
                           <div class="col-sm-3">
-<pre><code>result=1.
+<pre><code>result_3=1.
 while exp>0:
-  result&#42;=base
+  result_3&#42;=base
   exp-=1
-return result</code></pre></div>
+return result_3</code></pre></div>
                           <div class="col-sm-6">
-<pre><code>ans=base
+<pre><code>result_2=base
 if exp==0:
   return round(base/base,4)
 else:
   for n in range(exp-1):
-    ans&#42;=base
-  return round(ans,4)</code></pre></div>
+    result_2&#42;=base
+  return round(result_2,4)</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result=base
 if exp==0:
@@ -1417,6 +1434,29 @@ return result</code></pre></div>
         result=result&#42;base
         exp-=1
     return result</code></pre></div></div>
+
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <div class="row">
+                          <div class="col-sm-6">
+<pre><code>def iterPower(base, exp):
+    result=1
+    while exp>0:</code></pre>
+<pre><code>        exp-=1
+        result=result&#42;base</code></pre>
+<pre><code>    return result</code></pre>
+                          </div>
+                          <div class="col-sm-6">
+<pre><code>def iterPower(base, exp):
+    result=1
+    while exp>0:</code></pre>
+<pre><code>        result=result&#42;base
+        exp-=1</code></pre>
+<pre><code>    return result</code></pre>
+    </div></div>
 
                     </script>
                 </section> 

@@ -35,6 +35,7 @@
         .white-background {background-color:white;}
         .grayed-out {color: gray;}
         .black-border {border: 1px solid black;}
+        .blue-background {background-color: blue;}
         hr {
             border: 0; 
             height: 1px; 
@@ -344,14 +345,18 @@
                 <section data-markdown>
                     <script type="text/template">
                         <img data-src="img/wordiness.jpg">
+                    </script>
+                </section>
 
-                    <aside class="notes">
-                        There is a strong connection between writing “computer” languages and writing “natural” language, e.g., English. With some caveats, both programs and paragraphs are intended to be read by fellow humans. And both programs and paragraphs can be written clearly or inscrutably. In industry, a human looks over the programmer’s shoulder and often has to say, “Looks good to me!” before it is added to the company’s official code base. If a program is difficult to read, it may require lots of extra time, effort, and money to modify or work around in the future.
+                <section data-markdown>
+                    <script type="text/template">
+                        <aside class="notes">
+                            There is a strong connection between writing “computer” languages and writing “natural” language, e.g., English. With some caveats, both programs and paragraphs are intended to be read by fellow humans. And both programs and paragraphs can be written clearly or inscrutably. In industry, a human looks over the programmer’s shoulder and often has to say, “Looks good to me!” before it is added to the company’s official code base. If a program is difficult to read, it may require lots of extra time, effort, and money to modify or work around in the future.
 
-                        Just as learning to write well is essential to written communication, learning to write readable programs is essential to communicating the "how" of solving the problem with your future self and others.
+                            Just as learning to write well is essential to written communication, learning to write readable programs is essential to communicating the "how" of solving the problem with your future self and others.
 
-                        Given the struggle of introductory programming students to generate a correct solution, you may believe that teaching the art of writing readable programs is too much to ask. However, this may be the first and last programming course many of these students ever take, because it is a requirement for their own non-CS majors or generally viewed as a necessary skill regardless of major. It's easier to learn good habits at the beginning than unlearn them later, through painful debugging experiences. And unreadable programs both are symptomatic of and can cause confusion.
-                    </aside>
+                            Given the struggle of introductory programming students to generate a correct solution, you may believe that teaching the art of writing readable programs is too much to ask. However, this may be the first and last programming course many of these students ever take, because it is a requirement for their own non-CS majors or generally viewed as a necessary skill regardless of major. It's easier to learn good habits at the beginning than unlearn them later, through painful debugging experiences. And unreadable programs both are symptomatic of and can cause confusion.
+                        </aside>
 
                     </script>
                 </section>
@@ -416,7 +421,7 @@
                             - better test cases
                             - better evaluation rubrics
                         <aside class="notes">
-                            Sifting through thousands of solutions to understand their variation and find pedagogically valuable examples is a daunting task, even if the programming exercises are simple and the solutions are only tens of lines of code long. Without tool support, a teacher may not read more than 50 to 100 of them before growing frustrated with the tedium of the task. Given this small sample size, teachers cannot be expected to develop a thorough understanding of the variety of strategies used to solve the problem, produce instructive feedback that is relevant to a large proportion of learners, or find unexpected interesting solutions.
+                            
                         </aside>
                     </script>
                 </section>
@@ -441,7 +446,81 @@
                         ####Research questions
                         When the teacher cannot read all the solutions in a collection,
 
-                        - (R1) ... how can the teacher understand solution variation?<!-- .element: class="fragment" -->
+                        - (R1) ... how can the teacher understand solution variation, i.e., learn about common and uncommon student solutions *which they may not have known about before?*<!-- .element: class="fragment" -->
+
+                        <aside class="notes">
+
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <iframe width="800" height="600" src="https://www.youtube.com/embed/E3keLeMwfHY" frameborder="0" allowfullscreen></iframe>
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Two common strategies
+
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <img data-src="https://raw.githubusercontent.com/eglassman/mit-phd-thesis/master/Body/figures/tmvisualization_InnerParensMatched_allkidsAnno2.png">
+                          </div>
+                          <div class="col-sm-6">
+                            <img data-src="https://raw.githubusercontent.com/eglassman/mit-phd-thesis/master/Body/figures/tmvisualization_NtoNParensMatched_allkidsAnno2.png">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <b>Strategy A</b><br>
+                            pairing inner sets of parentheses<br>
+                            (~50% of solutions)
+                          </div>
+                          <div class="col-sm-6">
+                            <b>Strategy B</b><br>
+                            pairing the first open, first closed etc.<br>
+                            (~40% of solutions)
+                          </div>
+                        </div>
+
+                        <aside class="notes">
+                            - The bold trajectories in these figures represent particularly clean representative examples.
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <aside class="notes">
+                            - ~10% solutions exhibit less common strategies
+                            - some are incorrect but marked as correct
+                                - pass all tests
+                            - Staff Perspective
+
+                                - aware of the solution they each written
+                                - not all aware there were two common solutions
+                                - not aware that the test suite was insufficient
+                            - One teacher admitted steering students away from solutions they did not recognize, but in retrospect may have indeed been valid solutions.
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- #Reading Thousands of Python Solutions at Once -->
+                        <!-- <img data-src="img/so_many_solutions.jpg" alt="So many solutions"> -->
+                        ####Research questions
+                        When the teacher cannot read all the solutions in a collection,
+
+                        - (R1) ... how can the teacher understand solution variation, i.e., learn about common and uncommon student solutions *which they may not have known about before?*
 
                         - (R2) ... how can the teacher give feedback on the approach & readability at scale?<!-- .element: class="fragment" -->
 
@@ -450,7 +529,7 @@
 
                         <!-- 3. How do you collect and distribute the knowledge and advice of students who know more than the teacher does about the bugs that they fixed and the solutions they made? -->
                         <aside class="notes">
-                            It is not unusual for college-level programming teachers to have hundreds or thousands of students, either over several semesters or all at once. It can feel like a burden to evaluate hundreds of student programs for every assignment. It is impractical for a programming teacher to evaluate thousands of student programs for every assignment.
+
                         </aside>
                     </script>
                 </section>
@@ -473,10 +552,14 @@
 
 
                         <aside class="notes">
-                           <!--  - These students may know more than the teacher about their bugs and solutions -->
+                           - These students may know more than the teacher about their bugs and solutions
+                           1. Teachers teach students
+                            2. Teachers can learn from student solutions
+                            3. Students can teach each other
                         </aside>
                     </script>
                 </section>
+
 
                 <section data-markdown>
                     <script type="text/template">
@@ -537,8 +620,8 @@ return result</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result = 1
 while exp > 0:
-  exp -= 1
   result &#42;=base
+  exp -= 1
 return result</code></pre></div></div>
 
 <div class="row">
@@ -621,7 +704,7 @@ return result</code></pre></div>
                         ####Analysis Pipeline Pseudocode
                         Step 1 
                         1. Remove comments from all solutions
-                        2. Remove solutions that are now duplicates
+                        2. Collapse solutions that are now duplicates
                     </script>
                 </section>
 
@@ -658,8 +741,8 @@ return result</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result = 1
 while exp > 0:
-  exp -= 1
   result &#42;=base
+  exp -= 1
 return result</code></pre></div></div>
 
 <div class="row">
@@ -731,8 +814,8 @@ return result</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result = 1
 while exp > 0:
-  exp -= 1
   result &#42;=base
+  exp -= 1
 return result</code></pre></div></div>
 
 <div class="row">
@@ -800,7 +883,7 @@ return result</code></pre></div>
                         ####Analysis Pipeline Pseudocode
                         Step 2
                         1. Reformat all solutions, so they all have the same formatting
-                        2. Remove solutions that are now duplicates
+                        2. Collapse solutions that are now duplicates
                     </script>
                 </section> 
 
@@ -836,8 +919,8 @@ return result</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result = 1
 while exp > 0:
-  exp -= 1
   result &#42;=base
+  exp -= 1
 return result</code></pre></div></div>
 
 <div class="row">
@@ -888,11 +971,11 @@ return res</code></pre>
                           <div class="col-sm-3">
 <pre><code>if exp==0:
   return 1
-ans=base
+mult=base
 while exp>1 :
-  ans&#42;=base
+  mult&#42;=base
   exp-=1
-return ans</code></pre></div>
+return mult</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result=1
 while exp>0:
@@ -903,8 +986,8 @@ return result</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result=1
 while exp>0:
-  exp-=1
   result&#42;=base
+  exp-=1
 return result</code></pre></div></div>
 
 <div class="row">
@@ -980,6 +1063,9 @@ return result</code></pre></div>
     exp-=1
     res=res&#42;mybase
   return res</code></pre>
+<pre class="fragment fade-in"><code>mybase: 5
+exp: 3, 2, 1, 0
+res: 1, 5, 25, 125</code></pre>
                           </div>
                           <div class="col-sm-4">
 <pre><code>def power(base,exp):
@@ -988,23 +1074,360 @@ return result</code></pre></div>
     exp-=1
     result=result\
             &#42;base
-  return result</code></pre></div>
+  return result</code></pre>
+  <pre class="fragment fade-in"><code>base: 5
+exp: 3, 2, 1, 0
+result: 1, 5, 25, 125</code></pre>
+  </div>
                           <div class="col-sm-4">
 <pre><code>def power(base,exp):
-  ans = 1
-  for n in range(exp\
-                 -1):
+  ans = base
+  for n in range(exp-1):
     ans&#42;=base
-  return ans</code></pre></div>
+  return ans</code></pre>
+  <pre class="fragment fade-in"><code>base: 5
+exp: 3
+n: 0, 1, 2
+ans: 5, 25, 125</code></pre>
+  </div>
                         </div>
                         Run all on test case(s):
-                        
+
                         <code>iterPower(5,3)</code>
                         <aside class="notes">
-                            
+                            - The variables in each solution take on a sequence of values. As you step through each solution, you notice that the variables that play the same role in each program take on the same sequence of values during execution on this test case.
                         </aside>
                     </script>
                 </section>  
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Variables across all solutions
+
+                        - Variable that takes on sequence <pre><code>1, 5, 25, 125</code></pre>
+                            <!-- - Most common (3081/3842 solutions) -->
+                            - Most common name <pre><code>result</code></pre>
+                            - Other names <pre><code>wynik, out, total, ans, acum, num, mult</code></pre>
+                            - Occurs in 3081/3842 solutions
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Variables across all solutions
+
+                        - Variable that takes on sequence <pre><code>3, 2, 1, 0</code></pre>
+                            <!-- - Most common (3081/3842 solutions) -->
+                            - Most common name <pre><code>exp</code></pre>
+                            - Other names <pre><code>count, temp, exp3, exp2, exp1, inexp, old_exp</code></pre>
+                            - Occurs in 2744/3842 solutions
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Analysis Pipeline Pseudocode
+                        Step 3
+                        1. Rename all variables in all solutions to their most popular names
+                        2. Collapse solutions that are now duplicates
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code>res=1
+while exp>0:
+  exp-=1
+  res=res&#42;base
+return res</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>if exp==0:
+  return 1
+mult=base
+while exp>1 :
+  mult&#42;=base
+  exp-=1
+return mult</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div></div>
+
+<div class="row">
+                          <div class="col-sm-3">
+<pre><code>result=1.
+while exp>0:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          <div class="col-sm-6">
+<pre><code>ans=base
+if exp==0:
+  return round(base/base,4)
+else:
+  for n in range(exp-1):
+    ans&#42;=base
+  return round(ans,4)</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp>1:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          </div>
+
+                        
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result&#42;base
+return result</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>if exp==0:
+  return 1
+ans=base
+while exp>1:
+  ans&#42;=base
+  exp-=1
+return ans</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div></div>
+
+<div class="row">
+                          <div class="col-sm-3">
+<pre><code>result=1.
+while exp>0:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          <div class="col-sm-6">
+<pre><code>ans=base
+if exp==0:
+  return round(base/base,4)
+else:
+  for n in range(exp-1):
+    ans&#42;=base
+  return round(ans,4)</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp>1:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          </div>
+
+                        
+                    </script>
+                </section>  
+
+                <!-- <section data-markdown>
+                    <script type="text/template">
+
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code><span class="blue-background">result</span>=1
+while exp>0:
+  exp-=1
+  result=result&#42;base
+return result</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>if exp==0:
+  return 1
+ans=base
+while exp>1:
+  ans&#42;=base
+  exp-=1
+return ans</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div></div>
+
+<div class="row">
+                          <div class="col-sm-3">
+<pre><code>result=1.
+while exp>0:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          <div class="col-sm-6">
+<pre><code>ans=base
+if exp==0:
+  return round(base/base,4)
+else:
+  for n in range(exp-1):
+    ans&#42;=base
+  return round(ans,4)</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp>1:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          </div>
+
+                        
+                    </script>
+                </section>   -->
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <div class="row">
+                          <div class="col-sm-6">
+<pre><code>def iterPower(base, exp):
+    result=1
+    while exp>0:
+        exp-=1
+        result=result&#42;base
+    return result</code></pre>
+                          </div>
+                          <div class="col-sm-6">
+<pre><code>def power(base, exp):
+    result=1
+    while exp>0:
+        result=result&#42;base
+        exp-=1
+    return result</code></pre></div></div>
+
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Analysis Pipeline Pseudocode
+                        Step 4
+                        1. Find all the solutions that only differ by statement order
+                        2. Keep the solution with the most popular statement order
+                        3. Collapse all the others
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result&#42;base
+return result</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>if exp==0:
+  return 1
+result=base
+while exp>1 :
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre></div>
+                          <div class="col-sm-3">
+<pre class="fragment fade-out"><code>result=1
+while exp>0:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div></div>
+
+<div class="row">
+                          <div class="col-sm-3">
+<pre><code>result=1.
+while exp>0:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          <div class="col-sm-6">
+<pre><code>ans=base
+if exp==0:
+  return round(base/base,4)
+else:
+  for n in range(exp-1):
+    ans&#42;=base
+  return round(ans,4)</code></pre></div>
+                          <div class="col-sm-3">
+<pre><code>result=base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp>1:
+  result&#42;=base
+  exp-=1
+return result</code></pre></div>
+                          </div>
+
+                        
+                    </script>
+                </section> 
+
+
 
                 
 
@@ -1110,65 +1533,7 @@ def iterPower(base, exp):
         exp -= 1
     return result</code></pre>
                     </script>
-                </section>
-
-                
-
-                
-
-                <section data-markdown>
-                    <script type="text/template">
-                        <pre><code>iterPower(5,3)</code></pre>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Online Python tutor
-                    </script>
-                </section>
-
-            
-                <section data-markdown>
-                    <script type="text/template">
-                        ####Analysis Pipeline Pseudocode
-                        Step 3
-                        1. Rename all variables in all solutions to their most popular names
-                        2. Remove solutions that are now duplicates
-                    </script>
-                </section>
-
-                
-                
-                
-
-                <section data-markdown>
-                    <script type="text/template">
-                        <pre><code>def iterPower(base, exp):
-    result=1
-    while exp>0:
-        exp-=1
-        result=result*base
-    return result
-
-def iterPower(base, exp):
-    result=1
-    while exp>0:
-        result=result*base
-        exp-=1
-    return result</code></pre>
-                    </script>
                 </section> 
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ####Analysis Pipeline Pseudocode
-                        Step 4
-                        1. Find all the solutions that only differ by statement order
-                        2. Keep the solution with the most popular statement order
-                        3. Remove all the others
-                    </script>
-                </section>     
 
                 <section data-markdown>
                     <script type="text/template">
@@ -2926,52 +3291,7 @@ def iterPower(base, exp):
                     </script>
                 </section>
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Variables within a cluster
-
-                        - Take on same sequence of values
-                        <pre><code>def iterPower(base, exp):
-    result = 1
-    while exp > 0:
-        result *= base
-        exp -= 1
-    return result
-</code></pre>
-                        <pre><code>iterPower(5, 3)</code></pre>
-
-                        <pre><code>base: 5
-exp: 3 -> 2 -> 1 -> 0
-result: 1 -> 5 -> 25 -> 125</code></pre>
-
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Variables across all clusters
-
-                        - Variable that takes on sequence <pre><code>1 -> 5 -> 25 -> 125</code></pre>
-                            <!-- - Most common (3081/3842 solutions) -->
-                            - Most common name <pre><code>result</code></pre>
-                            - Other names <pre><code>wynik, out, total, ans, acum, num, mult</code></pre>
-                            - Occurs in 3081/3842 solutions
-
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Variables across all clusters
-
-                        - Variable that takes on sequence <pre><code>3 -> 2 -> 1 -> 0</code></pre>
-                            <!-- - Most common (3081/3842 solutions) -->
-                            - Most common name <pre><code>exp</code></pre>
-                            - Other names <pre><code>count, temp, exp3, exp2, exp1, inexp, old_exp</code></pre>
-                            - Occurs in 2744/3842 solutions
-
-                    </script>
-                </section>
+                
 
                 <section data-markdown>
                     <script type="text/template">
@@ -3572,68 +3892,7 @@ result: 1 -> 5 -> 25 -> 125</code></pre>
                     </script>
                 </section>
 
-                <section data-markdown data-state="header-first-followup">
-                    <script type="text/template">
-                        ###Two common strategies
-
-                        <div class="row">
-                          <div class="col-sm-6">
-                            <img data-src="https://raw.githubusercontent.com/eglassman/mit-phd-thesis/master/Body/figures/tmvisualization_InnerParensMatched_allkidsAnno2.png">
-                          </div>
-                          <div class="col-sm-6">
-                            <img data-src="https://raw.githubusercontent.com/eglassman/mit-phd-thesis/master/Body/figures/tmvisualization_NtoNParensMatched_allkidsAnno2.png">
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-6">
-                            <b>Strategy A</b><br>
-                            pairing inner sets of parentheses<br>
-                            (~50% of solutions)
-                          </div>
-                          <div class="col-sm-6">
-                            <b>Strategy B</b><br>
-                            pairing the first open, first closed etc.<br>
-                            (~40% of solutions)
-                          </div>
-                        </div>
-
-                        <aside class="notes">
-                            - The bold trajectories in these figures represent particularly clean representative examples.
-                        </aside>
-
-                    </script>
-                </section>
-
-                <section data-markdown data-state="header-first-followup">
-                    <script type="text/template">
-                        ###Outliers
-
-                        - ~10% solutions exhibit less common strategies
-                            - some are incorrect but marked as correct
-                                - pass all tests
-
-                        <aside class="notes">
-                            - incorrect, i.e., cannot handle arbitrarily deep nesting of parentheses
-                        </aside>
-
-                    </script>
-                </section>
-
-                <section data-markdown data-state="header-first-followup">
-                    <script type="text/template">
-                        ###Staff Perspective
-
-                        - aware of the solution they each written
-                        - not all aware there were two common solutions
-                        - not aware that the test suite was insufficient
-
-                        <aside class="notes">
-                            - One teacher admitted steering students away from solutions they did not recognize, but in retrospect may have indeed been valid solutions.
-                            - I briefed fellow staff members on the space of solutions — both good and bad — in preparation for subsequent semesters and suggested additions to the test tape suite to catch more submissions that were previously erroneously marked as correct.
-                        </aside>
-
-                    </script>
-                </section>
+                
 
                 <section data-markdown>
                     <script type="text/template">

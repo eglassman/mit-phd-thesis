@@ -608,8 +608,7 @@ while exp >1 :
   exp -= 1
 return ans</code></pre></div>
                           <div class="col-sm-3">
-<pre><code># Your code here
-result = 1
+<pre><code>result = 1
 
 while(exp>0):
   exp-=1
@@ -618,7 +617,8 @@ while(exp>0):
 
 return result</code></pre></div>
                           <div class="col-sm-3">
-<pre><code>result = 1
+<pre><code># Your code here
+result = 1
 while exp > 0:
   result &#42;=base
   exp -= 1
@@ -675,6 +675,7 @@ return result</code></pre></div>
 
                 <section data-markdown>
                     <script type="text/template">
+                        ####Differ only by comments
                         <div class="row">
                           <div class="col-sm-6">
 <pre><code>def power(base, exp):
@@ -729,7 +730,6 @@ while exp >1 :
   exp -= 1
 return ans</code></pre></div>
                           <div class="col-sm-3">
-<pre class="fragment fade-out"><code># Your code here</code></pre>
 <pre><code>result = 1
 
 while(exp>0):
@@ -739,6 +739,7 @@ while(exp>0):
 
 return result</code></pre></div>
                           <div class="col-sm-3">
+<pre class="fragment fade-out"><code># Your code here</code></pre>
 <pre><code>result = 1
 while exp > 0:
   result &#42;=base
@@ -853,6 +854,7 @@ return result</code></pre></div>
 
                 <section data-markdown>
                     <script type="text/template">
+                        ####Differ only by formatting
                         <div class="row">
                           <div class="col-sm-6">
 <pre><code>def power(base, exp):
@@ -882,7 +884,7 @@ return result</code></pre></div>
                     <script type="text/template">
                         ####Analysis Pipeline Pseudocode
                         Step 2
-                        1. Reformat all solutions, so they all have the same formatting
+                        1. Reformat all solutions
                         2. Collapse solutions that are now duplicates
                     </script>
                 </section> 
@@ -1023,6 +1025,7 @@ return result</code></pre></div>
 
                 <section data-markdown>
                     <script type="text/template">
+                        ####Differ only by variable names
                         <div class="row">
                           <div class="col-sm-6">
 <pre><code>def power(mybase, exp):
@@ -1082,7 +1085,8 @@ result: 1, 5, 25, 125</code></pre>
                           <div class="col-sm-4">
 <pre><code>def power(base,exp):
   ans = base
-  for n in range(exp-1):
+  for n in range(exp\
+                 -1):
     ans&#42;=base
   return ans</code></pre>
   <pre class="fragment fade-in"><code>base: 5
@@ -1098,6 +1102,71 @@ ans: 5, 25, 125</code></pre>
                             - The variables in each solution take on a sequence of values. As you step through each solution, you notice that the variables that play the same role in each program take on the same sequence of values during execution on this test case.
                         </aside>
                     </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <div class="row">
+                          <div class="col-sm-4">
+<pre><code>def power(mybase,exp):
+  res=1
+  while exp>0:
+    exp-=1
+    res=res&#42;mybase
+  return res</code></pre>
+                          </div>
+                          <div class="col-sm-4">
+<pre><code>def power(base,exp):
+  result=1
+  while exp>0:
+    exp-=1
+    result=result\
+            &#42;base
+  return result</code></pre>
+  </div>
+                          <div class="col-sm-4">
+<pre><code>def power(base,exp):
+  ans = base
+  for n in range(exp\
+                 -1):
+    ans&#42;=base
+  return ans</code></pre>
+  </div>
+                        </div>
+                        <!-- <hr> -->
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <pre class="fragment" data-fragment-index="1"><code>mybase: 5</code></pre>
+<pre class="fragment" data-fragment-index="2"><code>exp: 3, 2, 1, 0</code></pre>
+<pre class="fragment" data-fragment-index="3"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="4"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="5"><code>res: 1, 5, 25, 125</code></pre>
+<pre class="fragment" data-fragment-index="6"><code>...</code></pre>
+                            </div>
+                            <div class="col-sm-4">
+                                <pre class="fragment" data-fragment-index="1"><code>base: 5</code></pre>
+<pre class="fragment" data-fragment-index="2"><code>exp: 3, 2, 1, 0</code></pre>
+<pre class="fragment" data-fragment-index="3"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="4"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="5"><code>result: 1, 5, 25, 125</code></pre>
+<pre class="fragment" data-fragment-index="6"><code>...</code></pre>
+                            </div>
+                            <div class="col-sm-4">
+                                <pre class="fragment" data-fragment-index="1"><code>base: 5</code></pre>
+<pre class="fragment" data-fragment-index="2"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="3"><code>exp: 3</code></pre>
+<pre class="fragment" data-fragment-index="4"><code>n: 0, 1, 2</code></pre>
+<pre class="fragment" data-fragment-index="5"><code>...</code></pre>
+<pre class="fragment" data-fragment-index="6"><code>ans: 5, 25, 125</code></pre>
+                            </div>
+                        </div>
+                        
+                        <!-- Run all on test case(s):
+
+                        <code>iterPower(5,3)</code> -->
+                        <aside class="notes">
+                        </aside>
+                    </script>
                 </section>  
 
                 <section data-markdown>
@@ -1105,10 +1174,10 @@ ans: 5, 25, 125</code></pre>
                         ###Variables across all solutions
 
                         - Variable that takes on sequence <pre><code>1, 5, 25, 125</code></pre>
-                            <!-- - Most common (3081/3842 solutions) -->
+                            - Occurs in 3081/3842 solutions
                             - Most common name <pre><code>result</code></pre>
                             - Other names <pre><code>wynik, out, total, ans, acum, num, mult</code></pre>
-                            - Occurs in 3081/3842 solutions
+                            
 
                     </script>
                 </section>
@@ -1118,10 +1187,10 @@ ans: 5, 25, 125</code></pre>
                         ###Variables across all solutions
 
                         - Variable that takes on sequence <pre><code>3, 2, 1, 0</code></pre>
-                            <!-- - Most common (3081/3842 solutions) -->
+                            - Occurs in 2744/3842 solutions
                             - Most common name <pre><code>exp</code></pre>
                             - Other names <pre><code>count, temp, exp3, exp2, exp1, inexp, old_exp</code></pre>
-                            - Occurs in 2744/3842 solutions
+                            
 
                     </script>
                 </section>
@@ -1398,7 +1467,7 @@ return result</code></pre></div></div>
 
 <div class="row">
                           <div class="col-sm-3">
-<pre><code>result=1.
+<pre class="fragment fade-out"><code>result=1.
 while exp>0:
   result&#42;=base
   exp-=1
@@ -1427,9 +1496,6 @@ return result</code></pre></div>
                     </script>
                 </section> 
 
-
-
-                
 
                 <section data-markdown>
                     <script type="text/template">

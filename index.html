@@ -1295,19 +1295,20 @@ return result</code></pre></div>
 <pre><code>result=1
 while exp>0:
   exp-=1
-  result=result&#42;base
+  result=result\
+         &#42;base
 return result</code></pre>
                           </div>
                           <div class="col-sm-3">
 <pre><code>if exp==0:
   return 1
-result_2=base
+result2=base
 while exp>1:
-  result_2&#42;=base
+  result2&#42;=base
   exp-=1
-return result_2</code></pre></div>
+return result2</code></pre></div>
                           <div class="col-sm-3">
-<pre><code>result=1
+<pre class="fragment fade-out"><code>result=1
 while exp>0:
   exp-=1
   result=result\
@@ -1322,19 +1323,19 @@ return result</code></pre></div></div>
 
 <div class="row">
                           <div class="col-sm-3">
-<pre><code>result_3=1.
+<pre><code>result3=1.
 while exp>0:
-  result_3&#42;=base
+  result3&#42;=base
   exp-=1
-return result_3</code></pre></div>
+return result3</code></pre></div>
                           <div class="col-sm-6">
-<pre><code>result_2=base
+<pre><code>result2=base
 if exp==0:
   return round(base/base,4)
 else:
   for n in range(exp-1):
-    result_2&#42;=base
-  return round(result_2,4)</code></pre></div>
+    result2&#42;=base
+  return round(result2,4)</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result=base
 if exp==0:
@@ -1449,7 +1450,7 @@ return result</code></pre></div>
         result=result&#42;base</code></pre>
 <pre><code>    return result</code></pre>
                           </div>
-                          <div class="col-sm-6">
+                          <div class="col-sm-6 fragment fade-out">
 <pre><code>def iterPower(base, exp):
     result=1
     while exp>0:</code></pre>
@@ -1473,33 +1474,42 @@ return result</code></pre></div>
 
                 <section data-markdown>
                     <script type="text/template">
-                        <!-- ####Active Learning Activity -->
+                        ####Synthesized representative solutions
+                        <img data-src="img/largest_stack_cropped.jpg">
+                        
+                        represents 1538/3852 solutions
+
+                        <aside class="notes">
+                            - show a stack of programs produced by my fast linear pipeline
+                            - generate an information visualization approach that does enable teachers to explore the variation in solutions at scale.
+                        </aside>
+                    </script>
+                </section>
+
+                <!-- <section data-markdown>
+                    <script type="text/template">
+                        
 <code>def power(base, exp):</code>
                         <div class="row">
                           <div class="col-sm-3">
 <pre><code>result=1
 while exp>0:
   exp-=1
-  result=result&#42;base
+  result=result\
+         &#42;base
 return result</code></pre>
                           </div>
                           <div class="col-sm-3">
 <pre><code>if exp==0:
   return 1
-result=base
-while exp>1 :
-  result&#42;=base
+result2=base
+while exp>1:
+  result2&#42;=base
   exp-=1
-return result</code></pre></div>
+return result2</code></pre></div>
+                          <div class="col-sm-3"></div>
                           <div class="col-sm-3">
 <pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                          <div class="col-sm-3">
-<pre class="fragment fade-out"><code>result=1
 while exp>0:
   result&#42;=base
   exp-=1
@@ -1507,19 +1517,19 @@ return result</code></pre></div></div>
 
 <div class="row">
                           <div class="col-sm-3">
-<pre class="fragment fade-out"><code>result=1.
+<pre><code>result3=1.
 while exp>0:
-  result&#42;=base
+  result3&#42;=base
   exp-=1
-return result</code></pre></div>
+return result3</code></pre></div>
                           <div class="col-sm-6">
-<pre><code>ans=base
+<pre><code>result2=base
 if exp==0:
   return round(base/base,4)
 else:
   for n in range(exp-1):
-    ans&#42;=base
-  return round(ans,4)</code></pre></div>
+    result2&#42;=base
+  return round(result2,4)</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result=base
 if exp==0:
@@ -1534,7 +1544,7 @@ return result</code></pre></div>
 
                         
                     </script>
-                </section> 
+                </section> -->
 
 
                 <section data-markdown>

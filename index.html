@@ -365,16 +365,76 @@
                 <section data-markdown>
                     <script type="text/template">
                         - **Student design choices** affect correctness, approach and readability
+                            - two types
+                                - superficial 
+                                - structural
 
                         - Examples:
                             - <code>for</code> vs. <code>while</code>
-                            - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code>
-                            - recursion vs. iteration
+                            - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code> *(superficial)*<!-- .element: class="fragment" -->
+                            - recursion vs. iteration *(structural)*<!-- .element: class="fragment" -->
 
                         *Solution variation is a result of these choices*<!-- .element: class="fragment" -->
 
                     </script>
                 </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###superficial Variation
+                        - Different comments, statement order, variable names
+<pre><code>def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+ 
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+</code></pre>
+
+<pre><code>def iterPower(base, exp):
+    wynik = 1
+    while exp > 0:
+        exp -= 1  #using exp argument as counter
+        wynik *= base
+    return wynik
+</code></pre>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Structural Variation
+                        - Some vary in fundamental ways
+<pre><code>def iterPower(base, exp):
+    result = 1
+    while exp > 0:
+        result *= base
+        exp -= 1
+    return result
+</code></pre>
+
+<pre><code>def iterPower(base, exp):
+    value=1
+    for i in range(exp):
+        value*=base
+    return value
+</code></pre>
+
+<pre><code>def iterPower(base, exp):
+    if(exp == 0):
+        return 1
+    else:
+        return base * iterPower(base,exp-1)
+</code></pre>
+
+                    </script>
+                </section>  
 
                 <section data-markdown>
                     <script type="text/template">
@@ -1549,6 +1609,8 @@ return result</code></pre></div>
                 </section> -->
 
 
+
+
                 <section data-markdown>
                     <script type="text/template">
                         ####(R2) How can the teacher give feedback on the approach & readability of as many solutions as possible?
@@ -1861,63 +1923,7 @@ def iterPower(base, exp):
                     </script>
                 </section>
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Solution Variation
-                        Some vary in superficial ways
-<pre><code>def iterPower(base, exp):
-    '''
-    base: int or float.
-    exp: int >= 0
- 
-    returns: int or float, base^exp
-    '''
-    result = 1
-    while exp > 0:
-        result *= base
-        exp -= 1
-    return result
-</code></pre>
-
-<pre><code>def iterPower(base, exp):
-    wynik = 1
-    while exp > 0:
-        exp -= 1  #using exp argument as counter
-        wynik *= base
-    return wynik
-</code></pre>
-                    <!-- Different comments, statement order, variable names -->
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Solution Variation
-                        Some vary in fundamental ways
-<pre><code>def iterPower(base, exp):
-    result = 1
-    while exp > 0:
-        result *= base
-        exp -= 1
-    return result
-</code></pre>
-
-<pre><code>def iterPower(base, exp):
-    value=1
-    for i in range(exp):
-        value*=base
-    return value
-</code></pre>
-
-<pre><code>def iterPower(base, exp):
-    if(exp == 0):
-        return 1
-    else:
-        return base * iterPower(base,exp-1)
-</code></pre>
-
-                    </script>
-                </section>  
+                
 
                 <section data-markdown>
                     <script type="text/template">

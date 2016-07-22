@@ -36,6 +36,7 @@
         .grayed-out {color: gray;}
         .black-border {border: 1px solid black;}
         .blue-background {background-color: blue;}
+        .small-text {font-size: 75% !important;}
         hr {
             border: 0; 
             height: 1px; 
@@ -1292,6 +1293,7 @@ return result</code></pre></div>
 <code>def power(base, exp):</code>
                         <div class="row">
                           <div class="col-sm-3">
+                          <span class="badge small-text fragment fade-in" data-fragment-index="2">2</span>
 <pre><code>result=1
 while exp>0:
   exp-=1
@@ -1308,7 +1310,7 @@ while exp>1:
   exp-=1
 return result2</code></pre></div>
                           <div class="col-sm-3">
-<pre class="fragment fade-out"><code>result=1
+<pre class="fragment fade-out" data-fragment-index="1"><code>result=1
 while exp>0:
   exp-=1
   result=result\

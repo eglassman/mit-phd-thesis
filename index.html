@@ -365,6 +365,7 @@
 
                 <section data-markdown>
                     <script type="text/template">
+                        ##Readability matters
                         <aside class="notes">
                             There is a strong connection between writing “computer” languages and writing “natural” language, e.g., English. With some caveats, both programs and paragraphs are intended to be read by fellow humans. And both programs and paragraphs can be written clearly or inscrutably. In industry, a human looks over the programmer’s shoulder and often has to say, “Looks good to me!” before it is added to the company’s official code base. If a program is difficult to read, it may require lots of extra time, effort, and money to modify or work around in the future.
 
@@ -379,14 +380,14 @@
                 <section data-markdown>
                     <script type="text/template">
                         - **Student design choices** affect correctness, approach and readability
-                            - two types
+                            <!-- - two types
                                 - superficial 
-                                - structural
+                                - structural -->
 
                         - Examples:
                             - <code>for</code> vs. <code>while</code>
-                            - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code> *(superficial)*<!-- .element: class="fragment" -->
-                            - recursion vs. iteration *(structural)*<!-- .element: class="fragment" -->
+                            - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code>
+                            - recursion vs. iteration
 
                         *Solution variation is a result of these choices*<!-- .element: class="fragment" -->
 
@@ -397,7 +398,7 @@
                     <script type="text/template">
                         ###superficial Variation
                         - Different comments, statement order, variable names
-<pre><code>def iterPower(base, exp):
+                        - <pre style="width: 100%;"><code>def iterPower(base, exp):
     '''
     base: int or float.
     exp: int >= 0
@@ -411,7 +412,7 @@
     return result
 </code></pre>
 
-<pre><code>def iterPower(base, exp):
+                        - <pre style="width: 100%;"><code>def iterPower(base, exp):
     wynik = 1
     while exp > 0:
         exp -= 1  #using exp argument as counter
@@ -421,11 +422,11 @@
                     </script>
                 </section>
 
-                <section data-markdown>
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ###Structural Variation
                         - Some vary in fundamental ways
-<pre><code>def iterPower(base, exp):
+                        - <pre style="width: 100%;"><code>def iterPower(base, exp):
     result = 1
     while exp > 0:
         result *= base
@@ -433,14 +434,14 @@
     return result
 </code></pre>
 
-<pre><code>def iterPower(base, exp):
+                        - <pre style="width: 100%;"><code>def iterPower(base, exp):
     value=1
     for i in range(exp):
         value*=base
     return value
 </code></pre>
 
-<pre><code>def iterPower(base, exp):
+                        - <pre style="width: 100%;"><code>def iterPower(base, exp):
     if(exp == 0):
         return 1
     else:
@@ -448,7 +449,7 @@
 </code></pre>
 
                     </script>
-                </section>  
+                </section>  --> 
 
                 <section data-markdown>
                     <script type="text/template">
@@ -471,7 +472,7 @@
                           </div>
                           <div class="col-sm-6">
                             <h3>Opportunity</h3>
-                            What value <i>only</i> exists in a massive classroom?
+                            What value <i>only</i> exists in a massive programming class?
                           </div>
                         </div>
                         <!-- <div class="row">
@@ -490,41 +491,15 @@
                         ###Opportunity:
                         ###Exploiting Solution Variation within large datasets
 
-                        - Teachers could find or write:
-                            - better feedback
-                            - better examples for discussion
-                            - better test cases
-                            - better evaluation rubrics
+                        - Teachers could
+                            - learn about new solutions from students
+                            - find better examples for discussion
+
+                        - Teachers could write better feedback, test cases, evaluation rubrics<!-- .element: class="fragment" -->
+
+                        - Students could be tapped as experts on their solutions (and bugs they fix)<!-- .element: class="fragment" -->
                         <aside class="notes">
                             
-                        </aside>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ### Outline
-                        - Solution Variation (SV)<!-- .element: class="grayed-out" -->
-                        - Research Questions
-                            - (R1) understand **SV**
-                            - (R2) feedback on **SV** at scale
-                            - (R3) personalized feedback **SV** at scale
-                            - (R4) collect and distribute student advice, given **SV**
-                        - Discussion and future work
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        <!-- #Reading Thousands of Python Solutions at Once -->
-                        <!-- <img data-src="img/so_many_solutions.jpg" alt="So many solutions"> -->
-                        ####Research questions
-                        When the teacher cannot read all the solutions in a collection,
-
-                        - (R1) ... how can the teacher understand solution variation, i.e., learn about common and uncommon student solutions *which they may not have known about before?*<!-- .element: class="fragment" -->
-
-                        <aside class="notes">
-
                         </aside>
                     </script>
                 </section>
@@ -561,10 +536,11 @@
                             (~40% of correct solutions)
                           </div>
                         </div>
-                        <!-- <div class="row">
+                        <hr>
+                        <div class="row fragment">
                           <div class="col-sm-12">
-                            ~10% of remaining solutions used unusual strategies or were *actually* incorrect
-                        </div> -->
+                            2 solutions passed all test cases but subverted teacher instructions
+                        </div>
 
                         <aside class="notes">
                             - The bold trajectories in these figures represent particularly clean representative examples.
@@ -578,68 +554,50 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        <aside class="notes">
-                            
-                            - Staff Perspective were not aware
-                                <!-- - aware of the solution they each written -->
-                                - of multiple solutions
-                                - that the test suite was insufficient
-                            - One teacher admitted steering students away from solutions they did not recognize
-                        </aside>
+                        - Fellow teachers were not aware
+                            <!-- - aware of the solution they each written -->
+                            - of multiple solutions
+                            - that the test suite was insufficient
+                            <aside class="notes">
+                                - One teacher admitted steering students away from solutions they did not recognize
+                            </aside>
 
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        <!-- #Reading Thousands of Python Solutions at Once -->
-                        <!-- <img data-src="img/so_many_solutions.jpg" alt="So many solutions"> -->
+                        ### Outline
+                        - Solution Variation (SV)<!-- .element: class="grayed-out" -->
+                        - Research Questions
+                            - (R1) understand **SV**
+                            - (R2) feedback on **SV** at scale
+                            - (R3) personalized feedback **SV** at scale
+                            - (R4) collect and distribute student advice, given **SV**
+                        - Discussion and future work
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
                         ####Research questions
                         When the teacher cannot read all the solutions in a collection,
 
-                        - (R1) ... how can the teacher understand solution variation, i.e., learn about common and uncommon student solutions *which they may not have known about before?*
+                        - (R1) ... how can the teacher understand the common and uncommon variation in their students' solutions?<!-- .element: class="fragment" -->
 
                         - (R2) ... how can the teacher give feedback on the approach & readability at scale?<!-- .element: class="fragment" -->
 
-                        - (R3) ... in a personalized way?
+                        - (R3) ... in a personalized way?<!-- .element: class="fragment" -->
 
-                        - (R4) How can students do the same?
-                        <!--  about approach and readability on as many solutions as possible?<!-- .element: class="fragment" -->
+                        - (R4) How can students do the same?<!-- .element: class="fragment" -->
 
-                        <!-- 3. How do you collect and distribute the knowledge and advice of students who know more than the teacher does about the bugs that they fixed and the solutions they made? -->
                         <aside class="notes">
 
                         </aside>
                     </script>
                 </section>
 
-                <!-- <section data-markdown>
-                    <script type="text/template">
-                    <aside class="notes">
-                        While it is nice for the teacher to read and understand all the programs, it may not be necessary, if the teacher’s goal is to help students receive personalized advice. As students put the finishing touches on their own programs, they earn expertise about their way of solving the problem. They become resources of knowledge that can be tapped, bypassing the teacher.
-
-                        This is not only true of finished solutions. It is true for the bugs they fix as well. Teachers will not encounter and fix every possible bug or write every possible solution, but someone in the crowd of students may have already. The teacher can still model good debugging strategies, but someone in the crowd may have more knowledge about a particular bug or solution.
-                    </aside>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ####Research questions
-
-                        - (R4) How can systems collect and distribute the advice of students about bugs they fixed and solutions they made?
-
-
-                        <aside class="notes">
-                           - These students may know more than the teacher about their bugs and solutions
-                           1. Teachers teach students
-                            2. Teachers can learn from student solutions
-                            3. Students can teach each other
-                        </aside>
-                    </script>
-                </section> -->
-
-
+                
                 <section data-markdown>
                     <script type="text/template">
                         ### Outline

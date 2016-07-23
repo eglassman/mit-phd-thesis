@@ -31,7 +31,7 @@
 
         <style>
         .left-aligned {text-align: left}
-        .right-aligned {text-align: right}
+        .right-aligned {text-align: right !important}
         .white-background {background-color:white;}
         .grayed-out {color: gray;}
         .black-border {border: 1px solid black;}
@@ -693,9 +693,6 @@ return result</code></pre></div>
                         ###How do you read
                         ###thousands of solutions?
                         ####(without actually reading all of them)
-
-                        - Want to read "solutions"<!-- .element: class="fragment" -->
-                            - not network graphs<!-- .element: class="fragment" -->
 
                         <aside class="notes">
                             - You cannot read thousands of solutions in a reasonable amount of time. You want to summarize these solutions somehow. You decide you want your summary to be in the form of solutions too, because you're used to reading solutions, not network graphs. So what would you want to read, to get you as close to the real thing as possible?
@@ -1680,14 +1677,14 @@ return result</code></pre></div>
                     <script type="text/template">
                         ###Preview rewrite rules
 
-                        <img data-src="img/rewrite_rule_applied2.jpg">
+                        <img data-src="img/rewrite_rule_applied_cropped.jpg">
 
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ###Merge synthesized representatives 
+                        ###Merged synthesized representatives 
                         <!-- <div class="row">
                           <div class="col-sm-6">
                             <img data-src="img/rewrite_rule_applied2.jpg">
@@ -1702,18 +1699,94 @@ return result</code></pre></div>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ###Analysis pipeline Advantages
-                        - Reduces this type of program equivalence to comparing sets of strings
-                            - Linear with number of solutions
-                            - Runs on a laptop on thousands of solutions in < 15 min
+                        ###OverCode Demo
+
+                        <a href="http://0.0.0.0:8000/?src=iterpower"><img data-src="img/iterPower.jpg"></a>
+
+                    </script>
+                </section>
+
+                <!-- <section data-markdown>
+                    <script type="text/template">
+                        ###Filter Normalized Lines by Popularity
+
+                        <img data-src="img/filter_panel.jpg">
+                        
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Filter Normalized Solutions by Normalized Lines
+
+                        <img data-src="img/filtering_by.jpg">
+                        
+
+                    </script>
+                </section> -->
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Pipeline Analysis
+
+                        - Dataset: solutions collected from 6.00x (edX Fall '12)
+                        <hr>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th>Problem</th>
+                                <th>Submissions</th>
+                                <th>Correct Solutions</th>
+                                
+                                <th>Correct<br>Represent-<br>atives</th>
+                                <th>Common Variables</th>
+                                <th>Running Time</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>power</td>
+                                <td class="right-aligned">8940</td>
+                                <td class="right-aligned">3875</td>
+                                
+                                <td class="right-aligned">862</td>
+                                <td class="right-aligned">38</td>
+                                <td class="right-aligned">15.5m</td>
+                              </tr>
+                              <tr>
+                                <td>hangman</td>
+                                <td class="right-aligned">1746</td>
+                                <td class="right-aligned">1118</td>
+                                
+                                <td class="right-aligned">552</td>
+                                <td class="right-aligned">106</td>
+                                <td class="right-aligned">8.1m</td>
+                              </tr>
+                              <tr>
+                                <td>derivative</td>
+                                <td class="right-aligned">3013</td>
+                                <td class="right-aligned">1433</td>
+                                
+                                <td class="right-aligned">1109</td>
+                                <td class="right-aligned">50</td>
+                                <td class="right-aligned">10.3m</td>
+                              </tr>
+                            </tbody>
+                        </table>
+
+                        - With Stacey Terman, pipeline adapted to "normalize" incorrect solutions as well<!-- .element: class="fragment" -->
+                        
+                        <aside class="notes">
+                            - Reduces this type of program equivalence to comparing sets of strings
+                            - Linear with number of solutions, unlike the common tree-edit distance metrics
+                            - Runs on a laptop on thousands of solutions in < 15 min, not overnight or on a cluster
+                        </aside>
 
                         <!-- Clustering approaches based on AST edit distance 
                             - quadratic in number of solutions
                             - runs on a computing cluster for millions of solutions
                             - runs overnight for hundreds/thousands of solutions -->
-
-                        <!-- <img data-src="img/largest_stack_cropped.jpg"> -->
-                        <!-- (Gaudencio et al. 2014; Huang et al. 2013; Nguyen et al. 2014) -->
                     </script>
                 </section>
 
@@ -1884,14 +1957,7 @@ def iterPower(base, exp):
                     </script>
                 </section> 
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ###OverCode
-
-                        <a href="http://0.0.0.0:8000/?src=iterpower"><img data-src="img/iterPower.jpg"></a>
-
-                    </script>
-                </section> 
+                 
 
                 <section data-markdown>
                     <script type="text/template">
@@ -3666,25 +3732,7 @@ def iterPower(base, exp):
                     </script>
                 </section>
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Filter Normalized Lines by Popularity
-
-                        <img data-src="img/filter_panel.jpg">
-                        
-
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Filter Normalized Solutions by Normalized Lines
-
-                        <img data-src="img/filtering_by.jpg">
-                        
-
-                    </script>
-                </section>
+                
 
                 
 

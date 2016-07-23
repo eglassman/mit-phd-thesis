@@ -617,20 +617,21 @@
 <code>def power(base, exp):</code>
                         <div class="row">
                           <div class="col-sm-3">
-<pre><code>res=1
+<pre><code>'''iterative sol'''
+result=1 #initialize
 while exp>0:
-  exp-=1
-  res=res&#42;base
-return res</code></pre>
+  exp-=1 #input as counter
+  result=result\
+         &#42;base
+return result</code></pre>
                           </div>
                           <div class="col-sm-3">
-<pre><code>if exp == 0:
-  return 1
-ans = base
-while exp >1 :
-  ans &#42;= base
-  exp -= 1
-return ans</code></pre></div>
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre></div>
                           <div class="col-sm-3">
 <pre><code>result = 1
 
@@ -640,27 +641,29 @@ while(exp>0):
          &#42;base
 
 return result</code></pre></div>
-                          <div class="col-sm-3">
+                           <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  result=result\
+         &#42;base
+  exp-=1
+return result</code></pre></div></div>
+
+                          <!-- <div class="col-sm-3">
 <pre><code># Your code here
 result = 1
 while exp > 0:
   result &#42;=base
   exp -= 1
-return result</code></pre></div></div>
+return result</code></pre></div></div> -->
 
 <div class="row">
                           <div class="col-sm-3">
-<pre><code>'''
-base: int or float.
-exp: int >= 0
-returns: int or float, base^exp
-'''
-# Your code here
-result =1.
-while exp > 0:
-  result &#42;=base
-  exp -= 1
-return result</code></pre></div>
+<pre><code>res=1
+while exp>0:
+  res=res&#42;base
+  exp-=1
+return res</code></pre></div>
                           <div class="col-sm-6">
 <pre><code>ans = base
 if (exp == 0):
@@ -702,6 +705,86 @@ return result</code></pre></div>
 
                 <section data-markdown>
                     <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+<pre><code>'''iterative sol'''
+result=1 #initialize
+while exp>0:
+  exp-=1 #input as counter
+  result=result\
+         &#42;base
+return result</code></pre>
+                          </div>
+                          <div class="col-sm-3">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre></div>
+                          <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
+<pre><code>result = 1
+
+while(exp>0):
+  exp-=1
+  result=result\
+         &#42;base
+
+return result</code></pre></div>
+                           <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
+<pre><code>result=1
+while exp>0:
+  result=result\
+         &#42;base
+  exp-=1
+return result</code></pre></div></div>
+
+                          <!-- <div class="col-sm-3">
+<pre><code># Your code here
+result = 1
+while exp > 0:
+  result &#42;=base
+  exp -= 1
+return result</code></pre></div></div> -->
+
+<div class="row">
+                          <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
+<pre><code>res=1
+while exp>0:
+  res=res&#42;base
+  exp-=1
+return res</code></pre></div>
+                          <div class="col-sm-6 fragment fade-out" data-fragment-index="1">
+<pre><code>ans = base
+if (exp == 0):
+  return round(base/base, 4)
+else:
+  for n in range(exp-1):
+    ans &#42;= base
+  return round(ans, 4)</code></pre></div>
+                          <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
+<pre><code>result = base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp > 1:
+  result &#42;= base
+  exp -= 1
+return result</code></pre></div>
+                          </div>
+
+                          
+                        <aside class="notes">
+                            Sifting through thousands of solutions to understand their variation and find pedagogically valuable examples is a daunting task, even if the programming exercises are simple and the solutions are only tens of lines of code long. Without tool support, a teacher may not read more than 50 to 100 of them before growing frustrated with the tedium of the task. Given this small sample size, teachers cannot be expected to develop a thorough understanding of the variety of strategies used to solve the problem, produce instructive feedback that is relevant to a large proportion of learners, or find unexpected interesting solutions.
+                        </aside>
+                    </script>
+                </section>
+
+                <!-- <section data-markdown>
+                    <script type="text/template">
                         ####Differ only by comments
                         <div class="row">
                           <div class="col-sm-6">
@@ -725,7 +808,7 @@ return result</code></pre></div>
                             - You find two solutions that are identical, except have different comments. You decide that you don’t need to read both of them.
                         </aside>
                     </script>
-                </section> 
+                </section>  -->
 
                 <section data-markdown>
                     <script type="text/template">

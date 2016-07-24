@@ -773,7 +773,7 @@ while exp>0:
   result=result\
          &#42;base
 return result</code></pre></div>
-                          <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
+                          <div class="col-sm-3">
 <pre><code>result = 1
 
 while(exp>0):
@@ -845,7 +845,85 @@ while exp>0:
          &#42;base
 return result</code></pre>
                           </div>
-                          <div class="col-sm-3 fragment fade-out">
+                          <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre></div>
+                          <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre></div>
+                           <div class="col-sm-3 vishidden">
+<pre><code>myans=1
+while exp>0:
+  myans=myans\
+         &#42;base
+  exp-=1
+return myans</code></pre></div></div>
+
+                          <!-- <div class="col-sm-3">
+<pre><code># Your code here
+result = 1
+while exp > 0:
+  result &#42;=base
+  exp -= 1
+return result</code></pre></div></div> -->
+
+<div class="row">
+                          <div class="col-sm-3 vishidden">
+<pre><code>res=1
+while exp>0:
+  res=res&#42;base
+  exp-=1
+return res</code></pre></div>
+                          <div class="col-sm-6 vishidden">
+<pre><code>ans = base
+if (exp == 0):
+  return round(base/base, 4)
+else:
+  for n in range(exp-1):
+    ans &#42;= base
+  return round(ans, 4)</code></pre></div>
+                          <div class="col-sm-3 vishidden">
+<pre><code>result = base
+if exp==0:
+  return 1
+if exp==1:
+  return result
+while exp > 1:
+  result &#42;= base
+  exp -= 1
+return result</code></pre></div>
+                          </div>
+
+                          
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####Active Learning Activity -->
+<code>def power(base, exp):</code>
+                        <div class="row">
+                          <div class="col-sm-3">
+                          <span class="badge small-text">3</span>
+<pre><code>result=1
+while exp>0:
+  exp-=1
+  result=result\
+         &#42;base
+return result</code></pre>
+                          </div>
+                          <div class="col-sm-3 vishidden">
 <pre><code>result=1
 while exp>0:
   exp-=1
@@ -917,7 +995,7 @@ return result</code></pre></div>
 <code>def power(base, exp):</code>
                         <div class="row">
                           <div class="col-sm-3">
-                          <span class="badge small-text fragment fade-in" data-fragment-index="2">2</span>
+                          <span class="badge small-text">3</span>
 <pre><code>result=1
 while exp>0:
   exp-=1
@@ -958,358 +1036,6 @@ while exp > 0:
 return result</code></pre></div></div> -->
 
 <div class="row">
-                          <div class="col-sm-3 vishidden">
-<pre><code>res=1
-while exp>0:
-  res=res&#42;base
-  exp-=1
-return res</code></pre></div>
-                          <div class="col-sm-6 vishidden">
-<pre><code>ans = base
-if (exp == 0):
-  return round(base/base, 4)
-else:
-  for n in range(exp-1):
-    ans &#42;= base
-  return round(ans, 4)</code></pre></div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result = base
-if exp==0:
-  return 1
-if exp==1:
-  return result
-while exp > 1:
-  result &#42;= base
-  exp -= 1
-return result</code></pre></div>
-                          </div>
-
-                          
-                        <aside class="notes">
-                            
-                        </aside>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        <!-- ####Active Learning Activity -->
-<code>def power(base, exp):</code>
-                        <div class="row">
-                          <div class="col-sm-3">
-                          <span class="badge small-text">2</span>
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre>
-                          </div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                          <div class="col-sm-3">
-<pre><code>result = 1
-
-while(exp>0):
-  exp-=1
-  result=result\
-         &#42;base
-
-return result</code></pre></div>
-                           <div class="col-sm-3 fragment fade-out"  data-fragment-index="1">
-<pre><code>myans=1
-while exp>0:
-  myans=myans\
-         &#42;base
-  exp-=1
-return myans</code></pre></div></div>
-
-<div class="row">
-                          <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
-<pre><code>res=1
-while exp>0:
-  res=res&#42;base
-  exp-=1
-return res</code></pre></div>
-                          <div class="col-sm-6 fragment fade-out" data-fragment-index="1">
-<pre><code>ans = base
-if (exp == 0):
-  return round(base/base, 4)
-else:
-  for n in range(exp-1):
-    ans &#42;= base
-  return round(ans, 4)</code></pre></div>
-                          <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
-<pre><code>result = base
-if exp==0:
-  return 1
-if exp==1:
-  return result
-while exp > 1:
-  result &#42;= base
-  exp -= 1
-return result</code></pre></div>
-                          </div>
-
-                          
-                        <aside class="notes">
-                            
-                        </aside>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        <!-- ####Active Learning Activity -->
-<code>def power(base, exp):</code>
-                        <div class="row">
-                          <div class="col-sm-3">
-                          <span class="badge small-text">2</span>
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre>
-                          </div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                          <div class="col-sm-3 fragment fade-out">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                           <div class="col-sm-3 vishidden">
-<pre><code>myans=1
-while exp>0:
-  myans=myans\
-         &#42;base
-  exp-=1
-return myans</code></pre></div></div>
-
-<div class="row">
-                          <div class="col-sm-3 vishidden">
-<pre><code>res=1
-while exp>0:
-  res=res&#42;base
-  exp-=1
-return res</code></pre></div>
-                          <div class="col-sm-6 vishidden">
-<pre><code>ans = base
-if (exp == 0):
-  return round(base/base, 4)
-else:
-  for n in range(exp-1):
-    ans &#42;= base
-  return round(ans, 4)</code></pre></div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result = base
-if exp==0:
-  return 1
-if exp==1:
-  return result
-while exp > 1:
-  result &#42;= base
-  exp -= 1
-return result</code></pre></div>
-                          </div>
-
-                          
-                        <aside class="notes">
-                            
-                        </aside>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        <!-- ####Active Learning Activity -->
-<code>def power(base, exp):</code>
-                        <div class="row">
-                          <div class="col-sm-3">
-                          <span class="badge small-text">3</span>
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre>
-                          </div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                           <div class="col-sm-3 vishidden">
-<pre><code>myans=1
-while exp>0:
-  myans=myans\
-         &#42;base
-  exp-=1
-return myans</code></pre></div></div>
-
-<div class="row">
-                          <div class="col-sm-3 vishidden">
-<pre><code>res=1
-while exp>0:
-  res=res&#42;base
-  exp-=1
-return res</code></pre></div>
-                          <div class="col-sm-6 vishidden">
-<pre><code>ans = base
-if (exp == 0):
-  return round(base/base, 4)
-else:
-  for n in range(exp-1):
-    ans &#42;= base
-  return round(ans, 4)</code></pre></div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result = base
-if exp==0:
-  return 1
-if exp==1:
-  return result
-while exp > 1:
-  result &#42;= base
-  exp -= 1
-return result</code></pre></div>
-                          </div>
-
-                          
-                        <aside class="notes">
-                            
-                        </aside>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        <!-- ####Active Learning Activity -->
-<code>def power(base, exp):</code>
-                        <div class="row">
-                          <div class="col-sm-3">
-                          <span class="badge small-text">3</span>
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre>
-                          </div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                           <div class="col-sm-3">
-<pre><code>myans=1
-while exp>0:
-  myans=myans\
-         &#42;base
-  exp-=1
-return myans</code></pre></div></div>
-
-<div class="row">
-                          <div class="col-sm-3">
-<pre><code>res=1
-while exp>0:
-  res=res&#42;base
-  exp-=1
-return res</code></pre></div>
-                          <div class="col-sm-6">
-<pre><code>ans = base
-if (exp == 0):
-  return round(base/base, 4)
-else:
-  for n in range(exp-1):
-    ans &#42;= base
-  return round(ans, 4)</code></pre></div>
-                          <div class="col-sm-3">
-<pre><code>result = base
-if exp==0:
-  return 1
-if exp==1:
-  return result
-while exp > 1:
-  result &#42;= base
-  exp -= 1
-return result</code></pre></div>
-                          </div>
-
-                          
-                        <aside class="notes">
-                            
-                        </aside>
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        <!-- ####Active Learning Activity -->
-<code>def power(base, exp):</code>
-                        <div class="row">
-                          <div class="col-sm-3">
-                          <span class="badge small-text">3</span>
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre>
-                          </div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre></div>
-                           <div class="col-sm-3 vishidden">
-<pre><code>myans=1
-while exp>0:
-  myans=myans\
-         &#42;base
-  exp-=1
-return myans</code></pre></div></div>
-
-<div class="row">
                           <div class="col-sm-3">
 <pre><code>res=1
 while exp>0:
@@ -1338,16 +1064,26 @@ return result</code></pre></div>
 
                           
                         <aside class="notes">
-                            - You find another solution that is identical to the first, but with different variable names. You decide that you do not need to read this one either. You pause.
-                            - Variable names are pretty critical to the readability of code. You don’t want to be stuck reading student code with variable names ‘temp1’, ‘temp2’, ‘temp3’… How do you pick which one of the two solutions, which only differ by variable names, to read?
                             
                         </aside>
                     </script>
                 </section>
 
+
+
+
+
+
+
+
+
+                
+
                 <section data-markdown>
                     <script type="text/template">
-                        ##Normalize Variable names
+                        ##Normalize Variable names with passive crowdsourcing
+
+                        - Give variables their most popular name across all solutions
 
                         <aside class="notes">
                             - You don’t pick. You let the students vote, and pray that the wisdom of the crowd solves it for you. And the students have already voted. They already submitted solutions with their own choices of variable names, independent of everyone else. You could figure out the most popular name given to each variable, and use those names for the variables in the solution you, the teacher, has to read. 
@@ -1361,7 +1097,7 @@ return result</code></pre></div>
                         ##Problem: Identifying variables across solutions
                         1. How do you tell if two students voted for the same variable name?<!-- .element: class="fragment" -->
                         2. How do we tell that the variable ‘res’ in one solution is the “same” as the variable ‘result’ in another solution?<!-- .element: class="fragment" -->
-                        2. What does the “same variable in two different solutions” mean?<!-- .element: class="fragment" -->
+                        2. What does the “same variable in two different solutions” even mean?<!-- .element: class="fragment" -->
                         <!-- ##Use common variable behavior to identify common variables -->
 
                         <aside class="notes">
@@ -1445,7 +1181,7 @@ res: 1, 5, 25, 125</code></pre>
                             - Occurs in 3081/3842 solutions
                             - Most common name <pre><code>result</code></pre>
                             - Other names <pre><code>wynik, out, total, ans, acum, num, mult</code></pre>
-                        - Refer to it as the 'common variable result'<!-- .element: class="fragment" -->
+                        - Refer to it as the 'common variable result'
 
                     </script>
                 </section>
@@ -1458,7 +1194,7 @@ res: 1, 5, 25, 125</code></pre>
                             - Occurs in 2744/3842 solutions
                             - Most common name <pre><code>exp</code></pre>
                             - Other names <pre><code>count, temp, exp3, exp2, exp1, inexp, old_exp</code></pre>
-                        - Refer to it as the 'common variable exp'<!-- .element: class="fragment" -->
+                        - Refer to it as the 'common variable exp'
 
                     </script>
                 </section>
@@ -1467,19 +1203,46 @@ res: 1, 5, 25, 125</code></pre>
                     <script type="text/template">
                         #### preserve 1-to-1 mapping between name and behavior
 
-                        - Common variable <code>1, 5, 25, 125</code> (3081 solutions)
+                        <table class="table">
+    <thead>
+      <tr>
+        <th>Common Variable</th>
+        <th>Found in</th>
+        <th>Most common name</th>
+        <th>Renamed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1, 5, 25, 125</td>
+        <td>3081 solutions</td>
+        <td>result</td>
+        <td>result</td>
+      </tr>
+      <tr>
+        <td>5, 25, 125</td>
+        <td>&lt; 3081 solutions</td>
+        <td>result</td>
+        <td>*result<sub>2</sub>*</td>
+      </tr>
+    </tbody>
+  </table>
+
+                        <!-- - Common variable <code>1, 5, 25, 125</code> (3081 solutions)
                             - Most common name: 'result'
                             - renamed 'result'
                         - Common variable <code>5, 25, 125</code> (fewer solutions)
-                            - Most common name: *also 'result'*<!-- .element: class="fragment" -->
-                            - renamed 'result2'<!-- .element: class="fragment" -->
-                        - More naming clashes resolved with modifiers as well<!-- .element: class="fragment" -->
+                            - Most common name: *also 'result'*
+                            - renamed 'result<sub>2</sub>' -->
 
                         <aside class="notes">
                             - Add modifiers to less popular common variables' conflicting names
+                            - More naming clashes resolved with modifiers as well
                         </aside>
                     </script>
                 </section>
+
+                
 
                 <section data-markdown>
                     <script type="text/template">

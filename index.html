@@ -215,7 +215,7 @@
                         - Research Questions
                             - (R1) understand **SV**
                             - (R2) feedback on **SV** at scale
-                            - (R3) personalized feedback **SV** at scale
+                            - (R3) personalized feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
                         - Discussion and future work
                     </script>
@@ -628,7 +628,7 @@
                         - Research Questions
                             - (R1) understand **SV**
                             - (R2) feedback on **SV** at scale
-                            - (R3) personalized feedback **SV** at scale
+                            - (R3) personalized feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
                         - Discussion and future work
                     </script>
@@ -661,7 +661,7 @@
                         - Research Questions
                             - &#8658;  (R1) understand **SV**
                             - (R2) feedback on **SV** at scale
-                            - (R3) personalized feedback **SV** at scale
+                            - (R3) personalized feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
                         - Discussion and future work
                     </script>
@@ -1769,6 +1769,17 @@ return result2</code></pre></div>
 
                 <section data-markdown data-state="R1header">
                     <script type="text/template">
+                        ###Clustering the representative solutions
+                        <!-- ####Bayesian Case Model (Kim et al.) -->
+
+                        <iframe src="https://www.youtube.com/embed/8PwHigCDdW8" width= '100%' height='600'></iframe>
+                        <aside class="notes">
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown data-state="R1header">
+                    <script type="text/template">
                         ###Do teachers understand student code better?
 
                         - 12 participants (11 male)
@@ -1815,6 +1826,10 @@ return result2</code></pre></div>
                         </aside>
                     </script>
                 </section>
+
+                
+
+
 
                 <section data-markdown data-state="R1header">
                     <script type="text/template">
@@ -1894,98 +1909,41 @@ return result2</code></pre></div>
                     </script>
                 </section>
 
-                
 
-                <!-- <section data-markdown>
+
+
+                <section data-markdown>
                     <script type="text/template">
-                        ###Filter Normalized Lines by Popularity
-
-                        <img data-src="img/filter_panel.jpg">
-                        
-
+                        ### Outline
+                        - Solution Variation (SV)<!-- .element: class="grayed-out" -->
+                        - Research Questions
+                            - (R1) understand **SV**
+                            - &#8658; (R2) feedback on **SV** at scale
+                            - &#8658; (R3) personalized feedback on **SV** at scale
+                            - (R4) collect and distribute student advice, given **SV**
+                        - Discussion and future work
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ###Filter Normalized Solutions by Normalized Lines
+                        ###(R2 & R3) Feedback 
 
-                        <img data-src="img/filtering_by.jpg">
-                        
+                        - (R2) How can the teacher give feedback on approach & readability at scale?
 
+                        - (R3) ... can it be personalized?
+
+                        <aside class="notes">
+                            
+                        </aside>
                     </script>
-                </section> -->
-
-                
-
-                <!-- <section data-markdown>
-                    <script type="text/template">
-                        
-<code>def power(base, exp):</code>
-                        <div class="row">
-                          <div class="col-sm-3">
-<pre><code>result=1
-while exp>0:
-  exp-=1
-  result=result\
-         &#42;base
-return result</code></pre>
-                          </div>
-                          <div class="col-sm-3">
-<pre><code>if exp==0:
-  return 1
-result2=base
-while exp>1:
-  result2&#42;=base
-  exp-=1
-return result2</code></pre></div>
-                          <div class="col-sm-3"></div>
-                          <div class="col-sm-3">
-<pre><code>result=1
-while exp>0:
-  result&#42;=base
-  exp-=1
-return result</code></pre></div></div>
-
-<div class="row">
-                          <div class="col-sm-3">
-<pre><code>result3=1.
-while exp>0:
-  result3&#42;=base
-  exp-=1
-return result3</code></pre></div>
-                          <div class="col-sm-6">
-<pre><code>result2=base
-if exp==0:
-  return round(base/base,4)
-else:
-  for n in range(exp-1):
-    result2&#42;=base
-  return round(result2,4)</code></pre></div>
-                          <div class="col-sm-3">
-<pre><code>result=base
-if exp==0:
-  return 1
-if exp==1:
-  return result
-while exp>1:
-  result&#42;=base
-  exp-=1
-return result</code></pre></div>
-                          </div>
-
-                        
-                    </script>
-                </section> -->
-
-
-
+                </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####(R2) How can the teacher give feedback on the approach & readability of as many solutions as possible?
+                        ###feedback on approach & readability at scale
 
-                        (without reading every solution)
+                        
 
                         <aside class="notes">
                             

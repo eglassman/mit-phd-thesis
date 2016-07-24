@@ -1158,8 +1158,29 @@ return result</code></pre></div>
                 <section data-markdown data-state="R1header">
                     <script type="text/template">
                         ##Problem: Identifying variables across solutions
-                        1. How do you tell if two students voted for the same variable name?<!-- .element: class="fragment" -->
-                        2. How do we tell that the variable ‘res’ in one solution is the “same” as the variable ‘result’ in another solution?<!-- .element: class="fragment" -->
+
+                        <div class="row">
+                          <div class="col-sm-6">
+<pre><code>def power(base,exp):
+  result=1
+  while exp>0:
+    exp-=1
+    result=result&#42;base
+  return result</code></pre>
+                          </div>
+                          <div class="col-sm-6">
+<pre><code>def power(base,exp):
+  res=1
+  while exp>0:
+    res=res&#42;base
+    exp-=1
+  return res</code></pre>
+  </div>
+                        </div>
+
+                        
+                        2. How do we tell that the variable 'res' (left) is the “same” as the variable 'result' (right)?<!-- .element: class="fragment" -->
+                        1. How do we tell if two students voted for the same variable name?<!-- .element: class="fragment" -->
                         2. What does the “same variable in two different solutions” even mean?<!-- .element: class="fragment" -->
                         <!-- ##Use common variable behavior to identify common variables -->
 
@@ -1179,8 +1200,7 @@ return result</code></pre></div>
   result=1
   while exp>0:
     exp-=1
-    result=result\
-           &#42;base
+    result=result&#42;base
   return result</code></pre>
 <pre class="fragment fade-in"><code>base: 5
 exp: 3, 2, 1, 0
@@ -1347,27 +1367,28 @@ return result</code></pre></div></div>
                           <div class="col-sm-3">
 <pre><code>result=1
 while exp>0:
-  result=result&#42;base
+  result=result\
+         &#42;base
   exp-=1
 return result</code></pre></div>
                           <div class="col-sm-6">
-<pre><code>result2 = base
-if (exp == 0):
+<pre><code>result&#x2082; = base
+if (exp&#x2082; == 0):
   return round(base/base, 4)
 else:
-  for n in range(exp2-1):
-    result2 &#42;= base
-  return round(result2, 4)</code></pre></div>
+  for n in range(exp&#x2082;-1):
+    result&#x2082; &#42;= base
+  return round(result&#x2082;, 4)</code></pre></div>
                           <div class="col-sm-3">
-<pre><code>result2 = base
+<pre><code>result&#x2082; = base
 if exp==0:
   return 1
 if exp==1:
   return result
 while exp > 1:
-  result2 &#42;= base
+  result&#x2082; &#42;= base
   exp -= 1
-return result2</code></pre></div>
+return result&#x2082;</code></pre></div>
                           </div>
 
                           
@@ -1405,7 +1426,7 @@ while exp>0:
   result=result\
          &#42;base
 return result</code></pre></div>
-                           <div class="col-sm-3 fragment fade-out">
+                           <div class="col-sm-3">
 <pre><code>result=1
 while exp>0:
   result=result\
@@ -1414,33 +1435,32 @@ while exp>0:
 return result</code></pre></div></div>
 
 <div class="row">
-                          <div class="col-sm-3 vishidden">
+                          <div class="col-sm-3">
 <pre><code>result=1
 while exp>0:
-  result=result&#42;base
+  result=result\
+         &#42;base
   exp-=1
 return result</code></pre></div>
-                          <div class="col-sm-6 vishidden">
-<pre><code>result2 = base
-if (exp == 0):
+                          <div class="col-sm-6 fragment fade-out" data-fragment-index="1">
+<pre><code>result&#x2082; = base
+if (exp&#x2082; == 0):
   return round(base/base, 4)
 else:
-  for n in range(exp2-1):
-    result2 &#42;= base
-  return round(result2, 4)</code></pre></div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result2 = base
+  for n in range(exp&#x2082;-1):
+    result&#x2082; &#42;= base
+  return round(result&#x2082;, 4)</code></pre></div>
+                          <div class="col-sm-3 fragment fade-out" data-fragment-index="1">
+<pre><code>result&#x2082; = base
 if exp==0:
   return 1
 if exp==1:
   return result
 while exp > 1:
-  result2 &#42;= base
+  result&#x2082; &#42;= base
   exp -= 1
-return result2</code></pre></div>
+return result&#x2082;</code></pre></div>
                           </div>
-
-
 
                           
                         <aside class="notes">
@@ -1455,7 +1475,7 @@ return result2</code></pre></div>
 <code>def power(base, exp):</code>
                         <div class="row">
                           <div class="col-sm-3">
-                          <span class="badge small-text">4</span>
+                          <span class="badge small-text">5</span>
 <pre><code>result=1
 while exp>0:
   exp-=1
@@ -1489,30 +1509,29 @@ return result</code></pre></div></div>
                           <div class="col-sm-3 vishidden">
 <pre><code>result=1
 while exp>0:
-  result=result&#42;base
+  result=result\
+         &#42;base
   exp-=1
 return result</code></pre></div>
-                          <div class="col-sm-6 vishidden">
-<pre><code>result2 = base
-if (exp == 0):
+                          <div class="col-sm-6 fragment fade-in" data-fragment-index="1">
+<pre><code>result&#x2082; = base
+if (exp&#x2082; == 0):
   return round(base/base, 4)
 else:
-  for n in range(exp2-1):
-    result2 &#42;= base
-  return round(result2, 4)</code></pre></div>
-                          <div class="col-sm-3 vishidden">
-<pre><code>result2 = base
+  for n in range(exp&#x2082;-1):
+    result&#x2082; &#42;= base
+  return round(result&#x2082;, 4)</code></pre></div>
+                          <div class="col-sm-3 fragment fade-in" data-fragment-index="1">
+<pre><code>result&#x2082; = base
 if exp==0:
   return 1
 if exp==1:
   return result
 while exp > 1:
-  result2 &#42;= base
+  result&#x2082; &#42;= base
   exp -= 1
-return result2</code></pre></div>
+return result&#x2082;</code></pre></div>
                           </div>
-
-                          
 
                           
                         <aside class="notes">

@@ -92,6 +92,18 @@
                         Elena L. Glassman
                         
                         #### MIT CSAIL UID Group
+                        Advised by Rob Miller
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ##Massive Programming Classes
+                        - Introductory class sizes
+                            - ~1500 at UCBerkeley
+                            - ~200-400 at MIT
+
+                            - Many more complete online programming exercises (edX, Coursera, Khan Academy)
                     </script>
                 </section>
 
@@ -123,7 +135,7 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                    <!-- #### Translating Goals into Code -->
+                    #### Students write multiple short solutions per week
                     <div class="row">
                           <div class="col-sm-4">
                             <b>Problem</b>
@@ -174,6 +186,7 @@
 
                 <section data-markdown>
                     <script type="text/template">
+                        <img data-src="http://jonathan-huang.org/research/pubs/moocshop13/codeweb_1_3.png" width="75%"><!-- .element: class="fragment" -->
                         <aside class="notes">
                             When you think of my thesis title, clustering and visualizing solution variation in massive programming courses
                         </aside>
@@ -182,9 +195,19 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        <!-- Clustering and Visualizing Solution Variation in Massive Programming Classes -->
-                        <img data-src="http://jonathan-huang.org/research/pubs/moocshop13/codeweb_1_3.png" width="75%">
-                        <!-- <br> -->
+                        <!-- <div class="row"> -->
+                          <!-- <div class="col-sm-6"> -->
+                        <img data-src="http://jonathan-huang.org/research/pubs/moocshop13/codeweb_1_3.png" width="40%">
+                          <!-- </div> -->
+                          <!-- <div class="col-sm-6 fragment fade-in"> -->
+                            
+                          <!-- </div> -->
+                        <!-- </div> -->
+                        - "Codewebs" by Huang et. al. (WWW '14)
+                            - ~40,000 student submissions to the same problem
+                            - Source: Coursera's Machine Learning course
+                            - Ran on a computing cluster
+                            <!-- - Nodes represent submissions -->
 
                         <aside class="notes">
                             - acknowledge that this probably what you’re expecting
@@ -202,11 +225,13 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####IDEA 1: Synthesize representative solutions
-                        ####you can read
+                        <!-- ####IDEA 1: Synthesize representative solutions -->
+                        <!-- ####you can read -->
+                        ####Thesis Contribution 1: 
+                        ####Cluster and visualize in a human-readable way
                         <img data-src="img/largest_stack_cropped.jpg">
                         
-                        This synthesized solutions represents 1538 solutions
+                        This synthesized solution represents 1538 solutions
 
                         <aside class="notes">
                             - show a stack of programs produced by my fast linear pipeline
@@ -661,7 +686,6 @@
                     </script>
                 </section>
 
-                
                 <section data-markdown>
                     <script type="text/template">
                         ### Outline
@@ -1746,7 +1770,7 @@ return result&#x2082;</code></pre></div>
 
                 <section data-markdown data-state="R1header">
                     <script type="text/template">
-                        ###Continue the collapsing process interactively
+                        ###Users continue synthesizing representatives interactively
 
                         <!-- ####allow users to add new equivalence rules in the UI -->
 
@@ -1794,16 +1818,7 @@ return result&#x2082;</code></pre></div>
                     </script>
                 </section>
 
-                <section data-markdown data-state="R1header">
-                    <script type="text/template">
-                        ###Clustering the representative solutions
-                        <!-- ####Bayesian Case Model (Kim et al.) -->
-
-                        <iframe src="https://www.youtube.com/embed/8PwHigCDdW8" width= '100%' height='600'></iframe>
-                        <aside class="notes">
-                        </aside>
-                    </script>
-                </section>
+                
 
                 <section data-markdown data-state="R1header">
                     <script type="text/template">
@@ -2062,9 +2077,20 @@ than with the baseline.
                     </script>
                 </section>
 
-                
-
                 <section data-markdown>
+                    <script type="text/template">
+                        ### Outline
+                        - Solution Variation (SV)<!-- .element: class="grayed-out" -->
+                        - Research Questions
+                            - (R1) understand SV<!-- .element: class="grayed-out" -->
+                            - (R2) feedback on **SV** at scale<!-- .element: class="grayed-out" -->
+                            - &#8658; (R3) personalized feedback on **SV** at scale
+                            - (R4) collect and distribute student advice, given **SV**
+                        - Discussion and future work
+                    </script>
+                </section>
+
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ####(R3) How can the teacher give personalized feedback on approach and readability?
 
@@ -2074,9 +2100,81 @@ than with the baseline.
                             
                         </aside>
                     </script>
+                </section> -->
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### Outline
+                        - Solution Variation (SV)<!-- .element: class="grayed-out" -->
+                        - Research Questions
+                            - (R1) understand SV<!-- .element: class="grayed-out" -->
+                            - (R2) feedback on **SV** at scale<!-- .element: class="grayed-out" -->
+                            - (R3) personalized feedback on **SV** at scale<!-- .element: class="grayed-out" -->
+                            - &#8658; (R4) collect and distribute student advice, given **SV**
+                        - Discussion and future work
+                    </script>
                 </section>
 
                 <section data-markdown>
+                    <script type="text/template">
+                        ### Outline
+                        - Solution Variation (SV)<!-- .element: class="grayed-out" -->
+                        - Research Questions<!-- .element: class="grayed-out" -->
+                            - (R1) understand SV<!-- .element: class="grayed-out" -->
+                            - (R2) feedback on **SV** at scale<!-- .element: class="grayed-out" -->
+                            - (R3) personalized feedback on **SV** at scale<!-- .element: class="grayed-out" -->
+                            - (R4) collect and distribute student advice, given **SV**<!-- .element: class="grayed-out" -->
+                        - Discussion and future work
+                    </script>
+                </section>
+
+                <section data-markdown  data-state="Discussion">
+                    <script type="text/template">
+                        ###Thesis Statement
+
+                        - *Clustering and visualizing solution variation* collected from programming courses can help teachers
+                            - gain insights into student design choices
+                            - detect autograder failures
+                            - collect and distribute student-written hints 
+                            - give personalized style feedback at scale
+                        
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ####Related Work
+                        
+                        - Mining patterns in code
+                            - Huang et al.'s "CodeWebs" @ Stanford (WWW '14)
+                            - Fast et al.'s "Codex" @ Stanford (CHI '14)
+                        - Mining design choices
+                            - Kumar et al.'s "Webzeitgeist" (CHI '13)
+                        - Style feedback
+                            - AutoStyle @ UCBerkeley (L@S '15, ITS '16)
+                        <!-- - Kelly River's data-driven hint generation @ CMU (IJAIE '15) -->
+                            
+
+                        <aside class="notes">
+
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown data-state="Discussion">
+                    <script type="text/template">
+                        ###Clustering the representative solutions
+                        <!-- ####Bayesian Case Model (Kim et al.) -->
+
+                        <iframe src="https://www.youtube.com/embed/8PwHigCDdW8" width= '100%' height='600'></iframe>
+                        <aside class="notes">
+                        </aside>
+                    </script>
+                </section>
+
+
+
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ####(R4) How can systems collect and distribute the advice of students about bugs they fixed and solutions they made?
 
@@ -2084,7 +2182,7 @@ than with the baseline.
                             
                         </aside>
                     </script>
-                </section>
+                </section> -->
 
                 <section data-markdown>
                     <script type="text/template">
@@ -2261,19 +2359,7 @@ def iterPower(base, exp):
                     </script>
                 </section>
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Thesis
-
-                        - *Clustering and visualizing solution variation* collected from massive programming courses helps
-                            1. teachers 
-                                - gain insights into student design choices<!-- .element: class="fragment" -->
-                                - give personalized style feedback at scale<!-- .element: class="fragment" -->
-                                - detect autograder failures<!-- .element: class="fragment" -->
-                            2. computers
-                                - connect students with complementary expertise and needs<!-- .element: class="fragment" -->
-                    </script>
-                </section>
+                
 
                 <section data-markdown>
                     <script type="text/template">

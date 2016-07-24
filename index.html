@@ -114,6 +114,8 @@
 
                             Students of programming must practice composing instructions for computers that meet their goals or solve their problems. Programming teachers provide practice opportunities and feedback.
 
+                            The year of the MOOC may be over, but programming education at scale is a growing challenge.
+
                             In a typical assignment, the teacher writes down a problem, like “compute the logarithm of any number I give you.” The students write instructions for a computer to do it for them and then send it to the teacher for evaluation.
                         </aside>
                     </script>
@@ -181,13 +183,17 @@
                 <section data-markdown>
                     <script type="text/template">
                         <!-- Clustering and Visualizing Solution Variation in Massive Programming Classes -->
-                        <img data-src="http://jonathan-huang.org/research/pubs/moocshop13/codeweb_1_3.png">
+                        <img data-src="http://jonathan-huang.org/research/pubs/moocshop13/codeweb_1_3.png" width="75%">
+                        <!-- <br> -->
 
                         <aside class="notes">
                             - acknowledge that this probably what you’re expecting
-                            - on millions of correct and incorrect programs
+                            - on 40,000 correct and incorrect programs
                             - ran on a computing cluster (pairwise tree edit distance)
                             - this was by Huang et al.
+
+                            - ~40,000 student submissions to the same programming assignment on Coursera's Machine Learning course. Nodes represent submissions and edges are drawn between syntactically similar submissions. Colors correspond to performance on a battery of unit tests (with red submissions passing all unit tests). 
+     In particular, clusters of similarly colored nodes correspond to multiple similar implementations that behaved in the same way (under unit tests)
                             
                             - Many existing techniques use a combination of clustering to group solutions and graph visualization to show the variation between these clusters. These clustering algorithms perform pairwise comparisons that are quadratic in both the number of solutions and the size of each solution, which scales poorly to thousands of solutions. Graph visualization also struggles with how to label the graph node for a cluster, because it has been formed by a complex combination of code features. Without meaningful labels for clusters in the graph, the rich information of the learners’ solutions is lost and the teacher’s ability to understand variation is weakened
                         </aside>
@@ -196,10 +202,11 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####IDEA 1: Synthesize representative solutions you can read
+                        ####IDEA 1: Synthesize representative solutions
+                        ####you can read
                         <img data-src="img/largest_stack_cropped.jpg">
                         
-                        represents 1538/3852 solutions
+                        This synthesized solutions represents 1538 solutions
 
                         <aside class="notes">
                             - show a stack of programs produced by my fast linear pipeline
@@ -256,7 +263,7 @@
                     <script type="text/template">
                         ####Autograders can only do so much
 
-                        - These are all "correct":
+                        These are all "correct":
 
                         <div class="row">
                           <div class="col-sm-6">
@@ -265,13 +272,14 @@
     while exp>0:
         result&#42;=base
         exp-=1
-    return result</code></pre></div><div class="col-sm-6">
+    return result</code></pre>
+
 <pre><code>def power(base,exp):
     if exp == 0:
         return 1
     else:
-        return base &#42; power(base, exp-1)</code></pre></div></div><div class="row">
-                          <div class="col-sm-12">
+        return base &#42; power(base, exp-1)</code></pre></div>
+                          <div class="col-sm-6">
 <pre><code>def power(base, exp):
     tempBase=base
     result = base
@@ -280,9 +288,9 @@
         while exp==0:
             result = 1
             print(result)
-            break    
+            break
         exp=exp-1
-        while exp >0:
+        while exp &gt;0:
             tempCal=abs(tempBase)
             exp=exp-1
             while exp&lt;0:
@@ -4674,16 +4682,15 @@ def iterPower(base, exp):
                     </script>
                 </section>
 
-                <section>
+                <!-- <section>
                     OverCode
-                    <!-- <div class="stretch"> -->
                     
                     <iframe src="https://web.mit.edu/elg/www/overcode/ui/" width= '100%' height='600'></iframe>
 
                     <aside class="notes">
                         We've preserved synatactice choices and removed naming variety, and given the volume of solutions, we can see how the most popular and most special snowflake ways students write solutions.
                     </aside>
-                </section>  
+                </section>   -->
 
                 
 

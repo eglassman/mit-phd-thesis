@@ -1780,7 +1780,7 @@ return result2</code></pre></div>
 
                 <section data-markdown data-state="R1header">
                     <script type="text/template">
-                        ###Do teachers understand student code better?
+                        ###Can teachers read and understand more student code with OverCode?
 
                         - 12 participants (11 male)
                         - mean age: 25.4 (σ = 6.9)
@@ -1796,7 +1796,24 @@ return result2</code></pre></div>
 
                 <section data-markdown data-state="R1header">
                     <script type="text/template">
-                        ###Do teachers understand student code better?
+                        ###OverCode User Study
+
+                        - **Task**: Identify the 5 most frequent strategies used to solve the problem (15 min)
+
+                        - For each strategy, they wrote:
+                            - a code example
+                            - annotation
+                            - confidence  
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown data-state="R1header">
+                    <script type="text/template">
+                        
                         <div class="row">
                           <div class="col-sm-6">
                           Control interface
@@ -1816,7 +1833,35 @@ return result2</code></pre></div>
 
                 <section data-markdown data-state="R1header">
                     <script type="text/template">
-                        ###Do teachers understand student code better?
+                        <!-- ###OverCode User Study -->
+                        ####Solutions Read
+
+                        <img data-src="img/overcode_readcoverage.jpg">  
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown data-state="R1header">
+                    <script type="text/template">
+                        <!-- ###OverCode User Study -->
+                        ####Solutions Read
+
+                        <img data-src="img/overcode_percentcoverage.jpg">  
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                
+
+                <section data-markdown data-state="R1header">
+                    <script type="text/template">
+                        ###Perceived understanding
                         "The interface helped me develop a high-level view of students' understanding and misconceptions."
                           <img data-src="img/overcode_R1.jpg">
 
@@ -1917,15 +1962,15 @@ return result2</code></pre></div>
                         ### Outline
                         - Solution Variation (SV)<!-- .element: class="grayed-out" -->
                         - Research Questions
-                            - (R1) understand **SV**
+                            - (R1) understand SV<!-- .element: class="grayed-out" -->
                             - &#8658; (R2) feedback on **SV** at scale
-                            - &#8658; (R3) personalized feedback on **SV** at scale
+                            - (R3) personalized feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
                         - Discussion and future work
                     </script>
                 </section>
 
-                <section data-markdown>
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ###(R2 & R3) Feedback 
 
@@ -1937,19 +1982,61 @@ return result2</code></pre></div>
                             
                         </aside>
                     </script>
+                </section> -->
+
+                <section data-markdown data-state="R2header">
+                    <script type="text/template">
+                        ###feedback on approach & readability
+                        ###at scale
+
+                        - Same subjects and task as before
+                        - Hypotheses for OverCode condition:
+                            <!-- - More read coverage and speed -->
+                            - More feedback coverage 
+                            - More perceived coverage 
+
+
+                        <aside class="notes">
+                            - They will read code that represents more student solutions at a higher rate than with the baseline.
+                            - With OverCode, they will produce 
+feedback that is relevant to more students’ solutions 
+than with the baseline.
+                            - With OverCode, subjects feel that they develop a 
+better high-level view of students’ understanding and misconceptions and produce higher-coverage feedback 
+than with the baseline.
+                        </aside>
+                    </script>
                 </section>
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ###feedback on approach & readability at scale
+                
 
-                        
+                <section data-markdown data-state="R2header">
+                    <script type="text/template">
+                        <!-- ###OverCode User Study -->
+                        ####% of raw solutions covered by feedback
+
+                        <img data-src="img/overcode_feedbackcoverage.jpg">  
 
                         <aside class="notes">
                             
                         </aside>
                     </script>
                 </section>
+
+                <section data-markdown data-state="R2header">
+                    <script type="text/template">
+                        <!-- ###OverCode User Study -->
+                        ####Perceived feedback coverage
+
+                        <img data-src="img/overcode_coverageconfidence.jpg">  
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                
 
                 <section data-markdown>
                     <script type="text/template">
@@ -4958,6 +5045,10 @@ def iterPower(base, exp):
                 </section>
                 <section data-state="R1header">
                     <style>.R1header header:after { content: "(R1) Understanding Solution Variation"; }</style>
+                    <!-- <p>header1 example</p> -->
+                </section>
+                <section data-state="R2header">
+                    <style>.R2header header:after { content: "(R2) Feedback on Solution Variation"; }</style>
                     <!-- <p>header1 example</p> -->
                 </section>
                 <section data-state="footer1">

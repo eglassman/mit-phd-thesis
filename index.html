@@ -1522,14 +1522,77 @@ return result2</code></pre></div>
 
                 <section data-markdown>
                     <script type="text/template">
+                        ###Pipeline Analysis
+
+                        - Dataset: solutions collected from 6.00x (edX Fall '12)
+                        <hr>
+                        <table class="table table-striped ">
+                            <thead>
+                              <tr>
+                                <th>Problem</th>
+                                <!-- <th>Submissions</th> -->
+                                <th class="right-aligned">Solutions</th>
+                                
+                                <th class="right-aligned">Represented by</th>
+                                <!-- <th>Common<br>Variables</th> -->
+                                <th class="right-aligned">Running<br>Time</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>power</td>
+                                <!-- <td class="right-aligned">8940</td> -->
+                                <td class="right-aligned">3875</td>
+                                
+                                <td class="right-aligned">862</td>
+                                <!-- <td class="right-aligned">38</td> -->
+                                <td class="right-aligned">15.5m</td>
+                              </tr>
+                              <tr>
+                                <td>hangman</td>
+                                <!-- <td class="right-aligned">1746</td> -->
+                                <td class="right-aligned">1118</td>
+                                
+                                <td class="right-aligned">552</td>
+                                <!-- <td class="right-aligned">106</td> -->
+                                <td class="right-aligned">8.1m</td>
+                              </tr>
+                              <tr>
+                                <td>derivative</td>
+                                <!-- <td class="right-aligned">3013</td> -->
+                                <td class="right-aligned">1433</td>
+                                
+                                <td class="right-aligned">1109</td>
+                                <!-- <td class="right-aligned">50</td> -->
+                                <td class="right-aligned">10.3m</td>
+                              </tr>
+                            </tbody>
+                        </table>
+
+                        - With Stacey Terman, pipeline adapted to "normalize" incorrect programs as well<!-- .element: class="fragment" -->
+                        
+                        <aside class="notes">
+                            - Reduces this type of program equivalence to comparing sets of strings
+                            - Linear with number of solutions, unlike the common tree-edit distance metrics
+                            - Runs on a laptop on thousands of solutions in < 15 min, not overnight or on a cluster
+                        </aside>
+
+                        <!-- Clustering approaches based on AST edit distance 
+                            - quadratic in number of solutions
+                            - runs on a computing cluster for millions of solutions
+                            - runs overnight for hundreds/thousands of solutions -->
+                    </script>
+                </section>
+
+                <!-- <section data-markdown>
+                    <script type="text/template">
                         ##User Interface Features
-                        <!-- <img data-src="img/mylog_topstacks.jpg"> -->
 
                         <aside class="notes">
 
                         </aside>
                     </script>
-                </section>
+                </section> -->
 
                 <section data-markdown>
                     <script type="text/template">
@@ -1538,23 +1601,22 @@ return result2</code></pre></div>
                         <img data-src="img/highlighting_differences.jpg">
                         <!-- <img data-src="img/hangman-toptwo.jpg"> -->
                         - Highlights differences in
-                            - size
+                            - solution popularity
                             - syntax
                             <!-- - variable behavior -->
 
                     </script>
                 </section>
-                <section data-markdown>
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ###Highlighting Differences
 
-                        <!-- <img data-src="img/highlighting_differences.jpg"> -->
                         <img data-src="img/mylog-toptwo.jpg">
                         - also highlights differences in
                             - variable behavior
 
                     </script>
-                </section>
+                </section> -->
 
                 <!-- <section data-markdown>
                     <script type="text/template">
@@ -1578,19 +1640,14 @@ return result2</code></pre></div>
                     </script>
                 </section> -->
 
-                <section data-markdown>
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ###Variable legend
                         
                         <img data-src="img/mylog-toptwo.jpg">
                         
                         <img data-src="img/mylog-legend2-power.jpg" width="65%">
-                          <!-- </div>
-                          <div class="col-sm-6">
-                        <img data-src="img/mylog-legend1-power.jpg">
-                          </div>
-                            <div class="col-sm-1"></div>
-                        </div> -->
+
                     </script>
                 </section>
 
@@ -1601,14 +1658,9 @@ return result2</code></pre></div>
                         <img data-src="img/mylog-toptwo.jpg">
                         
                         <img data-src="img/mylog-legend1-power.jpg"  width="65%">
-                          <!-- </div>
-                          <div class="col-sm-6">
-                        <img data-src="img/mylog-legend1-power.jpg">
-                          </div>
-                            <div class="col-sm-1"></div>
-                        </div> -->
+
                     </script>
-                </section>
+                </section> -->
 
                 <section data-markdown>
                     <script type="text/template">
@@ -1632,29 +1684,24 @@ return result2</code></pre></div>
                     </script>
                 </section>
 
-                <section data-markdown>
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ###Preview rewrite rules
 
                         <img data-src="img/rewrite_rule_applied_cropped.jpg">
 
                     </script>
-                </section>
+                </section> -->
 
-                <section data-markdown>
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ###Merged synthesized representatives 
-                        <!-- <div class="row">
-                          <div class="col-sm-6">
-                            <img data-src="img/rewrite_rule_applied2.jpg">
-                          </div>
-                          <div class="col-sm-6"> -->
+
                         <img data-src="img/rewrite_rule_applied2_accepted.jpg">
-                          <!-- </div>
-                        </div> -->
+
 
                     </script>
-                </section>
+                </section> -->
 
                 <section data-markdown>
                     <script type="text/template">
@@ -1685,69 +1732,7 @@ return result2</code></pre></div>
                     </script>
                 </section> -->
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ###Pipeline Analysis
-
-                        - Dataset: solutions collected from 6.00x (edX Fall '12)
-                        <hr>
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th>Problem</th>
-                                <th>Submissions</th>
-                                <th>Correct Solutions</th>
-                                
-                                <th>Correct<br>Represent-<br>atives</th>
-                                <th>Common Variables</th>
-                                <th>Running Time</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>power</td>
-                                <td class="right-aligned">8940</td>
-                                <td class="right-aligned">3875</td>
-                                
-                                <td class="right-aligned">862</td>
-                                <td class="right-aligned">38</td>
-                                <td class="right-aligned">15.5m</td>
-                              </tr>
-                              <tr>
-                                <td>hangman</td>
-                                <td class="right-aligned">1746</td>
-                                <td class="right-aligned">1118</td>
-                                
-                                <td class="right-aligned">552</td>
-                                <td class="right-aligned">106</td>
-                                <td class="right-aligned">8.1m</td>
-                              </tr>
-                              <tr>
-                                <td>derivative</td>
-                                <td class="right-aligned">3013</td>
-                                <td class="right-aligned">1433</td>
-                                
-                                <td class="right-aligned">1109</td>
-                                <td class="right-aligned">50</td>
-                                <td class="right-aligned">10.3m</td>
-                              </tr>
-                            </tbody>
-                        </table>
-
-                        - With Stacey Terman, pipeline adapted to "normalize" incorrect solutions as well<!-- .element: class="fragment" -->
-                        
-                        <aside class="notes">
-                            - Reduces this type of program equivalence to comparing sets of strings
-                            - Linear with number of solutions, unlike the common tree-edit distance metrics
-                            - Runs on a laptop on thousands of solutions in < 15 min, not overnight or on a cluster
-                        </aside>
-
-                        <!-- Clustering approaches based on AST edit distance 
-                            - quadratic in number of solutions
-                            - runs on a computing cluster for millions of solutions
-                            - runs overnight for hundreds/thousands of solutions -->
-                    </script>
-                </section>
+                
 
                 <!-- <section data-markdown>
                     <script type="text/template">

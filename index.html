@@ -137,7 +137,7 @@
                             <pre><code>def power(base,exp):
     result=1
     while exp>0:
-        result*=base
+        result&#42;=base
         exp-=1
     return result</code></pre>
                           </div>
@@ -253,6 +253,61 @@
 
                 <section data-markdown>
                     <script type="text/template">
+                        ####Autograders can only do so much
+
+                        - These are all "correct":
+
+                        <div class="row">
+                          <div class="col-sm-6">
+<pre><code>def power(base,exp):
+    result=1
+    while exp>0:
+        result&#42;=base
+        exp-=1
+    return result</code></pre></div><div class="col-sm-6">
+<pre><code>def power(base,exp):
+    if exp == 0:
+        return 1
+    else:
+        return base &#42; power(base, exp-1)</code></pre></div></div><div class="row">
+                          <div class="col-sm-12">
+<pre><code>def power(base, exp):
+    tempBase=base
+    result = base
+
+    if type(base)==int:
+        while exp==0:
+            result = 1
+            print(result)
+            break    
+        exp=exp-1
+        while exp >0:
+            tempCal=abs(tempBase)
+            exp=exp-1
+            while exp&lt;0:
+                break
+            for i in range (1,tempCal):
+                result=result+base
+                tempCal=tempCal-1
+                tempRes=base
+            base=result
+        return(result)
+
+    else:
+        result = 1
+        while exp > 0:
+            result = result&#42; base
+            exp = exp- 1
+        return result</code></pre></div></div>
+
+                        <aside class="notes">
+                            
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
                         ####Approach
 
                         <!-- - Correct w.r.t. test cases -->
@@ -268,7 +323,7 @@
        continue #keyword here does not change execution
    return result</code></pre>
 
-   (Active area of research)<!-- .element: class="fragment" -->
+  
 
                         <aside class="notes">
                             Computers cannot yet take over the second common form of evaluation: approach & readability. 
@@ -296,7 +351,6 @@
     else:
         return base * power(base, exp-1)</code></pre>
 
-    (Active area of research)<!-- .element: class="fragment" -->
 
                         <aside class="notes">
                             It use a common approach, or an innovative one.
@@ -350,7 +404,7 @@
             exp = exp- 1
         return result</code></pre>
 
-    (Active area of research)<!-- .element: class="fragment" -->
+  
 
                         <aside class="notes">
                             A program that is correct, with respect to the test cases, can still be difficult to read. 

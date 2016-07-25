@@ -249,7 +249,7 @@
                             - (R2) feedback on **SV** at scale
                             - (R3) personalized feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
-                        - Discussion and future work
+                        - Discussion of related and future work
                     </script>
                 </section>
 
@@ -663,7 +663,7 @@
                             - (R2) feedback on **SV** at scale
                             - (R3) personalized feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
-                        - Discussion and future work
+                        - Discussion of related and future work
                     </script>
                 </section>
 
@@ -695,7 +695,7 @@
                             - (R2) feedback on **SV** at scale
                             - (R3) personalized feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
-                        - Discussion and future work
+                        - Discussion of related and future work
                     </script>
                 </section>
 
@@ -2006,6 +2006,8 @@ return result&#x2082;</code></pre></div>
                     <script type="text/template">
                         #Foobaz
 
+                        (We'll come back to this system soon, to answer R3.)
+
                         <aside class="notes">
                         </aside>
                     </script>
@@ -2036,7 +2038,7 @@ return result&#x2082;</code></pre></div>
                             - &#8658; (R2) feedback on **SV** at scale
                             - (R3) personalized feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
-                        - Discussion and future work
+                        - Discussion of related and future work
                     </script>
                 </section>
 
@@ -2108,7 +2110,7 @@ than with the baseline.
 
                 <section data-markdown data-state="R2header">
                     <script type="text/template">
-                        ##(R2) feedback on SV at scale
+                        ###(R2) feedback on SV at scale
                         - OverCode helps teachers  
                             - write feedback that is relevant to more solutions
 
@@ -2126,7 +2128,7 @@ than with the baseline.
                             - (R2) feedback on SV at scale<!-- .element: class="grayed-out" -->
                             - &#8658; (R3) personalized feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
-                        - Discussion and future work
+                        - Discussion of related and future work
                     </script>
                 </section>
 
@@ -2231,6 +2233,22 @@ than with the baseline.
                     </script>
                 </section>
 
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Personalized Feedback Workflow
+
+                        1. Teacher annotates good and bad variable names in student code (using Foobaz interface)
+                        2. Teacher curates quizzes based on these examples
+                        3. Foobaz analyzes student solutions
+                        4. Foobaz delivers personalized quizzes for each student solution
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>
+
                 <!-- <section data-markdown>
                     <script type="text/template">
                         ###Variable Names in Classrooms
@@ -2278,7 +2296,7 @@ than with the baseline.
 
                 
 
-                <section data-markdown data-state="R3header">
+                <!-- <section data-markdown data-state="R3header">
                     <script type="text/template">
                         ####Definition Reminder
 
@@ -2289,24 +2307,25 @@ than with the baseline.
                         <aside class="notes">
                         </aside>
                     </script>
-                </section> 
+                </section>  -->
 
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
-                        ####Workflow for personalized feedback on variable names
+                        ###Personalized Feedback Workflow
 
-                        Step 1. Teacher annotates a few good and bad examples of variable names for several **common variables**
+                        - (Step 1) Teacher annotates a few good and bad examples of variable names for several **common variables**
 
                         <img data-src="img/foobaz_annotate_tochi_names.jpg">
 
                         <aside class="notes">
+                            - A **common variable** is a variable that behaves the same way in many solutions (but may have different names)
                         </aside>
                     </script>
                 </section>              
 
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
-                        ###Teacher Annotates Variable Names
+                        ###Personalized Feedback Workflow
                         
                         <img data-src="img/foobaz_teacher_annotation.jpg" width="65%">
 
@@ -2317,7 +2336,9 @@ than with the baseline.
 
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
-                        <!-- ###Teacher Previews Variable Name Quiz for students -->
+                        ###Personalized Feedback Workflow
+
+                        - (Step 2) Teacher adds commentary, adds or removes choices
                         
                         Example: quiz template for **common variable** <code>result</code>
                         <img data-src="img/foobaz_quiz_preview_cropped.jpg" width="75%">
@@ -2329,14 +2350,15 @@ than with the baseline.
 
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
-                        ###Example Student Solution
+                        ###Personalized Feedback Workflow
                         
+                        - Example student solution:
                         <pre><code>def iterPower(base,exp):
     myAns=1
     for j in range(exp):
         myAns*=base
     return myAns</code></pre>
-                        - Foobaz identifies common variables
+                        - (Step 3) Foobaz identifies common variables
                             - <code>myAns</code> is an instance of **common variable** <code>result</code>
                             - <code>j</code> is an instance of **common variable** <code>i</code>
 
@@ -2412,7 +2434,9 @@ than with the baseline.
 
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
-                        ###Student Receives Personalized Variable Name Quiz
+                        ###Personalized Feedback Workflow
+
+                        - (Step 4) Foobaz delivers personalized variable name quiz
                         
                         <img data-src="img/foobaz_personalized_quiz.jpg" width="75%">
 
@@ -2424,7 +2448,7 @@ than with the baseline.
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
                         <!-- ###Personalized Variable Name Feedback at Scale -->
-                        ###Foobaz Workflow
+                        ###Personalized Feedback Workflow
                         
                         <img data-src="img/foobaz_workflow.jpg" width="75%">
 
@@ -2436,7 +2460,7 @@ than with the baseline.
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
                         <!-- ###Personalized Variable Name Feedback at Scale -->
-                        ###Foobaz Workflow
+                        ###Personalized Feedback Workflow
                         
                         <img data-src="img/foobaz_workflow2.jpg" width="75%">
 
@@ -2448,7 +2472,7 @@ than with the baseline.
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
                         <!-- ###Personalized Variable Name Feedback at Scale -->
-                        ###Foobaz User Study for teachers
+                        ###User Study for teachers
                         
                         - Participants: 10 teachers
                             - Python-course TAs/LAs/graders
@@ -2456,7 +2480,7 @@ than with the baseline.
 
                         - Same datasets as before (<code>iterPower</code>, <code>hangman</code>, <code>derivative</code>)
 
-                        - Task: Generate personalizable quiz template for as many students as possible
+                        - Task: Generate personalizable quizzes for as many students as possible
 
 
                         <aside class="notes">
@@ -2467,7 +2491,7 @@ than with the baseline.
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
                         <!-- ###Personalized Variable Name Feedback at Scale -->
-                        ###Foobaz User Study for teachers
+                        ###User Study for teachers
                         ####results
 
                         - In 4-11 minutes, each teacher 
@@ -2494,21 +2518,24 @@ than with the baseline.
 
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
-                        ###(R3) Personalized Feedback on Solution Variation at Scale
+                        ###(R3) personalized feedback on solution variation at scale
+                        - Foobaz workflow helps teachers scale up one-on-one conversations about variable name choices
+                            - conversations &rarr; active learning exercises (quizzes)
+                        
+                            <!-- - scales up a previous one-on-one discussion about variable names -->
 
-                        - Foobaz helps
+                        <!-- - Foobaz helps
                             - teachers 
                                 - curate good and bad variable names 
                                 - deliver personalized feedback on variable names
                             - students
                                 - self-explain whether variable names are good or bad
-                                - learn from others' good and bad naming decisions
+                                - learn from others' good and bad naming decisions -->
 
 
 
                         <aside class="notes">
-                        - a workflow for generating personalized active learning exercises
-                            - emulating how a teacher might socratically discuss good and bad choices with a student while they review the student’s solution together
+                            - a workflow for generating personalized active learning exercises (quizzes) on important aspect of readability (variable names)
                         </aside>
                     </script>
                 </section>
@@ -2548,22 +2575,255 @@ than with the baseline.
                             - (R2) feedback on SV at scale<!-- .element: class="grayed-out" -->
                             - (R3) personalized feedback on SV at scale<!-- .element: class="grayed-out" -->
                             - &#8658; (R4) collect and distribute student advice, given **SV**
-                        - Discussion and future work
+                        - Discussion of related and future work
+                    </script>
+                </section>
+
+                
+
+                
+
+                <section data-markdown data-state="R3header">
+                    <script type="text/template">
+                        ###Learnersourcing personalized hints
+                        
+                        - **Problem**: it’s hard to get personalized help in large classes
+                            - especially when there are many solutions (and bugs)
+
+                        - **Key Insight**: Students who struggle, then succeed, become experts on particular solutions (and bugs)
+
+                        - **Approach**: Collect and distribute hints by students who earned the expertise necessary to write them
+                        <!-- *who earned expertise on particular bugs and solutions* -->
+
+                        
+
+                        <aside class="notes">
+                        </aside>
                     </script>
                 </section>
 
                 <section data-markdown data-state="R3header">
                     <script type="text/template">
-                        ##(R4) Answers
-                        - Dear Beta helps students 
+                        ###Learnersourcing
+                    
+                        - **Prior Art**: *Learnersourcing* puts learners to work while they learn (Kim ’13)
+
+                        - This is *targeted learnersourcing*: hint writers and receivers are not drawn from pool of all students
+
+
+                        <aside class="notes">
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Debugging
+
+                        <img data-src="img/dearbeta_anecdote.jpg">
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Debugging
+
+                        <img data-src="img/dearbeta_anecdote_page2.jpg">
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Students don't always describe their problems in an easily searchable way
+
+                        <!-- <div class="row">
+                          <div class="col-sm-6"> -->
+                        <img data-src="img/piazza.jpg" width="75%">
+                          <!-- </div>
+                          <div class="col-sm-6">
+                            <img data-src="img/tripped_here.jpg">
+                          </div>
+                        </div> -->
+
+                        <aside class="notes">
+                        - 250 students, Introduction to programming, at UCSB
+                        -Observation: Generic Q&A forums are not optimized for test case debugging.
+                        - Insight: Students who fix bugX can offer hints for students still stuck on bugX.
+                        </aside>
+
+
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Recognizing Good Solutions
+
+                        <img data-src="img/dear_gamma_anecdote.jpg">
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Improving Solutions
+
+                        <img data-src="img/dear_gamma_anecdote_page2.jpg">
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown data-state="R3header">
+                    <script type="text/template">
+                        ###Insights
+                    
+                        - **Debugging**: Students who fix bug<sub>x</sub> can offer hints for students still stuck on bug<sub>x</sub>
+
+                        - **Solution Improvment**: Students can
+                            - compare their solutions to other student solutions
+                            - write hints to help others improve their own solutions
+
+
+                        <aside class="notes">
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Contribution: Two targeted learnersourcing workflows
+
+                        <img data-src="img/cscw_both_workflows.jpg">
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Comparison Workflow
+
+                        <img data-src="img/carl_help_bob.jpg">
+                        <img data-src="img/carl_be_like_donna.jpg"><!-- .element: class="fragment" -->
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ###Contribution: Two targeted learnersourcing workflows -->
+
+                        <img data-src="img/both_workflows.jpg">
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>
+
+                
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Evaluation in MIT hardware design class (>200 students)
+
+                        <!-- - Deployed both workflows  -->
+                        - Self-reflection workflow
+                            - deployed over multiple semesters
+                            - active engagment by students
+                            - most successful when endorsed by staff
+
+                        - Comparison workflow
+                            - solution comparison & hint collection added to lab
+                            <!-- - categorized hints by hand -->
+                            - gave student-written hints to 9 students in 1 hr lab study
+                            - hints helped students improve solutions
+
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>
+
+
+                <!-- <section data-markdown>
+                    <script type="text/template">
+                        ###Self-reflection workflow
+
+                        <img data-src="img/self-reflection.jpg">
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section> 
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ###Comparison workflow
+
+                        <img data-src="img/comparison.jpg">
+
+                        <aside class="notes">
+                            
+                        </aside>
+
+                    </script>
+                </section>  -->              
+                
+
+                <section data-markdown data-state="R3header">
+                    <script type="text/template">
+                        ###(R4) collect and distribute student advice, given solution variation
+
+                        - Demonstrated two targeted learnersourcing workflows that work when there are many different solutions (and bugs)
+
+                        - **Benefits**: 
+                            - Opportunities for student reflection & peer teaching
+                            - Awareness of alternative solutions
+                            - Reduced dependence on staff
+
+                        <aside class="notes">
+
+                        - Self-reflection workflow helps students 
                             - reflect on their bugs 
                             - leave hints for other students stuck in the same place
                             
-                        - Dear Gamma helps students
+                        - Comparison workflow helps students
                             - see better and worse solutions within their zone of proximal development
                             - write hints for other students, given their own implementation experience
 
-                        <aside class="notes">
+                        
                         </aside>
                     </script>
                 </section>
@@ -2577,35 +2837,22 @@ than with the baseline.
                             - (R2) feedback on SV at scale<!-- .element: class="grayed-out" -->
                             - (R3) personalized feedback on SV at scale<!-- .element: class="grayed-out" -->
                             - (R4) collect and distribute student advice, given SV<!-- .element: class="grayed-out" -->
-                        - Discussion and future work
-                    </script>
-                </section>
-
-                <section data-markdown  data-state="Discussion">
-                    <script type="text/template">
-                        ###Thesis Statement
-
-                        - *Clustering and visualizing solution variation* collected from programming courses can help teachers
-                            - gain insights into student design choices
-                            - detect autograder failures
-                            - collect and distribute student-written hints 
-                            - give personalized style feedback at scale
-                        
+                        - Discussion of related and future work
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ####Related and Future Work
+                        ####Related Work
                         
                         - Mining patterns in code
                             - Huang et al.'s "CodeWebs" @ Stanford (WWW '14)
-                                - probabilistic semantic equivalence
+                                <!-- - probabilistic semantic equivalence -->
                             - Fast et al.'s "Codex" @ Stanford (CHI '14)
-                                - index AST nodes
+                                <!-- - index AST nodes -->
                         - Mining design choices
                             - Kumar et al.'s "Webzeitgeist" (CHI '13)
-                                - query engine for website design
+                                <!-- - query engine for website design -->
                         - Mining variable names
                             - Høst and Østvold's data-driven *Programmer English*
                         - Teacher-writen style feedback
@@ -2621,6 +2868,25 @@ than with the baseline.
                     </script>
                 </section>
 
+                <section data-markdown  data-state="Discussion">
+                    <script type="text/template">
+                        ###Thesis Statement
+
+                        - *Clustering and visualizing solution variation* collected from programming courses can help teachers
+                            - gain insights into student design choices
+                            - enhance test cases
+                            - give personalized style feedback at scale
+                            - collect and distribute student-written hints
+
+                        <hr>
+
+                        - Thesis Contributions: systems and workflows that demonstrate these benefits
+                        
+                    </script>
+                </section>
+
+                
+
                 <section data-markdown data-state="Discussion">
                     <script type="text/template">
                         ###Clustering the representative solutions
@@ -2632,7 +2898,7 @@ than with the baseline.
                     </script>
                 </section>
 
-                <section data-markdown  data-state="Discussion">
+                <!-- <section data-markdown  data-state="Discussion">
                     <script type="text/template">
                         ###Thesis Contributions
 
@@ -2641,7 +2907,7 @@ than with the baseline.
                         -
                         
                     </script>
-                </section>
+                </section> -->
 
                 <section data-markdown  data-state="Discussion">
                     <script type="text/template">
@@ -2875,7 +3141,7 @@ def iterPower(base, exp):
                             <!-- - Targeted learnersourcing -->
                             <!-- - Collect and distribute students' earned expertise -->
                         4. Additional clustering and visualization
-                        6. Discussion and future work
+                        6. Discussion of related and future work
                     </script>
                 </section>
 

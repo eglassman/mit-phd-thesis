@@ -6,7 +6,7 @@ The original vision of OverCode was to discover pedagogically valuable themes of
 
 One approach to pulling out larger themes of variation within solutions is to cluster more aggressively. OverCode's existing clustering pipeline is a form of deterministic interpretable clustering. What can vary and what is invariant across all the solutions within a cluster is clear, just by reading the normalized solution that represents the cluster. Because it faithfully represents the syntax students used in each cluster, solutions are split apart into smaller clusters by small syntactic differences. 
 
-One promising set of methods for more aggressive groupings of solutions are bottom-up and rule-based: they define rules for which solutions or groups of solutions can be merged into a single cluster. Probablistic semantic equality or equality with respect to a teacher's test suite, which is already used by OverCode for variable names, can be used for subexpressions as well~\cite{}. Programming language-based methods, e.g., compiler optimizations, could collapse OverCode clusters based on known semantic equality. As a system designer, one must decide or give the teacher control over how many different, semantically equivalent solutions are collapsed into a single cluster since, at the highest level, all correct solutions to the same programming exercise are semantically equivalent. These methods are discussed again in the future work, because the second set of methods were chosen for future investigation in this chapter.
+One promising set of methods for more aggressive groupings of solutions are bottom-up and built on rules. Specifically, these methods define rules for which solutions or groups of solutions can be merged into a single cluster. Probablistic semantic equality or equality with respect to a teacher's test suite, which is already used by OverCode for variable names, can be used for subexpressions as well~\cite{}. Methods built on program language analysis and synthesis, such as compiler optimizations, could collapse OverCode clusters based on known semantic equality. As a system designer, one must decide or give the teacher control over how many different, semantically equivalent solutions are collapsed into a single cluster since, at the highest level, all correct solutions to the same programming exercise are semantically equivalent. These methods are discussed again in the future work, because the second set of methods were chosen for future investigation in this chapter.
 
 The second set of methods leverage statistical properties of the entire corpus of solutions. Given that Variation Theory is interested in dimensions of variation (and consistency) that characterize all possible instantiations of an idea, statistical methods warrant further investigation. Latent variable models are a type of statistical model that attempt to explain variation in a dataset based on underlying factors. With the right choice of features and model, a latent variable model may be able to capture underlying design choices. In this section, two latent variable models have been explored in a preliminary way for this purpose: the Bayesian Case Model (BCM)~\cite{} and Latent Dirichlet Allocation (LDA)~\cite. 
 
@@ -50,11 +50,11 @@ As described in the chapter on OverCode, the OverCode analysis pipeline executes
 \label{recursive_example}
 \vspace*{\floatsep}
 \includegraphics[width=0.45\columnwidth]{Body/figures/grovercode/whilestandard}
-\caption{Example of a \texttt{while}-based student solution.}
+\caption{Example of a student solution using the Python keyword \texttt{while}.}
 \label{whilestandard}
 \vspace*{\floatsep}
 \includegraphics[width=0.5\columnwidth]{Body/figures/grovercode/augmentedwhile}
-\caption{Example of a \texttt{while}-based student solution, where the student has not modified any input arguments, i.e., better programming style.}
+\caption{Example of a student solution using the Python keyword \texttt{while}, where the student has not modified any input arguments, i.e., better programming style.}
 \label{augmentedwhile}
 \end{figure} 
 
@@ -81,7 +81,7 @@ Below are the sequences of variable values recorded by OverCode while executing 
   \end{itemize}
 \end{itemize}
 
-In the previous examples, the input argument \texttt{base} would be considered variable common to all three programs, but the input argument \texttt{exp} would not be. The variable \texttt{result} would also be considered a common variable shared across just the definitions in Figure \ref{whilestandard} and Figure \ref{augmentedwhile}. This allows us to distinguish between programs that calculate the answer in semantically distinct ways, without discriminating between the low-level syntax-based design decisions. 
+In the previous examples, the input argument \texttt{base} would be considered variable common to all three programs, but the input argument \texttt{exp} would not be. The variable \texttt{result} would also be considered a common variable shared across just the definitions in Figure \ref{whilestandard} and Figure \ref{augmentedwhile}. This allows us to distinguish between programs that calculate the answer in semantically distinct ways, without discriminating between the low-level design decisions about syntax. 
 
 LDA is often applied to corpuses of textual documents, where the corpus is represented as a $W \times N$ term-by-document matrix of counts, where $W$ is the vocabulary size across all documents and $N$ is the number of documents. In this representation, the document is represented a bag of word counts, i.e., how many times each word appears in the document. Following this analogy, solutions are represented as a bag of variable behaviors. The matrix representing the solutions in Figures \ref{recursive_example} through \ref{augmentedwhile} executed on \texttt{iterPower(5,3)} is shown in Table \ref{varbydocmat}.
 
@@ -180,7 +180,7 @@ The GroverCode implementation is a modification of the OverCode pipeline, includ
 
 In the original OverCode pipeline for correct solutions, variable behavior is assumed to hold enough semantic information to be the sole basis on which variable names are normalized. In this first version of GroverCode, applies this rule to incorrect solutions as well, but only for variables whose behavior matches a common variable in the correct solutions. %if a variable in an incorrect solution has the same behavior as a common variable in the correct solutions, GroverCode will rename the variable in the incorrect solution so it matches the common variable's name in the correct solutions.
 
-However, that purely behavior-based renaming strategy may change in future versions of GroverCode because, given that incorrect solutions are known to be wrong with respect to input-output behavior, the behavior of the variables within them is suspect too, regardless of whether it happens to match a common variable in a correct solution.
+However, this renaming strategy may change in future versions of GroverCode because, given that incorrect solutions are known to be wrong with respect to input-output behavior, the behavior of the variables within them is suspect too, regardless of whether it happens to match a common variable in a correct solution.
 
 Consider the following example: in the syntax of an incorrect solution, a variable $i$ may be operated or depended on exactly the same way as a common variable in a correct solution. However, if an error somewhere else in the solution causes $i$ to behave differently, the original method of variable renaming will be thrown off. Based on this example, variables in incorrect solutions that are not already renamed based on behavior are renamed based on syntax.
 

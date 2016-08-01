@@ -182,7 +182,7 @@ A rewrite rule is described with a left hand side and a right hand side as shown
 \subsubsection{Variable Legends} OverCode also shows the sequence of values that variables in the normalized solutions take on, over the course of their execution on a test case. As described in Section~\ref{pipeline}, a variable is identified by the sequence of values it takes on during the execution of the test case. Figure~\ref{afterrewrite}(b) shows a snapshot of the variable values for the \codevar{iterPower} problem. The goal of presenting this dynamic information associated with common variable names is to help users understand the behavior of each normalized solution, and further explore the variations among solutions that do not have the same common variables. When this legend was originally added to the user interface, clicking on a common variable name would filter for all solutions that contained an instance of that variable. Some pilot users found this feature confusing, rather than empowering. As a result, it was removed from OverCode before running both user studies. At least one study participant, upon realizing the value of the legend, wished that the original click-to-filter-by-variable functionality existed; it may be re-instated in future versions.
 
 \section{Implementation} \label{pipeline}
-The OverCode user interface depends on an analysis pipeline that canonicalizes solutions in a manner designed for human readability, referred to here as \emph{normalizing}. The pipeline then creates stacks of solutions that have become identical through the normalizing process. The pipeline accepts, as input, a set of solutions, expressed as function definitions for $f(a,...)$, and one test case $f(a_{1},...)$. Solutions that enter the pipeline are referred to as \emph{raw}, and the solutions that exit the pipeline as \emph{normal}. Examples, beginning with \codevar{iterPower}, are presented below to illustrate this pipeline.
+The OverCode user interface depends on an analysis pipeline that normalizes solutions in a manner designed for human readability, referred to here as \emph{normalizing}. The pipeline then creates stacks of solutions that have become identical through the normalizing process. The pipeline accepts, as input, a set of solutions, expressed as function definitions for $f(a,...)$, and one test case $f(a_{1},...)$. Solutions that enter the pipeline are referred to as \emph{raw}, and the solutions that exit the pipeline as \emph{normal}. Examples, beginning with \codevar{iterPower}, are presented below to illustrate this pipeline.
 
 \subsection{Analysis Pipeline}
 OverCode is currently implemented for Python, but the pipeline steps described below could be readily generalized to other languages commonly used to teach programming.
@@ -1246,52 +1246,21 @@ In addition to the actual read and feedback coverage that subjects achieved, an 
 %For the convenience and speed of adding more solutions without unnecessary repeated computation,
 
 \subsection{Multiple Test Cases and Efficiency} 
-Since publication, the OverCode pipeline has been modified in several ways. It has been split into two phases: solution preprocessing and batch processing. During preprocessing, each solution's formatting is standardized and all comments are removed. It is then executed on one or more test cases, which makes the resulting canonicalization more robust to any individual poorly chosen test case. The full program trace and output is recorded for every test case. 
+Since publication, the OverCode pipeline has been modified in several ways. It has been split into two phases: solution preprocessing and batch processing. During preprocessing, each solution's formatting is standardized and all comments are removed. It is then executed on one or more test cases, which makes the resulting normalization more robust to any individual poorly chosen test case. The full program trace and output is recorded for every test case. 
 
 This logging of solution execution can be one of the longer steps in the OverCode analysis pipeline, so preprocessing occurs once were solution and is saved in its own pickle file. New solutions can be preprocessed once, without affecting previously preprocessed solutions. Batch processing takes, as input, all the existing preprocessed results and canonializes variable names. This must occur as a batch operation because variable renaming depends on the behavior and name of every variable in every solution.
 
 \subsection{Collecting Additional Information per Line}~\label{subsec:morelineinfo}
-It was also noticed that a single-line difference between two solutions could, by affecting a variable's behavior, cause the variable renaming process to propagate that difference as a variable name change throughout all the lines that mention the affected variable. This non-locality of difference made it harder to spot in the user interface where the actual syntactic difference between two canonicalized solutions was. As a result, stacks are rendered in the user interface slightly differently. Now, even if the canonicalized variable names are different between two syntactically identical lines of code in two different stacks, if the variables take on the same sequence of values {\it just within that line of code}, it will not be highlighted as different in the user interface. Only the line with the syntactic difference will be highlighted.
+It was also noticed that a single-line difference between two solutions could, by affecting a variable's behavior, cause the variable renaming process to propagate that difference as a variable name change throughout all the lines that mention the affected variable. This non-locality of difference made it harder to spot in the user interface where the actual syntactic difference between two normalized solutions was. As a result, stacks are rendered in the user interface slightly differently. Now, even if the normalized variable names are different between two syntactically identical lines of code in two different stacks, if the variables take on the same sequence of values {\it just within that line of code}, it will not be highlighted as different in the user interface. Only the line with the syntactic difference will be highlighted.
 
 In order to implement this, the modified pipeline examines the program trace collected during preprocessing and the AST for each solution and compiles the following information for each line of code in each solution:
 \begin{enumerate}
 \item a template, i.e., the line of code with variables replaced by blanks, e.g., \texttt{\underline{\hspace{1em}} += 1} and \texttt{for \underline{\hspace{1em}} in range(\underline{\hspace{1em}}):}
-\item an ordered list of the common variables' behavior and their canonicalized names corresponding to each blank in the line, e.g., the blank in \texttt{\underline{\hspace{1em}} += 1} can be associated with one of several common variables, depending on the rest of the solution
+\item an ordered list of the common variables' behavior and their normalized names corresponding to each blank in the line, e.g., the blank in \texttt{\underline{\hspace{1em}} += 1} can be associated with one of several common variables, depending on the rest of the solution
 \item an ordered list of the sequences of values each blanked-out variable in the line took on during execution, e.g., the first blank in \texttt{for \underline{\hspace{1em}} in range(\underline{\hspace{1em}}):} might iterate through \texttt{1,2,3} while, with each visitation of this line during execution, the second blank stays constant at \texttt{[1,2,3],[1,2,3],[1,2,3]}
 \end{enumerate}
-Items 1 and 2 in this list together contain the information in the original canonicalized lines in OverCode and information about the line's syntax, regardless of the variables' identities. Items 1 and 3 capture the information necessary to tell what the variable behavior is just within that one line and whether two lines in two different stacks will be highlighted as different from each other.% is, without being affected a very similar concept, except it is more robust to non-local variations in variable behavior. For example, if the line of code \texttt{for ___ in range(___):}initialization of two common variables 
-
-This information is also used for variable renaming in incorrect solutions, as described in Section~\ref{subsec:grovercodepipeline}.
-
-\begin{comment}
-
- For example, in the two examples of raw solutions below, there is one syntactic difference: in the second solution, \texttt{result} is initialized as a float instead of an int. Given that, in Python, the difference between \texttt{float}s and \texttt{int}s can cause problems for novice Python students, such as accidental integer division, \texttt{1} and \texttt{1.0} are considered to be different values, and therefore the \texttt{result} variables in each solution will be given distinct names in the canonicalized solutions. Now, r
-\begin{tabular}{cc} 
-\begin{minipage}{0.4\linewidth}
-\begin{lstlisting}[]
-def iterPower(base, exp):
-    result=1
-    i=0
-    while i < exp:
-        result *= base
-        i += 1
-    return result
-\end{lstlisting}
-\end{minipage}
-&
-\begin{minipage}{0.4\linewidth}
-\begin{lstlisting}[]
-def iterPower(base, exp):
-    result=1
-    i=0
-    while i < exp:
-        result *= base
-        i += 1
-    return result * 1.0
-\end{lstlisting}
-\end{minipage}
-\end{tabular}
-\end{comment}
+Items 1 and 2 in this list together contain the information in the original normalized lines in OverCode and information about the line's syntax, regardless of the variables' identities. Items 1 and 3 capture the information necessary to tell what the variable behavior is just within that one line and whether two lines in two different stacks will be highlighted as different from each other. This information is also used for variable renaming in incorrect solutions, as described in Section~\ref{subsec:grovercodepipeline}.
+% is, without being affected a very similar concept, except it is more robust to non-local variations in variable behavior. For example, if the line of code \texttt{for ___ in range(___):}initialization of two common variables 
 
 For clarity in the OverCode user interface, the modifiers appended to common variables to resolve Common/Common collisions are no longer capitalized letters. Instead, they are rendered in the interface as numerical subscripts indicating whether they are the second or third or fourth (etc.) most frequently occurring common variable with that name across all the solutions in the collection analyzed.
 

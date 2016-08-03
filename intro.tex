@@ -1,6 +1,5 @@
 \chapter{Introduction}\label{chapter:introduction}
 
-\begin{comment}
 Given growing demand, programming class sizes at major universities like MIT, Stanford, Berkeley, and University of Washington are reaching hundreds or thousands of students. However, one-on-one tutoring is considered a gold standard for the educational outcomes it regularly produces \cite{bloom}. The rapid, personalized feedback and attention that is possible within a one-on-one tutoring relationship or a small class becomes prohibitively difficult or expensive at larger scales. Systems and techniques that scale the benefits of low student-to-teacher ratios to arbitrarily many students is an on-going challenge in modern education.
 
 Computers are a natural ally in this challenge. Even though computers do not yet have a human's ability to design curriculum, compose an entirely new question, or handle a novel answer, their attention, computation, and memory scales much better than humanity's. This thesis work supports a vision of teaching computer science education where humans--teachers and students--are front and center, discussing approaches, design choices, and trade-offs, augmented by computation behind the scenes.
@@ -10,8 +9,6 @@ The challenge of scaling up computer science education is usually framed as simp
 Learners individually solving programming problems can collectively generate a wide variety of possible bugs and solutions. A single programming or digital hardware design exercise may yield thousands of student solutions that vary in many ways, some superficial and some fundamental. For teachers, this variation can, for example, be a source of pedagogically valuable examples and corner cases that slipped past an automatic grader. For students, the variation in a large class means that other students may have struggled along a similar solution path, hit the same bugs, and can offer hints based on that earned expertise. 
 
 Understanding large-scale variation in student solutions requires identifying appropriate features of solutions, developing ways to automatically extract those features from each solution, designing user interfaces to communicate the results to teachers or students, and, when appropriate, collecting additional information from students through crowdsourcing techniques, i.e., learnersourcing \cite{kim2013learnersourcing}. This thesis includes the development of three systems that take advantage of the solution variation in large classes: OverCode for viewing thousands of Python solutions, Foobaz for delivering personalized feedback on variable names, self-reflection and comparison workflows for learnersourcing curcuit debugging and optimization hints. These systems and workflows, as well as an extension of OverCode adapted to grading, have been evaluated using data or live deployments in on-campus or edX courses with hundreds or thousands of students.
-
-
 
 \section{The Status Quo}
 
@@ -195,7 +192,7 @@ To further explore the power of clustering and visualizing solutions, several ex
 
 \section{Thesis Statement and Contributions}
 
-The systems described in this thesis show various mechanisms for leveraging students in massive programming courses. Learners produce many variations of solutions to a problem, running into common and uncommon bugs along the way. Learners can be pure producers whose solutions are analyzed and displayed to teachers to augment their cognition and help them generate feedback. Alternatively, students can be prompted to generate analysis of their own and others' solutions, for the benefit of both themselves and current and future students. %, and sends it to selected fellow learners as feedback. %We would like to demo these systems together, as a suite of learnersourcing systems that allow teachers to turn the challenges of teaching at scale into an opportunity for discussion, self-reflection, peer-teaching, and more learning from examples.
+The systems described in this thesis show various mechanisms for leveraging learners in massive programming courses. Learners produce many variations of solutions to a problem, running into common and uncommon bugs along the way. Learners can be pure producers whose solutions are analyzed and displayed to teachers to augment their cognition and help them generate feedback. Alternatively, learners can be prompted to generate analysis of their own and others' solutions, for the benefit of both themselves and current and future students. %, and sends it to selected fellow learners as feedback. %We would like to demo these systems together, as a suite of learnersourcing systems that allow teachers to turn the challenges of teaching at scale into an opportunity for discussion, self-reflection, peer-teaching, and more learning from examples.
 
 My thesis statement is: 
 \begin{displayquote}
@@ -235,7 +232,7 @@ The four chapters that follow describe, in detail, the four systems developed, a
 \end{itemize}
 
 Chapter \ref{chapter:discussion} discusses the design lessons that apply to the entire collection of systems in this thesis. Chapter \ref{chapter:conclusion} outlines avenues of future work this thesis work, in combination with the complementary work of others in this space, paves the way for.
-\end{comment}
+
 
 
 \begin{comment}"one-on-one tutoring promotes both greater student learning and increased student motivation to learn compared with traditional, formal classroom teaching and learning settings" --http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3292071/ \end{comment}

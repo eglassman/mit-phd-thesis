@@ -6,7 +6,7 @@ Computers are a natural ally in this challenge. Even though computers do not yet
 
 The challenge of scaling up computer science education is usually framed as simply coping with the problems of large class sizes. This thesis, however, explores how the volume of students and their solutions can be exploited to enable new types of rapid personalized feedback, as well as recover aspects of a traditional small class.
 
-Learners individually solving programming or digital hardware design problems can collectively generate a wide variety of possible bugs and solutions. A single programming or digital hardware design exercise may yield thousands of student solutions that vary in many ways, some superficial and some fundamental. For teachers, this variation can, for example, be a source of pedagogically valuable examples and corner cases that slipped past an automatic grader. For students, the variation in a large class means that other students may have struggled along a similar solution path, hit the same bugs, and can offer hints based on that earned expertise. 
+Learners individually solving programming problems can collectively generate a wide variety of possible bugs and solutions. A single programming or digital hardware design exercise may yield thousands of student solutions that vary in many ways, some superficial and some fundamental. For teachers, this variation can, for example, be a source of pedagogically valuable examples and corner cases that slipped past an automatic grader. For students, the variation in a large class means that other students may have struggled along a similar solution path, hit the same bugs, and can offer hints based on that earned expertise. 
 
 Understanding large-scale variation in student solutions requires identifying appropriate features of solutions, developing ways to automatically extract those features from each solution, designing user interfaces to communicate the results to teachers or students, and, when appropriate, collecting additional information from students through crowdsourcing techniques, i.e., learnersourcing \cite{kim2013learnersourcing}. This thesis includes the development of three systems that take advantage of the solution variation in large classes: OverCode for viewing thousands of Python solutions, Foobaz for delivering personalized feedback on variable names, self-reflection and comparison workflows for learnersourcing curcuit debugging and optimization hints. These systems and workflows, as well as an extension of OverCode adapted to grading, have been evaluated using data or live deployments in on-campus or edX courses with hundreds or thousands of students.
 
@@ -82,7 +82,7 @@ I was able to brief fellow staff members on the space of solutions, both good an
 
 Understanding solution variation is important for providing appropriate feedback to students at scale. In one-on-one scenarios, understanding the space of potential solutions can help teachers counsel students struggling to implement their own solutions. The wide variation among these solutions can be a source of pedagogically valuable examples, and can be used to refine the autograder for the exercise by exposing corner cases. 
 
-I acquired a dataset of thousands of correct student-written Python solutions to the same programming exercise, freshly collected from MIT's introductory Python programming course on edX. Analogous to tracking Turing machine movement, my colleague Rishabh Singh and I realized that we could identify meaningful patterns in Python solutions by tracking the values of variables during execution on test cases. With the help of Philip Guo, who contributed variable value-logging code from his Online Python Tutor~\cite{pgbovineOPT} and Jeremy Scott, who built the user interface, we created and tested OverCode, a system for visualizing and exploring thousands of programming solutions.
+I acquired a dataset of thousands of correct student-written Python solutions to the same programming problem, freshly collected from MIT's introductory Python programming course on edX. Analogous to tracking Turing machine movement, my colleague Rishabh Singh and I realized that we could identify meaningful patterns in Python solutions by tracking the values of variables during execution on test cases. With the help of Philip Guo, who contributed variable value-logging code from his Online Python Tutor~\cite{pgbovineOPT} and Jeremy Scott, who built the user interface, we created and tested OverCode, a system for visualizing and exploring thousands of programming solutions.
 
 OverCode uses both static and dynamic analysis to cluster similar correct solutions, and lets teachers further filter and cluster solutions based on different criteria. OverCode rewrites solutions to make them understandable as a collection. To do this, OverCode runs all the solutions to the same programming problem on the same test case(s) and extracts the sequence of values every variable in every solution takes on during execution. Variables that take on the same sequence of values across multiple correct solutions are assumed to be the same {\it common variable}. The most {\it common name} given to each {\it common variable} across all solutions is then used to rename all instances of that common variable in all solutions. At the same time, students' individual comments are removed and formatting is standardized. The resulting set of solutions are rendered in such a way that variable names are semantically meaningful and shared across solutions, as a common vocabulary. All solutions whose {\it set} of lines are the same after this normalization process are clustered together, with a single normalized solution as the cluster's representative.
 
@@ -112,7 +112,7 @@ Programmers can develop their own heuristics for good variable names through the
 
 In practice, very little time is spent on variable naming in introductory classes. One student-taught month-long introductory Python course offered at MIT spends one lecture on it, and does not systematically assess students' naming choices afterwards. With new tools, giving feedback on variable names could become time-efficient and scalable enough to become common place. 
 
-Building on top of OverCode and the support of my co-authors Jeremy Scott and Lyla Fischer, I designed and implemented Foobaz, a system that enables time-efficient, scalable, personalized variable name feedback within the context of existing assigned programming exercises. OverCode systematically hid the variation in variable names. Foobaz reveals that variation, in context. %In addition, the new system can provide mechanisms for teachers to comment on the variation with the interface and deliver that commentary to students in a personalized way. 
+Building on top of OverCode and the support of my co-authors Jeremy Scott and Lyla Fischer, I designed and implemented Foobaz, a system that enables time-efficient, scalable, personalized variable name feedback within the context of existing assigned programming problems. OverCode systematically hid the variation in variable names. Foobaz reveals that variation, in context. %In addition, the new system can provide mechanisms for teachers to comment on the variation with the interface and deliver that commentary to students in a personalized way. 
 
 Like OverCode, Foobaz distinguishes variables by their behavior, recognizing {\it common variables}. For each common variable, Foobaz allows teachers to comment not only on poor names, but also on names that mislead the reader about the variable's role. As shown in Figure \ref{fig:foobaz_teacherview}, the teacher's view is a variable name browser where names are shown along with all the context necessary to judge their quality. Teachers only need to annotate a small number of variable names with qualitative judgements in order to generate personalized formative assessments about variable naming for the majority of their students.
 
@@ -192,7 +192,7 @@ To further explore the power of clustering and visualizing solutions, several ex
 
 \section{Thesis Statement and Contributions}
 
-The systems described in this thesis show various mechanisms for leveraging learners in massive programming classes. Learners produce many variations of solutions to a problem, running into common and uncommon bugs along the way. Learners can be pure producers whose solutions are analyzed and displayed to teachers to augment their cognition and help them generate feedback. Alternatively, learners can be prompted to generate analysis of their own and others' solutions, for the benefit of both themselves and current and future students. %, and sends it to selected fellow learners as feedback. %We would like to demo these systems together, as a suite of learnersourcing systems that allow teachers to turn the challenges of teaching at scale into an opportunity for discussion, self-reflection, peer-teaching, and more learning from examples.
+The systems described in this thesis show various mechanisms for leveraging learners in massive programming courses. Learners produce many variations of solutions to a problem, running into common and uncommon bugs along the way. Learners can be pure producers whose solutions are analyzed and displayed to teachers to augment their cognition and help them generate feedback. Alternatively, learners can be prompted to generate analysis of their own and others' solutions, for the benefit of both themselves and current and future students. %, and sends it to selected fellow learners as feedback. %We would like to demo these systems together, as a suite of learnersourcing systems that allow teachers to turn the challenges of teaching at scale into an opportunity for discussion, self-reflection, peer-teaching, and more learning from examples.
 
 My thesis statement is: 
 \begin{displayquote}
@@ -238,36 +238,4 @@ Chapter \ref{chapter:discussion} discusses the design lessons that apply to the 
 \begin{comment}"one-on-one tutoring promotes both greater student learning and increased student motivation to learn compared with traditional, formal classroom teaching and learning settings" --http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3292071/ \end{comment}
 
 
-\begin{comment}
 
-Dead kittens:
-
-In introductory programming and digital circuit design education, this thesis aims to change the traditional curve in the quality of education as a function of class size from monotonically decreasing to a U-shape. As a proxy for measuring learning outcomes, the systems developed in this thesis empower old or entirely new rapid, personalized feedback modes similar to those delivered in a one-on-one teaching relationship but enabled by the scale of students composing solutions to class exercises.
-
-By second grade, children should be able to write simple, coherent stories \cite{http://www.webmd.com/parenting/features/when-should-kids-learn-read-write-math}. 
-
-When I was much younger, my dad taught me about vacuum tubes. With few modifications, tubes can serve as amplifiers, switches, or displays. ``Tube: The Invention of Television'' tells the dramatic history behind the invention and commericialization of the first televisions, which were built with cathode ray tubes. At critical parts of the story, he'd ask, e.g., ``How you would change the intensity of the electron beam hitting the screen?'' just before the authors were about to reveal how the inventors would get past their next technological hurdle.
-
-Sometimes, I had no idea how to answer. Sometimes, I came up with something similar to what the inventors came up with. And sometimes, because I was not biased by the actual scientific literature that the inventors were immersed in, I came up with something very different, but possibly also effective. 
-
-The systems in this thesis help teachers take advantage of the massive collections of solutions, enabling either (1) the same teaching practices that were previously only tractable in smaller courses or (2) new practices that are only possible when a massive collection of student solutions are available.
-
-This thesis describes several systems designed to (1)  (2) (3) amplify teachers' actions, by enabling them to compose and deliver personalized feedback to more students while expending minimal additional effort. 
-
-Despite recent advances in artificial intelligence, human and computer intelligence remain largely complementary. Humans can compose new questions and handle novel answers, while computers can perform prescribed analyses of thousands of student answers orders of magnitude faster than humans. 
-
-Ways of delivering the rapid, personalized feedback that  commonly accepted practices of good teaching d
-
-As enrollment in programming courses grows, some teaching practices and systems may become prohibitively expensive or arduous to use.
-
-This thesis documents several novel tools I developed for helping hundreds or thousands of students learn how to program. The demand for programming education is growing rapidly, and this thesis treats the volume of students in programming classes not as a problem, but as an opportunity. It begins with the story of how I learned to program, and ends with a description of new tools for teachers and students engaged in the hard work of transferring the knowledge and practice of programming from one generation to the next.
-
-At heart, I'm an electrical engineer, and it has informed my approach through-out. To me, a class of students is a system I want closed-loop control over: with the control policy of an experienced teacher and knowledge of the state of the system--my hundreds or thousands of students--I can better steer it to my intended destination of knowledge and skills.
-
-I similarly think of solutions as systems that turn inputs into outputs, sometimes in the same way, sometimes in different ways.
-\end{comment}
-
-\begin{comment}Dead kitten: since the first CS degrees were awarded in the late 1960s
-\footnote{Some CS departments are considering or already implementing course enrollment limits, which may disproportionately affect underrepresented students \cite{personalconversationwithjasonchuang}.}
-Enrollment in computer science, including programming classes, has been growing. We are now experiencing a third boom in student interest \cite{csBoom}.
-\end{comment} 

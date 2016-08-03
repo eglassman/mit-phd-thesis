@@ -66,7 +66,7 @@ Studies of tutors and their students help us identify characteristics and styles
 
 Concrete examples of an object of learning--like how to apply an appropriate statistical test in a statistics word problem--vary in ways that are superficial, e.g., irrelevant, and fundamental, e.g., relevant. In the language of educational psychologists, these are often called surface and structural features ~\cite{quilicimayer}. A simple compare and contrast exercise when solving equations~\cite{rittle2007does} or examining case studies in negotiation~\cite{loewenstein2003analogical} can bring this variation to the fore, and yield learning benefits.
 
-Learning in the presence of variation in these features helps learners generalize and transfer their knowledge to new situations, such as better transfer of geometric problem solving skills~\cite{workedexamplesvariability,Variabilityofpractice}. Several educational models, e.g., Variation Theory and the 4C/ID Model~\cite{van2002blueprints}, build on the value of variability by suggesting specific ways for how it should be deployed in the classroom. The three components in this thesis, OverCode, Foobaz, and the targeted learnersourcing workflows, are all designed to make the natural variability present in student solutions useful to teachers and students, in accordance with recommendations from the educational theories that follow.
+Learning in the presence of variation in these features helps learners generalize and transfer their knowledge to new situations, such as better transfer of geometric problem solving skills~\cite{workedexamplesvariability,Variabilityofpractice}. Several educational models, e.g., variation theory and the 4C/ID Model~\cite{van2002blueprints}, build on the value of variability by suggesting specific ways for how it should be deployed in the classroom. The three components in this thesis, OverCode, Foobaz, and the targeted learnersourcing workflows, are all designed to make the natural variability present in student solutions useful to teachers and students, in accordance with recommendations from the educational theories that follow.
 
 \subsubsection{Analogical Learning}
 
@@ -76,15 +76,15 @@ Novices may become confused if asked to compare their solution to a fellow stude
 
 Analogical learning can be very difficult. For example, the structural features may be aligned between a base and the new target situation, but large differences in surface features will hurt the learner's ability to see any connection~\cite{Kurtz}. This may be explained by how human memory works. For novices, the most reliable form of retrieval is based on surface similarity, not deep analogical similarity. Experts can more easily retrieve situations that are structurally similar and therefore more relevant for a new situation at hand~\cite{Loewenstein}.
 
-Variation Theory, discussed next, is specifically designed to help students more deeply appreciate structural features, which may help them transfer their learning to new situations instead of feeling lost, confused by superficial differences.
+variation theory, discussed next, is specifically designed to help students more deeply appreciate structural features, which may help them transfer their learning to new situations instead of feeling lost, confused by superficial differences.
 
-\subsubsection{Variation Theory: Preventing Human Overfitting}
+\subsubsection{Variation Theory}
 
-This aphorism captures the ideas at the heart of Variation Theory (VT) well: {\it He cannot, England know, who knows England only.} VT is concerned with the way in which students are taught from concrete examples. It is relatively new and still being investigated for its usefulness in a broad range of disciplines, including mathematics and computer science. 
+An aphorism captures the ideas at the heart of variation theory (VT) well: {\it He cannot, England know, who knows England only.} VT is concerned with the way in which students are taught from concrete examples. It is relatively new and still being investigated for its usefulness in a broad range of disciplines, including mathematics and computer science. 
 
 VT asserts that human learning can suffer from overfitting for some of the same reasons that machine learning algorithms do. Overfitting is a term I am borrowing from the machine learning community. If a machine learning algorithm selects the the color of the sky as the key difference between photos of cats and dogs (which is obviously unrelated to distinguishing between photos of cats and dogs), then a possible explanation is that the algorithm was trained on photos with insufficient or biased variation. If all the cat photos it ever saw were taken on a cloudy day, and all the dog photos it ever saw were taken on a sunny day, could you blame this naive program for latching on to this obvious differentiator of housepet species? Humans can make the same inferential mistake when not exposed to a sufficient variety of examples of an object of learning. VT catalogues a hierarchy of patterns of variation designed to immunize the learner to this kind of mistake.
 
-More abstractly, VT is built on the understanding that learning is not possible without being able to discern what the object of learning is~\cite{marton1997learning}. Discernment is not possible without experiencing variation in the object of learning and the world in which its situated~\cite{marton2004classroom}. This variation is described in terms of aspects and features. An aspect refers to a dimension of variation, and a feature is a value of that dimension of variation~\cite{ling2012variation}. Some features are irrelevant, while critical features collectively define the object of learning.
+More abstractly, VT is built on the understanding that learning is not possible without being able to discern what the object of learning is~\cite{marton1997learning}. Discernment is not possible without experiencing variation in the object of learning and the world in which it is situated~\cite{marton2004classroom}. This variation is described in terms of aspects and features. An aspect refers to a dimension of variation, and a feature is a value of that dimension of variation~\cite{ling2012variation}. Some features are irrelevant, while critical features collectively define the object of learning.
 
 For a more concrete discussion of variation, consider the following examples:
 \begin{enumerate}
@@ -112,12 +112,12 @@ This method of training is particularly exciting today, when there is such a div
 
 If solutions can be indexed in useful ways, they can be mined to ask basic questions like,
 \begin{enumerate}
-\item    In the face of a common design choice, what do people most commonly pick? Has this changed over time?
+\item    In the face of a common design choice, what do designers most commonly pick? Has this changed over time?
 \item    What are popular design alternatives?
 \item    What are examples of design fails that should be learned from and never repeated?
 \item    What are examples of design innovations that are clearly head-and-shoulders above the rest?
 \end{enumerate}
-The answers to these questions could fuel instruction that complies with Variation Theory's recommendations. With OverCode, Foobaz, and the targeted learnersourcing workflows, I try to answer the same questions for students tackling the same programming challenge.
+The answers to these questions could fuel instruction that complies with variation theory's recommendations. With OverCode, Foobaz, and the targeted learnersourcing workflows, I try to answer the same questions for students tackling the same programming challenge.
 
 \subsection{Webpages}
 Ritchie et al.~\cite{ritchie2011d} describe a user interface for finding helpful, i.e., relevant or inspiring, design examples from a curated database of web pages. Their work is intended to support designers who like to refer to or adapt previous designs for their own purposes. Traditional search engines only index the content of web pages. Their system indexes web pages’ design style by automatically extracting global stylistic and structural features from each page. Instead of manual browsing, users can search and filter a gallery of design-indexed pages. Users can provide an example design in order to find similar and dissimilar designs, as well as high-level style terms like ``minimal.''
@@ -201,16 +201,9 @@ Fast et al.'s Codex~\cite{codex} produced similar results. By keeping track of v
 
 Foobaz can go beyond Fast et al.~\cite{codex} and H{{\o{}}}st and {{\O{}}}stvold's~\cite{host2008java,host2009debugging} work in providing feedback on variable names because all solutions are known to address the same programming exercise.
 
-%\section{Variation and Commonality Across Student Solutions}
 \section{Exploring and Mining Variation in Student Solutions}
 
-The work in this thesis was composed during an eruption of interest in teaching massive numbers of people through online exercises and courses. Computer-based, scalable teaching environments, such as Intelligent Tutoring Systems, were not new, and neither was putting coursework up online. For example, MIT OpenCourseware opened its virtual doors to provide free access to static MIT course materials nearly 15 years ago, in 2002. However, it was not until 2011, that the first full university level course was made available to the public, complete with college-level programming exercises. Soon after, several organizations, e.g., edX, Coursera, and Udacity, started up to provide similar experiences for a range of university courses. I was acutely aware of edX because it was first organized from within the same basement lab of Stata in which I was spending my days and nights helping students complete assignments for Computation Structures.
-
-%Andrew Ng at Stanford opened up his machine learning course infrastructure to the public, so that they could ''take'' his class--including its web-based programming exercises.
-
-These organizations were soon sitting on top of piles of student activity and responses that could be studied by researchers. It became possible to formulate and answer new questions. The ACM Learning at Scale conference was started to give these a dedicated venue to talk about this new work. Multiple research groups began working on making sense and making use of this data to enhance learning outcomes and experiences. The work in this section is relevant to processing large corpora of student solutions to the same programming exercise. %What set this work apart from previous research efforts was the idea that, with additional students %Early posters and workshop papers reporting interesting research questions and approaches with only preliminary results inspired several series of papers by research groups working in parallel.
-
-The common purpose of the code in the corpus almost certainly contributes to the regularity already found in code from large corpora of open source projects. However, this regularity from a common purpose may be more than counter-balanced by the fact that the code is generated by novices who are still learning how to program and are not yet well-versed in the common idioms and programming constructs. 
+The common purpose of the code in a corpus of student solutions to the same programming problem almost certainly contributes to the regularity already found in code from large corpora of open source projects. However, this regularity from a common purpose may be more than counter-balanced by the fact that the code is generated by novices who are still learning how to program and are not yet well-versed in the common idioms and programming constructs. 
 
 Unlike corpora of open source projects, it is often not difficult to go beyond static analysis and perform dynamic analyses while executing each solution in the corpus. A set of teacher-designed tests of expected behavior may already exist, some available to students while developing their solutions, some hidden from students' view, and some generated on the fly, through fuzz testing \cite{fuzztesting}. %As a result, these solutions can be analyzed on both their syntactic and behavioral qualities.
 
@@ -281,7 +274,7 @@ Gaudencio et al.~\cite{Gaudencio} recently investigated whether computers might 
 
 %\subsubsection{Clustering}
 %In addition to annotating groups of solutions with feedback, 
-Luxton-Reilly et al.~\cite{Luxton13} suggests that identifying distinct clusters of solutions can help instructors select appropriate examples of code for helping students learn, e.g., in accordance with the systematic variation suggested by Variation Theory. They also suggest that it is helpful for teachers' own understanding and quality of feedback and guidance. Clustering can also be used to guide rubric creation.
+Luxton-Reilly et al.~\cite{Luxton13} suggests that identifying distinct clusters of solutions can help instructors select appropriate examples of code for helping students learn, e.g., in accordance with the systematic variation suggested by variation theory. They also suggest that it is helpful for teachers' own understanding and quality of feedback and guidance. Clustering can also be used to guide rubric creation.
 
 Luxton-Reilly et al.~\cite{Luxton13} develop a hierarchical clustering taxonomy for types of solution variations, from high- to low-level: structural, syntactic, or presentation-related. The structural similarity between solutions in a dataset is captured by comparing their control flow graphs. If the control flow of two solutions is the same, then the syntactic variation within the blocks of code is compared by looking at the sequence of token classes. Variation in presentation, such as variable names and spacing, is only examined when two solutions are structurally and syntactically the same. However, it is not yet fully implemented. %In contrast, our approach is not hierarchical, and uses dynamic information in addition to syntactic information.
 

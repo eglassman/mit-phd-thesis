@@ -27,9 +27,9 @@ The first avenue is more bottom-up clustering. Just as the variation in variable
 
 The second promising avenue for creating larger clusters is continuing to model the corpus of solutions to the same programming problem as samples from an underlying distribution of solutions shaped by teacher explanations, student prior knowledge, common novice misconceptions, and the constraints of the language itself. Depending on the model chosen, larger clusters could be groups of whole solutions or groups of sub-components the co-occur within many solutions. Iterating on solution representation, model choice, interface, and interaction will hopefully allow teachers to understand their students' design choices, give style feedback, and assign grades with confidence. 
 
-Even simple additions to the OverCode interface could approximate what more sophisticated statistical methods would do. For example, LDA may pull out distributions of commonly co-occuring variable behaviors (as described in the chapter on OverCode extensions), but the current OverCode interface could be modified to suggest and filter by common sets of strictly co-occurring variable behaviors. This approximation is less robust in the face of noise, but it is at least easier for the user to interpret using the language of filtering. %mechanisms. rather than relying on LDA , applied to identify common types of solutions, the OverCode interface could suggest and support filtering for solutions that have a common set of strictly co-occuring variable behaviors. 
+Even simple additions to the OverCode interface could approximate what more sophisticated statistical methods would do. For example, LDA may pull out distributions of commonly co-occuring variable behaviors (as described in the chapter on OverCode extensions), but the current OverCode interface could be modified to suggest and filter by common sets of strictly co-occurring variable behaviors. This approximation is less robust in the face of noise, but it is at least easier for the teacher to interpret using the language of filtering. %mechanisms. rather than relying on LDA , applied to identify common types of solutions, the OverCode interface could suggest and support filtering for solutions that have a common set of strictly co-occuring variable behaviors. 
 
-When visualizing the resulting clusters, it is important to keep in mind the ease with which users can interpret the results. Simple modifications to the OverCode interface can go a long way, such as highlighting the sub-expressions or normalized variable names within lines of code, rather than the entire lines, that separate one cluster from another. Another modification would increase the interpretability of the normalized variables. Since the variable behavior is used to normalize variable names, the values of variables and sub-expressions during execution on a test case could be displayed just beneath or alongside the code, as demonstrated in an experimental Python notebook~\cite{kevinkwokdemo}, in addition to the way it is currently shown, as a legend mapping each variable name to its behavior beneath a tab that many user study subjects did not consult. 
+When visualizing the resulting clusters, it is important to keep in mind the ease with which teachers can interpret the results. Simple modifications to the OverCode interface can go a long way, such as highlighting the sub-expressions or normalized variable names within lines of code, rather than the entire lines, that separate one cluster from another. Another modification would increase the interpretability of the normalized variables. Since the variable behavior is used to normalize variable names, the values of variables and sub-expressions during execution on a test case could be displayed just beneath or alongside the code, as demonstrated in an experimental Python notebook~\cite{kevinkwokdemo}, in addition to the way it is currently shown, as a legend mapping each variable name to its behavior beneath a tab that many user study subjects did not consult. 
 
 
 %\todo{Interface upgrades: talk about beneath-line value annotation like that cool notebook and showing differences at the level of subexpressions, and filtering by sets of common variables in solutions which is like cheap version of lda on variables}
@@ -61,55 +61,3 @@ The approach taken in designing Foobaz may be generalizable to other aspects of 
 
 The primarily difficulty of iterating on the two workflows, Dear Beta and Dear Gamma, is that they are most successful when they are directly integrated into teacher's own systems and endorsed or promoted by staff. In future classes with supportive teachers, a module can be added to the Dear Beta workflow that identifyies when a student is in a good place to supply a hint and prompts them to do so. This would be an improvement over the current stand-alone website that students are explicitly directed to when they need help, but not when they can give help. Future work on Dear Gamma should include improving the metric for optimality and the rendering of solutions such that all the differences between more and less optimal solutions are visible to reflecting, hint-writing students. One potential future incarnation of the Dear Beta and Dear Gamma workflow is a crowd-sourced intelligent tutor that helps students get to a correct solution and then optimize that solution, completely driven by student-written hints. %To make this happen, the infrastructure to connect these systems to each other and to an existing course needs to be built. 
 
-
-
-% on common errors and on strategies to convert less optimal student-written correct solutions into more optimal ones. %ranked by an  We will also explore what Dear Gamma in the context of the software engineering course could look like, e.g., prompting students to write hints about the style and correctness of code written by other students. We plan to continue deploying iterations of these workflows in classes for students' immediate benefit, and to demonstrate that it can enrich the learning experience across multiple engineering domains.
-
-%\todo{use a platform like http://lalitjain.com/files/next.pdf}
-
-
-
-%\subsection{Mathematical Expressions}
-
-%they may be able to add new correction rules to the AutoGrader's list as they grade. 
-
-%It is also possible that the gap between automatically corrected solutions and those solutions that could not be automatically corrected could be exposed in the inter
-
-% and has demonstrated  correction rates of ;  have used that language to create an error model for  that can correct incorrect solutions automatically if a small number of items in the error model can; utoGrader searches the space of all possible applications of those 
-
-
-%two ways come from the field of Bayesian inference, and specifically, latent variable models that find (1) clusters of solutions or (2) topics that cut across solutions. The benefit of the existing OverCode clustering pipeline is that, when looking at the cluster representative solution, the teacher knows exactly which ways the solutions beneath it vary and in which ways they do not. 
-
-%Traditional The challenge of displaying clusters 
-
-%interpretable clustering methods. 
-
-%Latent variable models 
-
-
-
-%\todo{skim and add later: "As new solutions are submitted by students, the number of observed distinct student design decisions may grow without bound, and each solution may be a mixture of multiple design decisions. Therefore, a Hierarchical Dirichlet Process \cite{hdp} for learning these underlying design decisions may be a good model choice for this data. However, since some design decisions may be correlated with each other, it may be even more accurate to replace the (conveniently conjugate) Dirichlet prior with a (non-conjugate) logistic normal prior that can model correlated topics in addition to uncorrelated topics. This would be a non-parametric version of the Correlated Topic Model \cite{ctm}. If, as is likely, the chosen features can belong to multiple design decisions, it may be useful to add in elements of the Indian Buffett Process \cite{ibp}. Since (1) we do not know how many clusters will exist in the data ahead of time and (2) new solutions may introduce new clusters (there is no finite limit on the number of clusters as more solutions are received), models built on Dirichlet Processes are a good fit. Since solutions may contain multiple design decisions, it is preferable to be able to assign each of those design decisions separately, rather than assigning the entire solution to a cluster. HDPs are a good fit. If different design decisions share common features, IBPs may be an even better fit.Since the output of LDA and its infinite cousin, the HDP, can be difficult to interpret, BCM or MGM's optimizations for interpretability may make them more appropriate choices.Since teachers develop their own internal rubric for which differences matter and which do not, models which can incorporate and adjust based on feedback from the user, like iBCM, may be good model choices.Each of these models have favorable properties, and some properties can be super-imposed, while others are mutually exclusive. There is also previously ignored factors like the difficulty of implementing an inference algorithm for the model and the scalability and time requirements of running the chosen inference algorithm on the chosen representation of the solutions."}
-
-\begin{comment}
-
-A generative model specifically for this kind of dataset may be worth designing and building around. Encoding solutions in a variable-by-solution matrix only allows the mixture model to separate solutions based on variable behavior. Variable behavior carries a lot of information about how a student approached computing the solution, but this representation ignores the important differences between solutions using, e.g., idiomatic Python or tangled syntax. A pedagogical tool that supports teachers at both levels would be ideal. Adding an additional layer of hierarchy to the LDA plate model might allow for modeling distribution of variables in solutions, as well as the syntax responsible for that behavior.
-
-Consider the plate model of LDA. If one adds one more level of hierarchy, then one level can capture the distribution over combinations of variables in a solution and the next level can capture the distribution over the possible syntax to create the execution behavior that defined those variables. What is observed is a set of lines of syntax that manipulate the variables. Future work includes exploring whether inference based on this generative model is tractable.
-
-\begin{figure}[ht]
-%\vskip 0.2in
-%\begin{center}
-\includegraphics[width=0.75\columnwidth]{figures/LDA_inspired_new_plate_model}
-\caption{Alternative plate model for modeling Python solutions}
-\label{LDA_inspired_new_plate_model}
-%\end{center}
-%\vskip -0.2in
-\end{figure}
-
-
-Our user study participants produced a variety of suggestions for additional features. In addition to those but unmentioned by users, variable renaming obscures pedagogically relevant information. The user-tested UI does not include access to raw solutions represented by a stack's cleaned code, or to the original variable names represented by a common variable name. This can be accomplished by adding tooltips and dropdown menus. This may also be part of better communicating to users that they are looking at cleaned, not raw, code.
-
-\end{comment}
-
-
-%"finger exercises" to exam questions, the complexity of solutions increases. 

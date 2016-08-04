@@ -27,7 +27,7 @@ The professor, who had created the course decades ago, had created multiple impl
 
 I was wrapping up my late-night shift helping students in the computer lab, when a student asked for help with the Turing machine lab. His Turing machine could not detect whether a string of open and closed parentheses was properly balanced, i.e., had an appropriate closing parenthesis for every open parenthesis. He was running out of time. The semester was almost over, and if he was not successful within the next day or two, he would fail our course.
 
-On that late night, I had a hard time helping this student turn his Turing machine into one that would pass all the autograder test cases. I could not tell whether his approach could work with a little debugging or was fatally flawed. I did not want to demoralize him by telling him to abandon his efforts so far and start over unless it was truly necessary. And what if he was on the path to a novel solution no one else had created before? While not a necessary condition for the correctness of his intended approach, finding a similar working solution in the pool of previous student submissions would serve as an existence proof and evidence that he should persevere. 
+On that late night, I had a hard time helping this student turn his Turing machine into one that would pass all the autograder test cases. I could not tell whether his approach could work with a little debugging or was fatally flawed. I did not want to demoralize him by telling him to abandon his efforts so far and start over unless it was truly necessary. And what if he was on the path to a novel solution no one else had created before? While not a necessary condition for the correctness of his intended approach, finding a similar working solution in the pool of previous student solutions would serve as an existence proof and evidence that he should persevere. 
 
 I had copies of hundreds of other students' correct Turing machines, but it was difficult to see by inspection whether any of these solutions were successful implementations of his intended approach. This was due to superficial differences between solutions: 
 \begin{enumerate}
@@ -77,7 +77,7 @@ The remaining approximately 10\% solutions (not shown) include less common strat
 \item not aware that the test suite was insufficient to determine correctness.
 \end{enumerate}
 
-I was able to brief fellow staff members on the space of solutions, both good and bad, in preparation for subsequent semesters and suggested additions to the test tape suite to catch more submissions that were previously erroneously marked as correct.
+I was able to brief fellow staff members on the space of solutions, both good and bad, in preparation for subsequent semesters and suggested additions to the test tape suite to catch more student solutions that were previously erroneously marked as correct.
 
 \section{OverCode}
 
@@ -229,7 +229,7 @@ The four chapters that follow describe, in detail, the four systems developed, a
 
 \item Chapter \ref{chapter:classoverflow} describes two workflows that collect and organize solution hints indexed by (1) the autograder test that failed or (2) a performance characteristic like size or speed. It helps students reflect on their debugging or optimization process, generates hints that can help other students with the same problem, and could potentially bootstrap an intelligent tutor tailored to the problem.
 
-\item OverCode Extensions (Chapter \ref{chapter:grovercode}) describes (1) GroverCode, an extension to OverCode optimized for processing and displaying incorrect as well as correct student submissions and (2) clustering and mixture modeling algorithms applied to the OverCode pipeline output for additional insight into patterns within student solutions. 
+\item OverCode Extensions (Chapter \ref{chapter:grovercode}) describes (1) GroverCode, an extension to OverCode optimized for processing and displaying incorrect as well as correct student solutions and (2) clustering and mixture modeling algorithms applied to the OverCode pipeline output for additional insight into patterns within student solutions. 
 \end{itemize}
 
 Chapter \ref{chapter:discussion} discusses the design lessons that apply to the entire collection of systems in this thesis. Chapter \ref{chapter:conclusion} outlines avenues of future work this thesis work, in combination with the complementary work of others in this space, paves the way for.

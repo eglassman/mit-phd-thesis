@@ -666,7 +666,7 @@ Clustering methods that use pairwise AST edit distance metrics have quadratic co
 
 \section{Dataset} \label{dataset}
 
-For evaluating both the analysis pipeline and the user interface of OverCode, the dataset of solutions is collected from 6.00x, an introductory programming course in Python that was offered on edX in fall 2012. Three exercise problems were chosen. This dataset consists of student solutions submitted within two weeks of the posting of the those three problems. There are thousands of submissions to these problems in the dataset, from which all correct solutions (tested over a set of test cases) were selected for analysis. The number of solutions analyzed for each problem is shown in Figure~\ref{overcode_solutioncounttable}.
+For evaluating both the analysis pipeline and the user interface of OverCode, the dataset of solutions is collected from 6.00x, an introductory programming course in Python that was offered on edX in fall 2012. Three exercise problems were chosen. This dataset consists of student solutions submitted within two weeks of the posting of the those three problems. There are thousands of solutions to these problems in the dataset, from which all correct solutions, tested over a set of test cases, were selected for analysis. The number of solutions analyzed for each problem is shown in Figure~\ref{overcode_solutioncounttable}.
 
 
 
@@ -967,7 +967,7 @@ The tail of singleton solutions is long, and cannot be read in its entirety by t
 \end{figure}
 
 \section{User Study 1: Writing a Class Forum Post}
-The goal was to design a system that allows teachers to develop a better understanding of the variation in student solutions, and give feedback that is relevant to more student solutions. Two user studies were designed to evaluate our progress in two ways: (1) user interface satisfaction and (2) how many solutions teachers could read and produce feedback on in a fixed amount of time. Reading and providing feedback to thousands of submissions is an unrealistically difficult task for the control condition, so instead of measuring time to finish the entire set of solutions, the experiment measures what subjects could accomplish in a fixed amount of time (15 minutes).
+The goal was to design a system that allows teachers to develop a better understanding of the variation in student solutions, and give feedback that is relevant to more student solutions. Two user studies were designed to evaluate our progress in two ways: (1) user interface satisfaction and (2) how many solutions teachers could read and produce feedback on in a fixed amount of time. Reading and providing feedback to thousands of solutions is an unrealistically difficult task for the control condition, so instead of measuring time to finish the entire set of solutions, the experiment measures what subjects could accomplish in a fixed amount of time (15 minutes).
 
 The first study was a 12-person within-subjects evaluation of interface satisfaction when using OverCode for a realistic, relatively unstructured task. Using either OverCode or a baseline interface, subjects were asked to browse student solutions to the programming problems in our dataset and then write a class forum post on the good and bad ways students solved the problem. Through this study, the first hypothesis is tested:
 \begin{itemize}
@@ -1274,7 +1274,7 @@ For the staff of 6.0001, the residential introductory Python programming courses
 
 There are two main technical contributions found in the GroverCode extension of OverCode: a modified pipeline that can normalize both correct and incorrect solutions and an interface designed for grading. Just as the original pipeline used variable behavior to normalize variable names, the modified pipeline uses variable behavior and the syntax of statements containing each variable to normalize variable names in solutions that are not correct. This comes from the insight that a variable in an incorrect solution can be semantically equivalent to a variable in a correct solution but still behave differently. It can behave differently due to a bug in a line of code that directly modifies its value or a bug in a line of code that affects the behavior of another variable that it depends on. Since many of the exam solutions are incorrect and do not get clustered together, the new user interface organizes solutions according to their behavior on test cases and compositional similarity to each other, rather than by cluster size.
 
-GroverCode was iteratively designed and evaluated as a grading tool through two live deployments during the Spring 2016 6.0001 staff exam grading sessions. Approximately two hundred students were enrolled in the course, and nine instructors used GroverCode to grade nearly all student code submissions. A total of seven programming problems of a variety of difficulties were graded over the course of these two sessions. GroverCode was particularly appreciated on simpler problems where correct solutions were clustered together and graded by a single action. The normalization process applied to more complex solutions, especially those which included student-written objects, was at times more harmful than helpful for teacher comprehension of student code. Conversely, the feature for grouping solutions based on their behavior on test cases was appreciated regardless of solution complexity.
+GroverCode was iteratively designed and evaluated as a grading tool through two live deployments during the Spring 2016 6.0001 staff exam grading sessions. Approximately two hundred students were enrolled in the course, and nine instructors used GroverCode to grade nearly all student solutions. A total of seven programming problems of a variety of difficulties were graded over the course of these two sessions. GroverCode was particularly appreciated on simpler problems where correct solutions were clustered together and graded by a single action. The normalization process applied to more complex solutions, especially those which included student-written objects, was at times more harmful than helpful for teacher comprehension of student code. Conversely, the feature for grouping solutions based on their behavior on test cases was appreciated regardless of solution complexity.
 
 \subsubsection{User Interface}
 
@@ -1306,7 +1306,7 @@ The hope is that normalization helps teachers switch between solutions more ofte
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_2}
-\caption{A correct solution, its corresponding raw submission, and its performance on test cases, as displayed in GroverCode.}
+\caption{A correct solution, its corresponding raw solution, and its performance on test cases, as displayed in GroverCode.}
 \label{fig:correct_stack}
 \end{figure}
  
@@ -1416,7 +1416,7 @@ For each problem processed during the field deployments, an example of a staff-w
 
 \subsubsection{Pipeline Evaluation}
 
-The number of submissions submitted for each problem and the number that were successfully processed by the GroverCode pipeline is shown in Table~\ref{table:num_submissions}.
+The number of solutions submitted for each problem and the number that were successfully processed by the GroverCode pipeline is shown in Table~\ref{table:num_submissions}.
 
 \begin{table}[h!]
 \centering
@@ -1428,13 +1428,13 @@ The number of submissions submitted for each problem and the number that were su
 \hline
 Submissions & 193 & 193 & 193 & 175 & 173 & 170 & 165 \\
 \hline
-Mean lines per submission & 9.9 & 16.9 & 19.8 & 12.3 & 20.9 & 50.0 & 41.8 \\
+Mean lines per solution & 9.9 & 16.9 & 19.8 & 12.3 & 20.9 & 50.0 & 41.8 \\
 \hline
 Solutions successfully processed & 186 & 189 & 168  & 170 & 166  & 134 & 133 \\
  & (96\%) & (98\%) & (87\%) & (97\%) & (96\%) & (79\%) & (81\%) \\
 \hline
 \end{tabular}
-\caption{Number of submissions submitted and successfully processed  by GroverCode for each problem in the dataset. Reasons why a solution might not make it through the pipeline include syntax errors and memory management issues caused by students' inappropriate function calls.}
+\caption{Number of solutions submitted and successfully processed by GroverCode for each problem in the dataset. Reasons why a solution might not make it through the pipeline include syntax errors and memory management issues caused by students' inappropriate function calls.}
 \label{table:num_submissions}
 \end{table}
 
@@ -1450,10 +1450,10 @@ Table~\ref{table:cluster_stats} captures the scale of the variation as well as s
 \cline{2-8}
 & q4 & q5 & q6 & q4 & q5 & q6 & q7 \\
 \hline
-Correct submissions & 182 & 160 & 94 & 96 & 49 & 16 & 12 \\
+Correct solutions & 182 & 160 & 94 & 96 & 49 & 16 & 12 \\
  & (94\%) & (82\%) & (49\%) & (55\%) & (28\%) & (9\%) & (7\%) \\
 \hline
-Incorrect submissions & 4 & 29 & 74 & 74 & 117 & 118 & 121 \\
+Incorrect solutions & 4 & 29 & 74 & 74 & 117 & 118 & 121 \\
 \hline
 Test cases & 10 & 15 & 25 & 11 & 10 & 17 & 28 \\
 \hline
@@ -1461,7 +1461,7 @@ Distinct error signatures & 6 & 16 & 36 & 12 & 38 & 57 & 42 \\
 \hline
 Correct stacks & 40 & 84 & 93 & 47 & 46 & 16 & 12 \\
 \hline
-Stacks containing > 1 submission & 13 & 18 & 1 & 8 & 2 & 0 & 0 \\
+Stacks containing > 1 solution & 13 & 18 & 1 & 8 & 2 & 0 & 0 \\
 \hline
 Solutions collapsed into stacks & 151 & 94 & 2 & 57 & 5 & 0 & 0 \\
 \hline

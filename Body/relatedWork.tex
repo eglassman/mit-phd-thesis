@@ -2,13 +2,320 @@
 
 
 
-Systems that help students in massive programming courses may build on work from program analysis, program synthesis, crowd workflows, user interface design, machine learning, intelligent tutoring systems, natural language processing, data mining, and learning science. First, I present prior work and theories of how people learn that later inspired key design decisions or suggest that the systems in this thesis are beneficial in a learning environment. I then clarify how this thesis work is novel while describing related work that achieves similar goals or uses similar methods. %\todo{add references to my own work, to illustrate relevance}
+Systems that help students in massive programming courses may build on work from program analysis, program synthesis, crowd workflows, user interface design, machine learning, intelligent tutoring systems, natural language processing, data mining, and learning science.\todo{rewrite chapter description} %First, I present prior work and theories of how people learn that later inspired key design decisions or suggest that the systems in this thesis are beneficial in a learning environment. I then clarify how this thesis work is novel while describing related work that achieves similar goals or uses similar methods. %\todo{add references to my own work, to illustrate relevance}
 
-Effective tutors often have characteristics described by Lepper and Wolverton's INSPIRE model: superior domain and pedagogical content knowledge, nurturing relationships with students, progressive content delivery, Socratic styles that prompt students to explain and generalize, and feedback on solutions, not students~\cite{wood2012role}. Turns et al. \cite{asee} argue that the absence of reflection in traditional engineering education is a significant shortcoming. This thesis contributes systems designed to address that shortcoming.\todo{rewrite this paragraph}
+%\todo{rewrite this paragraph}
+
+\section{Clustering}
+
+\todo{add citations}
+
+Grouping similar items, i.e., {\it clustering}, is a fundamental human activity for organizing, making sense of, and drawing conclusions from data. Across many scientific fields, clustering goes by different names but serves a common purpose: helping humans explore, interpret, and summarize data.
+
+This is {\it unsupervised machine learning}. There are no labels, no ground truth. For example, is there one true clustering of all the articles the New York Times ever published? Humans have goals, and how useful clusters are to them is all that matters.
+
+Humans are pattern finders. A human can look at collections of items and group them in various ways. For example, a collection of dogs could be grouped according to their size or the color of their fur. Both clusterings are equally valid. Clustering by size may be more useful if the purpose is to decide which dogs get walked together.
+
+Computers need more instructions before they can step in and help cluster items, when there are too many for a human to cluster them alone. Items need to be represented in a machine-readable way, and human judgements need to be replaced with computation.
+
+The first critical decision when preparing a collection for clustering by a computer is how to represent the items in a machine-readable format, e.g., as images or sets of attributes, also called {\it features}, like weight, height, and fur color. This {\it representation} effects every subsequent step of the clustering process. Since the clustering is performed for a human with a goal, the representation ideally captures aspects of the items that are relevant to that goal.
+
+Further customizing the item representation for the human goal, also known as {\it feature extraction}, is optional but often very helpful. Feature extraction is computing new features about each item from the original representation. These new features may better capture the aspects of items that are relevant to the human goal. For example, if the goal is to partition dogs by fur color and dogs are represented by images, one might extract the most common color in every dog image.
+
+A second optional step is {\it feature selection}, the process of determining what features can be ignored because they are irrelevant to the human goal. For example, if the goal is to partition dogs by fur color and dogs are represented by collections of features, then only the fur color feature may be selected, ignoring height and weight.
+
+Hopefully, at the end of this process, some items are closer to each other than they are to others, with respect to some aspect of the items the human cares about. If a computer is to verify this, one needs to define exactly what the {\it closer} means. The computer needs a human to define a {\it distance function} that quantifies how close or far items are from each other.
+
+The next step is choosing a {\it clustering method}, i.e., a general strategy. Clustering is finding clusters of items that are closer to each other than they are to items in other groups. There is no one best method for all clustering problems, but some methods produce clusters that support the human’s problem-specific goal better than others.
+
+Some methods have an {\it objective function} that quantifies some desirable characteristic of clusters to maximize or some undesirable characteristic of clusters to minimize. One objective function sums up how different each item is from its cluster center. Presumably, the smaller the differences, the better the clustering. Specific clustering algorithms may define different centers for each cluster, tally up the differences in different ways, and follow different processes to minimize the objective function.
+
+Some methods are more easily characterized by their process than their objective function. For example, hierarchical clustering methods are characterized as either:
+
+\begin{itemize}
+\item {\it agglomerative} or bottom-up, by merging individual items into small clusters, then merging small clusters into larger clusters, etc.
+\item {\it divisive} or top-down, by splitting the entire collection of items into clusters, then splitting those clusters into further clusters, until all clusters only contain one item.
+\end{itemize}
+
+The objective functions used in these methods help determine which clusters to merge or split.
+
+Some statistical clustering methods, such as mixture models, assume that the items are samples from underlying, unseen distributions of items. By making some assumptions about what those distributions might look like, an algorithm can map items to clusters to maximize a statistical measure of fit between the observed data and the unobserved distributions.
+
+Many methods require the human to provide additional values and thresholds, such as how similar two items need to be to be grouped together or how many clusters to look for.
+
+The types of clusters produced by clustering algorithms can be partitioned in several ways, such as:
+
+\begin{itemize}
+\item {\it Hard} versus {\it soft}: If each item is mapped to a single cluster, the method is hard. If items can partially belong in different degrees to multiple clusters, the method is soft.
+\item {\it Partition} vs. {\it overlap} vs. {\it hierarchy}: If each item belongs to one and only one cluster, the method is producing strict partitions. If each item belongs to one or more clusters, than the method is producing overlapping clusters. If each item belongs to one cluster and clusters are strictly contained by other clusters, the method is hierarchical.
+\end{itemize}
+
+Some methods do not produce clusters of items, but rather clusters of components within items. For example, Latent Dirichlet Allocation (LDA) does not cluster entire documents. It produces a hard, strict partition of words into different clusters, typically called {\it topics}. At the level of documents, however, this can look like a soft clustering: an individual document might be 50\% hospital-related words, 30\% government-related words, and 20\% negotiation-related words.
+
+Clusters are hard to objectively evaluate. It is expensive and time consuming to bring in humans with goals to evaluate how useful the clusters are to them. {\it Cluster validation} refers to the metrics used to approximate the quality of clusters with little or no human input. These metrics can be the basis of choosing one method over another, one parameter value over another, or one clustering over another quickly but approximately.
+
+Another way to produce more helpful clusterings is to involve the human in an {\it interactive} process. The clustering algorithm produces clusters and gives the human one or more ways to give feedback. Feedback could be in the form of indicating what is good or bad about this clustering. Feedback could be the human reaching in and directly moving an item from one cluster to another. The method reruns, based on this new information, and produces a new clustering for the human to evaluate and give feedback on.
+
+One aspect of clustering that does not fall into the traditional conversation about features, distance functions, and methods is {\it interpretability}. A clustering may have good quality scores with respect to those cluster validation metrics, but if it is difficult for the human to understand what each cluster contains, they may have trouble using it to achieve their goals.
+
+There are thousands of published methods that exhibit combinations of these properties and strategies. When comparing methods, it is helpful to break the comparison down by representation, features, distance function, objective function, and algorithm they use as well as the type of clusters they produce. In subsequent sections, this language will be used to help describe the many different code analysis and clustering processes found in related work.
+
+
+\section{Exploring and Mining Variation in Code}
+
+One important aspect of both engineering and design is that there are multiple ways to solve the same problem. There are many means to an end, and the optimality of each solution may be context-dependent. Sub-optimality can have high personal, safety, and economic costs. For example, in the software industry, maintenance dominates the cost of producing software~\cite{fox2013engineering}. Poorly designed code may be the culprit because it requires significantly more maintenance.
+
+
+If solutions can be indexed in useful ways, they can be mined to ask basic questions like,
+\begin{enumerate}
+\item    In the face of a common design choice, what do code authors most commonly pick? Has this changed over time?
+\item    What are popular design alternatives?
+\item    What are examples of design fails that should be learned from and never repeated?
+\item    What are examples of design innovations that are clearly head-and-shoulders above the rest?
+\end{enumerate}
+The answers to these questions could fuel instruction that complies with variation theory recommendations. The same questions could be applied to student solutions to a programming problem, and OverCode, Foobaz, and the targeted learnersourcing workflows attempt to answer them.
+
+% \subsection{In the Wild}
+
+\subsection{Webpages}
+Ritchie et al.~\cite{ritchie2011d} describe a user interface for finding helpful, i.e., relevant or inspiring, design examples from a curated database of web pages. Their work is intended to support designers who like to refer to or adapt previous designs for their own purposes. Traditional search engines only index the content of web pages. Their system indexes web pages’ design style by automatically extracting global stylistic and structural features from each page. Instead of manual browsing, users can search and filter a gallery of design-indexed pages. Users can provide an example design in order to find similar and dissimilar designs, as well as high-level style terms like ``minimal.''
+
+Kumar et al.~\cite{webzeitgeist} defined {\it design mining} as ``using knowledge discovery techniques to understand design demographics, automate design curation, and support data-driven design tools.'' Their work goes beyond searching and filtering a gallery of hundreds of curated webpages. Their Webzeitgeist design mining platform allows users to query a repository of hundreds of thousands of web pages based on the properties of their Document Object Model (DOM) tree and the look of the rendered page. A 1679-dimensional vector of descriptive features are computed for each DOM node in each page.
+
+Webzeitgeist enables users to ask and answer questions like the following, with respect to a large web page repository:
+\begin{enumerate}
+\item    What are all the distinct cursors?
+\item    What are the most popular colors for text?
+\item    How many DOM tree nodes does a typical page have? How deep is a typical DOM tree?
+\item    What is the distribution of aspect ratios for images?
+\item    What are the spatial distributions for common HTML tags?
+\item    How do web page designers use the HTML canvas element?
+\end{enumerate}
+
+To dig into examples of a particular design choice, users can, for example, query for all pages with very wide images. The result is a set of horizontally scrolling pages. Alternatively, users can query for webpages that have a particular layout, like a large header, a navigational element at the top of the page, and a text node containing greater than some threshold of words, in order to see all the examples of pages that fit those layout specifications. Specific combinations of page features can imply high-level designs as well so, with careful query construction, users can query for high-level ideas. For example, querying for pages with a centered HTML input element and low visual complexity retrieves many examples that look like the front pages of search engines.
+
+\subsection{Android Apps}
+
+Shirazi et al.~\cite{Shirazi} and Alharbi and Yeh~\cite{Alharbi} describe automated processes for taking apart and analyzing Android app code as well as empirical analyses of corpora of Android Apps available on the Google Play app store. Shirazi et al. analyzed the 400 most popular free Android applications, while Alharbi and Yeh tracked over 24,000 Android apps over a period of 18 months. Alharbi and Yeh caputured each update within their collection window, as well. They decompiled apps into code from which UI design and behavior could be inferred, e.g., XML and click handlers, and tracked changes across versions of the same app. Both papers analysed population-level characteristics of their corpora, answering questions like:
+\begin{itemize}
+\item     What is the distribution of layout design patterns, among the seven standard Android layout containers?
+\item     What are the most common design patterns for navigation, e.g., tab layout and horizontal paging? Have any apps switched from one pattern to another?
+\item     How quickly are newly introduced design patterns adopted?
+\item     What are the most frequent interface elements? And combinations of interface elements? How many applications does that combination cover?
+\end{itemize}
+
+\subsection{Open-Source Code Repositories}
+
+Ideally, code is not just correct, it is simple, readable, and ready for the inevitable need for future changes~\cite{peters2010zen,6005notes}. How can we help students reach this level of programming composition zen? How can we learn from others' code, even after we become competent, or even an expert, at the art of programming?
+
+For the same reason we look at patterns in design across web pages and mobile apps, we can look at the design choices already made by humans who share their programs. Rather than using web crawlers or app stores, we can process millions of public repositories hosted online. What can we learn about good and bad code design decisions from these collections?
+
+These code analysis techniques that follow are most closely related to those developed for OverCode and Foobaz. The OverCode and Foobaz pipelines are optimized for user interfaces that help users answer design mining questions about their student solutions and put the code front and center. %The advantages and disadvantages of the OverCode and Foobaz pipelines with respect to the systems designed in this section will be discussion in later chapters after the techniques developed in this thesis are fully explained.
+
+% \subsubsection{Regularity In Code}
+
+Code, like natural language, exhibits regularity. Hindle et al.~\cite{Hindle2012} argue that the regularity of code may be even more true for code than for natural language. Allamanis and Sutton~\cite{allamanis2014mining} observe that some syntactic fragments serve a single semantic purpose and recur frequently across software projects. Fast et al.~\cite{codex} observe that poorly written code is often syntactically different from well written code, with the caveat that not all syntactically divergent code is bad.
+
+\subsubsection{Mining Idioms}
+
+Idiomatic code is written in a manner that experienced programmers perceive as normal or natural. Idioms are roughly equivalent to mental chunks, i.e., the memory units characterized by George Miller~\cite{chunking}. I will borrow an example from Allamanis and Sutton~\cite{allamanis2014mining}
+
+\begin{itemize}
+\item \texttt{for (int i=0;i<n;i++) ...} is a common idiom for looping in Java.
+\item do-while and recursive looping strategies are not.
+\end{itemize}
+
+%An experienced Java programmer will be able to understand the code whether it's idiomatic or not, but it may take longer. They may even be distracted by questions, e.g., {\it Why did the author make this choice?}
+
+Fast et al.~\cite{codex} break the definition of idioms into two levels. An example of a high-level idiom is code that initializes a nested hash. An example of a low-level idiom is code that returns the result of an addition operation. Some languages support a variety of different, equally good ways to do the same thing. Others encourage a single, idiomatic way to achieve each task.
+
+Idioms can and do recur throughout distinct projects and domains (unlike repeated code nearly verbatim, i.e., clones) and commonly involve syntactic sugar (unlike API patterns). In general, clone detectors look for the largest repeated code fragments and API mining algorithms look for frequently used sequences of API calls. Idiom mining is distinct because idioms have syntactic structure and are often wrapped around or interleaved with context-dependent blocks of code, like the block of statements within an the idiomatic for loop in the previous paragraph.
+
+There are enough idioms for some languages that they have lengthy, highly bookmarked and shared online guides. StackOverflow has many questions asked and answered about the appropriate language or library-specific idioms for particular, common tasks. It is difficult for expert users of each language or library to catalogue all the idioms. It is much more practical to simply look at how programmers are using the language or library and extract idioms from the data.
+
+Hindle et al.~\cite{Hindle2012} used statistical language models from natural language processing to identify idiom-like patterns in Java code. They found that n-gram language models built by analyzing corporacaptured a high level of project- and domain-specific local regularity in programs. Local regularities are valuable for statistical machine translation of natural language. They may prove useful in analogous tasks for software as well. For example, the authors trained and tested an n-gram model token suggestion engine that looks at the previous two tokens already entered into the text buffer and predicts the next one the programmer might type.
+
+Allamanis and Sutton~\cite{allamanis2014mining} automatically mine idioms from a corpus of idiomatic code using nonparametric Bayesian tree substitution grammars. The mined idioms correspond to important programming concepts, e.g., object creation, exception handling, and resource management, and are often library-specific. They found that 67\% of the idioms mined from one set of open source projects were also found in code snippets posted on StackOverflow.
+
+Fast et al.~\cite{codex} computed statistics about the abstract syntax trees (ASTs) of three million lines of popular open source code in the 100 most popular Ruby projects hosted on Github. AST nodes are normalized, and all identical normalized nodes are collapsed into a single database entry. The unparsed code snippets that correspond to each normalized node are saved. Codex normalizes these snippets by renaming variable identifiers, strings, symbols, and numbers to \texttt{var0}, \texttt{var1}, \texttt{var2}, \texttt{str0}, \texttt{str1}, etc. Note that this fails when primitives, like specific strings and numbers, are vital to interpreting the purpose of the statement.
+
+The resulting system, Codex, can warn programmers when they chain or compose functions, place a method call in a block, or pass an argument to a function that is infrequently seen in the corpus. It is fast enough to run in the background of an IDE, highlighting problem statements and annotating them with messages like, ``We have seen the function split 30,000 times and strip 20,000 times, but we've never seen them chained together.'' Codex can be queried for nodes by code complexity; type, i.e., function call; frequency of occurrence across files and projects; and containment of particular strings.
+
+\subsubsection{Mining Larger Patterns in Code}
+
+In the code of working applications, Ammons et al.~\cite{ammons2002mining} observed that common behavior is often correct. Based on that observation, they use probabilistic learning from program execution traces to infer the program’s formal correctness specifications. Inferring formal specifications for programs is valuable because programmers have historically been reluctant to write them. During program execution, the authors summarize frequent patterns as state machines that can be inspected by the programmer. As a result, the authors identified correct protocols and some previously unknown bugs.
+
+Buse and Weimer~\cite{buse2012synthesizing} go beyond idioms to mining API useage. Based on a corpus of Java code, they find examples that reference a target class, symbolically execute it to compute intraprocedural path predicates while recording all subexpression values, identify expressions that correspond to one use of the class, capture the order of method calls in those concrete examples, then use K-mediods to cluster these extracted concrete use examples with a custom formal parameterized distance metric that penalizes for differences in method ordering and type information. Concrete use examples within the same cluster are merged into abstract uses represented as graphs with edge weights that correspond to counts of how many times node X happens before node Y. Finally, they have a synthesis method to express these abstract use graphs in a human-readable form, i.e., representative, well-formed, and well-typed Java code fragments.
+
+\subsubsection{Mining Names}
+
+Without modifying execution, names can express to the human reader the type and purpose of an object, as well as suggest the kinds of operators used to manipulate it~\cite{jones2008operand}. Perhaps as a direct result, variable names can exhibit some of the same regularity exhibited by code, in general. H{{\o{}}}st and {{\O{}}}stvold~\cite{host2008java} go so far as to call method names a restricted natural language they dubbed Programmer English.
+
+H{{\o{}}}st and {{\O{}}}stvold~\cite{host2008java} ran an analysis pipeline on a corpus of Java that performs semantic analysis on methods and grammatical analysis on method names. It generates a data-driven phrasebook that Java programmers can use when naming methods. In a second publication~\cite{host2009debugging}, they formally defined and then automatically identified method naming bugs in code, i.e., giving a method a name that incorrectly implies what the method takes as an argument or does with an argument.
+
+They did this by identifying prevalent naming patterns, e.g., contains-*, which occur in over half of the applications in the corpus and match at least 100 method instances. They also determined and cataloged the attributes of each method body, such as whether it read or wrote fields, created new objects, or threw exceptions. If almost all the methods whose names match a particular pattern, e.g., contains-*, have an attribute or do not have some other attribute, it automatically determined to be an implementation rule that all names in the corpus should follow. On a large corpus of Java projects, this analysis pipeline found a variety of naming bugs.
+
+Fast et al.'s Codex~\cite{codex} produced similar results. By keeping track of variable names in variable assignment statements, it can warn programmers when their variable name violates statistically-established naming conventions, such as the (probably confusing) naming of a Hash object ``array.'' 
+
+Foobaz can go beyond Fast et al.~\cite{codex} and H{{\o{}}}st and {{\O{}}}stvold's~\cite{host2008java,host2009debugging} work in providing feedback on variable names because all solutions are known to address the same programming problem.
+
+\subsection{Student Solutions}
+
+The common purpose of the code in a corpus of student solutions to the same programming problem almost certainly contributes to the regularity already found in code from large corpora of open source projects. However, student-written code may not exhibit the same regularity as code written by software developers contributing to an open source project. In other words, the regularity of student solutions to the same programming problem that comes from sharing a common purpose may be counter-balanced by the variety of student coding styles. 
+
+It is easier to run student solutions than code in open source projects. Teacher-designed tests already exist, some available to and some hidden from students while they developed their solutions, and some generated on the fly through fuzz testing \cite{fuzztesting}. This means that dynamic analysis can complement the static analysis of solutions. % solutions can be described by both their syntactic and behavioral qualities.
+
+Also unlike corpora of open source code, the solutions in large corpora of student code often require feedback, so that the author can learn. Automated feedback on solutions to programming problems is still an area of active research. For example, assigning grades based solely on the number of teacher-designed tests the code passes may not capture what teachers care to grade on. A single error in a solution can cause a near-perfect solution to fail all test cases. A solution can perform perfectly on test cases but be poorly written or violate instructions, e.g., use the wrong algorithm to achieve the right results. The test cases themselves may be poorly designed. Some teachers hand-review hundreds of exam solutions because the autograder output is not sufficient to assign grades. %For these reasons, the teaching staff of 6.0001 at MIT review every exam solution from each student by hand.
+
+When a course has hundreds or thousands of students, it can be challenging to provide feedback to each solution quickly and consistently by hand. Design mining techniques and interfaces can help teachers explore and understand the whole space of solutions as well as distribute feedback to specific subsets of solutions, or subsets within solutions. It could be an important tool to assist in the sometimes difficult, manual task of identifying pedagogically valuable examples for illuminating a concept or principle. Distributing feedback can also be approached as an unsupervised or supervised, possibly interactive, machine learning problem, by leveraging clustering, classification, clone detection, and mixture modeling methods. %Clustering also need not be done by machine learning methods. For example, clone detection methods can identify clones at a variety of levels~\cite{roy2009comparison}.
+\todo{cite roy2009comparison?}
+
+%Design mining, described in the previous section, is concerned with capturing design choices and then making the space of existing designs explorable. These approaches can be applied to large corpora of student solutions to the same programming exercise as well. It could be an important tool to assist in the sometimes difficult, manual task of identifying pedagogically valuable examples for illuminating a concept or principle. 
+
+\subsubsection{Regularizing Student Solutions}
+%Before comparing code, it is common to preprocess the code to remove token variability that is irrelevant to later stages in the analysis pipeline. Light preprocessing might include normalizing white space and removing comments. Slightly more preprocessing might include systematically renaming variable and method names, i.e., those chosen by the code author, to generic placeholders. OverCode and Foobaz also preprocess solutions by normalizing whitespace and removing comments. However, since variables are central to the both systems, 
+
+%More aggressive code preprocessing can remove syntactic differences between solutions that are semantically similar by using semantics-preserving transformations. 
+
+Solutions to the same problem can have different syntax but common semantics. Semantics-preserving transformations can be used to identify and regularize semantically equivalent code. This can include standard compiler optimizations, such as dead code removal, constant folding, copy propagation, and the inlining of helper functions~\cite{rivers2015data}. It can also include transformations, like changes in the order of operands to a commutative function, that make one solution closer to another solution with respect to some definition of edit distance. Applying semantics-preserving transformations, sometimes referred to as normalization or standardization, has been used for a variety of applications, including detecting clones~\cite{baxter,CCFinder}, diagnosis of bugs in student-written programs~\cite{xutransformation}, and self-improving intelligent tutoring systems~\cite{rivers2015data}. 
+
+Semantics-preserving transformations will not change the {\it schema(s)} within a solution. A schema is a high-level cognitive construct by which humans understand or generate code to solve problems~\cite{Soloway1984}. For example, two programs that implement bubble sort have the same schema, bubble sort, even though they may have different low-level implementations. 
+
+Nguyen et al.~\cite{codewebs} mines probabilistic semantically equivalent AST subtrees from a corpus of solutions to the same problem. The equivalences are probabilistic because the subtrees are only verified to be semantically equivalent {\it with respect to} the problem and the specific test cases provided. In future work, this could also be used for regularization of code. For example, all subtrees in all solutions could be replaced with the most popular subtree that is probabilistically semantically equivalent to it, much like OverCode renames variables to their most popular names after determining that they are probabilistically semantically equivalent. 
+
+In OverCode and Foobaz, variables are carefully tracked and strategically renamed, rather than replaced by generic placeholders. This normalization step is novel in that its design decisions were made to maximize {\it human readability} of the resulting code. As a side-effect, syntactic differences between answers are also reduced.
+
+\subsubsection{Features and Distance Functions for Student Solutions}
+
+%The challenge is designing features or distance functions that capture what the teacher cares about. Teachers may want to give feedback on correctness, design decisions (a.k.a., code style), or both. Other applications of code similarity functions are clone detection and plagiarism. 
+
+Solutions can be represented as sets or vectors of hand-crafted computed features, sequences of tokens, or graphs. In the context of software, tokens could be characters or tokens corresponding to the lexical rules of the programming language. Drummond et al.~\cite{drummond2014learning} catalogues additional distance measures that are potentially helpful for clustering interactive programs.
+
+% \subsubsection{Features}
+% {\bf Features of Student Solutions}
+
+Just as the authors of Webzeitgeist defined sets of features to be computed for each node in a web page DOM~\cite{webzeitgeist}, there are many sets of features used to estimate program similarity in the literature. Aggrawal et al.~\cite{srikant2014system}, Elenbogen and Seliya~\cite{Elenbogen}, Roger ~\cite{ACESthesis}, Rees~\cite{Rees:1982}, Huang et al.~\cite{MOOCshop}, Kaleeswaran et al.~\cite{kaleeswaran2016semi}, and Taherkhani et al.~\cite{taherkhani2010recognizing} each defined a set of features that could be computed automatically for each solution and represented as a numerical feature vector. These feature sets each include static or dynamic features. Some include both.
+
+Static features include counts of various keywords and tokens in the solution, e.g., control flow keywords, operators, constants, and external function calls; counts of each type of expression in the solution;  measures of code complexity; length of commented code; scores from linting scripts; function name lengths; line lengths; and entire solution lengths. To quantify the goodness of a solution's style, AutoStyle~\cite{choudhury2016autostyle} used the ABC score, a weighted count of assignments, branches, and conditional statements in a block of code.
+
+Dynamic features include data collected from running a solution on each test case, e.g., the solution output and whether or not it is correct with respect to the teacher specification, the evolution of values assigned to each variable within the solution, and the order in which statements in the solution are executed. For example, Huang et al.~\cite{MOOCshop} create an output vector for each solution: a binary vector representing the solution's correctness on each test case. For approximately one million solutions to 42 programming problems collected from the original Machine Learning MOOC offered by Stanford, the authors found that a teacher could cover 90\% of solutions or more in almost all problems by annotating the top 50 output vectors. However, the authors acknowledge that many different mistakes can produce to the same output vector.
+
+% {\bf Role of Variables Theory}
+
+Variable behavior is a specific kind of dynamic feature that merits additional description. Just as there is evidence that experts subconsciously internalize {\it control flow plans}, like the Running Total Loop Plan that accumulates partial totals, there is evidence that experts subconsciously internalize {\it variable plans} ~\cite{variableplans}. Variable plans are characterized by the function or role that it serves in a function, how it is initialized and updated, and conditional statements on the variable's value. 
+
+Empirically, the number of distinct variable roles found in introductory-level programs is small. While reviewing three introductory programming textbooks written for Pascal, Sajaniemi~\cite{sajaniemi2002empirical} hand-labeled the role of variables within each provided example program, based only on the pattern of successive values each variable took on. Nine variable roles, e.g., ``stepper'' and ``one-way flag'', covered 99\% of the variables in all 109 programs found in those textbooks. Sajaniemi notes that a single variable can switch roles during execution, properly or sporadically. A proper switch is when its final value while serving in one role is its initial value when serving in the next role. A sporadic switch is one in which the variable is reset to a new value at some point, to serve a new role that may or may not have anything to do with its previous role. Sajaniemi has been credited for creating what is now called in the literature as role of variables theory. 
+
+Further work independently confirms and operationalizes Sajaniemi's insights. Taherkhani et al. ~\cite{taherkhani2010recognizing} found that 11 variable roles cover all variables in novice-level programs, including object-oriented, procedural, and functional programming styles, and went further to automatically classify algorithms based on variables and some additional features. Gulwani et al.~\cite{gulwani_fse14} also depend on variable behavior to recognize different algorithmic approaches. They ask teachers to annotate source code, by hand, with key values that differentiate algorithmic approaches. %Gulwani et al.'s work was published at a conference six months after the submission of the OverCode manuscript to TOCHI.
+
+OverCode and Foobaz make use of a pipeline that characterizes each solution as (1) a set of variables, which are distinguished from each other by their dynamic behavior during execution on test cases, (2) a set of one-line statements normalized in a novel way by those identified variables and (3) the solution outputs in response to each test case. Gulwani et al.~\cite{gulwani2016automated} uses the same variable value tracing method to cluster solutions, augmenting it with information about control flow structure to overcome syntactic differences between solutions.
+
+%Alternative distance functions based on tokens or solution-derived graphs, like ASTs, are included in the next sections for completeness, and so that the techniques can be revisited in discussions of future work.
+
+% {\bf Distance Functions for Student Solutions}
+
+Statistical natural language processing techniques can also be applied to code, preferably after preprocessing. For example, Biegel et al.~\cite{Biegel} described how $w$-shingling can capture local patterns within a solution. The $w$-shingling of a solution is the set of all unique subsequences of $w$ tokens it contains \cite{BRODER19971157}. The resemblance $r$ between two solutions is defined as the number of unique subsequences of $w$ tokens both solutions contain, normalized (divided) by the union of unique subsequences of $w$ tokens contained in either solution. It other words, it is the Jaccard coefficient of the two solutions' $w$-shinglings. The resemblance distance is defined as $1-r$, which obeys the triangle inequality. $n$-grams models are like $w$-shinglings except instead of capturing just the {\it set} of unique subsequences of a certain length, they also capture a more global feature: the relative frequencies of these unique subsequences in the entire solution or corpus. Similarly, representing Python programs as TF-IDF vectors calculated from counts of tokens, e.g., keywords, collected across the entire corpus of solutions can capture individual solution's deviations from whole-corpus trends~\cite{Gaudencio}.
+
+CCFinder~\cite{CCFinder} and MOSS~\cite{schleimer2003winnowing} (Measure Of Software Similarity) are both pair-wise similarity (clone) detectors. Like $w$-shingling and $n$-gram models, MOSS extracts all subsequences of tokens of a specified length. Unlike them, the order of these subsequences is preserved. CCFinder \cite{CCFinder} is an exception to this pattern. After aggressive pre-processing, it considers all sub-strings in both solutions and looks for matches.
+
+% \subsubsection{Structure-based features and distance functions}
+
+The structure of solutions can be represented as trees, i.e., ASTs, and graphs, e.g., data dependency and control flow graphs. Binary or numerical feature vectors can be computed from the graphs, as well as graph-to-graph metrics of similarity, for use in feedback or assessment~\cite{Robinson:1980,srikant2014system}. Recent literature uses the full AST for computing pairwise distance metrics, e.g., the tree edit distance (TED). TED is defined as the minimum cost sequence of node edits that transforms one AST into another, given some cost function.
+
+%The tree edit distance (TED) between two ASTs is the minimum cost sequence of node edits that transforms one AST into another, given some set of costs on types of edits. 
+
+While a naive TED algorithm scales very poorly with tree size, an optimized TED algorithm~\cite{shasha1994exact} makes this computation more feasible. The optimized algorithm is only quadratic in both the number of solutions and the size of their ASTs~\cite{MOOCshop}. In contrast, the analysis pipeline used by both OverCode and Foobaz clusters solutions scales linearly with the number and size of solutions. 
+
+Huang et al.~\cite{MOOCshop} used the optimized TED algorithm to process approximately a million solutions while executing on a computing cluster. The same analysis pipeline was used by Roger et al.~\cite{ACESthesis}. Yin et al.~\cite{yin2015clustering} defined a normalized TED that weighs edits associated with nodes closer to the tree root more heavily than nodes closer to the leaves. This prioritizes high-level structural similarities between solutions and de-emphasizes minor differences in syntax near the AST leaves.
+
+\todo{add http://web.stanford.edu/~cpiech/bio/papers/programEncoding.pdf}
+
+%In contrast to these systems that rely on TED for pairwise distance computations, 
+
+
+\subsubsection{Clustering Student Solutions}
+
+\todo{write topic paragraph}
+
+Gaudencio et al.~\cite{Gaudencio} recently investigated whether computers might be able to compare student code solutions as well as teachers. In the process, they found that teachers only agreed with each other between 62\% and 95\% of the time. Similarly, Rogers et al.~\cite{ACESthesis} found that official graders for a large programming course agreed on solution clusters only 47.5\% of the time even when there were only 3 possible clusters to choose from. In spite of the lack of agreement across expert code evaluators, several research efforts have focused on automatically clustering solutions.
+
+%\subsubsection{Clustering}
+%In addition to annotating groups of solutions with feedback, 
+Luxton-Reilly et al.~\cite{Luxton13} suggest that identifying distinct clusters of solutions can help instructors select appropriate examples of code for helping students learn, e.g., in accordance with the systematic variation suggested by variation theory. They also suggest that it is helpful for teachers' own understanding and quality of feedback and guidance. Clustering can also be used to guide rubric creation.
+
+Luxton-Reilly et al.~\cite{Luxton13} develop a hierarchical clustering taxonomy for types of solution variations, from high- to low-level: structural, syntactic, or presentation-related. The structural similarity between solutions is captured by comparing their control flow graphs. If the control flow of two solutions is the same, then the syntactic variation within the blocks of code is compared by looking at the sequence of token classes. Variation in presentation, such as variable names and spacing, is only examined when two solutions are structurally and syntactically the same. However, it is not yet fully implemented. %In contrast, our approach is not hierarchical, and uses dynamic information in addition to syntactic information.
+
+%The analysis pipeline behind OverCode and Foobaz cluster solutions based on whether or not they have the same output vector and the same set of variables and normalized statements. 
+
+%In the clustering pipeline described in this thesis, OverCode, clusters Python solutions to the same programming problem. 
+
+In this thesis, each Python solution is normalized before clustering and represented as a sequence of normalized lines of code. All solutions that share the same set of normalized lines of code are clustered together. The clustering is a strict partition of the solutions. This clustering process is hard and agglomerative but not hierarchical. It was designed with interpretability in mind. Hierarchical clustering may also be appropriate in this context, as long as human interpretability does not suffer. The OverCode clustering pipeline is also interactive, because the results are shown in an interface that allows the human to tell the system that some lines of code are not different in meaningful ways. If any clusters differ only by those lines of code that the human considers to be the same, those clusters will be merged.
+
+Other systems rely on clustering algorithms applied to solutions whose pairwise distances are determined by TED scores. AutoStyle~\cite{choudhury2016autostyle} uses the OPTICS clustering algorithm to cluster solutions based on normalized TED scores. Huang et al.~\cite{MOOCshop} and Rogers et al.~\cite{ACESthesis} cluster solutions by creating a graph where nodes are solutions and an edge between each pair of nodes exists if and only if the TED between their ASTs is below a user-specified threshold. Modularity is used to infer clusters within the graph. 
+
+Gross et al. \cite{gross} use the Relational Neural Gas technique (RNG) to cluster graded solutions and find solutions, called prototypes, that can represent entire clusters. Feedback on new solutions is provided by highlighting the differences between the new solution and the closest prototype. Seeing these differences can help students debug their code. 
+
+Unlike the work in this thesis, Gross et al. focus on providing feedback to a single student at a time. Graded solutions are clustered, and these clusters help identify problems in new solutions. In contrast, OverCode, Foobaz, and GroverCode process ungraded solutions and help staff compose feedback for the whole class or assign grades or feedback to a whole body of solutions at one time. OverCode and GroverCode do highlight differences between solutions to help pinpoint problems, although it is staff, rather than students, who view these differences.
+
+\begin{comment}
+Another approach to clustering solutions comes from the field of Bayesian inference. The following methods are particularly relevant to clustering code:
+\begin{itemize}
+\item Bayesian Case Models (BCM) \citet{beenNIPS} learn a pre-set number of subspace clusters, where each cluster is represented by an example and a small set of features that help characterize that cluster. This representation of the clusters has been designed to increase human interpretability of the results. This model has has an interactive version, iBCM \cite{beenthesis}, where humans can directly modify the cluster example and important features that characterize a cluster.
+\item Mind the Gap model (MGM) by \citet{kim2015mind} clusters data while also learning a ``global set of distinguishable dimensions to assist with further data exploration and hypothesis generation.'' This is another interpretable clustering algorithm, which may explain itself in ways teachers can understand and base grades on with confidence.
+\item Dirichlet Process Mixture Models (DPMMs)~\cite{} do not require the number of clusters to be set beforehand. The number of clusters solutions are assigned to can grow as the number of solutions grow. However, every data point belongs to one cluster.
+\end{itemize}
+\todo{get DPMM citation}
+\end{comment}
+
+%into an intelligent tutoring system that provides a variety of feedback messages coaching students toward solutions with better coding style, based on an automatically computable heuristic for good code style.\todo{expand on it}
+
+\todo{Maybe add Classification for grading: Aggrawal et al. [successful] Rogers [unsuccessful] Taherkhani [successful]}
+
+%Drummond et al.~\cite{drummond2014learning} use Bayesian techniques to cluster solutions into one of two categories: ''good'' and ''bad''.
+
+\todo{add http://ethanfast.com/resources/deduceit-paper.pdf}
+
+%\todo{add bayesian clustering--like BCM}
+
+\todo{add https://arxiv.org/pdf/1501.04346v1.pdf}
+
+\subsection{Identifying Common Components Across Solutions}
+
+Inconsistent holistic grades could be explained by teachers relying on different internalized rubrics. Teachers may be more consistent if, rather than generating holistic grades, they can annotate or grade particular components, mistakes, or design choices within solutions. Three existing approaches support this goal: (1) Create a classifier for components that teachers are interested in, similar to what was done for web pages in the Webzeitgeist dataset by Lim et al.~\cite{lim2012learning}. (2) Model solutions as mixtures of components using mixture modeling. They have already been applied to source code and student solutions to open-response mathematical questions ~\cite{binkley2014understanding,Linstead}. (3) Create a code search engine which takes AST nodes or subtrees as queries and retrieves solutions in the database that contain them, as Nguyen et al.~\cite{codewebs} did for solutions to the same problem and Fast et al.~\cite{codex} did for general open source code.
+
+\begin{comment}
+There is a particularly rich literature on Bayesian mixture models. The following methods are particularly relevant to modeling code as mixtures of choices:
+\begin{itemize}
+\item Latent Dirichlet Allocation (LDA)~\cite{bleiLDA} is a mixture model that is typically applied to natural language. In that context, it learns topics, i.e., distributions over words, as well as the distributions over topics found in each document. %, which is typically applied to corpora of documents could model solutions as "documents" with sets of "words," where each word belongs to one topic and each document can contain words from multiple topics.
+\item Correlated Topic Models (CTM)~\cite{} are like LDA but topics are no longer assumed to be independent. In other words, the topics learned by the model can be correlated. If it it possible to formulate the inputs such that the learned latent topics represent design decisions, this could capture the reality that design choices are not independent of each other in code composition.
+\item Hierarchical Dirichlet Process Models (HDPs)~\cite{}, like DPMMs, do not require a pre-set number of clusters. Unlike DPMMs, solutions do not belong to a single cluster. Like LDA, solutions contain features, and each feature belongs to a cluster. Solutions can contain features from multiple clusters. This method emulates LDA with no pre-set number of clusters. 
+\item Models and inference algorithms built on Indian Buffet Processes (IBPs) by \citet{doshi2009indian} are like HDPs, but individual features can belong to multiple clusters.
+\end{itemize}
+
+\todo{get CTM and HDP citations}
+\end{comment}
+
+\subsection{Visualization and Interfaces}
+
+There are several existing visualizations or interfaces that help users understand how solutions vary within a large corpus of solutions to a common problem. A common design choice is to map each solution to a point in some feature space. Huang et al.~\cite{MOOCshop}, Rogers et al.~\cite{ACESthesis}, AutoStyle~\cite{choudhury2016autostyle}, and Ned Gulley~\cite{ICERGlassman} all use this strategy. % and/or why a given set of solutions are grouped together
+
+%Cody\footnote{\url{mathworks.com/matlabcentral/cody}} is an informal learning environment for the Matlab programming language that presents learners with {\em solution maps}. 
+
+Ned Gulley designed solutions maps for Cody, a Matlab programming game\footnote{\url{mathworks.com/matlabcentral/cody}}, to help users pick and compare pairs of solutions from hundreds of solutions to the same programming problem. The solution map plots each solution as a point against two axes: time of solution submission on the horizontal axis, and code size on the vertical axis, where code size is the number of nodes in the parse tree of the solution. Users can select pairs of points to see the code they correspond to side-by-side beneath the solution map. Despite the simplicity of this metric, solution maps can provide quick and valuable insight when exploring differences among large numbers of solutions~\cite{ICERGlassman}. This can help game players learn alternative, possibly better, ways to solve a problem using the Matlab programming language, including its extensive libraries.
+
+Huang et al.~\cite{MOOCshop} and Rogers et al.~\cite{ACESthesis} create graphs where each node is a solution and links between nodes indicate similarity scores beneath a certain threshold. Inter-node and inter-cluster distances correspond to syntactic similarity. Clusters are colored using modularity, a measure of how well a network decomposes into modular communities. Rogers et al.~\cite{ACESthesis} built a grading interface on top of this clustering process. Graders graded one solution at a time, grouped by cluster.
+
+AutoStyle~\cite{choudhury2016autostyle} visualize all solutions on the screen using a t-SNE 2D visualization. Similar to the previous clustering interfaces, each point represents a solution and its color indicates its cluster. Hovering over a point reveals the solution it represents. Using this interface, teachers hand-annotate each cluster with a label, i.e., ``good'', ``average'', or ``weak'' and a hint about how to improve the solution. For each cluster, the teacher must also choose an exemplar solution from a {\it slightly better} cluster as an example of what to shoot for.
+
+Tools that are not built for representing an entire corpus, such as file comparison tools, do have useful features to consider when designing new interfaces. Most highlight inserted, deleted, and changed text. Unchanged text is often collapsed. Some of these tools are customized for analyzing code, such as Code Compare. They are also integrated into existing integrated development environments (IDE), including IntelliJ IDEA and Eclipse. These code-specific comparison tools may match methods rather than just comparing lines. Three panes side-by-side are used to show code during three-way merges of file differences. There are tools, e.g., KDiff3, which will show the differences between four files when performing a distributed version control merge operation, but that appears to be an upper limit. These tools do not scale beyond comparing a handful of programs simultaneously.
+
+The OverCode interface puts the code front and center, synthesizing platonic solutions that represent entire stacks of solutions, borrowing display techniques from file comparison tools, adding filtering mechanisms and interactive clustering through rewrite rules on top of the clustering done by the analysis pipeline. OverCode was also inspired by information visualization projects like WordSeer \cite{wordseerlitcomp13,wordseercikm13} and CrowdScape \cite{crowdscape}. WordSeer helps literary analysts navigate and explore texts, using query words and phrases \cite{wordseerhcir11}. CrowdScape gives users an overview of crowd-workers’ performance on tasks.
+
+More generally, several interfaces have been designed for providing grades or feedback to students at scale, and for browsing large collections in general, not just student solutions. The powergrading paradigm \cite{basupowergrading} enables teachers to assign grades or write feedback to many similar answers at once. Their interface focused on powergrading for short-answer questions from the U.S. Citizenship exam. After machine learning clustered answers, the frontend allowed teachers to read, grade, or provide feedback on similar answers simultaneously. When compared against a baseline interface, the teachers assigned grades to students substantially faster, gave more feedback to students, and developed a ``high-level view of students' understanding and misconceptions'' \cite{basuDivideAndConquer}.
 
 \section{Scalable teaching principles}
 
-\todo{add something descriptive here}
+% \todo{add something descriptive here}
 
 %Learning how to write programs, or at least how to “think computationally,'' has gained national attention in the last year. Last September, New York City Mayor Bill de Blasio announced that all public schools in NYC will be required to offer computer science to all students by 2025. In January, the White House released its “Computer Science For All'' initiative, “offering every student the hands-on computer science and math classes that make them job-ready on day one'' (President Obama, 2016 State of the Union Address).
 
@@ -22,31 +329,20 @@ Effective tutors often have characteristics described by Lepper and Wolverton's 
 
 %There is an entire literature on developing sustainable communities of practice that foster student development and mastery, much the way a traditional judo dojo operates. There is also great work on how identity formation can help budding experts persist and thrive in a learning environment. For a high level treatment of both those literatures as they pertain to engineering education, read this brief handbook for practitioners: Education theories on learning: an informal guide for the engineering education scholar.
 
-%However, I will focus on a few theories and concepts that specifically help teachers develop more effective presentations of information and exercises for practice. This short-list of ideas, techniques, and benchmarks from educational psychology have guided my own development of tools for teachers teaching hundreds or thousands of programming students at once.
+%However, I will focus on a few theories and concepts that specifically help teachers develop more effective presentations of information and exercises for practice. 
+
+This short-list of ideas, techniques, and benchmarks from educational psychology have guided my own development of tools for teachers in massive classrooms.% teaching hundreds or thousands of programming students at once.
 
 %\subsection{Tutoring}
 
 %Tutoring has been held up as a gold standard in education since 1984 when Bloom published a collection of his lab's work demonstrating tutoring's efficacy relative to other experimental and conventional methods at the time~\cite{bloom}. For example, his lab found that, after 11 sessions of instruction in probability or cartography, elementary and middle school students who received tutoring\todo{RobTODO: find more precise word} in groups of one to three were, on average, two standard deviations better than their counterparts in a conventional 30-person classroom. Given the expense of scaling up one-on-one tutoring, Bloom challenged the academic community to find a method of group instruction that was just as good, or better. That challenge still stands as a benchmark that modern systems and techniques can compare against. While I do not measure the relative learning gains associated with the systems presented in this thesis, I do relate key design decisions to the tutoring best practices that are able to be scaled up or automated, such as prompting for self-explanations.% evidence from the learning sciences The focus on this thesis is on developing systems that scale up what good tutors and teachers do.
 
-\subsection{Self-Explanation}
+\subsection{Self-Explanations and Reflection}
 
-Self-explanations are generated by the student for themselves. They are a form of reflection, which is a critical method for triggering the transformation from conflict and doubt into clarity and coherence \cite{dewey1933}. Students' self-explanations foster the integration of new knowledge, while some tutors' explanations may be insufficient or flawed, due to the curse of knowledge~\cite{birch2007curse}. Effective tutors encourage self-explanation by prompting students with questions like {\it Why?} and {\it How?}~\cite{selfexplanation}. Students of tutors who fostered self-explanations had learning gains similar to those whose tutors provided their own explanations and feedback\cite{chi2001learning}. 
+Self-explanations are generated by the student for themselves. Students' self-explanations foster the integration of new knowledge, while some tutors' explanations may be insufficient or flawed, due to the curse of knowledge~\cite{birch2007curse}. Effective tutors encourage self-explanation by prompting students with questions like {\it Why?} and {\it How?}~\cite{selfexplanation}. Students of tutors who fostered self-explanations had learning gains similar to those whose tutors provided their own explanations and feedback\cite{chi2001learning}. 
 
-%One insight stands out: the value of self-explanation for fostering student learning.
+Self-explanations are a form of reflection, which is a critical method for triggering the transformation from conflict and doubt into clarity and coherence \cite{dewey1933}. Turns et al. \cite{asee} argue that the absence of reflection in traditional engineering education is a significant shortcoming. This thesis contributes systems designed to address that shortcoming.
 
-%\subsubsection{Self-Explanation}
-
-%Reflection is also a critical method for triggering the transformation from conflict and doubt into clarity and coherence \cite{dewey1933}. Turning that reflection into a self-explanation further improves understanding \cite{selfexplanation}.
-
-\begin{comment}
-Turns et al. \cite{asee} argue that the absence of reflection in traditional engineering education is a significant shortcoming.
-\end{comment}
-
-%\subsubsection{Curse of Knowledge}
-
-%While explanations generated by tutees may help them integrate new knowledge, explanations generated by experts, i.e., the tutor, may be insufficent or flawed, due to the curse of knowledge \cite{birch2007curse}.
-
-%Reflection is a critical method for triggering the transformation from conflict and doubt into clarity and coherence \cite{dewey1933}. Turning that reflection into a self-explanation further improves understanding \cite{selfexplanation}. According to Turns et al. \cite{asee}, the absence of reflection in traditional engineering education is a significant shortcoming. 
 
 \subsection{Deliberate Practice and Rapid Feedback}
 
@@ -101,252 +397,18 @@ Marton et al.~\cite{marton1997learning} identify four patterns of variation: {\i
 
 VT is a framework that has guided teaching materials and been used as an analytic framework in a variety of contexts, including lessons on critical reading~\cite{noble1998contents}, vocabulary learning~\cite{doi:10.1108/IJLLS-10-2014-0038}, the color of light~\cite{Ling2006}, mathematics~\cite{Pythagoras233}, chemical engineering~\cite{C2RP20145C}, Laplace transforms~\cite{carstensen2004laplace}, supply and demand~\cite{marton2006some} and computing education~\cite{suhonen2007applications}. It has been the subject of a government-funded three-year longitudinal study in Hong Kong, with promising results~\cite{lo2005each}. 
 
-In this thesis, Overcode and Foobaz are explicitly designed to discover and make human-interpretable the variation naturally present in student solutions. All the systems in this thesis demonstrate ways in which extracted variation, in solutions or errors, can be used in massive classes. In the next section, I describe efforts to extract, answer questions about, or otherwise make usable the natural variation in corpora of webpages, apps, and code that do not all have the same purpose. In the final section, I describe similar efforts specifically for corpora of student solutions to the same programming problem.
+In this thesis, Overcode and Foobaz are explicitly designed to discover and make human-interpretable the variation naturally present in student solutions. All the systems in this thesis demonstrate ways in which extracted variation, in solutions or errors, can be used in massive classes. %In the next section, I describe some methods for preparing code for analysis. In the section that follows, I describe efforts to extract, answer questions about, or otherwise make usable the natural variation in corpora of webpages, apps, and code that do not all have the same purpose. In the final section, I describe similar efforts specifically for corpora of student solutions to the same programming problem.\todo{update this}
 
-
-\section{Exploring and Mining Variation in the Wild}
-
-One important aspect of both engineering and design is that there are multiple ways to solve the same problem. There are many means to an end, and the optimality of each solution may be context-dependent. Sub-optimality can have high personal, safety, and economic costs. For example, in the software industry, maintenance dominates the cost of producing software~\cite{fox2013engineering}. Poorly designed code may be the culprit because it requires significantly more maintenance.
-
-\begin{comment}
-There’s no silver bullet for becoming a great engineer. However, best practices will probably always include analyzing others’ designs, highlighting their successes and failures, as well as composing one’s own designs and receiving critiques from others.
-
-This method of training is particularly exciting today, when there is such a diversity of design examples available online. Thousands of apps are available for download from app stores. Kaggle maching learning competition submissions are not public by default, but are sometimes released by authors and collected for the benefit of others. Github and Bitbucket host millions of repositories, many of them public and searchable.
-\end{comment}
-
-If solutions can be indexed in useful ways, they can be mined to ask basic questions like,
-\begin{enumerate}
-\item    In the face of a common design choice, what do designers most commonly pick? Has this changed over time?
-\item    What are popular design alternatives?
-\item    What are examples of design fails that should be learned from and never repeated?
-\item    What are examples of design innovations that are clearly head-and-shoulders above the rest?
-\end{enumerate}
-The answers to these questions could fuel instruction that complies with variation theory recommendations. With OverCode, Foobaz, and the targeted learnersourcing workflows, I try to answer the same questions for students tackling the same programming problem.
-
-\subsection{Webpages}
-Ritchie et al.~\cite{ritchie2011d} describe a user interface for finding helpful, i.e., relevant or inspiring, design examples from a curated database of web pages. Their work is intended to support designers who like to refer to or adapt previous designs for their own purposes. Traditional search engines only index the content of web pages. Their system indexes web pages’ design style by automatically extracting global stylistic and structural features from each page. Instead of manual browsing, users can search and filter a gallery of design-indexed pages. Users can provide an example design in order to find similar and dissimilar designs, as well as high-level style terms like ``minimal.''
-
-Kumar et al.~\cite{webzeitgeist} defined {\it design mining} as ``using knowledge discovery techniques to understand design demographics, automate design curation, and support data-driven design tools.'' Their work goes beyond searching and filtering a gallery of hundreds of curated webpages. Their Webzeitgeist design mining platform allows users to query a repository of hundreds of thousands of web pages based on the properties of their Document Object Model (DOM) tree and the look of the rendered page. A 1679-dimensional vector of descriptive features are computed for each DOM node in each page.
-
-Webzeitgeist enables users to ask and answer some of those originally highlighted questions, with respect to this large web page repository:
-\begin{enumerate}
-\item    What are all the distinct cursors?
-\item    What are the most popular colors for text?
-\item    How many DOM tree nodes does a typical page have? How deep is a typical DOM tree?
-\item    What is the distribution of aspect ratios for images?
-\item    What are the spatial distributions for common HTML tags?
-\item    How do web page designers use the HTML canvas element?
-\end{enumerate}
-
-To dig into examples of a particular design choice, users can, for example, query for all pages with very wide images. The result is a set of horizontally scrolling pages. Alternatively, users can query for webpages that have a particular layout, like a large header, a navigational element at the top of the page, and a text node containing greater than some threshold of words, in order to see all the examples of pages that fit those layout specifications. Specific combinations of page features can imply high-level designs as well so, with careful query construction, users can query for high-level ideas. For example, querying for pages with a centered HTML input element and low visual complexity retrieves many examples that look like the front pages of search engines.
-
-\subsection{Android Apps}
-
-Shirazi et al.~\cite{Shirazi} and Alharbi and Yeh~\cite{Alharbi} describe automated processes for taking apart and analyzing Android app code as well as empirical analyses of corpora of Android Apps available on the Google Play app store. Shirazi et al. analyzed the 400 most popular free Android applications, while Alharbi and Yeh tracked over 24,000 Android apps over a period of 18 months. Alharbi and Yeh caputured each update within their collection window, as well. They decompiled apps into code from which UI design and behavior could be inferred, e.g., XML and click handlers, and tracked changes across versions of the same app. Both papers analysed population-level characteristics of their corpora, answering questions like:
-\begin{itemize}
-\item     What is the distribution of layout design patterns, among the seven standard Android layout containers?
-\item     What are the most common design patterns for navigation, e.g., tab layout and horizontal paging? Have any apps switched from one pattern to another?
-\item     How quickly are newly introduced design patterns adopted?
-\item     What are the most frequent interface elements? And combinations of interface elements? How many applications does that combination cover?
-\end{itemize}
-
-\subsection{Open-Source Code Repositories}
-
-Ideally, code is not just correct, it is simple, readable, and ready for the inevitable need for future changes~\cite{peters2010zen,6005notes}. How can we help students reach this level of programming composition zen? How can we learn from others' code, even after we become competent, or even an expert, at the art of programming?
-
-For the same reason we look at patterns in design across web pages and mobile apps, we can look at the design choices already made by humans who share their programs. Rather than using web crawlers or app stores, we can process millions of public repositories hosted online. What can we learn about good and bad code design decisions from these collections?
-
-These code analysis techniques that follow are most closely related to those developed for OverCode and Foobaz. The OverCode and Foobaz pipelines are optimized for user interfaces that help users answer design mining questions about their student solutions and put the code front and center. %The advantages and disadvantages of the OverCode and Foobaz pipelines with respect to the systems designed in this section will be discussion in later chapters after the techniques developed in this thesis are fully explained.
-
-% \subsubsection{Regularity In Code}
-
-Code, like natural language, exhibits regularity. Hindle et al.~\cite{Hindle2012} argue that the regularity of code may be even more true for code than for natural language. Allamanis and Sutton~\cite{allamanis2014mining} observe that some syntactic fragments serve a single semantic purpose and recur frequently across software projects. Fast et al.~\cite{codex} observe that poorly written code is often syntactically different from well written code, with the caveat that not all syntactically divergent code is bad.
-
-\subsubsection{Mining Idioms}
-
-Idiomatic code is written in a manner that experienced programmers perceive as normal or natural. Idioms are roughly equivalent to mental chunks, i.e., the memory units characterized by George Miller~\cite{chunking}. I will borrow an example from Allamanis and Sutton~\cite{allamanis2014mining}
-
-\begin{itemize}
-\item \texttt{for (int i=0;i<n;i++) ...} is a common idiom for looping in Java.
-\item do-while and recursive looping strategies are not.
-\end{itemize}
-
-%An experienced Java programmer will be able to understand the code whether it's idiomatic or not, but it may take longer. They may even be distracted by questions, e.g., {\it Why did the author make this choice?}
-
-Fast et al.~\cite{codex} break the definition of idioms into two levels. An example of a high-level idiom is code that initializes a nested hash. An example of a low-level idiom is code that returns the result of an addition operation. Some languages support a variety of different, equally good ways to do the same thing. Others encourage a single, idiomatic way to achieve each task.
-
-Idioms can and do recur throughout distinct projects and domains (unlike repeated code nearly verbatim, i.e., clones) and commonly involve syntactic sugar (unlike API patterns). In general, clone detectors look for the largest repeated code fragments and API mining algorithms look for frequently used sequences of API calls. Idiom mining is distinct because idioms have syntactic structure and are often wrapped around or interleaved with context-dependent blocks of code, like the block of statements within an the idiomatic for loop in the previous paragraph.
-
-There are enough idioms for some languages that they have lengthy, highly bookmarked and shared online guides. StackOverflow has many questions asked and answered about the appropriate language or library-specific idioms for particular, common tasks. It is difficult for expert users of each language or library to catalogue all the idioms. It is much more practical to simply look at how programmers are using the language or library and extract idioms from the data.
-
-Hindle et al.~\cite{Hindle2012} used statistical language models from natural language processing to identify idiom-like patterns in Java code. They found that n-gram language models built by analyzing corporacaptured a high level of project- and domain-specific local regularity in programs. Local regularities are valuable for statistical machine translation of natural language. They may prove useful in analogous tasks for software as well. For example, the authors trained and tested an n-gram model token suggestion engine that looks at the previous two tokens already entered into the text buffer and predicts the next one the programmer might type.
-
-Allamanis and Sutton~\cite{allamanis2014mining} automatically mine idioms from a corpus of idiomatic code using nonparametric Bayesian tree substitution grammars. The mined idioms correspond to important programming concepts, e.g., object creation, exception handling, and resource management, and are, as expected, often library-specific. They found that 67\% of the idioms mined from one set of open source projects were also found in code snippets posted on StackOverflow.
-
-Fast et al.~\cite{codex} computed statistics about the abstract syntax trees (ASTs) of three million lines of popular open source code in the 100 most popular Ruby projects hosted on Github. AST nodes are normalized, and all identical normalized nodes are collapsed into a single database entry. The unparsed code snippets that correspond to each normalized node are saved. Codex normalizes these snippets by renaming variable identifiers, strings, symbols, and numbers to \texttt{var0}, \texttt{var1}, \texttt{var2}, \texttt{str0}, \texttt{str1}, etc. Note that this fails when primitives, like specific strings and numbers, are vital to interpreting the purpose of the statement.
-
-The resulting system, Codex, can warn programmers when they chain or compose functions, place a method call in a block, or pass an argument to a function that is infrequently seen in the corpus. It is fast enough to run in the background of an IDE, highlighting problem statements and annotating them with messages like, ``We have seen the function split 30,000 times and strip 20,000 times, but we've never seen them chained together.'' Codex can be queried for nodes by code complexity; type, i.e., function call; frequency of occurrence across files and projects; and containment of particular strings.
-
-\subsubsection{Mining Larger Patterns in Code}
-
-In the code of working applications, Ammons et al.~\cite{ammons2002mining} observed that common behavior is often correct. Based on that observation, they use probabilistic learning from program execution traces to infer the program’s formal correctness specifications. Inferring formal specifications for programs is valuable because programmers have historically been reluctant to write them. During program execution, the authors summarize frequent patterns as state machines that can be inspected by the programmer. As a result, the authors identified correct protocols and some previously unknown bugs.
-
-Buse and Weimer~\cite{buse2012synthesizing} go beyond idioms to mining API useage. Based on a corpus of Java code, they find examples that reference a target class, symbolically execute it to compute intraprocedural path predicates while recording all subexpression values, identify expressions that correspond to one use of the class, capture the order of method calls in those concrete examples, then use K-mediods to cluster these extracted concrete use examples with a custom formal parameterized distance metric that penalizes for differences in method ordering and type information. Concrete use examples within the same cluster are merged into abstract uses represented as graphs with edge weights that correspond to counts of how many times node X happens before node Y. Finally, they have a synthesis method to express these abstract use graphs in a human-readable form, i.e., representative, well-formed, and well-typed Java code fragments.
-
-\subsubsection{Mining Names}
-
-Without modifying execution, names can express to the human reader the type and purpose of an object, as well as suggest the kinds of operators used to manipulate it~\cite{jones2008operand}. Perhaps as a direct result, variable names can exhibit some of the same regularity exhibited by code, in general. H{{\o{}}}st and {{\O{}}}stvold~\cite{host2008java} go so far as to call method names a restricted natural language they dubbed Programmer English.
-
-H{{\o{}}}st and {{\O{}}}stvold~\cite{host2008java} ran an analysis pipeline on a corpus of Java that performs semantic analysis on methods and grammatical analysis on method names. It generates a data-driven phrasebook that Java programmers can use when naming methods. In a second publication~\cite{host2009debugging}, they formally defined and then automatically identified method naming bugs in code, i.e., giving a method a name that incorrectly implies what the method takes as an argument or does with an argument.
-
-They did this by identifying prevalent naming patterns, e.g., contains-*, which occur in over half of the applications in the corpus and match at least 100 method instances. They also determined and cataloged the attributes of each method body, such as whether it read or wrote fields, created new objects, or threw exceptions. If almost all the methods whose names match a particular pattern, e.g., contains-*, have an attribute or do not have some other attribute, it automatically determined to be an implementation rule that all names in the corpus should follow. On a large corpus of Java projects, this analysis pipeline found a variety of naming bugs.
-
-Fast et al.'s Codex~\cite{codex} produced similar results. By keeping track of variable names in variable assignment statements, it can warn programmers when their variable name violates statistically-established naming conventions, such as the (probably confusing) naming of a Hash object ``array.'' 
-
-Foobaz can go beyond Fast et al.~\cite{codex} and H{{\o{}}}st and {{\O{}}}stvold's~\cite{host2008java,host2009debugging} work in providing feedback on variable names because all solutions are known to address the same programming problem.
-
-\section{Exploring and Mining Variation in Student Solutions}
-
-The common purpose of the code in a corpus of student solutions to the same programming problem almost certainly contributes to the regularity already found in code from large corpora of open source projects. However, this regularity from a common purpose may be more than counter-balanced by the fact that the code is generated by novices who are still learning how to program and are not yet well-versed in the common idioms and programming constructs. 
-
-Unlike corpora of open source projects, it is often not difficult to go beyond static analysis and perform dynamic analyses while executing each solution in the corpus. A set of teacher-designed tests of expected behavior may already exist, some available to students while developing their solutions, some hidden from students, and some generated on the fly, through fuzz testing \cite{fuzztesting}. %As a result, these solutions can be analyzed on both their syntactic and behavioral qualities.
-
-Also unlike corpora of open source code, the solutions in large corpora of student code often require feedback, so that the author can learn. Automated feedback on solutions to programming problems is still an area of active research. For example, assigning grades based solely on the number of teacher-designed tests the code passes may not capture what teachers care to grade on. A single error in a solution can cause a near-perfect solution to fail all test cases. A solution can perform perfectly on test cases but be poorly written or violate instructions, e.g., use the wrong algorithm to achieve the right results. The test cases themselves may be poorly designed. For these reasons, the teaching staff of 6.0001 at MIT review every exam solution from each student by hand.
-
-When teachers have hundreds or thousands of students, it can be challenging to provide feedback to each solution quickly and consistently by hand. Design mining techniques and interfaces can help teachers explore and understand the whole space of solutions as well as distribute feedback to specific subsets of solutions, or subsets within solutions. It could be an important tool to assist in the sometimes difficult, manual task of identifying pedagogically valuable examples for illuminating a concept or principle. Distributing feedback can also be approached as an unsupervised or supervised, possibly interactive, machine learning problem, by leveraging clustering, classification, or mixture modeling methods. Clustering also need not be done by machine learning methods. For example, clone detection methods can identify clones at a variety of levels~\cite{roy2009comparison}.
-
-%Design mining, described in the previous section, is concerned with capturing design choices and then making the space of existing designs explorable. These approaches can be applied to large corpora of student solutions to the same programming exercise as well. It could be an important tool to assist in the sometimes difficult, manual task of identifying pedagogically valuable examples for illuminating a concept or principle. 
-
-\subsection{Regularizing Code}
-Before comparing solutions, it is common to preprocess the code to remove token variability that is irrelevant to later stages in the analysis pipeline. Light preprocessing might include normalizing white space and removing comments. Slightly more preprocessing might include systematically renaming variable and method names, i.e., those chosen by the code author, to generic placeholders. OverCode and Foobaz also preprocess solutions by normalizing whitespace and removing comments. However, since variables are central to the both systems, variables are carefully tracked and strategically renamed, rather than replaced by generic placeholders. OverCode’s normalization is novel in that its design decisions were made to maximize {\it human readability} of the resulting code. As a side-effect, syntactic differences between answers are also reduced.
-
-%e.g., normalizing white space, removing comments, and/or mapping author-chosen variable and method names to generic, unique strings like $var0$ or $str1$. %. , with or without the regularization of variable and method names, whitespace, and comments    with or without the regularization of variable and method names, whitespace, and comments
-
-More aggressive code preprocessing can remove syntactic differences between solutions that are semantically similar by using semantics-preserving transformations. This can include standard compiler optimizations, such as dead code removal, constant folding, copy propagation, and the inlining of helper functions~\cite{rivers2015data}. It can also include transformations, like changes in the order of operands to a commutative function, that make one solution closer to another solution with respect to some definition of edit distance. Applying semantics-preserving transformations, sometimes referred to as normalization or standardization, has been used for a variety of applications, including detecting clones~\cite{baxter,CCFinder}, diagnosis of bugs in student-written programs~\cite{xutransformation}, and self-improving intelligent tutoring systems~\cite{rivers2015data}. 
-
-A schema, in the context of programming, is a high-level cognitive construct by which humans understand or generate code to solve problems~\cite{Soloway1984}. For example, two programs that implement bubble sort have the same schema, bubble sort, even though they may have different low-level implementations. While powerful, these semantics-preserving transformations will not change the schema(s) within a solution. This is not true for the probabilistic semantically equivalent AST subtrees algorithmically mined from a corpus of solutions by Nguyen et al.~\cite{codewebs}. These are probabilistic equivalences because the different AST subtrees are only verified to be semantically equivalent {\it with respect to} the problem and the specific test cases provided. 
-
-%When two pieces of code have different syntax, and therefore different abstract syntax trees (ASTs), they may still be semantically equivalent. A teacher viewing the code may want to see those syntactic differences, or may want to ignore them in order to focus on semantic differences. Semantics-preserving transformations can reduce or eliminate the syntactic differences between code.
-
-\subsection{Features and Distance Functions}
-
-The challenge is designing features or distance functions that capture what the teacher cares about. Teachers may want to give feedback on correctness, design decisions (a.k.a., code style), or both. Other applications of code similarity functions are clone detection and plagiarism. Solutions can be represented as sets or vectors of hand-crafted computed features, sequences of tokens, or graphs. In the context of software, tokens could be characters or tokens corresponding to the lexical rules of the programming language. Drummond et al.~\cite{drummond2014learning} catalogues additional distance measures that are potentially helpful for clustering interactive programs.
-
-\subsubsection{Features}
-Just as the authors of Webzeitgeist defined sets of features to be computed for each node in a web page DOM~\cite{webzeitgeist}, there are many sets of features used to estimate program similarity in the literature. Aggrawal et al.~\cite{srikant2014system}, Elenbogen and Seliya~\cite{Elenbogen}, Roger ~\cite{ACESthesis}, Rees~\cite{Rees:1982}, Huang et al.~\cite{MOOCshop}, Kaleeswaran et al.~\cite{kaleeswaran2016semi}, and Taherkhani et al.~\cite{taherkhani2010recognizing} each defined a set of features that could be computed automatically for each solution and represented as a numerical feature vector. These feature sets each include a mixture of static and/or dynamic features.
-
-Static features include but are not limited to counts of various keywords and tokens in the solution, e.g., control flow keywords, operators, constants, and external function calls; counts of each type of expression in the solution;  measures of code complexity; length of commented code; scores from linting scripts; function name lengths; line lengths; and entire solution lengths. To quantify the goodness of a solution's style, AutoStyle~\cite{choudhury2016autostyle} used a pre-existing metric called the ABC score, a weighted count of assignments, branches, and conditional statements in a block of code.
-
-Dynamic features include but are not limited to data collected from running a solution on each test case, e.g., the solution output and whether or not it is correct with respect to the teacher specification, the evolution of values assigned to each variable within the solution, and the order in which statements in the solution are executed. For example, Huang et al.~\cite{MOOCshop} create an output vector for each solution: a binary vector representing the solution's correctness on each test case. For approximately one million solutions to 42 programming problems collected from the original Machine Learning MOOC offered by Stanford, the authors found that a teacher could cover 90\% of solutions or more in almost all problems by annotating the top 50 output vectors. However, the authors acknowledge that many different mistakes can produce to the same output vector.
-
-{\bf Role of Variables Theory}
-
-Variable behavior is a specific kind of dynamic feature that merits additional description. Just as there is evidence that experts subconsciously internalize {\it control flow plans}, like the Running Total Loop Plan that accumulates partial totals, there is evidence that experts subconsciously internalize {\it variable plans} ~\cite{variableplans}. Variable plans are characterized by the function or role that it serves in a function, how it is initialized and updated, and conditional statements on the variable's value. 
-
-Empirically, the number of distinct variable roles found in introductory-level programs is small. While reviewing three introductory programming textbooks written for Pascal, Sajaniemi~\cite{sajaniemi2002empirical} hand-labeled the role of variables within each provided example program, based only on the pattern of successive values each variable took on. Nine variable roles, e.g., ``stepper'' and ``one-way flag'', covered 99\% of the variables in all 109 programs found in those textbooks. Sajaniemi notes that a single variable can switch roles during execution, properly or sporadically. A proper switch is when its final value while serving in one role is its initial value when serving in the next role. A sporadic switch is one in which the variable is reset to a new value at some point, to serve a new role that may or may not have anything to do with its previous role. \todo{find and look at green1985programmer--The Programmer's Torch--to summarize how it's different, based on sajaniemi2002empirical's description} Sajaniemi has been credited for creating what is now called in the literature as role of variables theory. 
-
-Further work independently confirms and operationalizes Sajaniemi's insights. Taherkhani et al. ~\cite{taherkhani2010recognizing} found that 11 variable roles cover all variables in novice-level programs, including object-oriented, procedural, and functional programming styles, and went further to automatically classify algorithms based on variables and some additional features. Gulwani et al.~\cite{gulwani_fse14} also depend on variable behavior to recognize different algorithmic approaches. They ask teachers to annotate source code, by hand, with key values that differentiate algorithmic approaches. Gulwani et al.'s work was published at a conference six months after the submission of the OverCode manuscript to TOCHI.
-
-OverCode and Foobaz make use of a pipeline that characterizes each solution as (1) a set of variables, which are distinguished from each other by their dynamic behavior during execution on test cases, (2) a set of one-line statements normalized in a novel way by those identified variables and (3) the solution outputs in response to each test case. After OverCode's publication, Gulwani et al.~\cite{gulwani2016automated} used the same variable value tracing method to cluster solutions, augmenting it with information about control flow structure to overcome syntactic differences between solutions.
-
-Alternative distance functions based on tokens or solution-derived graphs, like ASTs, are included in the next sections for completeness, and so that the techniques can be revisited in discussions of future work.
-
-\subsubsection{Distance functions}
-
-Statistical natural language processing techniques can also be applied to code, preferably after preprocessing. For example, Biegel et al.~\cite{Biegel} described how $w$-shingling can capture local patterns within a solution. The $w$-shingling of a solution is the set of all unique subsequences of $w$ tokens it contains \cite{BRODER19971157}. The resemblance $r$ between two solutions is defined as the number of unique subsequences of $w$ tokens both solutions contain, normalized (divided) by the union of unique subsequences of $w$ tokens contained in either solution. It other words, it is the Jaccard coefficient of the two solutions' $w$-shinglings. The resemblance distance is defined as $1-r$, which obeys the triangle inequality. $n$-grams models are like $w$-shinglings except instead of capturing just the {\it set} of unique subsequences of a certain length, they also capture a more global feature: the relative frequencies of these unique subsequences in the entire solution or corpus. Similarly, representing Python programs as TF-IDF vectors calculated from counts of tokens, e.g., keywords, collected across the entire corpus of solutions can capture individual solution's deviations from whole-corpus trends~\cite{Gaudencio}.
-
-CCFinder~\cite{CCFinder} and MOSS~\cite{schleimer2003winnowing} (Measure Of Software Similarity) are both pair-wise similarity (clone) detectors. Like $w$-shingling and $n$-gram models, MOSS extracts all subsequences of tokens of a specified length. Unlike them, the order of these subsequences is preserved. CCFinder \cite{CCFinder} is an exception to this pattern. After aggressive pre-processing, it considers all sub-strings in both solutions and looks for matches.
-
-% \subsubsection{Structure-based features and distance functions}
-
-The structure of solutions can be represented as trees, i.e., ASTs, and graphs, e.g., data dependency and control flow graphs. Binary or numerical feature vectors can be computed from the graphs, as well as graph-to-graph metrics of similarity, for use in feedback or assessment~\cite{Robinson:1980,srikant2014system}. Recent literature uses the full AST for computing pairwise distance metrics, e.g., the tree edit distance (TED). TED is defined as the minimum cost sequence of node edits that transforms one AST into another, given some set of costs on types of edits. 
-
-%The tree edit distance (TED) between two ASTs is the minimum cost sequence of node edits that transforms one AST into another, given some set of costs on types of edits. 
-
-While a naive TED algorithm scales very poorly with tree size, an optimized TED algorithm~\cite{shasha1994exact} makes this computation more feasible. The optimized algorithm is only quadratic in both the number of solutions and the size of their ASTs~\cite{MOOCshop}. In contrast, the analysis pipeline used by both OverCode and Foobaz clusters solutions scales linearly with the number and size of solutions. 
-
-Huang et al.~\cite{MOOCshop} used the optimized TED algorithm to process approximately a million solutions while executing on a computing cluster. The same analysis pipeline was used by Roger et al.~\cite{ACESthesis}. Yin et al.~\cite{yin2015clustering} defined a normalized TED that weighs edits associated with nodes closer to the tree root more heavily than nodes closer to the leaves. This prioritizes high-level structural similarities between solutions and de-emphasizes minor differences in syntax near the AST leaves.
-
-\todo{add http://web.stanford.edu/~cpiech/bio/papers/programEncoding.pdf}
-
-%In contrast to these systems that rely on TED for pairwise distance computations, 
-
-
-\subsection{Clustering Solutions}
-
-Gaudencio et al.~\cite{Gaudencio} recently investigated whether computers might be able to compare student code solutions as well as teachers. In the process, they found that teachers only agreed with each other between 62\% and 95\% of the time. Similarly, Rogers et al.~\cite{ACESthesis} found that official graders for a large programming course at Berkeley agreed on solution grades only 47.5\% of the time even when there were only 3 possible grades to choose from. In spite of the lack of agreement across expert code evaluators, several research efforts have focused on automatically clustering and grading solutions.
-
-%\subsubsection{Clustering}
-%In addition to annotating groups of solutions with feedback, 
-Luxton-Reilly et al.~\cite{Luxton13} suggests that identifying distinct clusters of solutions can help instructors select appropriate examples of code for helping students learn, e.g., in accordance with the systematic variation suggested by variation theory. They also suggest that it is helpful for teachers' own understanding and quality of feedback and guidance. Clustering can also be used to guide rubric creation.
-
-Luxton-Reilly et al.~\cite{Luxton13} develop a hierarchical clustering taxonomy for types of solution variations, from high- to low-level: structural, syntactic, or presentation-related. The structural similarity between solutions in a dataset is captured by comparing their control flow graphs. If the control flow of two solutions is the same, then the syntactic variation within the blocks of code is compared by looking at the sequence of token classes. Variation in presentation, such as variable names and spacing, is only examined when two solutions are structurally and syntactically the same. However, it is not yet fully implemented. %In contrast, our approach is not hierarchical, and uses dynamic information in addition to syntactic information.
-
-The analysis pipeline behind OverCode and Foobaz cluster solutions based on whether or not they have the same output vector and the same set of variables and normalized statements. Other systems rely on clustering algorithms applied to solutions whose pairwise distances are determined by TED scores. AutoStyle~\cite{choudhury2016autostyle} uses the OPTICS clustering algorithm to cluster solutions based on normalized TED scores. That work was inspired by early published OverCode work~\cite{glassman2014feature} on hierarchically clustering solutions. Huang et al.~\cite{MOOCshop} and Rogers et al.~\cite{ACESthesis} cluster solutions by creating a graph where nodes are solutions and an edge between each pair of nodes exists if and only if the TED between their ASTs is below a user-specified threshold. Modularity is used to infer clusters within the graph. 
-
-Gross et al. \cite{gross} use the Relational Neural Gas technique (RNG) to cluster graded solutions and find solutions, called prototypes, that can represent entire clusters. Feedback on new solutions is provided by highlighting the differences between the new solution and the closest prototype. Seeing these differences can help students debug their code. 
-
-Unlike the work in this thesis, Gross et al. focus on providing feedback to a single student at a time. Graded solutions are clustered, and these clusters help identify problems in new solutions. In contrast, OverCode, Foobaz, and GroverCode process ungraded solutions and help staff compose feedback for the whole class or assign grades or feedback to a whole body of solutions at one time. OverCode and GroverCode do highlight differences between solutions to help pinpoint problems, although it is staff, rather than students, who view these differences.
-
-Another approach to clustering solutions comes from the field of Bayesian inference. The following methods are particularly relevant to clustering code:
-\begin{itemize}
-\item Bayesian Case Models (BCM) \citet{beenNIPS} learn a pre-set number of subspace clusters, where each cluster is represented by an example and a small set of features that help characterize that cluster. This representation of the clusters has been designed to increase human interpretability of the results. This model has has an interactive version, iBCM \cite{beenthesis}, where humans can directly modify the cluster example and important features that characterize a cluster.
-\item Mind the Gap model (MGM) by \citet{kim2015mind} clusters data while also learning a ``global set of distinguishable dimensions to assist with further data exploration and hypothesis generation.'' This is another interpretable clustering algorithm, which may explain itself in ways teachers can understand and base grades on with confidence.
-\item Dirichlet Process Mixture Models (DPMMs)~\cite{} do not require the number of clusters to be set beforehand. The number of clusters solutions are assigned to can grow as the number of solutions grow. However, every data point belongs to one cluster.
-\end{itemize}
-\todo{get DPMM citation}
-
-%into an intelligent tutoring system that provides a variety of feedback messages coaching students toward solutions with better coding style, based on an automatically computable heuristic for good code style.\todo{expand on it}
-
-\todo{Maybe add Classification for grading: Aggrawal et al. [successful] Rogers [unsuccessful] Taherkhani [successful]}
-
-%Drummond et al.~\cite{drummond2014learning} use Bayesian techniques to cluster solutions into one of two categories: ''good'' and ''bad''.
-
-\todo{add http://ethanfast.com/resources/deduceit-paper.pdf}
-
-%\todo{add bayesian clustering--like BCM}
-
-\todo{add https://arxiv.org/pdf/1501.04346v1.pdf}
-
-\subsection{Identifying Common Components Across Solutions}
-
-Since teacher's holistic grades can be so inconsistent, they may be internally relying on different rubrics, not equally sensitive to minor differences, and/or weighing factors differently. Teachers may be more consistent if, rather than generating holistic grades, they can annotate or grade particular components, mistakes, or design choices within solutions. Three existing approaches support this goal: (1) Create a classifier for every component, mistake, or design choice teachers are interested in, similar to what was done for web pages in the Webzeitgeist dataset by Lim et al.~\cite{lim2012learning}. (2) Model solutions as mixtures of components or design choices using mixture modeling. They have already been applied to source code~\cite{} and student solutions to open-response mathematical questions~\cite{} ~\cite{binkley2014understanding,Linstead}. (3) Create a code search engine which takes AST nodes or subtrees as queries and retrieves solutions in the database that contain them, as Nguyen et al.~\cite{codewebs} did for solutions to the same problem and Fast et al.~\cite{codex} did for general open source code.
-
-There is a particularly rich literature on Bayesian mixture models. The following methods are particularly relevant to modeling code as mixtures of choices:
-\begin{itemize}
-\item Latent Dirichlet Allocation (LDA)~\cite{bleiLDA} is a mixture model that is typically applied to natural language. In that context, it learns topics, i.e., distributions over words, as well as the distributions over topics found in each document. %, which is typically applied to corpora of documents could model solutions as "documents" with sets of "words," where each word belongs to one topic and each document can contain words from multiple topics.
-\item Correlated Topic Models (CTM)~\cite{} are like LDA but topics are no longer assumed to be independent. In other words, the topics learned by the model can be correlated. If it it possible to formulate the inputs such that the learned latent topics represent design decisions, this could capture the reality that design choices are not independent of each other in code composition.
-\item Hierarchical Dirichlet Process Models (HDPs)~\cite{}, like DPMMs, do not require a pre-set number of clusters. Unlike DPMMs, solutions do not belong to a single cluster. Like LDA, solutions contain features, and each feature belongs to a cluster. Solutions can contain features from multiple clusters. This method emulates LDA with no pre-set number of clusters. 
-\item Models and inference algorithms built on Indian Buffet Processes (IBPs) by \citet{doshi2009indian} are like HDPs, but individual features can belong to multiple clusters.
-\end{itemize}
-
-\todo{get CTM and HDP citations}
-
-\subsection{Visualization and Interfaces}
-
-There are several existing visualizations or interfaces that help users understand how solutions vary within a large corpus of solutions to a common problem. A common design choice is to map each solution to a point in some feature space. Huang et al.~\cite{MOOCshop}, Rogers et al.~\cite{ACESthesis}, AutoStyle~\cite{choudhury2016autostyle}, and Ned Gulley~\cite{ICERGlassman} all use this strategy. % and/or why a given set of solutions are grouped together
-
-%Cody\footnote{\url{mathworks.com/matlabcentral/cody}} is an informal learning environment for the Matlab programming language that presents learners with {\em solution maps}. 
-
-Ned Gulley designed solutions maps for Cody, a Matlab programming game\footnote{\url{mathworks.com/matlabcentral/cody}}, to help users pick and compare pairs of solutions from hundreds of solutions to the same programming problem. The solution map plots each solution as a point against two axes: time of solution submission on the horizontal axis, and code size on the vertical axis, where code size is the number of nodes in the parse tree of the solution. Users can select pairs of points to see the code they correspond to side-by-side beneath the solution map. Despite the simplicity of this metric, solution maps can provide quick and valuable insight when exploring differences among large numbers of solutions~\cite{ICERGlassman}. This can help game players learn alternative, possibly better, ways to solve a problem using the Matlab programming language, including its extensive libraries.
-
-Huang et al.~\cite{MOOCshop} and Rogers et al.~\cite{ACESthesis} create graphs where each node is a solution and links between nodes indicate similarity scores beneath a certain threshold. Inter-node and inter-cluster distances correspond to syntactic similarity. Clusters are colored using modularity, a measure of how well a network decomposes into modular communities. Rogers et al.~\cite{ACESthesis} built a grading interface on top of this clustering process. Graders graded one solution at a time, grouped by cluster.
-
-AutoStyle~\cite{choudhury2016autostyle} visualize all solutions on the screen using a t-SNE 2D visualization. Similar to the previous clustering interfaces, each point represents a solution and its color indicates its cluster. Hovering over a point reveals the solution it represents. Using this interface, teachers hand-annotate each cluster with a label, i.e., ``good'', ``average'', or ``weak'' and a hint about how to improve the solution. For each cluster, the teacher must also choose an exemplar solution from a {\it slightly better} cluster as an example of what to shoot for.
-
-Tools that are not built for representing an entire corpus, such as file comparison tools, do have useful features to consider when designing new interfaces. Most highlight inserted, deleted, and changed text. Unchanged text is often collapsed. Some of these tools are customized for analyzing code, such as Code Compare. They are also integrated into existing integrated development environments (IDE), including IntelliJ IDEA and Eclipse. These code-specific comparison tools may match methods rather than just comparing lines. Three panes side-by-side are used to show code during three-way merges of file differences. There are tools, e.g., KDiff3, which will show the differences between four files when performing a distributed version control merge operation, but that appears to be an upper limit. These tools do not scale beyond comparing a handful of programs simultaneously.
-
-The OverCode interface puts the code front and center, synthesizing platonic solutions that represent entire stacks of solutions, borrowing display techniques from file comparison tools, adding filtering mechanisms and interactive clustering through rewrite rules on top of the clustering done by the analysis pipeline. OverCode was also inspired by information visualization projects like WordSeer \cite{wordseerlitcomp13,wordseercikm13} and CrowdScape \cite{crowdscape}. WordSeer helps literary analysts navigate and explore texts, using query words and phrases \cite{wordseerhcir11}. CrowdScape gives users an overview of crowd-workers’ performance on tasks.
-
-More generally, several interfaces have been designed for providing grades or feedback to students at scale, and for browsing large collections in general, not just student solutions. The powergrading paradigm \cite{basupowergrading} enables teachers to assign grades or write feedback to many similar answers at once. Their interface focused on powergrading for short-answer questions from the U.S. Citizenship exam. After machine learning clustered answers, the frontend allowed teachers to read, grade, or provide feedback on similar answers simultaneously. When compared against a baseline interface, the teachers assigned grades to students substantially faster, gave more feedback to students, and developed a ``high-level view of students' understanding and misconceptions'' \cite{basuDivideAndConquer}.
-
-
+%\section{Processing Code}
+%\todo{write something here}
 
 %\subsection{Handling Incorrect Solutions}
 
 %\todo{summarize Singh's Autograder, evan pu's paper?}
-\section{Personalized Support}
-Several types of solutions have been deployed to help students get the personalized attention they need. These solutions span the spectrum from recruiting more teaching assistants from the ranks of previous students \cite{communityTAs} to automating hints using program synthesis or intelligent tutoring systems. 
+\section{Personalized Student Support and Automated Tutoring}
+Human tutoring can be very effective~\cite{bloom} but expensive to scale up. Effective human tutors often have characteristics described by Lepper and Wolverton's INSPIRE model: superior domain and pedagogical content knowledge, nurturing relationships with students, progressive content delivery, Socratic styles that prompt students to explain and generalize, and feedback on solutions, not students~\cite{wood2012role}.
+
+Several types of solutions have been deployed to help students get the personalized attention they need, without relying solely on human tutors. These solutions span the spectrum from recruiting more teaching assistants from the ranks of previous students \cite{communityTAs} to automating hints using program synthesis or intelligent tutoring systems. 
 
 Singh et al. \cite{rishabh} uses a constraint-based synthesis algorithm to find the minimal changes needed to make an incorrect Python solution functionally equivalent to a reference implementation. The changes are specified in terms of a problem-specific error model that captures the common mistakes students make on a particular problem. The system can automatically deliver hints to students about these changes at various levels of specificity. 
 

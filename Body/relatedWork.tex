@@ -61,50 +61,30 @@ One aspect of clustering that does not fall into the traditional conversation ab
 There are thousands of published methods that exhibit combinations of these properties and strategies. When comparing methods, it is helpful to break the comparison down by representation, features, distance function, objective function, and algorithm they use as well as the type of clusters they produce. In subsequent sections, this language will be used to help describe the many different code analysis and clustering processes found in related work.
 
 
-\section{Exploring and Mining Variation in Code}
+\section{Mining Solution Variation}
 
-One important aspect of both engineering and design is that there are multiple ways to solve the same problem. There are many means to an end, and the optimality of each solution may be context-dependent. Sub-optimality can have high personal, safety, and economic costs. For example, in the software industry, maintenance dominates the cost of producing software~\cite{fox2013engineering}. Poorly designed code may be the culprit because it requires significantly more maintenance.
+One important aspect of both engineering and design is that there are multiple ways to solve the same problem, each with their own trade-offs. The consequences of these design choices can be significant. Suboptimal solutions, including poorly designed code, can have high personal, safety, and economic costs. 
 
+It may be possible to learn good and bad practices from large collections of previous solutions by looking at common and uncommon choices and making judgements about their successes and trade-offs. In order to understand the space of current solutions, there are many questions one could ask. In the face of a common design choice, what do designers most commonly pick? Has this changed over time? What are popular design alternatives? What are examples of design failures that should be learned from and never repeated? What are examples of design innovations that are clearly head-and-shoulders above the rest? The answers to these questions could fuel education about designing solutions that complies with variation theory recommendations. OverCode, Foobaz, and the comparison learnersourcing workflow try to answer these questions for student solutions written in code.
 
-If solutions can be indexed in useful ways, they can be mined to ask basic questions like,
-\begin{enumerate}
-\item    In the face of a common design choice, what do code authors most commonly pick? Has this changed over time?
-\item    What are popular design alternatives?
-\item    What are examples of design fails that should be learned from and never repeated?
-\item    What are examples of design innovations that are clearly head-and-shoulders above the rest?
-\end{enumerate}
-The answers to these questions could fuel instruction that complies with variation theory recommendations. The same questions could be applied to student solutions to a programming problem, and OverCode, Foobaz, and the targeted learnersourcing workflows attempt to answer them.
+%The same questions could be applied to student solutions to a programming problem, and OverCode, Foobaz, and the targeted learnersourcing workflows attempt to answer them.
 
-% \subsection{In the Wild}
+\subsection{Code Outside the Classroom}
 
-\subsection{Web pages}
+\subsubsection{Web pages}
 Ritchie et al.~\cite{ritchie2011d} describe a user interface for finding helpful, i.e., relevant or inspiring, design examples from a curated database of web pages. Their work is intended to support designers who like to refer to or adapt previous designs for their own purposes. Traditional search engines only index the content of web pages. Their system indexes web pages' design style by automatically extracting global stylistic and structural features from each page. Instead of manual browsing, users can search and filter a gallery of design-indexed pages. Users can provide an example design in order to find similar and dissimilar designs, as well as high-level style terms like ``minimal.''
 
 Kumar et al.~\cite{webzeitgeist} defined {\it design mining} as ``using knowledge discovery techniques to understand design demographics, automate design curation, and support data-driven design tools.'' Their work goes beyond searching and filtering a gallery of hundreds of curated web pages. Their Webzeitgeist design mining platform allows users to query a repository of hundreds of thousands of web pages based on the properties of their Document Object Model (DOM) tree and the look of the rendered page. A vector of descriptive features is computed for each DOM node in each page.
 
-Webzeitgeist enables users to ask and answer questions like the following, with respect to a large web page repository:
-\begin{enumerate}
-\item    What are all the distinct cursors?
-\item    What are the most popular colors for text?
-\item    How many DOM tree nodes does a typical page have? How deep is a typical DOM tree?
-\item    What is the distribution of aspect ratios for images?
-\item    What are the spatial distributions for common HTML tags?
-\item    How do web page designers use the HTML canvas element?
-\end{enumerate}
+Webzeitgeist enables users to ask and answer questions like the following, with respect to a large web page repository. What are all the distinct cursors? What are the most popular colors for text? How many DOM tree nodes does a typical page have? How deep is a typical DOM tree? What is the distribution of aspect ratios for images? What are the spatial distributions for common HTML tags? How do web page designers use the HTML canvas element?
 
 To dig into examples of a particular design choice, users can, for example, query for all pages with very wide images. The result is a set of horizontally scrolling pages. Alternatively, users can query for web pages that have a particular layout, like a large header, a navigational element at the top of the page, and a text node containing greater than some threshold of words, in order to see all the examples of pages that fit those layout specifications. Specific combinations of page features can imply high-level designs as well so, with careful query construction, users can query for high-level ideas. For example, querying for pages with a centered HTML input element and low visual complexity retrieves many examples that look like the front pages of search engines.
 
-\subsection{Android Apps}
+\subsubsection{Android Apps}
 
-Shirazi et al.~\cite{Shirazi} and Alharbi and Yeh~\cite{Alharbi} describe automated processes for taking apart and analyzing Android app code as well as empirical analyses of corpora of Android apps available from the Google Play app store. Shirazi et al. analyzed the 400 most popular free Android applications, while Alharbi and Yeh tracked over 24,000 Android apps over a period of 18 months. Alharbi and Yeh captured each update within their collection window, as well. They decompiled apps into code from which UI design and behavior could be inferred, e.g., XML and click handlers, and tracked changes across versions of the same app. Both papers analysed population-level characteristics of their corpora, answering questions like:
-\begin{itemize}
-\item     What is the distribution of layout design patterns, among the seven standard Android layout containers?
-\item     What are the most common design patterns for navigation, e.g., tab layout and horizontal paging? Have any apps switched from one pattern to another?
-\item     How quickly are newly introduced design patterns adopted?
-\item     What are the most frequent interface elements? And combinations of interface elements? How many applications does that combination cover?
-\end{itemize}
+Shirazi et al.~\cite{Shirazi} and Alharbi and Yeh~\cite{Alharbi} describe automated processes for taking apart and analyzing Android app code as well as empirical analyses of corpora of Android apps available from the Google Play app store. Shirazi et al. analyzed the 400 most popular free Android applications, while Alharbi and Yeh tracked over 24,000 Android apps over a period of 18 months. Alharbi and Yeh captured each update within their collection window, as well. They decompiled apps into code from which UI design and behavior could be inferred, e.g., XML and click handlers, and tracked changes across versions of the same app. Both papers analysed population-level characteristics of their corpora, answering questions like: what is the distribution of layout design patterns, among the seven standard Android layout containers? What are the most common design patterns for navigation, e.g., tab layout and horizontal paging? Have any apps switched from one pattern to another?  How quickly are newly introduced design patterns adopted? What are the most frequent interface elements? And combinations of interface elements? How many applications does that combination cover?
 
-\subsection{Open-Source Code Repositories}
+\subsubsection{Open-Source Code Repositories}
 
 Ideally, code is not just correct, it is simple, readable, and ready for the inevitable need for future changes~\cite{peters2010zen,6005notes}. How can we help students reach this level of programming composition zen? How can we learn from others' code, even after we become competent, or even an expert, at the art of programming?
 
@@ -115,7 +95,7 @@ These code analysis techniques that follow are most closely related to those dev
 
 Code, like natural language, exhibits regularity. Hindle et al.~\cite{Hindle2012} argue that the regularity of code may be even more true for code than for natural language. Allamanis and Sutton~\cite{allamanis2014mining} observe that some syntactic fragments serve a single semantic purpose and recur frequently across software projects. Fast et al.~\cite{codex} observe that poorly written code is often syntactically different from well written code, with the caveat that not all syntactically divergent code is bad.
 
-\subsubsection{Mining Idioms}
+{\bf Mining Idioms}
 
 Idiomatic code is written in a manner that experienced programmers perceive as normal or natural. Idioms are roughly equivalent to mental chunks, i.e., the memory units characterized by George Miller~\cite{chunking}. I will borrow an example from Allamanis and Sutton:~\cite{allamanis2014mining}
 
@@ -140,13 +120,13 @@ Fast et al.~\cite{codex} computed statistics about the abstract syntax trees (AS
 
 The resulting system, Codex, can warn programmers when they chain or compose functions, place a method call in a block, or pass an argument to a function that is infrequently seen in the corpus. It is fast enough to run in the background of an IDE, highlighting problem statements and annotating them with messages like, ``We have seen the function split 30,000 times and strip 20,000 times, but we've never seen them chained together.'' Codex can be queried for nodes by code complexity; type, i.e., function call; frequency of occurrence across files and projects; and containment of particular strings.
 
-\subsubsection{Mining Larger Patterns in Code}
+{\bf Mining Larger Patterns in Code}
 
 In the code of working applications, Ammons et al.~\cite{ammons2002mining} observed that common behavior is often correct. Based on that observation, they use probabilistic learning from program execution traces to infer the program's formal correctness specifications. Inferring formal specifications for programs is valuable because programmers have historically been reluctant to write them. During program execution, the authors summarize frequent patterns as state machines that can be inspected by the programmer. As a result, the authors identified correct protocols and some previously unknown bugs.
 
 Buse and Weimer~\cite{buse2012synthesizing} go beyond idioms to mining API usage. Based on a corpus of Java code, they find examples that reference a target class, symbolically execute it to compute intraprocedural path predicates while recording all subexpression values, identify expressions that correspond to one use of the class, capture the order of method calls in those concrete examples, then use K-medoids to cluster these extracted concrete use examples with a custom formal parameterized distance metric that penalizes for differences in method ordering and type information. Concrete use examples within the same cluster are merged into abstract uses represented as graphs with edge weights that correspond to counts of how many times node X happens before node Y. Finally, they have a synthesis method to express these abstract use graphs in a human-readable form, i.e., representative, well-formed, and well-typed Java code fragments.
 
-\subsubsection{Mining Names}
+{\bf Mining Names}
 
 Without modifying execution, names can express to the human reader the type and purpose of an object, as well as suggest the kinds of operators used to manipulate it~\cite{jones2008operand}. Perhaps as a direct result, variable names can exhibit some of the same regularity exhibited by code, in general. H{{\o{}}}st and {{\O{}}}stvold~\cite{host2008java} go so far as to call method names a restricted natural language they dubbed Programmer English.
 
@@ -158,7 +138,8 @@ Fast et al.'s Codex~\cite{codex} produced similar results. By keeping track of v
 
 Foobaz can go beyond Fast et al.~\cite{codex} and H{{\o{}}}st and {{\O{}}}stvold's~\cite{host2008java,host2009debugging} work in providing feedback on variable names because all solutions are known to address the same programming problem.
 
-\subsection{Student Solutions}
+%\subsection{Student Solutions}
+\subsection{Code Inside the Classroom}
 
 The common purpose of the code in a corpus of student solutions to the same programming problem almost certainly contributes to the regularity already found in code from large corpora of open source projects. However, student-written code may not exhibit the same regularity as code written by software developers contributing to an open source project. In other words, the regularity of student solutions to the same programming problem that comes from sharing a common purpose may be counter-balanced by the variety of student coding styles. 
 
@@ -276,7 +257,7 @@ Another approach to clustering solutions comes from the field of Bayesian infere
 
 \todo{add https://arxiv.org/pdf/1501.04346v1.pdf}
 
-\subsection{Identifying Common Components Across Solutions}
+% \subsubsection{Identifying Common Components Across Solutions}
 
 Inconsistent holistic grades could be explained by teachers relying on different internalized rubrics. Teachers may be more consistent if, rather than generating holistic grades, they can annotate or grade particular components, mistakes, or design choices within solutions. Three existing approaches support this goal: (1) Create a classifier for components that teachers are interested in, similar to what was done for web pages in the Webzeitgeist dataset by Lim et al.~\cite{lim2012learning}. (2) Model solutions as mixtures of components using mixture modeling. They have already been applied to source code and student solutions to open-response mathematical questions ~\cite{binkley2014understanding,Linstead}. (3) Create a code search engine which takes AST nodes or subtrees as queries and retrieves solutions in the database that contain them, as Nguyen et al.~\cite{codewebs} did for student solutions and Fast et al.~\cite{codex} did for general open source code.
 
@@ -292,9 +273,9 @@ There is a particularly rich literature on Bayesian mixture models. The followin
 \todo{get CTM and HDP citations}
 \end{comment}
 
-\subsection{Visualization and Interfaces}
+\subsubsection{Visualizing and Interacting with Student Solutions}
 
-There are several existing visualizations or interfaces that help users understand how solutions vary within a large corpus of solutions to a common problem. A common design choice is to map each solution to a point in some feature space. Huang et al.~\cite{MOOCshop}, Rogers et al.~\cite{ACESthesis}, AutoStyle~\cite{choudhury2016autostyle}, and Ned Gulley~\cite{ICERGlassman} all use this strategy. % and/or why a given set of solutions are grouped together
+There are several existing visualizations or interfaces that help teachers and students understand how solutions vary within a large corpus of solutions to a common problem. A common design choice is to map each solution to a point in some feature space. Huang et al.~\cite{MOOCshop}, Rogers et al.~\cite{ACESthesis}, AutoStyle~\cite{choudhury2016autostyle}, and Ned Gulley~\cite{ICERGlassman} all use this strategy. % and/or why a given set of solutions are grouped together
 
 %Cody\footnote{\url{mathworks.com/matlabcentral/cody}} is an informal learning environment for the Matlab programming language that presents learners with {\em solution maps}. 
 
@@ -313,23 +294,19 @@ More generally, several interfaces have been designed for providing grades or fe
 \section{Teaching Principles}
 
 
-This section describes ideas and techniques from educational psychology and the learning sciences that influenced this thesis work. 
-
-\subsection{Tutoring}
-
-The systems in this thesis are designed to support teachers and students in massive classrooms. For example, one way to support teachers is to give them a better idea of the solution space, so they can better help a student one-on-one. Another way to support teachers is to deploy personalized prompts that mimic what the teacher might have said to the student if they could interact one-on-one.
+This section describes ideas and techniques from educational psychology and the learning sciences that influenced this thesis work. The systems in this thesis are designed to support teachers and students in massive classrooms. For example, one way to support teachers is to give them a better idea of the solution space, so they can better help a student one-on-one. Another way to support teachers is to deploy personalized prompts that mimic what the teacher might have said to the student if they could interact one-on-one.
 
 One-on-one or small group tutoring has been held up as a gold standard in education since 1984 when Bloom published a collection of his lab's work demonstrating tutoring's efficacy relative to other experimental and conventional methods at the time~\cite{bloom}. For example, his lab found that, after 11 sessions of instruction in probability or cartography, elementary and middle school students who received tutoring in groups of one to three were, on average, two standard deviations better than their counterparts in a conventional 30-person classroom. Given the expense of scaling up one-on-one tutoring, Bloom challenged the academic community to find a method of group instruction that was just as good, or better. This became known as Bloom's two sigma problem.
 %That challenge still stands as a benchmark that modern systems and techniques can compare against. While I do not measure the relative learning gains associated with the systems presented in this thesis, I do relate key design decisions to the tutoring best practices that are able to be scaled up or automated, such as prompting for self-explanations.% evidence from the learning sciences The focus on this thesis is on developing systems that scale up what good tutors and teachers do.
 
-\subsection{Self-Explanations and Reflection}
+%\subsection{Self-Explanations and Reflection}
 
 Foobaz and the learnersourcing workflows explicitly prompt students to reflect and generate explanations on their own. These explanations are helpful to others, but they are also helpful to the student who generated them. These explanations, sometimes called self-explanations, foster the integration of new knowledge. Effective tutors encourage self-explanation by prompting students with questions like {\it Why?} and {\it How?}~\cite{selfexplanation}. Students of tutors who fostered self-explanations had learning gains similar to those whose tutors provided their own explanations and feedback\cite{chi2001learning}. 
 
 Self-explanations are a form of reflection, which is a critical method for triggering the transformation from conflict and doubt into clarity and coherence \cite{dewey1933}. Turns et al. \cite{asee} argue that the absence of reflection in traditional engineering education is a significant shortcoming. This thesis contributes systems designed, in part, to address that shortcoming.
 
 
-\subsection{Deliberate Practice and Rapid Feedback}
+%\subsection{Deliberate Practice and Rapid Feedback}
 
 %Ericsson is one of the foremost experts on how learners can efficiently acquire domain-specific knowledge and skills, like those necessary for becoming an effective programmer. 
 
@@ -343,7 +320,7 @@ Teachers help facilitate deliberate practice, because they can design appropriat
 
 %This thesis contributes systems designed to provide feedback on some aspects of programming tasks where it was not feasible to do so before, such as Foobaz, which stimulates reflection and provides feedback on one of the most basic forms of program readability: variable names.\todo{ROBTODO: REWRITE AND FLESH OUT INTO ITS OWN PARAGRAPH.}
 
-\subsection{Zone of Proximal Development and Scaffolding}
+%\subsection{Zone of Proximal Development and Scaffolding}
 
 The comparison learnersourcing workflow was designed with zones of proximal development (ZPD) and scaffolding in mind. The workflow dictates showing students better and worse solutions, relative to the solution they generated on their own. Some solutions are optimized in ways that may make them difficult to understand for a student who struggled just to make a working, non-optimized solution. Teachers who use the comparison workflow can decide whether students are prompted to reflect on slightly better and worse solution or radically better and worse solutions. Ideally, these better and worse solutions are not so different, they are outside a student's theoretical zone of proximal development.
 
@@ -353,7 +330,7 @@ Wood et al.~\cite{woodscaffolding} introduced a complementary process called sca
 
 Formative feedback~\cite{formative} can be helpful as part of the scaffolding. It should non-evaluative, supportive, timely, and specific. It usually arrives as a hint, an explanation, or a verification based on the student answer. Likewise, the comparison workflow, identifies where a student solution is on the spectrum of optimality and prompts the student to reflect on a better solution, such as the next most optimal one.
 
-\subsection{The Role of Strategic Variation in Examples}
+\section{Learning through Variation in Examples}
 
 The work in this thesis is deeply influenced by multiple theories about the role of variation in learning. Designing sets of examples that illuminate an object of learning can have signifiant effects on how students understand, generalize, and transfer their learning to new contexts. This section summarizes these theories and how they have been applied in studies of human learning.
 
@@ -363,7 +340,7 @@ Concrete examples of an object of learning--like how to apply an appropriate sta
 
 Learning in the presence of variation in these features helps learners generalize and transfer their knowledge to new situations, such as better transfer of geometric problem solving skills~\cite{workedexamplesvariability,Variabilityofpractice}. Several educational models, e.g., variation theory and the 4C/ID Model~\cite{van2002blueprints}, build on the value of variability by suggesting specific ways for how it should be deployed in the classroom. The three components in this thesis, OverCode, Foobaz, and the targeted learnersourcing workflows, are all designed to make the natural variability present in student solutions useful to teachers and students, in accordance with recommendations from the educational theories that follow.
 
-\subsubsection{Analogical Learning}
+\subsection{Analogical Learning}
 
 Analogies are central to human cognition. They can help learners understand and transfer knowledge and skills to new situations. Analogical learning is at play both when learners have a base of knowledge that they bring with them to a novel target and when they compare two partially understood situations that can illuminate each other~\cite{kurtz01learning,loewenstein2003analogical}. However, in order to reap the full benefits of analogical learning, learners must engage deeply. Reading two cases, serially, in a session is not enough. Learners will not necessarily make the necessary connections unless there are explicit instructions to compare~\cite{loewenstein2003analogical,catrambone1989overcoming}. 
 
@@ -373,7 +350,7 @@ Novices may become confused if asked to compare their solution to a fellow stude
 
 Analogical learning can be very difficult. For example, the structural features may be aligned between a base and the new target situation, but large differences in surface features will hurt the learner's ability to see any connection~\cite{Kurtz}. This may be explained by how human memory works. For novices, the most reliable form of retrieval is based on surface similarity, not deep analogical similarity. Experts can more easily retrieve situations that are structurally similar and therefore more relevant for a new situation at hand~\cite{Loewenstein}. Variation theory, discussed next, is specifically designed to help students more deeply appreciate structural features, which may help them transfer their learning to new situations instead of feeling lost, confused by superficial differences.
 
-\subsubsection{Variation Theory}
+\subsection{Variation Theory}
 
 Variation theory (VT)~\cite{marton1997learning} views learning and understanding as discernment, specifically of the various features of objects and concepts that define what they are. An aphorism captures the ideas at the heart of variation theory well: {\it He cannot, England know, who knows England only.} VT is concerned with the way in which students are taught from concrete examples. It is relatively new and still being investigated for its usefulness in a broad range of disciplines, including mathematics and computer science.%\todo{add more specific definition of VT} 
 

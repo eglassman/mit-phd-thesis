@@ -38,7 +38,7 @@ We evaluated OverCode against a non-clustering baseline in a within-subjects stu
 
 %\section{Introduction}
 
-Intelligent tutoring systems (ITS), Massive Open Online Courses (MOOC), and websites like Khan Academy and Codecademy are now used to teach programming courses on a massive scale. In these courses, a single programming problem may produce thousands of solutions from learners, which presents both an opportunity and a challenge. For teachers, the wide variation among these solutions can be a source of pedagogically valuable examples~\cite{marton13}, and understanding this variation is important for providing appropriate, tailored feedback to students~\cite{basupowergrading,MOOCshop}. The variation can also be useful for refining evaluation rubrics and exposing corner cases in automatic grading tests.
+Intelligent tutoring systems (ITS), Massive Open Online Courses (MOOCs), and websites like Khan Academy and Codecademy are now used to teach programming courses on a massive scale. In these courses, a single programming problem may produce thousands of solutions from learners, which presents both an opportunity and a challenge. For teachers, the wide variation among these solutions can be a source of pedagogically valuable examples~\cite{marton13}, and understanding this variation is important for providing appropriate, tailored feedback to students~\cite{basupowergrading,MOOCshop}. The variation can also be useful for refining evaluation rubrics and exposing corner cases in automatic grading tests.
 
 \begin{figure*}[t!]
 \centering
@@ -1268,23 +1268,45 @@ For clarity in the OverCode user interface, the modifiers appended to common var
 
 While understanding the contents of thousands of correct student solutions can be helpful in both residential and online contexts, another application of the OverCode pipeline and interface is supporting the hand-grading of introductory Python programming exam solutions, only some of which are correct. Incorrect solutions are defined as those that do not pass at least one test case in the teacher-designed test suite.
 
-Hand-reviewing solutions is necessary because teacher-designed test suites were found to unfairly penalize some students and award undeserved credit to others. For example, a single typo in an otherwise well-written solution can cause it to fail all the test cases and receive no credit. Conversely, a solution that subverts the purpose of the assignment can still receive credit by returning the expected answer to some or all of the test cases.
+Hand-reviewing solutions is necessary because test suites can unfairly penalize some students and award undeserved credit to others. For example, a single typo in an otherwise well-written solution can cause it to fail all the test cases and receive no credit. Conversely, a solution that subverts the purpose of the assignment can still receive credit by returning the expected answer to some or all of the test cases.
 
-For the staff of 6.0001, the residential introductory Python programming course at MIT, this can be one of the most time-consuming and exhausting parts of teaching the course. It can take a full workday for the entire staff of eight to ten teachers to sit in a room and review several hundred student solutions by hand in order to assign a single numerical grade to each solution. 
+For the staff of 6.0001, the residential introductory Python programming course at MIT, this can be one of the most time-consuming and exhausting parts of teaching the course. It can take a full workday for the entire staff of eight to ten teachers to sit in a room and review several hundred student solutions by hand in order to assign a single numerical grade to each solution.
 
-There are two main technical contributions found in the GroverCode extension of OverCode: a modified pipeline that can normalize both correct and incorrect solutions and an interface designed for grading. Just as the original pipeline used variable behavior to normalize variable names, the modified pipeline uses variable behavior and the syntax of statements containing each variable to normalize variable names in solutions that are not correct. This comes from the insight that a variable in an incorrect solution can be semantically equivalent to a variable in a correct solution but still behave differently. It can behave differently due to a bug in a line of code that directly modifies its value or a bug in a line of code that affects the behavior of another variable that it depends on. Since many of the exam solutions are incorrect and do not get clustered together, the new user interface organizes solutions according to their behavior on test cases and compositional similarity to each other, rather than by cluster size.
+Stacey Terman, in partial fulfilment of her Master's of Engineering, worked with me to extend OverCode to a new domain, i.e., incorrect solutions, and a new task, i.e., grading hundreds of incorrect solutions by hand. This new version of OverCode for grading is referred to as GroverCode. GroverCode was iteratively designed and evaluated as a grading tool through two live deployments during the Spring 2016 6.0001 staff exam grading sessions. The following tables, figures, and code samples generated from those deployments are adapted with permission from Stacey Terman's thesis.
 
-GroverCode was iteratively designed and evaluated as a grading tool through two live deployments during the Spring 2016 6.0001 staff exam grading sessions. Approximately two hundred students were enrolled in the course, and nine instructors used GroverCode to grade nearly all student solutions. A total of seven programming problems of a variety of difficulties were graded over the course of these two sessions. GroverCode was particularly appreciated on simpler problems where correct solutions were clustered together and graded by a single action. The normalization process applied to more complex solutions, especially those which included student-written objects, was at times more harmful than helpful for teacher comprehension of student code. Conversely, the feature for grouping solutions based on their behavior on test cases was appreciated regardless of solution complexity.
+GroverCode contains two main technical contributions: a modified pipeline that can normalize both correct and incorrect solutions and an interface designed for grading. Just as the original pipeline used variable behavior to normalize variable names, the modified pipeline uses variable behavior and the syntax of statements containing each variable to normalize variable names in solutions that are not correct. This comes from the insight that a variable in an incorrect solution can be semantically equivalent to a variable in a correct solution but still behave differently. It can behave differently due to a bug in a line of code that directly modifies its value or a bug in a line of code that affects the behavior of another variable that it depends on. Since many of the exam solutions are incorrect and do not get clustered together, the new user interface organizes solutions according to their behavior on test cases and compositional similarity to each other, rather than by cluster size.
 
 \subsubsection{User Interface}
 
-Figures~\ref{fig:whole_interface},~\ref{fig:correct_stack}, and~\ref{fig:rubric} capture the GroverCode user interface during the second and final deployment of the Spring 2016 term. Unlike with OverCode, there are both correct and incorrect solutions in view. They are differentiable by their varied background colors, as well as a red X next to every failed test. To better explain each test failure, the solution's differing actual and expected outputs are also displayed. 
+The GroverCode interface, shown in Figure~\ref{fig:whole_interface}, has several additions and distinctions from the OverCode interface. Both correct solutions, such as the one shown in Figure~\ref{fig:correct_stack}, and incorrect solutions are displayed, differentiable by their varied background colors and red X's next to every failed test. To better explain each test failure, the solution's differing actual and expected outputs are also displayed. A rubric, shown in Figure~\ref{fig:rubric}, is iteratively developed by the grading staff as they grade.
 
-The panel of progress indicators and filters is always in view. The rows of aligned sequences of green checks and red dashes represent error vectors, i.e., the pass/fail results with respect to the ordered list of teacher-specified test cases. The checkbox next to each error vector allows the teacher to selectively view subsets of solutions based on the particular tests they pass and fail. Solutions with the same error vectors may include similar mistakes.
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Body/figures/grovercode/figure_1}
+\caption{The GroverCode user interface displaying solutions to an introductory Python programming exam problem, in which students are asked to implement a function to flatten a nested list of arbitrary depth.
+}
+\label{fig:whole_interface}
+\end{figure} 
 
-Correct solutions are stacked the same way they are in OverCode. In contrast, incorrect solutions were normalized but not stacked, even if they were identical after normalization. Grades are propagated to all the solutions in a stack. Propagating actual student grades based on a probabilistic normalization process that was not thoroughly vetted before deployment would be unfair to students. 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_2}
+\caption{A correct solution, its corresponding raw solution, and its performance on test cases, as displayed in GroverCode.}
+\label{fig:correct_stack}
+\end{figure}
 
-The user interface includes the following features in an attempt to minimize the cognitive load experienced by teachers rapidly switching between grading one solution and the next:
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_3}
+\caption{A stack with the rubric dropdown menu open. Text for each of the checked items is automatically inserted in the comment box.}
+\label{fig:rubric}
+\end{figure}
+
+The panel of progress indicators and filters, shown on the left side of Figure~\ref{fig:whole_interface}, helps teachers understand the distribution of solution behavior on test cases, track their grading progress, and grade sets of solutions that fail the same test cases one at a time. The rows of aligned sequences of green checks and red dashes represent error vectors, i.e., the pass/fail results with respect to the ordered list of teacher-specified test cases. The checkbox next to each error vector allows the teacher to selectively view subsets of solutions based on the particular tests they pass and fail. Solutions with the same error vectors may include similar mistakes. 
+
+Like OverCode, GroverCode groups correct solutions into stacks. Grades are propagated to all the solutions in a stack. Incorrect solutions were not also grouped into stacks because the stacking process was new and experimental for field deployment in an actual grading session. GroverCode still normalized all solutions, both correct and incorrect.
+
+The grading performed by the 6.0001 staff was intellectually demanding. For example, many staff members attempted to correct incorrect solutions by hand to better undertstand how far off the student was from a correct answer. When raw solutions are shown in random order, one solution may have a different approach, behavior, and appearance from the next. The transition from grading one solution to the next can mean starting from scratch. In an attempt to minimize the cognitive load of switching from one solution to the next, the GroverCode user interface includes the following features:
 \begin{itemize}
 \item Horizontally aligned solutions for side-by-side comparison
 \item Easy filtering of solutions by input-output behavior, i.e., their error vectors
@@ -1293,42 +1315,26 @@ The user interface includes the following features in an attempt to minimize the
 \item Highlighted lines of code in each solution which differ from the previous solution in the horizontal list
 \end{itemize}
 
-The hope is that normalization helps teachers switch between solutions more often than it harms reability.
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Body/figures/grovercode/figure_1}
-\caption{The GroverCode user interface displaying solutions to an introductory Python programming exam problem, in which students are asked to implement a function to flatten a nested list of arbitrary depth.
-}
-\label{fig:whole_interface}
-\end{figure} \todo{cite Stacey's thesis and Been's thesis for any borrowed figures}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_2}
-\caption{A correct solution, its corresponding raw solution, and its performance on test cases, as displayed in GroverCode.}
-\label{fig:correct_stack}
-\end{figure}
+\todo{cite Stacey's thesis and Been's thesis for any borrowed figures}
+
+
  
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_3}
-\caption{A stack with the rubric dropdown menu open. Text for each of the checked items is automatically inserted in the comment box.}
-\label{fig:rubric}
-\end{figure}
+
 
 
 \subsubsection{Implementation}~\label{subsec:grovercodepipeline}
 
 The GroverCode implementation is a modification of the OverCode pipeline, including the updates described in Section~\ref{subsec:morelineinfo}. Solutions which return an expected output for all test cases during the preprocessing step are categorized as correct, and all other solutions, having failed at least one test case, are categorized as incorrect. Correct solutions are normalized by the same process as was used in the original OverCode. 
 
-In the original OverCode pipeline for correct solutions, variable behavior is assumed to hold enough semantic information to be the sole basis on which variable names are normalized. In this first version of GroverCode, the system applied this rule to incorrect solutions as well, but only for variables whose behavior matches a common variable in the correct solutions. %if a variable in an incorrect solution has the same behavior as a common variable in the correct solutions, GroverCode will rename the variable in the incorrect solution so it matches the common variable's name in the correct solutions.
+In the original OverCode pipeline for correct solutions, variable behavior is assumed to hold enough semantic information to be the sole basis on which variable names are normalized. GroverCode applies this rule to incorrect solutions as well, but only for variables whose behavior matches a common variable in the correct solutions. This step may be error prone. Incorrect solutions are known to be wrong with respect to input-output behavior, the behavior of the variables within them is suspect too, even if it happens to match a common variable in a correct solution. %if a variable in an incorrect solution has the same behavior as a common variable in the correct solutions, GroverCode will rename the variable in the incorrect solution so it matches the common variable's name in the correct solutions.
 
-However, this renaming strategy may change in future versions of GroverCode because, given that incorrect solutions are known to be wrong with respect to input-output behavior, the behavior of the variables within them is suspect too, regardless of whether it happens to match a common variable in a correct solution.
+%However, this renaming strategy may change in future versions of GroverCode because, 
 
-Consider the following example: in the syntax of an incorrect solution, a variable $i$ may be operated or depended on exactly the same way as a common variable in a correct solution. However, if an error somewhere else in the solution causes $i$ to behave differently, the original method of variable renaming will be thrown off. Based on this example, variables in incorrect solutions that are not already renamed based on behavior are renamed based on syntax.
+In incorrect solutions, syntax, e.g., the operations applied to a variable, may be more helpful for normalizing variable names than behavior. For example, in an incorrect solution, a variable $i$ may be operated or depended on exactly the same way as a common variable in a correct solution. However, if an error somewhere else in the solution causes $i$ to behave differently, the original method of identifying common variables will be thrown off. %Based on this example, variables in incorrect solutions that are not already renamed based on behavior are renamed based on syntax.
 
-The most recently updated OverCode pipeline represents each line's syntax and variables in a separable way (see Section~\ref{subsec:morelineinfo}). The line's syntax, e.g., \texttt{for \underline{\hspace{1em}} in \underline{\hspace{1em}}:}, is referred to as a template. For each common variable in correct solutions, GroverCode counts how many times it appears in each template and in which location, represented as an index into the blanks in the template. Examples of templates and locations are shown in Table~\ref{table:template-location}. 
+The GroverCode normalization process uses syntax, in addition to behavior, to identify and rename common variables. The updated OverCode pipeline represents each line's syntax and variables in a separable way, as described in Section~\ref{subsec:morelineinfo}. The line's template, e.g., \texttt{for \underline{\hspace{1em}} in \underline{\hspace{1em}}:} is the syntax of the line with variable names removed. For each common variable in correct solutions, GroverCode counts how many times it appears in each template and in which location, represented as an index into the blanks in the template. Examples of templates and locations are shown in Table~\ref{table:template-location}. 
 
 \begin{table}
 \centering
@@ -1367,52 +1373,28 @@ If a variable in an incorrect solution is still not normalized, the counts of te
 
 \subsubsection{Field Deployment}
 
-The GroverCode analysis pipeline was run on both the midterm and final exam problems from the Spring 2016 semester of 6.0001, which had approximately 200 students enrolled. These exams contained seven programming problems in total, and between 133 and 189 solutions per problem made it through the analysis pipeline to be displayed in the user interface. 
+Approximately two hundred students were enrolled in 6.0001, and nine instructors used GroverCode to grade nearly all student solutions. %Seven programming problems of a variety of difficulties were graded over the course of these two sessions.
+The GroverCode analysis pipeline was run on both the midterm and final exam problems from the Spring 2016 semester of 6.0001, which had approximately 200 students enrolled. These exams contained seven programming problems in total, and between 133 and 189 solutions per problem made it through the analysis pipeline to be displayed in the user interface. The midterm problem prompts were:
+\begin{itemize}
+\item \texttt{power}: Write a recursive function to calculate the exponential \texttt{base} to the power \texttt{exp}.
+\item \texttt{give\_and\_take}: Given a dictionary \texttt{d} and a list \texttt{L}, return a new dictionary that contains the keys of \texttt{d}. Map each key to its value in \texttt{d} plus one if the key is contained in \texttt{L}, and its value in d minus one if the key is not contained in \texttt{L}.
+\item \texttt{closest\_power}: Given an integer base and a target integer \texttt{num}, find the integer exponent that minimizes the difference between \texttt{num} and \texttt{base} to the power of exponent, choosing the smaller exponent in the case of a tie.
+\end{itemize}
+The final problem prompts were:
+\begin{itemize}
+\item \texttt{deep\_reverse}: Write a function that takes a list of lists of integers \texttt{L}, and reverses \texttt{L} and each element of \texttt{L} in place.
+\item \texttt{applyF\_filterG}: Write a function that takes three arguments: a list of integers \texttt{L}, a function \texttt{f} that takes an integer and returns an integer, and a function \texttt{g} that takes an integer and returns a boolean. Remove elements from \texttt{L} such that for each remaining element \texttt{i}, \texttt{f(g(i))} returns \texttt{True}. Return the largest element of the mutated list, or -1 if the list is empty after mutation.
+\item \texttt{MITCampus}: Given the definitions of two classes: \texttt{Location}, which represents a two-dimensional coordinate point, and \texttt{Campus}, which represents a college campus centered at a particular \texttt{Location}, fill in several methods in the \texttt{MITCampus} class, a subclass of \texttt{Campus} that represents a college campus with tents at various \texttt{Locations}.
+\texttt{longest\_run}: Write a function that takes a list of integers \texttt{L}, finds the longest run of either monotonically increasing or monotonically decreasing integers in \texttt{L}, and returns the sum of this run.
+\end{itemize}
+For each problem processed during the field deployments, an example of a staff-written correct solution is included in the Appendix.
 
-Using the GroverCode user interface, nine instructors, including one lecturer and eight teaching assistants (TAs) graded these solutions as part of their official grading responsibilities. Those solutions that did not successfully pass through the pipeline were graded by hand afterwards.
-
-TA grading events, e.g., adding or applying rubric items and point values to solutions, were logged. An observer took extensive notes during each day-long grading session to capture spontaneous feature requests as well as bugs and complaints. For full disclosure, one of the TAs in these grading sessions was the Master's of Engineering student who implemented most of GroverCode, and the observer was the author of this thesis.
+Using the GroverCode user interface, nine instructors, including one lecturer and eight teaching assistants (TAs) graded these solutions as part of their official grading responsibilities. Stacey Terman, the Master's of Engineering student who implemented most of GroverCode, was one of these TAs. Solutions that did not successfully pass through the pipeline were graded by hand afterwards. TA grading events, e.g., adding or applying rubric items and point values to solutions, were logged. The observer (the author of this thesis) took extensive notes during each day-long grading session to capture spontaneous feature requests as well as bugs and complaints. 
 
 %\begin{comment}
 % {\bf Programming Exam Problems}
 
-For each problem processed during the field deployments, an example of a staff-written correct solution is included below. Given the increasing difficulty of these exam problems, the following numbers dropped between the midterm and the final: the number of students present to take the exam, the number of students who submitted any solution to a given problem before the test period ended, and the number of correct solutions that could be clustered.
-
-{\bf Midterm Problems}
-
-\begin{itemize}
-\item Question 4: \texttt{power}. Write a recursive function to calculate the exponential \texttt{base} to the power \texttt{exp}.
-
-\includegraphics[scale=0.65]{Body/figures/grovercode/fig_power}
-
-\item Question 5: \texttt{give\_and\_take}. Given a dictionary \texttt{d} and a list \texttt{L}, return a new dictionary that contains the keys of \texttt{d}. Map each key to its value in \texttt{d} plus one if the key is contained in \texttt{L}, and its value in d minus one if the key is not contained in \texttt{L}.
-
-\includegraphics[scale=0.65]{Body/figures/grovercode/fig_give_and_take}
-
-\item Question 6: \texttt{closest\_power}. Given an integer base and a target integer \texttt{num}, find the integer exponent that minimizes the difference between \texttt{num} and \texttt{base} to the power of exponent, choosing the smaller exponent in the case of a tie.
-
-\includegraphics[scale=0.65]{Body/figures/grovercode/fig_closest_power}
-\end{itemize}
-
-{\bf Final Exam Problems}
-
-\begin{itemize}
-\item Question 4: \texttt{deep\_reverse}. Write a function that takes a list of lists of integers \texttt{L}, and reverses \texttt{L} and each element of \texttt{L} in place.
-
-\includegraphics[scale=0.65]{Body/figures/grovercode/fig_deep_reverse}
-
-\item Question 5: \texttt{applyF\_filterG}. Write a function that takes three arguments: a list of integers \texttt{L}, a function \texttt{f} that takes an integer and returns an integer, and a function \texttt{g} that takes an integer and returns a boolean. Remove elements from \texttt{L} such that for each remaining element \texttt{i}, \texttt{f(g(i))} returns \texttt{True}. Return the largest element of the mutated list, or -1 if the list is empty after mutation.
-
-\includegraphics[scale=0.65]{Body/figures/grovercode/fig_applyF_filterG}
-
-\item Question 6: \texttt{MITCampus}. Given the definitions of two classes: \texttt{Location}, which represents a two-dimensional coordinate point, and \texttt{Campus}, which represents a college campus centered at a particular \texttt{Location}, fill in several methods in the \texttt{MITCampus} class, a subclass of \texttt{Campus} that represents a college campus with tents at various \texttt{Locations}.
-
-\includegraphics[scale=0.65]{Body/figures/grovercode/fig_mitcampus}
-
-\item Question 7: \texttt{longest\_run}. Write a function that takes a list of integers \texttt{L}, finds the longest run of either monotonically increasing or monotonically decreasing integers in \texttt{L}, and returns the sum of this run.
-
-\includegraphics[scale=0.65]{Body/figures/grovercode/fig_longest_run}
-\end{itemize}
+%Given the increasing difficulty of these exam problems, the following numbers dropped between the midterm and the final: the number of students present to take the exam, the number of students who submitted any solution to a given problem before the test period ended, and the number of correct solutions that could be clustered.
 
 \subsubsection{Pipeline Evaluation}
 
@@ -1497,14 +1479,19 @@ Vars. not renamed & 1 & 7 & 50 & 56 & 40 & 274 & 183 \\
 %\end{comment}
  
 \subsubsection{Discussion}
-For simpler solutions, variable renaming was an invisible and possibly slightly confusing helping hand. One grader remarked, outloud: "Why is everyone naming their iterator variable 'i'?" at which point he had to be reminded of the variable renaming process. As solutions became more varied and structurally complex, graders started immediately looking the raw solutions because the renaming of variables, removal of comments, and formatting standardization was removing clues they needed in order to understand student intent.
 
-While it was difficult to get direct feedback on the helpfulness of pair-wise difference highlighting and optimized solution ordering, graders heavily used and appreciated the ability to filter and grade solutions one error vector at a time. At least one grader remarked aloud that it seemed like many of the solution with the same error vector made similar mistakes. Therefore filtering by error vector may have been one of the stronger contributors to any hypothetical decreased cognitive load due to using GroverCode over the status quo of random assignment to solutions in a CSV file.
+GroverCode was particularly appreciated on simpler problems where correct solutions were clustered together and graded by a single action. Under these conditions, the clustering capability GroverCode inherits from OverCode amplified teacher effort.
+
+Variable renaming was, for simpler programming problems, an invisible and possibly slightly confusing helping hand. One grader remarked, outloud: "Why is everyone naming their iterator variable 'i'?" at which point he had to be reminded of the variable renaming process. 
+
+When applied to more complex solutions, the normalization process was at times more harmful than helpful for teacher comprehension. As solutions became more varied and structurally complex, graders started toggling off normalization because the renaming of variables, removal of comments, and formatting standardization was removing clues they needed in order to understand student intent.
+
+The feature for grouping solutions based on their behavior on test cases was appreciated regardless of solution complexity. While it was difficult to get direct feedback on the helpfulness of pair-wise difference highlighting and optimized solution ordering, graders heavily used and appreciated the ability to filter and grade solutions one error vector at a time. At least one grader remarked aloud that it seemed like many of the solution with the same error vector made similar mistakes. Therefore filtering by error vector may have been one of the stronger contributors to any hypothetical decreased cognitive load due to using GroverCode over the status quo of random assignment to solutions in a CSV file.
 
 \todo{add to related work Appropriately chosen latent variable models have already been used in the past to model open-source code and answers to open-response mathematical questions.}
 
 \section{Conclusion}
-We have designed the OverCode system for visualizing thousands of Python programming solutions to help teachers explore the variations among them. Unlike previous approaches, OverCode uses a lightweight static and dynamic analysis to generate platonic solutions that represent stacks of similar solutions in an interactive user interface. It allows teachers to filter stacks by normalized lines of code and to further merge different stacks by composing rewrite rules. As observed in two user studies with a total of 24 current and potential teaching assistants, OverCode allowed teachers to more quickly develop a high-level view of students' understanding and misconceptions, and provide feedback that is relevant to more student solutions. 
+OverCode is a novel system for visualizing thousands of Python programming solutions that helps teachers explore the variations among them. Unlike previous approaches, OverCode uses a lightweight static and dynamic analysis to generate platonic solutions that represent stacks of similar solutions in an interactive user interface. It allows teachers to filter stacks by normalized lines of code and to further merge different stacks by composing rewrite rules. As observed in two user studies with a total of 24 current and potential teaching assistants, OverCode allowed teachers to more quickly develop a high-level view of students' understanding and misconceptions, and provide feedback that is relevant to more student solutions. 
 
 GroverCode, an extension of OverCode which handles incorrect solutions, is a new tool for triaging and hand-grading solutions. It was successfully deployed in the field as the tool for grading the midterm and final exams of MIT's 6.0001 course, ``Introduction to Computer Science and Programming in Python''. Based on teachers' appreciation of the interface over the existing alternatives, GroverCode will continue to be deployed in the field to ease the subjective psychological burden of grading hundreds of Python programs. %I believe an information visualization approach is necessary for teachers to explore the variations among solutions at the scale of MOOCs, and OverCode is an important step towards that goal.
-\todo{make sure evidence of teacher's appreciate is included}
+%\todo{make sure evidence of teacher's appreciate is included}

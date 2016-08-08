@@ -30,6 +30,8 @@ For each problem (three quiz questions, four final exam questions):
 \item How many clashes when renaming incorrect variables (i.e. multiple variables in the same solution renamed to the same correct variable)
 \end{itemize}
 
+
+
 In MOOCs, a single programming problem may produce thousands of solutions from learners. Understanding solution variation is important for providing appropriate feedback to students at scale.  The wide variation among these solutions can be a source of pedagogically valuable examples, and can be used to refine the autograder for the exercise by exposing corner cases. 
 We present OverCode, a system for visualizing and exploring thousands of programming solutions. OverCode uses both static and dynamic analysis to cluster similar solutions, and lets teachers further filter and cluster solutions based on different criteria.
 We evaluated OverCode against a non-clustering baseline in a within-subjects study with 24 teaching assistants, and found that the OverCode interface allows teachers to more quickly develop a high-level view of students' understanding and misconceptions, and to provide feedback that is relevant to more student solutions.
@@ -37,6 +39,10 @@ We evaluated OverCode against a non-clustering baseline in a within-subjects stu
 \end{comment}
 
 %\section{Introduction}
+
+This chapter presents the first example of clustering and visualizing student solutions. It is adapted and updated  from a paper in the Transactions on Computer-Human Interaction (TOCHI)~\cite{overcode}. It also includes extensions of that original publication developed in collaboration with Stacey Terman. The text about those extensions is, in part, adapted from her Master's of Engineering thesis. When discussing OverCode, pronouns like ``we'' and ``our'' refer to the coauthors of the TOCHI paper. When discussing modifications and extensions of OverCode, ``we'' and ``our'' includes Stacey Terman.
+
+\section{Introduction}
 
 Intelligent tutoring systems (ITS), Massive Open Online Courses (MOOCs), and websites like Khan Academy and Codecademy are now used to teach programming courses on a massive scale. In these courses, a single programming problem may produce thousands of solutions from learners, which presents both an opportunity and a challenge. For teachers, the wide variation among these solutions can be a source of pedagogically valuable examples~\cite{marton13}, and understanding this variation is important for providing appropriate, tailored feedback to students~\cite{basupowergrading,MOOCshop}. The variation can also be useful for refining evaluation rubrics and exposing corner cases in automatic grading tests.
 
@@ -56,19 +62,26 @@ This chapter presents OverCode, a system for visualizing and exploring the varia
 
 OverCode uses a novel human-interpretable solution clustering technique. The clustering process is linear in time with respect to both the number of solutions and the size of each solution. The platonic solution that represents each cluster is readable, executable, and describes every solution in that cluster in a deterministic way that accounts for both syntax and behavior on test cases. The platonic solutions are shown in a visualization that puts code front-and-center (Figure~\ref{overcode_fullinterface}). In the OverCode interface, teachers read through platonic solutions that each represent entire clusters of solutions. The differences between clusters are highlighted to help teachers discover and understand the variations among solutions. Clusters can be filtered by the lines of code within them.  Clusters can also be merged together with {\em rewrite rules} that collapse variations that the teacher decides are unimportant. 
 
-A cluster in OverCode is a set of solutions that perform the same computations, but may use different variable names or statement order.  OverCode uses a lightweight dynamic analysis to generate clusters, which scales linearly with the number of solutions. It clusters solutions whose variables take the same sequence of values when executed on test inputs and whose set of constituent lines of code are syntactically the same. An important component of this analysis is to rename variables that behave the same across different solutions. The renaming of variables serves three main purposes. First, it lets teachers create a mental mapping between variable names and their behavior which is consistent across the entire set of solutions. This may reduce the cognitive load for a teacher to understand different solutions. Second, it helps clustering by reducing variation between similar solutions. Finally, it also helps make the remaining differences between different solutions more salient. 
+A cluster in OverCode is a set of solutions that perform the same computations, but may use different variable names or statement order.  OverCode uses a lightweight dynamic analysis to generate clusters, which scales linearly with the number of solutions. It clusters solutions whose variables take the same sequence of values when executed on test inputs and whose set of constituent lines of code are syntactically the same. 
 
-In two user studies with a total of 24 participants who each looked at thousands of solutions from an introductory programming MOOC, the OverCode interface is compared with a baseline interface that showed original unclustered solutions. When using OverCode, participants felt that they were able to develop a better high-level view of the students' understandings and misconceptions. While participants didn't necessarily read more lines of code in the OverCode interface than in the baseline, the code they did read came from clusters containing a greater percentage of all the submitted solutions. Participants also drafted mock class forum posts about common good and bad solutions that were relevant to more solutions (and the students who wrote them) when using OverCode as compared to the baseline. 
+An important component of this analysis is to rename variables that behave the same across different solutions. The renaming of variables serves three main purposes. First, it lets teachers create a mental mapping between variable names and their behavior which is consistent across the entire set of solutions. This may reduce the cognitive load for a teacher to understand different solutions. Second, it helps clustering by reducing variation between similar solutions. Finally, it also helps make the remaining differences between different solutions more salient. 
+
+This chapter concludes by presenting two user studies with a total of 24 participants who each looked at thousands of solutions from an introductory programming MOOC, the OverCode interface is compared with a baseline interface that showed original unclustered solutions. When using OverCode, participants felt that they were able to develop a better high-level view of the students' understandings and misconceptions. While participants didn't necessarily read more lines of code in the OverCode interface than in the baseline, the code they did read came from clusters containing a greater percentage of all the submitted solutions. Participants also drafted mock class forum posts about common good and bad solutions. These forum posts were relevant to more student solutions when using OverCode as compared to the baseline. 
 
 \section{OverCode} \label{overcode}
-OverCode is an information visualization application for teachers to explore student solutions. The OverCode interface allows the teacher to scroll through, filter, and merge platonic solutions that represent entire stacks of similar solutions. Platonic solutions have strategically renamed variables, standardized formatting, and no comments. They can be filtered by the normalized lines of code they contain. They can also be rewritten when teachers compose and apply \emph{rewrite rules}, which can eliminate differences between platonic solutions and therefore merge stacks that have become identical after the rewrite. They are the result of the normalization process applied to all student solutions in the OverCode analysis pipeline. 
+OverCode is an information visualization application for teachers to explore student solutions. OverCode uses the metaphor of solutions stacked on top of each other to denote a cluster of similar solutions. The top solution in the stack is the platonic solution that represents all the other solutions in the stack. The OverCode interface allows the teacher to scroll through, filter, and merge stacks of solutions. 
 
-The OverCode interface was iteratively designed and developed based on continuous evaluation by the authors, feedback from teachers and peers, and by consulting principles from the information visualization literature. A screenshot of OverCode visualizing \codevar{iterPower}, one of the problems from our dataset, is shown in Figure~\ref{overcode_fullinterface}. In this section, the intended use cases and the user interface are described. In Section \ref{pipeline}, the backend program analysis pipeline is described in detail. 
-\subsection{Target Users and Applications}
-The target users of OverCode are teaching staff of introductory programming courses. Teaching staff may be undergraduate lab assistants who help students debug their code; graduate students who grade assignments, help students debug, and manage recitations and course forums; and lecturing professors who also compose the major course assessments. Teachers using OverCode may be looking for common misconceptions, creating a grading rubric, or choosing pedagogically valuable examples to review with students in a future lesson.
+The platonic solutions that represent stacks are normalized in a novel way. Specifically, they have standardized formatting, no comments, and variable names that reflect the most popular naming choices across all solutions. They can be filtered by the normalized lines of code they contain and, through rewrite rules, modified and merged. They are the result of the normalization process applied to all student solutions in the OverCode analysis pipeline. %They can also be rewritten when teachers compose and apply \emph{rewrite rules}, which can eliminate differences between platonic solutions and therefore merge stacks that have become identical after the rewrite. 
+
+%The OverCode interface was iteratively designed and developed based on continuous evaluation by the authors, feedback from teachers and peers, and by consulting principles from the information visualization literature. 
+A screenshot of OverCode visualizing \codevar{iterPower}, one of the problems from our dataset, is shown in Figure~\ref{overcode_fullinterface}. In this section, the intended use cases and the user interface are described. In Section \ref{pipeline}, the backend program analysis pipeline is described in detail. 
+\subsection{Target Users and Tasks}
+The target users of OverCode are teaching staff of introductory programming courses. Teaching staff may be undergraduate lab assistants who help students debug their code; graduate students who grade assignments, help students debug, and manage recitations and course forums; and instructors who compose major course assessments. Teachers using OverCode may be looking for common misconceptions, creating a grading rubric, or choosing pedagogically valuable examples to review with students in a future lesson.
 
 \subsubsection{Misconceptions and Holes in Student Knowledge}
 Students just starting to learn programming can have a difficult time understanding the language constructs and different API methods. They may use them suboptimally, or in non-standard ways. OverCode may help instructors identify these common misconceptions and holes in knowledge, by highlighting the differences between stacks of solutions. Since the visualized solutions have already been tested and found correct by an autograder, these highlighted differences between platonic solutions may be convoluted variations in construct usage and API method choices that have not been flagged by the Python interpreter or caused the failure of a unit test. Convoluted code may suggest a misconception.
+
+\todo{Rob: it would be great to show example code for these tasks, ideally showing them in OverCode -- can you mine any examples from your thesis defense talk?}
 
 \subsubsection{Grading Rubrics}
 It is a difficult task to create grading rubrics for checking properties such as design and style of solutions. Therefore most autograders resort to checking only functional correctness of solutions by testing them against a test suite of input-output pairs. OverCode enables teachers to identify the style, structure, and relative frequency of the variation within correct solutions. Unlike traditional ways of creating a grading rubric, where an instructor may go through a set of solutions, revising the rubric along the way, instructors can use OverCode to first get a high-level overview of the variations before designing a corresponding rubric. Teachers may also see incorrect solutions not caught by the autograder.
@@ -82,9 +95,9 @@ The OverCode user interface is the product of an iterative design process with m
 The OverCode user interface is divided into three columns. The top-left panel in the first column shows the problem name, the \emph{done} progress bar, the number of stacks, the number of visualized stacks given the current filters and rewrite rules, and the total number of solutions those visualized stacks contain. The panel below shows the largest stack of solutions. Side by side with the largest stack, the remaining stacks appear in the second panel. Through scrolling, any stack can be horizontally aligned with the largest stack for easier comparison. The third panel has three different tabs that provide static and dynamic information about the solutions, and the ability to filter and combine stacks. 
 
 As shown in Figure~\ref{overcode_fullinterface}, the default tab shows a list of lines of code that occur in different platonic solutions together with their corresponding frequencies. The stacks can be filtered based on the occurrence of one or more lines (Filter tab). The column also has tabs for \emph{Rewrite} and \emph{Legend}. The Rewrite tab allows a teacher to provide rewrite rules to collapse different stacks with small differences into a larger single stack. The Legend tab shows the dynamic values that different program variables take during the execution of programs over a test case. %We now describe different features of OverCode in more detail.
+\todo{ROB:maybe the TOCHI paper didn't have space for screenshots of these, but your thesis needs them}
 
-
-\subsubsection{Stacks} A stack in OverCode denotes a set of similar solutions that are grouped together based on a similarity criterion defined in Section \ref{pipeline}. For example, a stack for the \codevar{iterPower} problem is shown in Figure~\ref{stacks}(a). The size of each stack is shown in a pillbox at the top-left corner of the stack. The count denotes how many solutions are in the stack, and can also be referred to as the stack {\it size}. Stacks are listed in the scrollable second panel from largest to smallest. The solution on the top of the stack is a platonic solution that describes all the solutions in the stack. See Section \ref{pipeline} for details on the normalizing process that produces platonic solutions.
+\subsubsection{Stacks} A stack in OverCode denotes a set of similar solutions that are grouped together based on a similarity criterion defined in Section \ref{pipeline}. For example, a stack for the \codevar{iterPower} problem is shown in Figure~\ref{stacks}(a). The size of each stack, i.e., the number of solutions in a stack, is shown in a pillbox at the top-left corner of the stack. Stacks are listed in the scrollable second panel from largest to smallest. The solution on the top of the stack is a platonic solution that describes all the solutions in the stack. See Section \ref{pipeline} for details on the normalizing process that produces platonic solutions.
 
 Each stack can also be clicked. After clicking a stack, the border color of the stack changes and the \emph{done} progress bar is updated to reflect the percentage of total solutions clicked, as shown in Figure~\ref{stacks}(b). This feature is intended to help teachers remember which stacks they have already read or analyzed, and keep track of their progress. Clicking on a large stack, which represents a significant fraction of the total solutions, is reflected by a large change in the \emph{done} progress bar. \todo{add that now the raw solutions inside the stack are also displayed, but this was not included during user study tests}
 
@@ -102,7 +115,7 @@ Each stack can also be clicked. After clicking a stack, the border color of the 
 \\
 (a) & (b)
 \end{tabular}
-\caption{(a) A stack consisting of 1534 similar \codevar{iterPower} solutions. (b) After clicking a stack, the border color of the stack changes and the done progress bar denotes the corresponding fraction of solutions that have been checked.}
+\caption{(a) A stack of 1534 similar \codevar{iterPower} solutions. (b) After clicking a stack, the border color of the stack changes and the done progress bar denotes the corresponding fraction of solutions that have been checked.}
 \label{stacks}
 \end{figure*}
 
@@ -182,7 +195,7 @@ A rewrite rule is described with a left hand side and a right hand side as shown
 \subsubsection{Variable Legends} OverCode also shows the sequence of values that variables in the platonic solutions take on, over the course of their execution on a test case. As described in Section~\ref{pipeline}, a variable is identified by the sequence of values it takes on during the execution of the test case. Figure~\ref{afterrewrite}(b) shows a snapshot of the variable values for the \codevar{iterPower} problem. The goal of presenting this dynamic information associated with common variable names is intended to help teachers (1) understand the behavior of each platonic solution without having to mentally execute it on a test case and (2) further explore the variations among solutions that do not have the same common variables. When this legend was originally added to the user interface, clicking on a common variable name would filter for all solutions that contained an instance of that variable. Some pilot users found this feature confusing, rather than empowering. As a result, it was removed from OverCode before running both user studies. At least one study participant, upon realizing the value of the legend, wished that the original click-to-filter-by-variable functionality existed; it may be reinstated in future versions.
 
 \section{Implementation} \label{pipeline}
-The OverCode user interface depends on an analysis pipeline that normalizes solutions in a manner designed for human readability, referred to here as \emph{normalizing}. The pipeline then creates stacks of solutions that have become identical through the normalizing process. The pipeline accepts, as input, a set of solutions, expressed as function definitions for $f(a,...)$, and one test case $f(a_{1},...)$. Solutions that enter the pipeline are referred to as \emph{raw}, and the solutions that exit the pipeline as \emph{normal}. Examples, beginning with \codevar{iterPower}, are presented below to illustrate this pipeline.
+The OverCode user interface depends on an analysis pipeline that normalizes solutions in a manner designed for human readability. The pipeline then creates stacks of solutions that have become identical through the normalizing process. The pipeline accepts, as input, a set of solutions, expressed as function definitions for $f(a,...)$, and a set of test cases. Solutions that enter the pipeline are referred to as \emph{raw}, and the solutions that exit the pipeline as \emph{normal}. Examples, beginning with \codevar{iterPower}, are presented below to illustrate this pipeline.
 
 \subsection{Analysis Pipeline}
 OverCode is currently implemented for Python, but the pipeline steps described below could be readily generalized to other languages commonly used to teach programming.
@@ -221,7 +234,7 @@ def iterPower(base,exp):
 
 
 
-{\bf 2. Execute solutions.} Each solution is executed once, using the same test case. During each step of the execution, the names and values of local and global variables, and also return values from functions, are recorded as a program trace. There is one program trace per solution. Included for the purpose of illustrating this pipeline, the following examples are derived from executing definitions of \codevar{iterPower} on a \codevar{base} of $5.0$ and an \codevar{exp} of $3$. \\
+{\bf 2. Execute solutions.} Each solution is executed once, using the same test case. During each step of the execution, the names and values of local and global variables, and also return values from functions, are recorded as a program trace using an adaptation of Philip Guo's logger~\cite{pgbovineOPT}. There is one program trace per solution. Included for the purpose of illustrating this pipeline, the following examples are derived from executing definitions of \codevar{iterPower} on a \codevar{base} of $5.0$ and an \codevar{exp} of $3$. \\
 
 {\bf Student Code with Test Case} \\
 \begin{minipage}{0.5\linewidth}
@@ -235,7 +248,7 @@ iterPower(5.0, 3)
 
 
 
-{\bf 3. Extract variable sequences.} During the previous step, the Python execution logger \cite{pgbovineOPT} records the values of all in-scope variables after every statement execution in the Python program. The resulting log is referred to as the program trace. For each variable in a program trace, the pipeline extracts the sequence of values it takes on, without considering how many statements were executed before the variable value changed.
+{\bf 3. Extract variable sequences.} For each variable in a program trace, the pipeline extracts the sequence of distinct values it takes on.
 \\
 \begin{tabular}{cc}
 {\bf Student A Code with Test Case} & {\bf Program Trace for Student A Code} \\
@@ -542,7 +555,11 @@ def iterPower(base,exp__):
 \end{minipage}
 \end{tabular}
 
-Even though all the solutions processed in this pipeline have already been marked correct by an autograder, the program tracing \cite{pgbovineOPT} and renaming scripts occasionally generate errors while processing a solution. For example, the script may not have code to handle a particular but rare Python construct. Errors thrown by the scripts drive their development and are helpful for debugging. When errors occur while processing a particular solution, they are excluded from our analysis. Less than five percent of the solutions in each of the three problem datasets are excluded.
+Some programming problems have no deadline, and new solutions are submitted intermittently. The entire pipeline does not need to be rerun to normalize a new solution and restack all the solutions in the dataset. The pipeline has been split into two phases: solution preprocessing and batch processing. During preprocessing, each solution formatting is standardized and all comments are removed. It is then executed on one or more test cases, which makes the resulting normalization more robust to any individual poorly chosen test case. The full program trace and output is recorded for every test case. 
+
+This logging of solution execution can be one of the longer steps in the OverCode analysis pipeline, so preprocessing occurs once per solution and is saved in its own pickle file. New solutions can be preprocessed once, without affecting previously preprocessed solutions. Batch processing takes, as input, all the existing preprocessed results and normalizes variable names. This must occur as a batch operation because variable renaming depends on the behavior and name of every variable in every solution.
+
+The program tracing \cite{pgbovineOPT} and renaming scripts occasionally generate errors while processing a solution. For example, the script may not have code to handle a particular but rare Python construct. Errors thrown by the scripts drive their development and are helpful for debugging. When errors occur while processing a particular solution, they are excluded from our analysis. Less than five percent of the solutions in each of the three problem datasets are excluded.
 
 \subsection{Variable Renaming Details and Limitations} \label{repercussions}
 
@@ -1178,7 +1195,7 @@ Figure \ref{aveCoveragePerPost} shows the mean coverage of a set of feedback pro
 \label{perceivedCoverage}
 \end{figure*}
 
-Immediately after using each interface, we asked participants how strongly they agreed with the statement `This interface helped me develop a high-level view of students' understanding and misconceptions,' which quotes the first part of our third hypothesis. Participants agreed with this statement after using OverCode significantly more than when using the baseline interface (W=63, Z=2.70,p<0.01,r=0.81). Statistical significance was computed using the Wilcoxon Signed Rank test, pairing users' ratings of each interface. The analysis was done on 11 participants' data, as one participant's data was lost. The mean rating (with standard error) for the responses is shown in Figure~\ref{perceivedCoverage}(a). 
+After using each interface, we asked participants how strongly they agreed with the statement `This interface helped me develop a high-level view of students' understanding and misconceptions,' which quotes the first part of our third hypothesis. Participants agreed with this statement after using OverCode significantly more than when using the baseline interface (W=63, Z=2.70,p<0.01,r=0.81). Statistical significance was computed using the Wilcoxon Signed Rank test, pairing users' ratings of each interface. The analysis was done on 11 participants' data, as one participant's data was lost. The mean rating (with standard error) for the responses is shown in Figure~\ref{perceivedCoverage}(a). 
 
 For each strategy identified by subjects, we asked them to rate their confidence, on a scale of 1-7, that the strategy was frequently used by students in the dataset. Mean confidence ratings on a per-problem basis are shown in Figure \ref{perceivedCoverage}(b). We found that for \codevar{compDeriv}, subjects using OverCode were significantly more confident that their annotations were relevant to many students, compared to the baseline (Mann--Whitney U = 260.5, n1 = 18 n2 = 16, p< 0.0001).
  
@@ -1240,31 +1257,21 @@ We also found that subjects' feedback on solutions for the \codevar{compDeriv} p
 \subsection{Perceived coverage}
 In addition to the actual read and feedback coverage that subjects achieved, an important finding was that (i) subjects felt they had developed a better high-level understanding of student solutions and (ii) subjects stated they were more confident that identified strategies were frequent issues in the dataset. While a low self-reported confidence score did not necessarily correlate with low feedback coverage, these results suggest that OverCode enables the teacher to gauge the impact that their feedback will have.
 
-\section{Modifications and Extensions}
+%\section{Modifications and Extensions}
 
 %\subsection{Handling Multiple Test Cases}
 %For the convenience and speed of adding more solutions without unnecessary repeated computation,
 
-\subsection{Multiple Test Cases and Efficiency} 
-Since publication, the OverCode pipeline has been modified in several ways. It has been split into two phases: solution preprocessing and batch processing. During preprocessing, each solution's formatting is standardized and all comments are removed. It is then executed on one or more test cases, which makes the resulting normalization more robust to any individual poorly chosen test case. The full program trace and output is recorded for every test case. 
-
-This logging of solution execution can be one of the longer steps in the OverCode analysis pipeline, so preprocessing occurs once per solution and is saved in its own pickle file. New solutions can be preprocessed once, without affecting previously preprocessed solutions. Batch processing takes, as input, all the existing preprocessed results and normalizes variable names. This must occur as a batch operation because variable renaming depends on the behavior and name of every variable in every solution.
-
-\subsection{Collecting Additional Information per Line}~\label{subsec:morelineinfo}
-It was also noticed that a single-line difference between two solutions could, by affecting a variable's behavior, cause the variable renaming process to propagate that difference as a variable name change throughout all the lines that mention the affected variable. This non-locality of difference made it harder to spot in the user interface where the actual syntactic difference between two platonic solutions was. As a result, stacks are rendered in the user interface slightly differently. Now, even if the normalized variable names are different between two syntactically identical lines of code in two different stacks, if the variables take on the same sequence of values {\it just within that line of code}, it will not be highlighted as different in the user interface. Only the line with the syntactic difference will be highlighted.
-
-In order to implement this, the modified pipeline examines the program trace collected during preprocessing and the AST for each solution and compiles the following information for each line of code in each solution:
-\begin{enumerate}
-\item a template, i.e., the line of code with variables replaced by blanks, e.g., \texttt{\underline{\hspace{1em}} += 1} and \texttt{for \underline{\hspace{1em}} in range(\underline{\hspace{1em}}):}
-\item an ordered list of the common variable behaviors and their normalized names corresponding to each blank in the line, e.g., the blank in \texttt{\underline{\hspace{1em}} += 1} can be associated with one of several common variables, depending on the rest of the solution
-\item an ordered list of the sequences of values each blanked-out variable in the line took on during execution, e.g., the first blank in \texttt{for \underline{\hspace{1em}} in range(\underline{\hspace{1em}}):} might iterate through \texttt{1,2,3} while, with each visitation of this line during execution, the second blank stays constant at \texttt{[1,2,3],[1,2,3],[1,2,3]}
-\end{enumerate}
-Items 1 and 2 in this list together contain the information in the original normalized lines in OverCode and information about the line's syntax, regardless of the variables identities. Items 1 and 3 capture the information necessary to tell what the variable behavior is just within that one line and whether two lines in two different stacks will be highlighted as different from each other. This information is also used for variable renaming in incorrect solutions, as described in Section~\ref{subsec:grovercodepipeline}.
+%\subsection{Multiple Test Cases and Efficiency} 
+%Since publication, the OverCode pipeline has been modified in several ways. 
+%\subsection{Collecting Additional Information per Line}~\label{subsec:morelineinfo}
+%, as described in Section~\ref{subsec:grovercodepipeline}.
 % is, without being affected a very similar concept, except it is more robust to non-local variations in variable behavior. For example, if the line of code \texttt{for ___ in range(___):}initialization of two common variables 
 
-For clarity in the OverCode user interface, the modifiers appended to common variables to resolve Common/Common collisions are no longer capitalized letters. Instead, they are rendered in the interface as numerical subscripts indicating whether they are the second or third or fourth (etc.) most frequently occurring common variable with that name across all the solutions in the collection analyzed.
+\subsection{Clarity in Variable Renaming}
+The modifiers appended to common variables to resolve Common/Common collisions caused some confusion. For example, \texttt{iB} is a legitimate, but odd, variable name. To indicate that the modifier is not something the student wrote themselves, modifiers are now rendered in the interface as numerical subscripts indicating whether they are the second or third or fourth, etc., most frequently occurring common variable with that name across all the solutions in the collection.
 
-\subsection{Extending OverCode to Handle Incorrect Solutions}\label{sec:grover}
+\section{GroverCode: OverCode for Grading}\label{sec:grover}
 
 While understanding the contents of thousands of correct student solutions can be helpful in both residential and online contexts, another application of the OverCode pipeline and interface is supporting the hand-grading of introductory Python programming exam solutions, only some of which are correct. Incorrect solutions are defined as those that do not pass at least one test case in the teacher-designed test suite.
 
@@ -1278,7 +1285,7 @@ GroverCode contains two main technical contributions: a modified pipeline that c
 
 \subsubsection{User Interface}
 
-The GroverCode interface, shown in Figure~\ref{fig:whole_interface}, has several additions and distinctions from the OverCode interface. Both correct solutions, such as the one shown in Figure~\ref{fig:correct_stack}, and incorrect solutions are displayed, differentiable by their varied background colors and red X's next to every failed test. To better explain each test failure, the solution's differing actual and expected outputs are also displayed. A rubric, shown in Figure~\ref{fig:rubric}, is iteratively developed by the grading staff as they grade.
+The GroverCode interface, shown in Figure~\ref{fig:whole_interface}, has several additions and distinctions from the OverCode interface. As shown in Figure~\ref{fig:correct_and_incorrect_stacks}, both correct solutions and incorrect solutions are displayed, differentiable by their varied background colors and red X's next to every failed test. To better explain each test failure, the solution's differing actual and expected outputs are also displayed. A rubric, shown in Figure~\ref{fig:rubric}, is iteratively developed by the grading staff as they grade.
 
 \begin{figure}
 \centering
@@ -1288,19 +1295,38 @@ The GroverCode interface, shown in Figure~\ref{fig:whole_interface}, has several
 \label{fig:whole_interface}
 \end{figure} 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_2}
-\caption{A correct solution, its corresponding raw solution, and its performance on test cases, as displayed in GroverCode.}
-\label{fig:correct_stack}
-\end{figure}
+\begin{figure*}[t!]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[height=4in]{Body/figures/grovercode/figure_2}
+        \caption{A correct solution, its corresponding raw solution, and its performance on test cases, as displayed in GroverCode.}
+        \label{fig:correct_stack}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[height=4in]{Body/figures/grovercode/figure_3}
+        \caption{An incorrect solution with the rubric dropdown menu open. Text for each of the checked items is automatically inserted in the comment box.}
+        \label{fig:rubric}
+    \end{subfigure}
+    \caption{Correct and incorrect solutions, as rendered by GroverCode.}
+\label{fig:correct_and_incorrect_stacks}
+\end{figure*}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_3}
-\caption{A stack with the rubric dropdown menu open. Text for each of the checked items is automatically inserted in the comment box.}
-\label{fig:rubric}
-\end{figure}
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_2}
+% \caption{A correct solution, its corresponding raw solution, and its performance on test cases, as displayed in GroverCode.}
+% \label{fig:correct_stack}
+% \end{figure}
+
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_3}
+% \caption{A stack with the rubric dropdown menu open. Text for each of the checked items is automatically inserted in the comment box.}
+% \label{fig:rubric}
+% \end{figure}
 
 The panel of progress indicators and filters, shown on the left side of Figure~\ref{fig:whole_interface}, helps teachers understand the distribution of solution behavior on test cases, track their grading progress, and grade sets of solutions that fail the same test cases one at a time. The rows of aligned sequences of green checks and red dashes represent error vectors, i.e., the pass/fail results with respect to the ordered list of teacher-specified test cases. The checkbox next to each error vector allows the teacher to selectively view subsets of solutions based on the particular tests they pass and fail. Solutions with the same error vectors may include similar mistakes. 
 
@@ -1315,18 +1341,12 @@ The grading performed by the 6.0001 staff was intellectually demanding. For exam
 \item Highlighted lines of code in each solution which differ from the previous solution in the horizontal list
 \end{itemize}
 
-
-
-\todo{cite Stacey's thesis and Been's thesis for any borrowed figures}
-
-
- 
-
+In OverCode, a single-line difference between two solutions could, by affecting a variable's behavior, cause the variable renaming process to propagate that difference as a variable name change throughout all the lines that mention the affected variable. This non-locality of difference made it harder to spot in the user interface where the actual syntactic difference between two platonic solutions was. As a result, stacks are rendered in the GroverCode user interface slightly differently. Even if the normalized variable names are different between two syntactically identical lines of code in two different stacks, if the variables take on the same sequence of values {\it just within that line of code}, it will not be highlighted as different in the user interface. Only the line with the syntactic difference will be highlighted.
 
 
 \subsubsection{Implementation}~\label{subsec:grovercodepipeline}
 
-The GroverCode implementation is a modification of the OverCode pipeline, including the updates described in Section~\ref{subsec:morelineinfo}. Solutions which return an expected output for all test cases during the preprocessing step are categorized as correct, and all other solutions, having failed at least one test case, are categorized as incorrect. Correct solutions are normalized by the same process as was used in the original OverCode. 
+The GroverCode implementation is a modification of the OverCode pipeline. Solutions which return an expected output for all test cases during the preprocessing step are categorized as correct, and all other solutions, having failed at least one test case, are categorized as incorrect. Correct solutions are normalized by the same process as was used in the original OverCode. 
 
 In the original OverCode pipeline for correct solutions, variable behavior is assumed to hold enough semantic information to be the sole basis on which variable names are normalized. GroverCode applies this rule to incorrect solutions as well, but only for variables whose behavior matches a common variable in the correct solutions. This step may be error prone. Incorrect solutions are known to be wrong with respect to input-output behavior, the behavior of the variables within them is suspect too, even if it happens to match a common variable in a correct solution. %if a variable in an incorrect solution has the same behavior as a common variable in the correct solutions, GroverCode will rename the variable in the incorrect solution so it matches the common variable's name in the correct solutions.
 
@@ -1334,58 +1354,65 @@ In the original OverCode pipeline for correct solutions, variable behavior is as
 
 In incorrect solutions, syntax, e.g., the operations applied to a variable, may be more helpful for normalizing variable names than behavior. For example, in an incorrect solution, a variable $i$ may be operated or depended on exactly the same way as a common variable in a correct solution. However, if an error somewhere else in the solution causes $i$ to behave differently, the original method of identifying common variables will be thrown off. %Based on this example, variables in incorrect solutions that are not already renamed based on behavior are renamed based on syntax.
 
-The GroverCode normalization process uses syntax, in addition to behavior, to identify and rename common variables. The updated OverCode pipeline represents each line's syntax and variables in a separable way, as described in Section~\ref{subsec:morelineinfo}. The line's template, e.g., \texttt{for \underline{\hspace{1em}} in \underline{\hspace{1em}}:} is the syntax of the line with variable names removed. For each common variable in correct solutions, GroverCode counts how many times it appears in each template and in which location, represented as an index into the blanks in the template. Examples of templates and locations are shown in Table~\ref{table:template-location}. 
+The OverCode pipeline is modified for GroverCode to capture this syntactic information. The modified pipeline examines the program trace collected during preprocessing and the AST for each solution and compiles the following information for each line of code in each solution:
+\begin{enumerate}
+\item a template, i.e., the line of code with variables replaced by blanks, e.g., \texttt{\underline{\hspace{1em}} += 1} and \texttt{for \underline{\hspace{1em}} in range(\underline{\hspace{1em}}):}
+\item an ordered list of the common variable behaviors and their normalized names corresponding to each blank in the line, e.g., the blank in \texttt{\underline{\hspace{1em}} += 1} can be associated with one of several common variables, depending on the rest of the solution
+\item an ordered list of the sequences of values each blanked-out variable in the line took on during execution, e.g., the first blank in \texttt{for \underline{\hspace{1em}} in range(\underline{\hspace{1em}}):} might iterate through \texttt{1,2,3} while, with each visitation of this line during execution, the second blank stays constant at \texttt{[1,2,3],[1,2,3],[1,2,3]}
+\end{enumerate}
+Items 1 and 2 in this list together contain the information in the original normalized lines in OverCode and information about the line's syntax, regardless of the variables identities. Items 1 and 3 capture the information necessary to tell what the variable behavior is just within that one line and whether two lines in two different stacks will be highlighted as different from each other. This information is also used for variable renaming in incorrect solutions.
+
+The GroverCode normalization process uses this syntactic information, in addition to behavior, to identify and rename common variables. The line's template, e.g., \texttt{for \underline{\hspace{1em}} in \underline{\hspace{1em}}:} is the syntax of the line with variable names removed. For each common variable in correct solutions, GroverCode counts how many times it appears in each template and in which location, represented as an index into the blanks in the template. Examples of templates and locations are shown in Table~\ref{table:template-location}. If a yet-unrenamed variable in an incorrect solution appears in the exact same template-locations as a common variable in a correct solution, it will be renamed to match that common variable. If a variable in an incorrect solution is still not normalized, the counts of template-locations associated with each common variable in the correct solutions are used, as described in detail in Terman~\cite{staceythesis}, to infer the most likely common variable it could be renamed to, as long as a threshold for similarity is met. Otherwise, its original name is kept.
 
 \begin{table}
 \centering
-\caption*{\textbf{Example:} All templates and locations in which the abstract variable \texttt{exp}, the second argument to a recursive \texttt{power} function, appears. A location represents the index or indices of the blanks that the abstract variable occupies, where the first blank is index 0, the second is index 1, and so on. The second and third columns together form a template-location pair. Copied with permission from Terman~\cite{staceythesis}}\todo{get explicit permission}
-\begin{tabular}{|c|c|c|}
+\caption*{\textbf{Example:} All templates and locations in which the abstract variable \texttt{exp}, the second argument to a recursive \texttt{power} function, appears. A location represents the index or indices of the blanks that the abstract variable occupies, where the first blank is index 0, the second is index 1, and so on. The second and third columns together form a template-location pair.} %Copied with permission from Terman~\cite{staceythesis}}\todo{get explicit permission}
+\begin{tabular}{l l r}
+%\hline
+ &  & {\bf Location} \\
+{\bf Example line of code} & {\bf Template} & {\bf of \texttt{exp}} \\
 \hline
-Example line of code & Template & Location \\
-\hline
-\texttt{def power(base, exp):} & \texttt{def power(\underline{\hspace{1em}},\underline{\hspace{1em}}):} & 1 \\
-\hline
-\texttt{while index <= exp:} & \texttt{while \underline{\hspace{1em}}<=\underline{\hspace{1em}}:} & 1 \\
-\hline
-\texttt{return 1.0*base*power(base, exp-1)} & \texttt{return 1.0*\underline{\hspace{1em}}*\underline{\hspace{1em}}*power(\underline{\hspace{1em}},\underline{\hspace{1em}}-1)} & 3 \\
-\hline
-\texttt{return base*power(base, exp-1)} & \texttt{return \underline{\hspace{1em}}*power(\underline{\hspace{1em}},\underline{\hspace{1em}}-1)} & 2 \\
-\hline
-\texttt{return power(base, exp-1)*base} & \texttt{return power(\underline{\hspace{1em}},\underline{\hspace{1em}}-1)*\underline{\hspace{1em}}} & 1 \\
-\hline
-\texttt{ans = base*power(base, exp-1)} & \texttt{\underline{\hspace{1em}}=\underline{\hspace{1em}}*power(\underline{\hspace{1em}},\underline{\hspace{1em}}-1)} & 3 \\
-\hline
-\texttt{if exp <= 0:} & \texttt{if \underline{\hspace{1em}}<=0:} & 0 \\
-\hline
-\texttt{if exp == 0:} & \texttt{if \underline{\hspace{1em}}==0:} & 0 \\
-\hline
-\texttt{if exp >= 1:} & \texttt{if \underline{\hspace{1em}} >= 1:} & 0 \\
-\hline
-\texttt{assert type(exp) is int and exp >= 0} & \texttt{assert type(\underline{\hspace{1em}}) is int and \underline{\hspace{1em}}>=0} & 0, 1 \\
-\hline
+\footnotesize{\texttt{def power(base, exp):}} & \footnotesize{\texttt{def power(\underline{\hspace{1em}}},\underline{\hspace{1em}}):} & 1 \\
+%\hline
+\footnotesize{\texttt{while index <= exp:}} & \footnotesize{\texttt{while \underline{\hspace{1em}}<=\underline{\hspace{1em}}:}} & 1 \\
+%\hline
+\footnotesize{\texttt{return 1.0*base*power(base, exp-1)}} & \footnotesize{\texttt{return 1.0*\underline{\hspace{1em}}*\underline{\hspace{1em}}*power(\underline{\hspace{1em}},\underline{\hspace{1em}}-1)}} & 3 \\
+%\hline
+\footnotesize{\texttt{return base*power(base, exp-1)}} & \footnotesize{\texttt{return \underline{\hspace{1em}}*power(\underline{\hspace{1em}},\underline{\hspace{1em}}-1)}} & 2 \\
+%\hline
+\footnotesize{\texttt{return power(base, exp-1)*base}} & \footnotesize{\texttt{return power(\underline{\hspace{1em}},\underline{\hspace{1em}}-1)*\underline{\hspace{1em}}}} & 1 \\
+%\hline
+\footnotesize{\texttt{ans = base*power(base, exp-1)}} & \footnotesize{\texttt{\underline{\hspace{1em}}=\underline{\hspace{1em}}*power(\underline{\hspace{1em}},\underline{\hspace{1em}}-1)}} & 3 \\
+%\hline
+\footnotesize{\texttt{if exp <= 0:}} & \footnotesize{\texttt{if \underline{\hspace{1em}}<=0:}} & 0 \\
+%\hline
+\footnotesize{\texttt{if exp == 0:}} & \footnotesize{\texttt{if \underline{\hspace{1em}}==0:}} & 0 \\
+%\hline
+\footnotesize{\texttt{if exp >= 1:}} & \footnotesize{\texttt{if \underline{\hspace{1em}} >= 1:}} & 0 \\
+%\hline
+\footnotesize{\texttt{assert type(exp) is int and exp >= 0}} & \footnotesize{\texttt{assert type(\underline{\hspace{1em}}) is int and \underline{\hspace{1em}}>=0}} & 0, 1 \\
+%\hline
 \end{tabular}
 \label{table:template-location}
 \end{table}
 
-If a yet-unrenamed variable in an incorrect solution appears in the exact same template-locations as a common variable in a correct solution, it will be renamed to match that common variable.
 
-If a variable in an incorrect solution is still not normalized, the counts of template-locations associated with each common variable in the correct solutions are used, as described in detail in Terman~\cite{staceythesis}, to infer the most likely common variable it could be renamed to, as long as a threshold for similarity is met. Otherwise, its original name is kept. 
 
 \subsubsection{Field Deployment}
 
 Approximately two hundred students were enrolled in 6.0001, and nine instructors used GroverCode to grade nearly all student solutions. %Seven programming problems of a variety of difficulties were graded over the course of these two sessions.
 The GroverCode analysis pipeline was run on both the midterm and final exam problems from the Spring 2016 semester of 6.0001, which had approximately 200 students enrolled. These exams contained seven programming problems in total, and between 133 and 189 solutions per problem made it through the analysis pipeline to be displayed in the user interface. The midterm problem prompts were:
 \begin{itemize}
-\item \texttt{power}: Write a recursive function to calculate the exponential \texttt{base} to the power \texttt{exp}.
-\item \texttt{give\_and\_take}: Given a dictionary \texttt{d} and a list \texttt{L}, return a new dictionary that contains the keys of \texttt{d}. Map each key to its value in \texttt{d} plus one if the key is contained in \texttt{L}, and its value in d minus one if the key is not contained in \texttt{L}.
-\item \texttt{closest\_power}: Given an integer base and a target integer \texttt{num}, find the integer exponent that minimizes the difference between \texttt{num} and \texttt{base} to the power of exponent, choosing the smaller exponent in the case of a tie.
+\item \texttt{power} (q4): Write a recursive function to calculate the exponential \texttt{base} to the power \texttt{exp}.
+\item \texttt{give\_and\_take} (q5): Given a dictionary \texttt{d} and a list \texttt{L}, return a new dictionary that contains the keys of \texttt{d}. Map each key to its value in \texttt{d} plus one if the key is contained in \texttt{L}, and its value in d minus one if the key is not contained in \texttt{L}.
+\item \texttt{closest\_power} (q6): Given an integer base and a target integer \texttt{num}, find the integer exponent that minimizes the difference between \texttt{num} and \texttt{base} to the power of exponent, choosing the smaller exponent in the case of a tie.
 \end{itemize}
 The final problem prompts were:
 \begin{itemize}
-\item \texttt{deep\_reverse}: Write a function that takes a list of lists of integers \texttt{L}, and reverses \texttt{L} and each element of \texttt{L} in place.
-\item \texttt{applyF\_filterG}: Write a function that takes three arguments: a list of integers \texttt{L}, a function \texttt{f} that takes an integer and returns an integer, and a function \texttt{g} that takes an integer and returns a boolean. Remove elements from \texttt{L} such that for each remaining element \texttt{i}, \texttt{f(g(i))} returns \texttt{True}. Return the largest element of the mutated list, or -1 if the list is empty after mutation.
-\item \texttt{MITCampus}: Given the definitions of two classes: \texttt{Location}, which represents a two-dimensional coordinate point, and \texttt{Campus}, which represents a college campus centered at a particular \texttt{Location}, fill in several methods in the \texttt{MITCampus} class, a subclass of \texttt{Campus} that represents a college campus with tents at various \texttt{Locations}.
-\texttt{longest\_run}: Write a function that takes a list of integers \texttt{L}, finds the longest run of either monotonically increasing or monotonically decreasing integers in \texttt{L}, and returns the sum of this run.
+\item \texttt{deep\_reverse} (q4): Write a function that takes a list of lists of integers \texttt{L}, and reverses \texttt{L} and each element of \texttt{L} in place.
+\item \texttt{applyF\_filterG} (q5): Write a function that takes three arguments: a list of integers \texttt{L}, a function \texttt{f} that takes an integer and returns an integer, and a function \texttt{g} that takes an integer and returns a boolean. Remove elements from \texttt{L} such that for each remaining element \texttt{i}, \texttt{f(g(i))} returns \texttt{True}. Return the largest element of the mutated list, or -1 if the list is empty after mutation.
+\item \texttt{MITCampus} (q6): Given the definitions of two classes: \texttt{Location}, which represents a two-dimensional coordinate point, and \texttt{Campus}, which represents a college campus centered at a particular \texttt{Location}, fill in several methods in the \texttt{MITCampus} class, a subclass of \texttt{Campus} that represents a college campus with tents at various \texttt{Locations}.
+\item \texttt{longest\_run} (q7): Write a function that takes a list of integers \texttt{L}, finds the longest run of either monotonically increasing or monotonically decreasing integers in \texttt{L}, and returns the sum of this run.
 \end{itemize}
 For each problem processed during the field deployments, an example of a staff-written correct solution is included in the Appendix.
 
@@ -1398,42 +1425,38 @@ Using the GroverCode user interface, nine instructors, including one lecturer an
 
 \subsubsection{Pipeline Evaluation}
 
-The number of solutions submitted for each problem and the number that were successfully processed by the GroverCode pipeline is shown in Table~\ref{table:num_submissions}.
+The number of solutions submitted for each problem and the number that were successfully processed by the GroverCode pipeline is shown in Table~\ref{table:num_submissions}. Table~\ref{table:cluster_stats} captures the scale of the variation as well as some clustering statistics. Table~\ref{table:renametype} summarizes the counts of the various mechanims by which variables in incorrect solutions were normalized.
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
-\hline
-& \multicolumn{3}{c|}{Quiz} & \multicolumn{4}{c|}{Final} \\
-\cline{2-8}
+\begin{tabular}{l r|r|r|r|r|r|r}
+%\hline
+& \multicolumn{3}{c}{Quiz} & \multicolumn{4}{c}{Final} \\
+%\cline{2-8}
 & q4 & q5 & q6 & q4 & q5 & q6 & q7 \\
 \hline
 Submissions & 193 & 193 & 193 & 175 & 173 & 170 & 165 \\
 \hline
 Mean lines per solution & 9.9 & 16.9 & 19.8 & 12.3 & 20.9 & 50.0 & 41.8 \\
 \hline
-Solutions successfully processed & 186 & 189 & 168  & 170 & 166  & 134 & 133 \\
- & (96\%) & (98\%) & (87\%) & (97\%) & (96\%) & (79\%) & (81\%) \\
-\hline
+Solutions & 186 & 189 & 168  & 170 & 166  & 134 & 133 \\
+successfully processed & 96\% & 98\% & 87\% & 97\% & 96\% & 79\% & 81\% \\
+%\hline
 \end{tabular}
 \caption{Number of solutions submitted and successfully processed by GroverCode for each problem in the dataset. Reasons why a solution might not make it through the pipeline include syntax errors and memory management issues caused by students' inappropriate function calls.}
 \label{table:num_submissions}
 \end{table}
 
-
-
-Table~\ref{table:cluster_stats} captures the scale of the variation as well as some clustering statistics.
-
 \begin{table}[!ht]
 \centering
-\begin{tabular}{|l|c|c|c|c|c|c|c|}
-\hline
-& \multicolumn{3}{c|}{Quiz} & \multicolumn{4}{c|}{Final} \\
-\cline{2-8}
+\begin{tabular}{l r|r|r|r|r|r|r}
+%\hline
+& \multicolumn{3}{c}{Quiz} & \multicolumn{4}{c}{Final} \\
+%\cline{2-8}
 & q4 & q5 & q6 & q4 & q5 & q6 & q7 \\
 \hline
 Correct solutions & 182 & 160 & 94 & 96 & 49 & 16 & 12 \\
- & (94\%) & (82\%) & (49\%) & (55\%) & (28\%) & (9\%) & (7\%) \\
+ & 94\% & 82\% & 49\% & 55\% & 28\% & 9\% & 7\% \\
 \hline
 Incorrect solutions & 4 & 29 & 74 & 74 & 117 & 118 & 121 \\
 \hline
@@ -1443,35 +1466,31 @@ Distinct error signatures & 6 & 16 & 36 & 12 & 38 & 57 & 42 \\
 \hline
 Correct stacks & 40 & 84 & 93 & 47 & 46 & 16 & 12 \\
 \hline
-Stacks containing > 1 solution & 13 & 18 & 1 & 8 & 2 & 0 & 0 \\
+Stacks with > 1 solution & 13 & 18 & 1 & 8 & 2 & 0 & 0 \\
 \hline
-Solutions collapsed into stacks & 151 & 94 & 2 & 57 & 5 & 0 & 0 \\
-\hline
+Solutions in stacks & 151 & 94 & 2 & 57 & 5 & 0 & 0 \\
+%\hline
 \end{tabular}
 \caption{The degree of variation in input-output behavior and statistics about stack sizes.}
 \label{table:cluster_stats}
 \end{table}
 
-
-%\begin{comment}
-Table~\ref{table:renametype} summarizes the counts of the various mechanims by which variables in incorrect solutions were normalized.
-
 \begin{table}
 \centering
-\begin{tabular}{|l|c|c|c|c|c|c|c|}
-\hline
-& \multicolumn{3}{c|}{Quiz} & \multicolumn{4}{c|}{Final} \\
-\cline{2-8}
+\begin{tabular}{l c|c|c|c|c|c|c}
+%\hline
+& \multicolumn{3}{c}{Quiz} & \multicolumn{4}{c}{Final} \\
+%\cline{2-8}
 & q4 & q5 & q6 & q4 & q5 & q6 & q7 \\
 \hline
-Vars. in incorrect submissions & 15 & 149 & 482 & 289 & 550 & 559 & 859 \\
+Variables in incorrect submissions & 15 & 149 & 482 & 289 & 550 & 559 & 859 \\
 \hline
-Vars. renamed based on values & 14 & 84 & 266 & 97 & 246 & 97 & 187 \\
+Variables renamed based on values & 14 & 84 & 266 & 97 & 246 & 97 & 187 \\
 \hline
-Vars. renamed based on templates & 0 & 58 & 166 & 136 & 264 & 188 & 489 \\
+Variables renamed based on templates & 0 & 58 & 166 & 136 & 264 & 188 & 489 \\
 \hline
-Vars. not renamed & 1 & 7 & 50 & 56 & 40 & 274 & 183 \\
-\hline
+Variables not renamed & 1 & 7 & 50 & 56 & 40 & 274 & 183 \\
+%\hline
 \end{tabular}
 \caption{Statistics about variables renaming based on different heuristics in the GroverCode normalization process.}
 \label{table:renametype}
@@ -1482,7 +1501,7 @@ Vars. not renamed & 1 & 7 & 50 & 56 & 40 & 274 & 183 \\
 
 GroverCode was particularly appreciated on simpler problems where correct solutions were clustered together and graded by a single action. Under these conditions, the clustering capability GroverCode inherits from OverCode amplified teacher effort.
 
-Variable renaming was, for simpler programming problems, an invisible and possibly slightly confusing helping hand. One grader remarked, outloud: "Why is everyone naming their iterator variable 'i'?" at which point he had to be reminded of the variable renaming process. 
+Variable renaming was, for simpler programming problems, an invisible and possibly slightly confusing helping hand. One grader remarked, out loud: ``Why is everyone naming their iterator variable `i'?'' at which point he had to be reminded of the variable renaming process. 
 
 When applied to more complex solutions, the normalization process was at times more harmful than helpful for teacher comprehension. As solutions became more varied and structurally complex, graders started toggling off normalization because the renaming of variables, removal of comments, and formatting standardization was removing clues they needed in order to understand student intent.
 

@@ -200,14 +200,12 @@ The OverCode user interface depends on an analysis pipeline that normalizes solu
 \subsection{Analysis Pipeline}
 OverCode is currently implemented for Python, but the pipeline steps described below could be readily generalized to other languages commonly used to teach programming.
 
-{\bf 1. Reformat solutions.} For a consistent appearance, the solutions are reformatted with the PythonTidy package\footnote{Created by Charles Curtis Rhode. \url{https://pypi.python.org/pypi/PythonTidy/}} to have consistent line indentation and token spacing. Comments and empty lines are also removed. These steps not only make solutions more readable, but also allow exact string matches between solutions, after additional normalizing steps later in the pipeline. Although comments can contain valuable information, the variation in comments is so great that clustering and summarizing them will require significant additional design, which remains future work.
+{\bf 1. Reformat solutions.} For a consistent appearance, the solutions are reformatted with the PythonTidy package\footnote{Created by Charles Curtis Rhode. \url{https://pypi.python.org/pypi/PythonTidy/}} to have consistent line indentation and token spacing. Comments and empty lines are also removed. These steps not only make solutions more readable, but also allow exact string matches between solutions, after additional normalizing steps later in the pipeline. Although comments can contain valuable information, the variation in comments is so great that clustering and summarizing them will require significant additional design, which remains future work. The following example illustrates the effect of this reformatting:
 
-The following example illustrates the effect of this reformatting:
-
-\begin{tabular}{cc}
+\begin{tabular}{ll}
 {\bf Student A Raw Code} & {\bf Student A Reformatted} \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base, exp):
     '''
     base: int or float.
@@ -222,7 +220,7 @@ def iterPower(base, exp):
 \end{minipage}
 &
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
     result=1
     for i in range(exp):
@@ -232,28 +230,25 @@ def iterPower(base,exp):
 \end{minipage}
 \end{tabular}
 
+{\bf 2. Execute solutions.} Each solution is executed once, using the same test case. During each step of the execution, the names and values of local and global variables, and also return values from functions, are recorded as a program trace using an adaptation of Philip Guo's logger~\cite{pgbovineOPT}. There is one program trace per solution. Included for the purpose of illustrating this pipeline, the following examples are derived from executing definitions of \codevar{iterPower} on a \codevar{base} of $5.0$ and an \codevar{exp} of $3$.
 
-
-{\bf 2. Execute solutions.} Each solution is executed once, using the same test case. During each step of the execution, the names and values of local and global variables, and also return values from functions, are recorded as a program trace using an adaptation of Philip Guo's logger~\cite{pgbovineOPT}. There is one program trace per solution. Included for the purpose of illustrating this pipeline, the following examples are derived from executing definitions of \codevar{iterPower} on a \codevar{base} of $5.0$ and an \codevar{exp} of $3$. \\
-
+\begin{tabular}{l}
 {\bf Student Code with Test Case} \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
     #student code here
 iterPower(5.0, 3)
 \end{lstlisting}
-\end{minipage} \\
-
-
-
+\end{minipage} 
+\end{tabular}
 
 {\bf 3. Extract variable sequences.} For each variable in a program trace, the pipeline extracts the sequence of distinct values it takes on.
-\\
-\begin{tabular}{cc}
+
+\begin{tabular}{ll}
 {\bf Student A Code with Test Case} & {\bf Program Trace for Student A Code} \\
 \begin{minipage}{0.35\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
     result=1
     for i in range(exp):
@@ -263,7 +258,7 @@ iterPower(5.0, 3)
 \end{lstlisting}
 \end{minipage} &
 \begin{minipage}{0.6\linewidth}
-\begin{lstlisting}[language=python,linebackgroundcolor={\lstcolorlines[lightyellow]{2,4,6,8,10,12,14,16,18}}]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{2,4,6,8,10,12,14,16,18}}]
 iterPower(5.0, 3)
  base : 5.0, exp : 3
 result=1
@@ -294,15 +289,15 @@ exp: 3
 result: 1, 5.0, 25.0, 125.0
 i: 0, 1, 2
 \end{lstlisting}
-\end{minipage} \\
+\end{minipage}
 \end{tabular}
 
 Variable sequence extraction also works for purely functional programs, in which variables are never reassigned, because each recursive invocation is treated as if new values are given to its parameter variables. For example, in spite of the fact that the \codevar{iterPower} problem asked students to compute the exponential $\codevar{base}^\codevar{exp}$ \textit{iteratively}, $60$ of the $3842$ \codevar{iterPower} solutions in the dataset were in fact recursive. One of these recursive examples is shown below, along with the variable sequences observed for the recursive function's parameters.
 
-\begin{tabular}{cc}
+\begin{tabular}{ll}
 {\bf Recursive Example} & {\bf Program Trace for Recursive Example} \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
    if exp==0:
        return 1
@@ -312,7 +307,7 @@ iterPower(5.0, 3)
 \end{lstlisting}
 \end{minipage} &
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{2,4,6,8,10,12,14,16,18,20,22,24,26,28,30}}]
 iterPower(5.0, 3)
  base : 5.0, exp : 3
 if exp==0:
@@ -354,16 +349,16 @@ value returned: 125.0
 base: 5.0
 exp: 3, 2, 1, 0, 1, 2, 3
 \end{lstlisting}
-\end{minipage} \\
+\end{minipage}
 \end{tabular}
 
 
 {\bf 4. Identify common variables.} The pipeline analyzes all program traces, identifying which variables' sequences are identical. Variables that have identical sequences across two or more program traces are referred to as {\it common variables}. Variables which occur in only one program trace are called {\it unique variables}. 
 
-\begin{tabular}{cc}
+\begin{tabular}{ll}
 {\bf Student B Code with Test Case} & {\bf Variable Sequences for Student B Code} \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
     r=1
     for k in xrange(exp):
@@ -383,7 +378,7 @@ k: 0, 1, 2
 \end{minipage} \\
 {\bf Student C Code with Test Case} & {\bf Variable Sequences for Student C Code} \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
    result=1
    while exp>0:
@@ -401,49 +396,52 @@ exp: 3
 result : 1, 5.0, 25.0, 125.0
 exp : 3, 2, 1, 0
 \end{lstlisting}
-\end{minipage} \\
+\end{minipage}
 \end{tabular}
 
-For example, in Student A's code and Student B's code, \codevar{i} and \codevar{k} take on the same sequence of values: $0$,$1$,$2$. They are therefore considered the same {\it common variable}.
-
-\begin{tabular}{cc}
+For example, in Student A's code and Student B's code, \codevar{i} and \codevar{k} take on the same sequence of values: $0$,$1$,$2$. They are therefore considered the same {\it common variable}. The following table shows the common and unique variables across Students A, B, and C.
+\vspace{10mm}
+\begin{tabular}{ll}
 {\bf Common Variables} & {\bf  Unique Variables} \\
-(across Students A, B, and C) & (across Students A, B, and C) \\
+%(across Students A, B, and C) & (across Students A, B, and C) \\
 \begin{minipage}{0.5\linewidth}
 \begin{itemize}
 \item \texttt{5.0}:
-
-\texttt{base} (Students A, B, C)
+\begin{itemize}
+\item \texttt{base} (Students A, B, C)
+\end{itemize}
 \item \texttt{3}:
-
-\texttt{exp} (Students A, B) 
+\begin{itemize}
+\item \texttt{exp} (Students A, B) 
+\end{itemize}
 \item \texttt{1, 5.0, 25.0, 125.0}: 
-
-\texttt{result} (Students A, C)
-
-\texttt{r} (Student B)
+\begin{itemize}
+\item \texttt{result} (Students A, C)
+\item \texttt{r} (Student B)
+\end{itemize}
 \item \texttt{0,1,2}:
-
-\texttt{i} (Student A) 
-
-\texttt{k} (Student B)
+\begin{itemize}
+\item \texttt{i} (Student A) 
+\item \texttt{k} (Student B)
+\end{itemize}
 \end{itemize}
 \end{minipage}
 &
 \begin{minipage}{0.5\linewidth}
 \begin{itemize}
 \item \texttt{3,2,1,0}:
-
-\texttt{exp} (Student C)
+\begin{itemize}
+\item \texttt{exp} (Student C)
 \end{itemize}
-\end{minipage} \\
+\end{itemize}
+\end{minipage}
 \end{tabular}
 
-{\bf 5. Rename common and unique variables.} A common variable may have a different name in each program trace. The name given to each common variable is the variable name that is given most often to that common variable across all program traces. 
+{\bf 5. Rename common and unique variables.} A common variable may have a different name in each program trace. In this step, the common variable is renamed to the name that is given most often to that common variable across all program traces. 
 
-There are exceptions made to avoid three types of name collisions described in Section \ref{repercussions} that follows. In the running example, the unique variable's original name, \codevar{exp}, has a double underscore appended to it as a modifier to resolve a name collision with the common variable of the same name, referred to here as a Unique/Common Collision.
+There are exceptions made to avoid name collisions. For example, in the running example, the unique variable's original name, \codevar{exp}, has a double underscore appended to it as a modifier to resolve a name collision with the common variable of the same name, referred to as a unique/common collision.
 
-\begin{tabular}{cc}
+\begin{tabular}{ll}
 {\bf Common Variables, Named} & {\bf Unique Variables, Named} \\
 \begin{minipage}{0.5\linewidth}
 \begin{itemize}
@@ -461,15 +459,16 @@ There are exceptions made to avoid three types of name collisions described in S
 \end{minipage}
 
 \end{tabular}
+\vspace{5mm}
 
 After common and unique variables in the solutions are renamed, the solutions are now called {\it normal}.
 
-\begin{tabular}{cc}
+\begin{tabular}{ll}
 
 {\bf Normal Student A Code (After Renaming)} & {\bf Normal Student B Code (After Renaming)} \\ 
 
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
     result=1
     for i in range(exp):
@@ -478,7 +477,7 @@ def iterPower(base,exp):
 \end{lstlisting}
 \end{minipage} &
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
     result=1
     for i in xrange(exp):
@@ -489,7 +488,7 @@ def iterPower(base,exp):
 \\
 {\bf Normal Student C Code (After Renaming)} &  \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp__):
    result=1
    while exp__>0:
@@ -501,15 +500,16 @@ def iterPower(base,exp__):
 & \\
 \end{tabular}
 
+\vspace{10mm}
+{\bf 6. Make stacks.} The pipeline iterates through the normal solutions, making stacks of solutions that share an identical {\it set} of lines of code. The pipeline compares sets of lines of code because then solutions with arbitrarily ordered lines that do not depend on each other can still fall into the same stack. (Recall that the variables in these lines of code have already been renamed based on their dynamic behavior, and all the solutions have already been marked input-output correct by an autograder, prior to this pipeline.) The platonic solution that represents the stack is randomly chosen from within the stack, because all the normal solutions within the stack are identical, with the possible exception of the order of their statements. 
 
-{\bf 6. Make stacks.} The pipeline iterates through the normal solutions, making stacks of solutions that share an identical {\it set} of lines of code. The pipeline compares {\it sets} of lines of code because then solutions with arbitrarily ordered lines that do not depend on each other can still fall into the same stack. (Recall that the variables in these lines of code have already been renamed based on their dynamic behavior, and all the solutions have already been marked input-output correct by an autograder, prior to this pipeline.) The platonic solution that represents the stack is randomly chosen from within the stack, because all the normal solutions within the stack are identical, with the possible exception of the order of their statements. 
+In the examples below, the normal C and D solutions have the same set of lines, and both provide correct output, with respect to the autograder. Therefore, the difference in order of the statements between the two solutions is not communicated to the teacher. The two solutions are put in the same stack, with one solution arbitrarily chosen as the visible normalized code. However, since Student A and Student B use different functions, i.e., \codevar{xrange} vs. \codevar{range}, and different operators, i.e., \codevar{*=} vs. \codevar{=,*}, the pipeline puts them in separate stacks.
+%\vspace{10mm}
 
-In the examples below, the normal C and D solutions have the exact same set of lines, and both provide correct output, with respect to the autograder. Therefore, the difference in order of the statements between the two solutions is not communicated to the teacher. The two solutions are put in the same stack, with one solution arbitrarily chosen as the visible normalized code. However, since Student A and Student B use different functions, i.e., \codevar{xrange} vs. \codevar{range}, and different operators, i.e., \codevar{*=} vs. \codevar{=,*}, the pipeline puts them in separate stacks.
-
-\begin{tabular}{c|c}
-{\bf Stack 1} Normal Student A (After Renaming) & {\bf Stack 2} Normal Student B (After Renaming)  \\
+\begin{tabular}{l|l}
+{\bf Stack 1} Normal Student A & {\bf Stack 2} Normal Student B  \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python,linebackgroundcolor={\lstcolorlines[lightyellow]{3,4}}]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{3,4}}]
 def iterPower(base,exp):
     result=1
     for i in range(exp):
@@ -519,7 +519,7 @@ def iterPower(base,exp):
 \end{minipage}
 &
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python,linebackgroundcolor={\lstcolorlines[lightyellow]{3,4}}]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{3,4}}]
 def iterPower(base,exp):
     result=1
     for i in xrange(exp):
@@ -528,12 +528,12 @@ def iterPower(base,exp):
 \end{lstlisting}
 \end{minipage}
 \end{tabular}
-\begin{tabular}{cc}
+\begin{tabular}{ll}
 \hline
 \\
-{\bf Stack 3} Normal Student C (After Renaming) & {\bf Stack 3} Normal Student D (After Renaming)  \\
+{\bf Stack 3} Normal Student C & {\bf Stack 3} Normal Student D  \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python,linebackgroundcolor={\lstcolorlines[mygray]{4,5}}]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[mygray]{4,5}}]
 def iterPower(base,exp__):
     result=1
     while exp__>0:
@@ -544,7 +544,7 @@ def iterPower(base,exp__):
 \end{minipage}
 &
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python,linebackgroundcolor={\lstcolorlines[mygray]{4,5}}]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[mygray]{4,5}}]
 def iterPower(base,exp__):
     result=1
     while exp__>0:
@@ -565,15 +565,15 @@ The program tracing \cite{pgbovineOPT} and renaming scripts occasionally generat
 
 There are three distinct types of name collisions possible when renaming variables to be consistent across multiple solutions. The first, referred to here as a {\it common/common} collision, occurs when two common variables (with different variable sequences) have the same common name. The second, referred to here as a {\it multiple instances} collision, occurs when there are multiple different instances of the same common variable in a solution. The third and final collision, referred to as a {\it unique/common} collision, occurs when a unique variable's name collides with a common variable's name.
 
-{\bf Common/common collision.} If common variables $cv_{1}$ and $cv_{2}$ are both most frequently named $i$ across all program traces, the pipeline appends a modifier to the name of the less frequently used common variable. For example, if 500 program traces have an instance of $cv_{1}$ and only 250 program traces have an instance of $cv_{2}$, $cv_{1}$ will be named $i$ and $cv_{2}$ will be named $iB$. \todo{change to subscripts now?}
+{\bf Common/common collision.} If common variables $cv_{1}$ and $cv_{2}$ are both most frequently named $i$ across all program traces, the pipeline appends a modifier to the name of the less frequently used common variable. For example, if 500 program traces have an instance of $cv_{1}$ and only 250 program traces have an instance of $cv_{2}$, $cv_{1}$ will be named $i$ and $cv_{2}$ will be named $iB$.  
 
-This is illustrated below. Across all thousand of \codevar{iterPower} definitions in our dataset, a subset of them created a variable that iterated through the values generated by \codevar{range(exp)}. Student A's code is an example. A smaller subset created a variable that iterated through the values generated by \codevar{range(1,exp+1)}, as seen in Student E's code. These are two separate common variables in our pipeline, due to their differing value sequences. The {\it common/common} name collision arises because both common variables are most frequently named \codevar{i} across all solutions to \codevar{iterPower}. To preserve the one-to-one mapping of variable name to value sequence across the entire \codevar{iterPower} problem dataset, the pipeline appends a modifier, \codevar{B}, to the common variable \codevar{i} found in fewer \codevar{iterPower} solutions. A common variable, also most commonly named \codevar{i}, which is found in even fewer \codevar{iterPower} definitions, will have a \codevar{C} appended, etc.
+For example, a subset of \codevar{iterPower} solutions created a variable that iterated through the values generated by \codevar{range(exp)}. Student A's code is an example. A smaller subset created a variable that iterated through the values generated by \codevar{range(1,exp+1)}, as seen in Student E's code. These are two separate common variables in our pipeline, due to their differing value sequences. The {\it common/common} name collision arises because both common variables are most frequently named \codevar{i} across all solutions to \codevar{iterPower}. To preserve the one-to-one mapping of variable name to value sequence across the entire \codevar{iterPower} problem dataset, the pipeline appends a modifier, \codevar{B}, to the common variable \codevar{i} found in fewer \codevar{iterPower} solutions. A common variable, also most commonly named \codevar{i}, which is found in even fewer \codevar{iterPower} definitions, will have a \codevar{C} appended, etc.
 
-\begin{tabular}{c|c}
+\begin{tabular}{l|l}
 
-{\bf Student A (Represents 500 Solutions} & {\bf Student E (Represents 250 Solutions} \\
+{\bf Student A (Represents 500 Solutions)} & {\bf Student E (Represents 250 Solutions)} \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
     result=1
     for i in range(exp):
@@ -583,7 +583,7 @@ def iterPower(base,exp):
 \end{minipage}
 &
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python,linebackgroundcolor={\lstcolorlines[lightyellow]{3}}]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{3}}]
 def iterPower(base,exp):
    result=1
    for i in range(1,exp+1):
@@ -596,7 +596,7 @@ def iterPower(base,exp):
 \codevar{(unchanged)} 
 &
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python,linebackgroundcolor={\lstcolorlines[lightyellow]{3}}]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{3}}]
 def iterPower(base,exp):
    result=1
    for iB in range(1,exp+1):
@@ -612,10 +612,11 @@ Rather than injecting a name collision into an otherwise correct solution, the p
 
 In the following example, the solution author made a copy of the \codevar{exp} variable, called it \codevar{exp1}, and modified neither. Both map to the same common variable, \codevar{expB}. Therefore, both have had their author-given names preserved, with an underscore appended to the local \codevar{exp} so it does not look like common variable \codevar{exp}. 
 
-\begin{tabular}{cc}
-{\bf Code with Multiple Instances of a Common Variable} & {\bf Common Variable Mappings} \\
+\begin{tabular}{ll}
+{\bf Code with Multiple Instances} & {\bf Common Variable} \\
+{\bf of a Common Variable} & {\bf Mappings} \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
    result=1
    exp1=abs(exp)
@@ -630,11 +631,13 @@ iterPower(5.0,3)
 &
 \begin{minipage}{0.5\linewidth}
 \begin{lstlisting}[]
-Both exp and exp1 map to common variable expB: 3
+Both exp and exp1 map to
+common variable expB:
 exp: 3 
 exp1: 3 
 
-All other variables map to common variables of same name
+All other variables map to
+common variables of same name:
 base: 5.0 
 i: 0, 1, 2 
 result: 1, 5.0, 25.0, 125.0 
@@ -642,7 +645,7 @@ result: 1, 5.0, 25.0, 125.0
 \end{minipage} \\
 {\bf Code with Multiple Instances Collision Resolved} & \\
 \begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[language=python,linebackgroundcolor={\lstcolorlines[lightyellow]{1,3,6}}]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{1,3,6}}]
 def iterPower(base,exp__):
    result=1
    exp1=abs(exp__)
@@ -664,7 +667,7 @@ In the following example, the student added $1$ to the exponent variable before 
 
 %{\bf Student Code with Unique Variable}
 \begin{minipage}{0.45\linewidth}
-\begin{lstlisting}[language=python,linebackgroundcolor={\lstcolorlines[lightyellow]{1,3,4,6}}]
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{1,3,4,6}}]
 def iterPower(base,exp__):
    result=1
    exp__+=1

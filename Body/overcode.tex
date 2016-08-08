@@ -200,8 +200,8 @@ The OverCode user interface depends on an analysis pipeline that normalizes solu
 \subsection{Analysis Pipeline}
 OverCode is currently implemented for Python, but the pipeline steps described below could be readily generalized to other languages commonly used to teach programming.
 
-{\bf 1. Reformat solutions.} For a consistent appearance, the solutions are reformatted with the PythonTidy package\footnote{Created by Charles Curtis Rhode. \url{https://pypi.python.org/pypi/PythonTidy/}} to have consistent line indentation and token spacing. Comments and empty lines are also removed. These steps not only make solutions more readable, but also allow exact string matches between solutions, after additional normalizing steps later in the pipeline. Although comments can contain valuable information, the variation in comments is so great that clustering and summarizing them will require significant additional design, which remains future work. The following example illustrates the effect of this reformatting:
-
+{\bf 1. Reformat solutions.} For a consistent appearance, the solutions are reformatted with the PythonTidy package\footnote{Created by Charles Curtis Rhode. \url{https://pypi.python.org/pypi/PythonTidy/}} to have consistent line indentation and token spacing. Comments and empty lines are also removed. These steps not only make solutions more readable, but also allow exact string matches between solutions, after additional normalizing steps later in the pipeline. Although comments can contain valuable information, the variation in comments is so great that clustering and summarizing them will require significant additional design, which remains future work. Figure~\ref{fig:reformat} illustrates the effect of this reformatting.
+\begin{figure}
 \begin{tabular}{ll}
 {\bf Student A Raw Code} & {\bf Student A Reformatted} \\
 \begin{minipage}{0.5\linewidth}
@@ -229,9 +229,12 @@ def iterPower(base,exp):
 \end{lstlisting}
 \end{minipage}
 \end{tabular}
+\caption{A student solution before and after reformatting.}
+\label{fig:reformat}
+\end{figure}
 
-{\bf 2. Execute solutions.} Each solution is executed once, using the same test case. During each step of the execution, the names and values of local and global variables, and also return values from functions, are recorded as a program trace using an adaptation of Philip Guo's logger~\cite{pgbovineOPT}. There is one program trace per solution. Included for the purpose of illustrating this pipeline, the following examples are derived from executing definitions of \codevar{iterPower} on a \codevar{base} of $5.0$ and an \codevar{exp} of $3$.
-
+{\bf 2. Execute solutions.} Each solution is on the same test case(s). During each step of the execution for each test case, the names and values of local and global variables, and also return values from functions, are recorded as a program trace using an adaptation of Philip Guo's logger~\cite{pgbovineOPT}. There is one program trace per solution per test case. Included for the purpose of illustrating this pipeline, the examples in the figures that follow are derived from executing definitions of \codevar{iterPower} on a \codevar{base} of $5.0$ and an \codevar{exp} of $3$, as illustrated in Figure~\ref{fig:testcase}.
+\begin{figure}
 \begin{tabular}{l}
 {\bf Student Code with Test Case} \\
 \begin{minipage}{0.5\linewidth}
@@ -242,9 +245,12 @@ iterPower(5.0, 3)
 \end{lstlisting}
 \end{minipage} 
 \end{tabular}
+\caption{Illustration of running a (dummy) \texttt{iterPower} solution on a test case.}
+\label{fig:testcase}
+\end{figure}
 
-{\bf 3. Extract variable sequences.} For each variable in a program trace, the pipeline extracts the sequence of distinct values it takes on.
-
+{\bf 3. Extract variable sequences.} For each variable in a program trace, the pipeline extracts the sequence of distinct values it takes on. Figure~\ref{fig:extractsequence} shows the program trace for a solution run on a test case, as well as the extracted sequences of distinct values for each variable. Variable sequence extraction also works for purely functional programs, in which variables are never reassigned, because each recursive invocation is treated as if new values are given to its parameter variables. For example, in spite of the fact that the \codevar{iterPower} problem asked students to compute the exponential $\codevar{base}^\codevar{exp}$ \textit{iteratively}, $60$ of the $3842$ \codevar{iterPower} solutions in the dataset were in fact recursive. One of these recursive examples is shown in Figure~\ref{fig:recursiveTrace}, along with the variable sequences extracted.
+\begin{figure}
 \begin{tabular}{ll}
 {\bf Student A Code with Test Case} & {\bf Program Trace for Student A Code} \\
 \begin{minipage}{0.35\linewidth}
@@ -291,9 +297,11 @@ i: 0, 1, 2
 \end{lstlisting}
 \end{minipage}
 \end{tabular}
+\caption{A student solution, its program trace when running on the test case \texttt{iterPower(5.0,3)}, and the sequence of values extracted from the trace for each variable.}
+\label{fig:extractsequence}
+\end{figure}
 
-Variable sequence extraction also works for purely functional programs, in which variables are never reassigned, because each recursive invocation is treated as if new values are given to its parameter variables. For example, in spite of the fact that the \codevar{iterPower} problem asked students to compute the exponential $\codevar{base}^\codevar{exp}$ \textit{iteratively}, $60$ of the $3842$ \codevar{iterPower} solutions in the dataset were in fact recursive. One of these recursive examples is shown below, along with the variable sequences observed for the recursive function's parameters.
-
+\begin{figure}
 \begin{tabular}{ll}
 {\bf Recursive Example} & {\bf Program Trace} \\
  % & {\bf for Recursive Example} \\
@@ -353,10 +361,13 @@ exp: 3, 2, 1, 0, 1, 2, 3
 \end{lstlisting}
 \end{minipage}
 \end{tabular}
+\caption{A recursive solution to the same programming problem, its program trace when executing on \texttt{iterPower(5.0,3)}, and the extracted sequences of values for each variable.}
+\label{fig:recursiveTrace}
+\end{figure}
 
 
-{\bf 4. Identify common variables.} The pipeline analyzes all program traces, identifying which variables' sequences are identical. Variables that have identical sequences across two or more program traces are referred to as {\it common variables}. Variables which occur in only one program trace are called {\it unique variables}. 
-
+{\bf 4. Identify common variables.} The pipeline analyzes all program traces, identifying which variables' sequences are identical. Variables that have identical sequences across two or more program traces are referred to as {\it common variables}. Variables which occur in only one program trace are called {\it unique variables}. This is illustrated in Figures~\ref{fig:commik} and~\ref{fig:allvars}.
+\begin{figure}
 \begin{tabular}{ll}
 {\bf Student B Code with Test Case} & {\bf Variable Sequences for Student B Code} \\
 \begin{minipage}{0.5\linewidth}
@@ -400,13 +411,11 @@ exp : 3, 2, 1, 0
 \end{lstlisting}
 \end{minipage}
 \end{tabular}
-
-For example, in Student A's code and Student B's code, \codevar{i} and \codevar{k} take on the same sequence of values: $0$,$1$,$2$. They are therefore considered the same {\it common variable}. The following table shows the common and unique variables across Students A, B, and C.
-\vspace{10mm}
-\begin{tabular}{ll}
-{\bf Common Variables} & {\bf  Unique Variables} \\
-%(across Students A, B, and C) & (across Students A, B, and C) \\
-\begin{minipage}{0.5\linewidth}
+\caption{\codevar{i} and \codevar{k} take on the same sequence of values in Student A's and Student B's code: $0$,$1$,$2$. They are therefore considered the same {\it common variable}.}
+\label{fig:commik}
+\end{figure}
+\begin{figure}
+{\bf Common variables} in Students A, B, and C's code:
 \begin{itemize}
 \item \texttt{5.0}:
 \begin{itemize}
@@ -427,22 +436,21 @@ For example, in Student A's code and Student B's code, \codevar{i} and \codevar{
 \item \texttt{k} (Student B)
 \end{itemize}
 \end{itemize}
-\end{minipage}
-&
-\begin{minipage}{0.5\linewidth}
+{\bf Unique variables} in Students A, B, and C's code:
 \begin{itemize}
 \item \texttt{3,2,1,0}:
 \begin{itemize}
 \item \texttt{exp} (Student C)
 \end{itemize}
 \end{itemize}
-\end{minipage}
-\end{tabular}
+\caption{Common and uncommon variables found across the solutions in the previous figure.}
+\label{fig:allvars}
+\end{figure}
 
 {\bf 5. Rename common and unique variables.} A common variable may have a different name in each program trace. In this step, the common variable is renamed to the name that is given most often to that common variable across all program traces. 
 
-There are exceptions made to avoid name collisions. For example, in the running example, the unique variable's original name, \codevar{exp}, has a double underscore appended to it as a modifier to resolve a name collision with the common variable of the same name, referred to as a unique/common collision.
-
+There are exceptions made to avoid name collisions. For example, the unique variable in the previous pipeline step was originally named \codevar{exp}. As shown in Figure~\ref{fig:uniqcomm}, OverCode appends a double underscore as a modifier to resolve a name collision with the common variable of the same name. This is referred to as a unique/common collision.
+\begin{figure}
 \begin{tabular}{ll}
 {\bf Common Variables, Named} & {\bf Unique Variables, Named} \\
 \begin{minipage}{0.5\linewidth}
@@ -461,10 +469,12 @@ There are exceptions made to avoid name collisions. For example, in the running 
 \end{minipage}
 
 \end{tabular}
-\vspace{5mm}
+\caption{The unique variable in the previous pipeline step was originally named \codevar{exp}. OverCode appends a double underscore as a modifier to resolve a name collision with the common variable of the same name. This is referred to as a unique/common collision.}
+\label{fig:uniqcomm}
+\end{figure}
 
-After common and unique variables in the solutions are renamed, the solutions are now called {\it normal}:
-
+After common and unique variables in the solutions are renamed, the solutions are now called {\it normal}, as shown in Figure~\ref{fig:normalcode}.
+\begin{figure}
 \begin{tabular}{ll}
 
 {\bf Normal Student A Code} & {\bf Normal Student B Code} \\ 
@@ -501,13 +511,15 @@ def iterPower(base,exp__):
 \end{minipage}
 & \\
 \end{tabular}
+\caption{Normalized solutions after variable renaming.}
+\label{fig:normalcode}
+\end{figure}
 
-\vspace{10mm}
 {\bf 6. Make stacks.} The pipeline iterates through the normal solutions, making stacks of solutions that share an identical {\it set} of lines of code. The pipeline compares sets of lines of code because then solutions with arbitrarily ordered lines that do not depend on each other can still fall into the same stack. (Recall that the variables in these lines of code have already been renamed based on their dynamic behavior, and all the solutions have already been marked input-output correct by an autograder, prior to this pipeline.) The platonic solution that represents the stack is randomly chosen from within the stack, because all the normal solutions within the stack are identical, with the possible exception of the order of their statements. 
 
-In the examples below, the normal C and D solutions have the same set of lines, and both provide correct output, with respect to the autograder. Therefore, the difference in order of the statements between the two solutions is not communicated to the teacher. The two solutions are put in the same stack, with one solution arbitrarily chosen as the visible normalized code. However, since Student A and Student B use different functions, i.e., \codevar{xrange} vs. \codevar{range}, and different operators, i.e., \codevar{*=} vs. \codevar{=,*}, the pipeline puts them in separate stacks.
+In the examples in Figure~\ref{fig:makingstacks}, the normal C and D solutions have the same set of lines, and both provide correct output, with respect to the autograder. Therefore, the difference in order of the statements between the two solutions is not communicated to the teacher. The two solutions are put in the same stack, with one solution arbitrarily chosen as the visible normalized code. However, since Student A and Student B use different functions, i.e., \codevar{xrange} vs. \codevar{range}, and different operators, i.e., \codevar{*=} vs. \codevar{=,*}, the pipeline puts them in separate stacks.
 %\vspace{10mm}
-
+\begin{figure}
 \begin{tabular}{l|l}
 {\bf Stack 1} Normal Student A & {\bf Stack 2} Normal Student B  \\
 \begin{minipage}{0.5\linewidth}
@@ -556,7 +568,9 @@ def iterPower(base,exp__):
 \end{lstlisting}
 \end{minipage}
 \end{tabular}
-
+\caption{Four solutions collapsed into three stacks.}
+\label{fig:makingstacks}
+\end{figure}
 Some programming problems have no deadline, and new solutions are submitted intermittently. The entire pipeline does not need to be rerun to normalize a new solution and restack all the solutions in the dataset. The pipeline has been split into two phases: solution preprocessing and batch processing. During preprocessing, each solution formatting is standardized and all comments are removed. It is then executed on one or more test cases, which makes the resulting normalization more robust to any individual poorly chosen test case. The full program trace and output is recorded for every test case. 
 
 This logging of solution execution can be one of the longer steps in the OverCode analysis pipeline, so preprocessing occurs once per solution and is saved in its own pickle file. New solutions can be preprocessed once, without affecting previously preprocessed solutions. Batch processing takes, as input, all the existing preprocessed results and normalizes variable names. This must occur as a batch operation because variable renaming depends on the behavior and name of every variable in every solution.
@@ -569,8 +583,8 @@ There are three distinct types of name collisions possible when renaming variabl
 
 {\bf Common/common collision.} If common variables $cv_{1}$ and $cv_{2}$ are both most frequently named $i$ across all program traces, the pipeline appends a modifier to the name of the less frequently used common variable. For example, if 500 program traces have an instance of $cv_{1}$ and only 250 program traces have an instance of $cv_{2}$, $cv_{1}$ will be named $i$ and $cv_{2}$ will be named $iB$.  
 
-For example, a subset of \codevar{iterPower} solutions created a variable that iterated through the values generated by \codevar{range(exp)}. Student A's code is an example. A smaller subset created a variable that iterated through the values generated by \codevar{range(1,exp+1)}, as seen in Student E's code. These are two separate common variables in our pipeline, due to their differing value sequences. The {\it common/common} name collision arises because both common variables are most frequently named \codevar{i} across all solutions to \codevar{iterPower}. To preserve the one-to-one mapping of variable name to value sequence across the entire \codevar{iterPower} problem dataset, the pipeline appends a modifier, \codevar{B}, to the common variable \codevar{i} found in fewer \codevar{iterPower} solutions. A common variable, also most commonly named \codevar{i}, which is found in even fewer \codevar{iterPower} definitions, will have a \codevar{C} appended, etc.
-
+For example, a subset of \codevar{iterPower} solutions created a variable that iterated through the values generated by \codevar{range(exp)}. Student A's code is an example. A smaller subset created a variable that iterated through the values generated by \codevar{range(1,exp+1)}, as seen in Student E's code. These are two separate common variables in our pipeline, due to their differing value sequences. The {\it common/common} name collision arises because both common variables are most frequently named \codevar{i} across all solutions to \codevar{iterPower}. To preserve the one-to-one mapping of variable name to value sequence across the entire \codevar{iterPower} problem dataset, the pipeline appends a modifier, \codevar{B}, to the common variable \codevar{i} found in fewer \codevar{iterPower} solutions. A common variable, also most commonly named \codevar{i}, which is found in even fewer \codevar{iterPower} definitions, will have a \codevar{C} appended, etc. This is illustrated in Figure~\ref{fig:commcommcoll}.
+\begin{figure}
 \begin{tabular}{l|l}
 
 {\bf Student A (Represents 500 Solutions)} & {\bf Student E (Represents 250 Solutions)} \\
@@ -607,13 +621,16 @@ def iterPower(base,exp):
 \end{lstlisting}
 \end{minipage}
 \end{tabular}
+\caption{The top row illustrates a name collision of two common variables, both most commonly named \texttt{i}, across two stacks. The second row illustrates how the colliding variable name in the smaller stack of solutions is modified with an appended character to resolve the collision.}
+\label{fig:commcommcoll}
+\end{figure}
 
 {\bf Multiple-instances collision.} The pipeline identifies variables by their sequence of values (excluding consecutive duplicates), not by their given name in any particular solution. However, without considering the timing of variables' transitions between values, relative to other variables in scope at each step of a function execution, it is not possible to differentiate between multiple instances of a common variable within a single solution. 
 
 Rather than injecting a name collision into an otherwise correct solution, the pipeline preserves the solution author's variable name choice for all the instances of that common variable in that solution. If a solution author's preserved variable name collides with any common variable name in any program trace and does not share that common variable's sequence of values, the pipeline appends a double underscore to the solution author's preserved variable name, so that the interface, and the human reader, do not conflate them.
 
-In the following example, the solution author made a copy of the \codevar{exp} variable, called it \codevar{exp1}, and modified neither. Both map to the same common variable, \codevar{expB}. Therefore, both have had their author-given names preserved, with an underscore appended to the local \codevar{exp} so it does not look like common variable \codevar{exp}. 
-
+In Figure~\ref{fig:multiinst}, the solution author made a copy of the \codevar{exp} variable, called it \codevar{exp1}, and modified neither. Both map to the same common variable, \codevar{expB}. Therefore, both have had their author-given names preserved, with an underscore appended to the local \codevar{exp} so it does not look like common variable \codevar{exp}. 
+\begin{figure}
 \begin{tabular}{ll}
 {\bf Code with Multiple Instances} & {\bf Common Variable Mappings} \\
 {\bf of a Common Variable} & \\
@@ -661,13 +678,17 @@ iterPower(5.0,3)
 \end{minipage}
 & \\
 \end{tabular}
+\caption{A variable name in a solution with multiple instances of a common variable, i.e., a multiple-instances collision, is modified so that its behavior during execution is unchanged.}
+\label{fig:multiinst}
+\end{figure}
 
 {\bf Unique/common collision.} Unique variables, as defined before, take on a sequence of values that is unique across all program traces. If a unique variable's name collides with any common variable name in any program trace, the pipeline appends a double underscore to the unique variable name, so that the interface, and the human reader, do not conflate them. 
 
 %In addition to the example of this collision in the description of common and variable naming in the previous section, we provide the example below. 
-In the following example, the student added $1$ to the exponent variable before entering a \codevar{while} loop. No other students did this. To indicate that the \codevar{exp} variable is {\it unique} and does not share the same behavior as the common variable also named \codevar{exp}, our pipeline appends double underscores to \codevar{exp} in this one solution. 
+In Figure~\ref{fig:lastone}, the student added $1$ to the exponent variable before entering a \codevar{while} loop. No other students did this. To indicate that the \codevar{exp} variable is {\it unique} and does not share the same behavior as the common variable also named \codevar{exp}, our pipeline appends double underscores to \codevar{exp} in this one solution. 
 
 %{\bf Student Code with Unique Variable}
+\begin{figure}
 \begin{minipage}{0.45\linewidth}
 \begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{1,3,4,6}}]
 def iterPower(base,exp__):
@@ -679,6 +700,9 @@ def iterPower(base,exp__):
    return result
 \end{lstlisting}
 \end{minipage}
+\caption{A student solution with a unique variable, originally named \texttt{exp} by the student. Since it does not share the same behavior with the common variable also named \texttt{exp}, OverCode appends two underscores to the unique variable \texttt{exp}'s name to distinguish it.}
+\label{fig:lastone}
+\end{figure}
 
 
 

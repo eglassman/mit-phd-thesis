@@ -8,8 +8,8 @@ This thesis revolves around clustering and visualizing massive datasets of solut
 
 \begin{figure}
 \centering
-\includegraphics[width=0.65\linewidth]{Body/figures/overcode/largest_stack_cropped.jpg}
-\caption{A solution synthesized by OverCode that represents 1538 solutions.}
+\includegraphics[width=0.5\linewidth]{Body/figures/overcode/largest_stack_cropped.jpg}
+\caption{A solution synthesized by OverCode that represents 1538 student solutions.}
 \label{largestStack}
 \end{figure}
 
@@ -151,7 +151,7 @@ def power(base,exp):
 
 Readability is the third critical component of solution variation. Poorly written solutions like the one in Figure~\ref{table:diffapproaches} may be both the symptom and the cause of student confusion. Unreadable code is harder to understand and debug, for both teacher and student. In industry, peer-to-peer code reviews help prevent code with poor readability from entering code bases, where it can be difficult and costly to maintain.
 
-{\it Student design choices} affect correctness, approach, and readability. Examples include choosing \texttt{for} over ~\texttt{while}, \texttt{a *= b} over \texttt{a = a*b}, and recursive over iteration. Solution variation is a result of these choices. Even simple differences, like comments, statement order, and variable names can make solutions look very different to the unaided eye, as shown in Figure~\ref{table:difflook}.
+{\it Student design choices} affect correctness, approach, and readability. Examples include choosing \texttt{for} over ~\texttt{while}, \texttt{a *= b} over \texttt{a = a*b}, and recursive over iteration. Solution variation is a result of these choices. Even simple differences, like comments, statement order, formatting and variable names can make solutions look quite different to the unaided eye, as shown in Figure~\ref{table:difflook}.
 
 \begin{figure}
 \begin{tabular}{ll}
@@ -181,14 +181,17 @@ def iterPower(base, exp):
 \begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base, exp):
   wynik = 1
+
   while exp > 0:
       exp -= 1  #exp argument is counter
+
       wynik *= base
+
   return wynik
 \end{lstlisting}
 \end{minipage} 
 \end{tabular}
-\caption{These two solutions only differ by comments, statement order, and variable names. Note: \texttt{wynik} means `result' in Polish.}
+\caption{These two solutions only differ by comments, statement order, formatting, and variable names. Note: \texttt{wynik} means `result' in Polish.}
 \label{table:difflook}
 \end{figure}
 

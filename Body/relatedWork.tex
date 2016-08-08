@@ -1,8 +1,6 @@
 \chapter{Related Work}\label{chapter:relatedwork}
 
-
-
-Systems that help students in massive programming courses may build on work from program analysis, program synthesis, crowd workflows, user interface design, machine learning, intelligent tutoring systems, natural language processing, data mining, and learning science.\todo{rewrite chapter description} %First, I present prior work and theories of how people learn that later inspired key design decisions or suggest that the systems in this thesis are beneficial in a learning environment. I then clarify how this thesis work is novel while describing related work that achieves similar goals or uses similar methods. %\todo{add references to my own work, to illustrate relevance}
+Systems that help students in massive programming courses may build on work from program analysis, program synthesis, crowd workflows, user interface design, machine learning, intelligent tutoring systems, natural language processing, data mining, and learning science. This chapter summarizes relevant technical and psychological work that supports the pedagogical value of the systems developed in this thesis and gives context to the technical contributions. %\todo{rewrite chapter description} %First, I present prior work and theories of how people learn that later inspired key design decisions or suggest that the systems in this thesis are beneficial in a learning environment. I then clarify how this thesis work is novel while describing related work that achieves similar goals or uses similar methods. %\todo{add references to my own work, to illustrate relevance}
 
 %\todo{rewrite this paragraph}
 
@@ -10,7 +8,7 @@ Systems that help students in massive programming courses may build on work from
 
 \todo{add citations}
 
-Grouping similar items, i.e., {\it clustering}, is a fundamental human activity for organizing, making sense of, and drawing conclusions from data. Across many scientific fields, clustering goes by different names but serves a common purpose: helping humans explore, interpret, and summarize data.
+Grouping similar items, i.e., {\it clustering}, is a fundamental human activity for organizing, making sense of, and drawing conclusions from data. Across many scientific fields, clustering goes by different names but serves a common purpose: helping humans explore, interpret, and summarize data~\cite{Jain50}.
 
 This is {\it unsupervised machine learning}. There are no labels, no ground truth. For example, is there one true clustering of all the articles the New York Times ever published? Humans have goals, and how useful clusters are to them is all that matters.
 
@@ -18,7 +16,7 @@ Humans are pattern finders. A human can look at collections of items and group t
 
 Computers need more instructions before they can step in and help cluster items, when there are too many for a human to cluster them alone. Items need to be represented in a machine-readable way, and human judgements need to be replaced with computation.
 
-The first critical decision when preparing a collection for clustering by a computer is how to represent the items in a machine-readable format, e.g., as images or sets of attributes, also called {\it features}, like weight, height, and fur color. This {\it representation} effects every subsequent step of the clustering process. Since the clustering is performed for a human with a goal, the representation ideally captures aspects of the items that are relevant to that goal.
+The first critical decision when preparing a collection for clustering by a computer is how to represent the items in a machine-readable format, e.g., as images or sets of attributes, also called {\it features}, like weight, height, and fur color. This {\it representation} effects every subsequent step of the clustering process~\cite{Jain50}. Since the clustering is performed for a human with a goal, the representation ideally captures aspects of the items that are relevant to that goal.
 
 Further customizing the item representation for the human goal, also known as {\it feature extraction}, is optional but often very helpful. Feature extraction is computing new features about each item from the original representation. These new features may better capture the aspects of items that are relevant to the human goal. For example, if the goal is to partition dogs by fur color and dogs are represented by images, one might extract the most common color in every dog image.
 
@@ -28,13 +26,13 @@ Hopefully, at the end of this process, some items are closer to each other than 
 
 The next step is choosing a {\it clustering method}, i.e., a general strategy. Clustering is finding clusters of items that are closer to each other than they are to items in other groups. There is no one best method for all clustering problems, but some methods produce clusters that support the human's problem-specific goal better than others.
 
-Some methods have an {\it objective function} that quantifies some desirable characteristic of clusters to maximize or some undesirable characteristic of clusters to minimize. One objective function sums up how different each item is from its cluster center. Presumably, the smaller the differences, the better the clustering. Specific clustering algorithms may define different centers for each cluster, tally up the differences in different ways, and follow different processes to minimize the objective function.
+Some methods have an {\it objective function} that quantifies some desirable characteristic of clusters to maximize or some undesirable characteristic of clusters to minimize~\cite{Jain50}. One objective function sums up how different each item is from its cluster center. Presumably, the smaller the differences, the better the clustering. Specific clustering algorithms may define different centers for each cluster, tally up the differences in different ways, and follow different processes to minimize the objective function.
 
 Some methods are more easily characterized by their process than their objective function. For example, hierarchical clustering methods are characterized as either:
 
 \begin{itemize}
-\item {\it agglomerative} or bottom-up, by merging individual items into small clusters, then merging small clusters into larger clusters, etc.
-\item {\it divisive} or top-down, by splitting the entire collection of items into clusters, then splitting those clusters into further clusters, until all clusters only contain one item.
+\item {\it agglomerative} or bottom-up, by merging individual items into small clusters, then merging small clusters into larger clusters, etc., or
+\item {\it divisive} or top-down, by splitting the entire collection of items into clusters, then splitting those clusters into further clusters, until all clusters only contain one item~\cite{xu2005survey}.
 \end{itemize}
 
 The objective functions used in these methods help determine which clusters to merge or split.
@@ -43,16 +41,16 @@ Some statistical clustering methods, such as mixture models, assume that the ite
 
 Many methods require the human to provide additional values and thresholds, such as how similar two items need to be to be grouped together or how many clusters to look for. Some methods incorporate techniques that anticipate outliers and attempt to be robust to them.
 
-The types of clusters produced by clustering algorithms can be partitioned in several ways, such as:
+The types of clusters produced by clustering algorithms can be partitioned in several ways~\cite{wiki:clustering}, such as:
 
 \begin{itemize}
 \item {\it Hard} versus {\it soft}: If each item is mapped to a single cluster, the method is hard. If items can partially belong in different degrees to multiple clusters, the method is soft.
 \item {\it Partition} vs. {\it overlap} vs. {\it hierarchy}: If each item belongs to one and only one cluster, the method is producing strict partitions. If each item belongs to one or more clusters, than the method is producing overlapping clusters. If each item belongs to one cluster and clusters are strictly contained by other clusters, the method is hierarchical.
 \end{itemize}
 
-Some methods do not produce clusters of items, but rather clusters of components within items. For example, Latent Dirichlet Allocation (LDA) does not cluster entire documents. It produces a hard, strict partition of words into different clusters, typically called {\it topics}. At the level of documents, however, this can look like a soft clustering: an individual document might be 50\% hospital-related words, 30\% government-related words, and 20\% negotiation-related words.
+Some methods do not produce clusters of items, but rather clusters of components within items. For example, Latent Dirichlet Allocation (LDA)~\cite{lda} does not cluster entire documents. It produces a hard, strict partition of words into different clusters, typically called {\it topics}. At the level of documents, however, this can look like a soft clustering: an individual document might be 50\% hospital-related words, 30\% government-related words, and 20\% negotiation-related words.
 
-Clusters are hard to objectively evaluate. It is expensive and time consuming to bring in humans with goals to evaluate how useful the clusters are to them. {\it Cluster validation} refers to the metrics used to approximate the quality of clusters with little or no human input. These metrics can be the basis of choosing one method over another, one parameter value over another, or one clustering over another quickly but approximately.
+Clusters are hard to objectively evaluate. It is expensive and time consuming to bring in humans with goals to evaluate how useful the clusters are to them. {\it Cluster validation} refers to the metrics used to approximate the quality of clusters with little or no human input~\cite{xu2005survey}. These metrics can be the basis of choosing one method over another, one parameter value over another, or one clustering over another quickly but approximately.
 
 Another way to produce more helpful clusterings is to involve the human in an {\it interactive} process. The clustering algorithm produces clusters and gives the human one or more ways to give feedback. Feedback could be in the form of indicating what is good or bad about this clustering. Feedback could be the human reaching in and directly moving an item from one cluster to another. The method reruns, based on this new information, and produces a new clustering for the human to evaluate and give feedback on.
 
@@ -148,7 +146,8 @@ It is easier to run student solutions than code in open source projects. Teacher
 Also unlike corpora of open source code, the solutions in large corpora of student code often require feedback, so that the author can learn. Automated feedback on solutions to programming problems is still an area of active research. For example, assigning grades based solely on the number of teacher-designed tests the code passes may not capture what teachers care to grade on. A single error in a solution can cause a near-perfect solution to fail all test cases. A solution can perform perfectly on test cases but be poorly written or violate instructions, e.g., use the wrong algorithm to achieve the right results. The test cases themselves may be poorly designed. Some teachers hand-review hundreds of exam solutions because the autograder output is not sufficient to assign grades. %For these reasons, the teaching staff of 6.0001 at MIT review every exam solution from each student by hand.
 
 When a course has hundreds or thousands of students, it can be challenging to provide feedback to each solution quickly and consistently by hand. Design mining techniques and interfaces can help teachers explore and understand the whole space of solutions as well as distribute feedback to specific subsets of solutions, or subsets within solutions. It could be an important tool to assist in the sometimes difficult, manual task of identifying pedagogically valuable examples for illuminating a concept or principle. Distributing feedback can also be approached as an unsupervised or supervised, possibly interactive, machine learning problem, by leveraging clustering, classification, clone detection, and mixture modeling methods. %Clustering also need not be done by machine learning methods. For example, clone detection methods can identify clones at a variety of levels~\cite{roy2009comparison}.
-\todo{cite roy2009comparison?}
+
+%\todo{DNHT: cite roy2009comparison?}
 
 %Design mining, described in the previous section, is concerned with capturing design choices and then making the space of existing designs explorable. These approaches can be applied to large corpora of student solutions to the same programming exercise as well. It could be an important tool to assist in the sometimes difficult, manual task of identifying pedagogically valuable examples for illuminating a concept or principle. 
 
@@ -208,16 +207,16 @@ While a naive TED algorithm scales very poorly with tree size, an optimized TED 
 
 Huang et al.~\cite{MOOCshop} used the optimized TED algorithm to process approximately a million solutions while executing on a computing cluster. The same analysis pipeline was used by Roger et al.~\cite{ACESthesis}. Yin et al.~\cite{yin2015clustering} defined a normalized TED that weighs edits associated with nodes closer to the tree root more heavily than nodes closer to the leaves. This prioritizes high-level structural similarities between solutions and de-emphasizes minor differences in syntax near the AST leaves.
 
-\todo{add http://web.stanford.edu/~cpiech/bio/papers/programEncoding.pdf}
+%\todo{DNHT: add http://web.stanford.edu/~cpiech/bio/papers/programEncoding.pdf}
 
 %In contrast to these systems that rely on TED for pairwise distance computations, 
 
 
 \subsubsection{Clustering Student Solutions}
 
-\todo{write topic paragraph}
+Clustering student solutions can be difficult. Teachers may not agree on which solutions are closest to each other~\cite{Gaudencio}. Rogers et al.~\cite{ACESthesis} found that official graders for a large programming course agreed on solution clusters only 47.5\% of the time even when there were only 3 possible clusters to choose from. In spite of the lack of agreement across some expert code evaluators, several research efforts have focused on automatically clustering solutions.
 
-Gaudencio et al.~\cite{Gaudencio} recently investigated whether computers might be able to compare student code solutions as well as teachers. In the process, they found that teachers only agreed with each other between 62\% and 95\% of the time. Similarly, Rogers et al.~\cite{ACESthesis} found that official graders for a large programming course agreed on solution clusters only 47.5\% of the time even when there were only 3 possible clusters to choose from. In spite of the lack of agreement across expert code evaluators, several research efforts have focused on automatically clustering solutions.
+%too awkward to include: In order to agree on a set of clusters, humans must also agree on which solutions are closer or farther from each other. Gaudencio et al.~\cite{Gaudencio} found that teachers only agreed with each other on a solution comparison task between 62\% and 95\% of the time. Similarly, 
 
 %\subsubsection{Clustering}
 %In addition to annotating groups of solutions with feedback, 
@@ -247,15 +246,15 @@ Another approach to clustering solutions comes from the field of Bayesian infere
 
 %into an intelligent tutoring system that provides a variety of feedback messages coaching students toward solutions with better coding style, based on an automatically computable heuristic for good code style.\todo{expand on it}
 
-\todo{Maybe add Classification for grading: Aggrawal et al. [successful] Rogers [unsuccessful] Taherkhani [successful]}
+%\todo{DNHT: Maybe add Classification for grading: Aggrawal et al. [successful] Rogers [unsuccessful] Taherkhani [successful]}
 
 %Drummond et al.~\cite{drummond2014learning} use Bayesian techniques to cluster solutions into one of two categories: ''good'' and ''bad''.
 
-\todo{add http://ethanfast.com/resources/deduceit-paper.pdf}
+%\todo{add http://ethanfast.com/resources/deduceit-paper.pdf}
 
 %\todo{add bayesian clustering--like BCM}
 
-\todo{add https://arxiv.org/pdf/1501.04346v1.pdf}
+%\todo{DNHT: add https://arxiv.org/pdf/1501.04346v1.pdf}
 
 % \subsubsection{Identifying Common Components Across Solutions}
 
@@ -346,7 +345,7 @@ Analogies are central to human cognition. They can help learners understand and 
 
 Kolodner~\cite{Kolodner} suggests creating software tools that align examples to facilitate analogical learning. This thesis is, in part, a response to this suggestion. The comparison learnersourcing workflow pairs solutions the student wrote themselves with solutions that are novel to them. They are prompted to compare the solutions and write a hint for future students.
 
-Novices may become confused if asked to compare their solution to a fellow student's solution. This is not necessarily bad for learning outcomes. Piaget theorized that cognitive disequilibrium, experienced as confusion, could trigger learning due to the creation or restructuring of knowledge schema~\cite{disequilibrium}. D'Mello et al. maintain that confusion can be productive, as long as it is both appropriately injected and resolved~\cite{productiveconfusion}. Similarly, reflecting on a peer's conceptual development or alternative solution may bring about cognitive conflict that prompts reevaluation of the student's own beliefs and understanding \cite{kavanagh}. The comparison workflow component of this thesis is designed to stimulate this kind of productive confusion, comparison, and resolution through self-explanation. \todo{add Towards Providing Feedback to Students in Absence of Formalized Domain Models by Sebastian Gross, Bassam Mokbel, Barbara Hammer, Niels Pinkwart}
+Novices may become confused if asked to compare their solution to a fellow student's solution. This is not necessarily bad for learning outcomes. Piaget theorized that cognitive disequilibrium, experienced as confusion, could trigger learning due to the creation or restructuring of knowledge schema~\cite{disequilibrium}. D'Mello et al. maintain that confusion can be productive, as long as it is both appropriately injected and resolved~\cite{productiveconfusion}. Similarly, reflecting on a peer's conceptual development or alternative solution may bring about cognitive conflict that prompts reevaluation of the student's own beliefs and understanding \cite{kavanagh}. The comparison workflow component of this thesis is designed to stimulate this kind of productive confusion, comparison, and resolution through self-explanation. %\todo{DNHT: add Towards Providing Feedback to Students in Absence of Formalized Domain Models by Sebastian Gross, Bassam Mokbel, Barbara Hammer, Niels Pinkwart}
 
 Analogical learning can be very difficult. For example, the structural features may be aligned between a base and the new target situation, but large differences in surface features will hurt the learner's ability to see any connection~\cite{Kurtz}. This may be explained by how human memory works. For novices, the most reliable form of retrieval is based on surface similarity, not deep analogical similarity. Experts can more easily retrieve situations that are structurally similar and therefore more relevant for a new situation at hand~\cite{Loewenstein}. Variation theory, discussed next, is specifically designed to help students more deeply appreciate structural features, which may help them transfer their learning to new situations instead of feeling lost, confused by superficial differences.
 
@@ -382,10 +381,9 @@ Several types of solutions have been deployed to help students get the personali
 Singh et al. \cite{rishabh} uses a constraint-based synthesis algorithm to find the minimal changes needed to make an incorrect Python solution functionally equivalent to a reference implementation. The changes are specified in terms of a problem-specific error model that captures the common mistakes students make on a particular problem. The system can automatically deliver hints to students about these changes at various levels of specificity. 
 
 %\subsection{Intelligent Tutoring Systems}
-Intelligent tutoring systems can provide personalized hints and other assistance to each student based on a pre-programmed student model. For example, previous systems sought to provide support through the use of adaptive scripts \cite{kumar2007tutorial}, or cues from the student's problem-solving actions \cite{diziol}. Despite the advantage of automated support, intelligent tutoring systems often require domain experts to design and build them, making them expensive to develop. \todo{Include ``current ITSs require an exact formalization of the underlying domain knowledge
-which is usually a substantial amount of work: researchers have reported 100-1000 hours
-of authoring time needed for one hour of instruction [MBA03] from `Feedback Provision Strategies in Intelligent Tutoring
-Systems Based on Clustered Solution Spaces'''} Furthermore, domain experts who generate these hints may also suffer from the {\it curse of knowledge}: the difficulty experts have when trying to see something from the point of view of a novice \cite{curse}. 
+Intelligent tutoring systems can provide personalized hints and other assistance to each student based on a pre-programmed student model. For example, previous systems sought to provide support through the use of adaptive scripts \cite{kumar2007tutorial}, or cues from the student's problem-solving actions \cite{diziol}. Despite the advantage of automated support, intelligent tutoring systems often require domain experts to design and build them, making them expensive to develop~\cite{gross2012feedback}. Furthermore, domain experts who generate these hints may also suffer from the {\it curse of knowledge}: the difficulty experts have when trying to see something from the point of view of a novice \cite{curse}. 
+
+%\todo{DNHT: Include ``current ITSs require an exact formalization of the underlying domain knowledge which is usually a substantial amount of work: researchers have reported 100-1000 hours of authoring time needed for one hour of instruction [MBA03] from `Feedback Provision Strategies in Intelligent Tutoring Systems Based on Clustered Solution Spaces'''}
 
 %\subsection{Through Data Mining}
 Unlike intelligent tutoring systems, the HelpMeOut system \cite{helpmeout} does not require a pre-programmed student model. It assists programmers during their debugging by suggesting code modifications mined from debugging performed by previous programmers. However, the suggestions lack explanations in plain language unless they are added by experts (teachers), so the limits imposed by the time, expense, and curse of knowledge of experts still apply.
@@ -399,13 +397,11 @@ Peer-pairing can stand in place of staff assistance, to both reduce the load on 
 
 Recent work on learnersourcing proposes that learners can collectively generate educational content for future learners while engaging in a meaningful learning experience themselves \cite{kim2013learnersourcing,weir2015,mitros2015}. For example, Crowdy enables people to annotate how-to videos while simultaneously learning from the video \cite{weir2015}. The targeted learnersourcing workflows presented in this thesis expand on learnersourcing by requesting the contributions of specific learners who, by virtue of their work so far, are uniquely situated to compose a hint for fellow learners. %I will refer to this as targeted learnersourcing.
 
-\todo{re add some form of this sentence: Therefore, peer groups, home environment, learning communities, and identity formation~\cite{walberg1984improving,case2008education} are beyond our consideration.}
+Other important forms of personalized support for learning include peer groups, home environment, learning communities, and identity formation~\cite{walberg1984improving,case2008education}, but they are outside the scope of this thesis.
 
-\todo{consider adding additional papers from notes}
+%\todo{DNHT: consider adding additional papers from notes}
 
-\todo{add http://research.microsoft.com/en-us/um/people/sumitg/pubs/fse14.pdf ''Our key insight is that the algorithmic strategy employed
-by a program can be identi ed by observing the values com-
-puted during the execution of the program.''}
+%\todo{DNHT: add http://research.microsoft.com/en-us/um/people/sumitg/pubs/fse14.pdf ''Our key insight is that the algorithmic strategy employed by a program can be identi ed by observing the values computed during the execution of the program.''}
 
 \begin{comment}
 \section{Augmented Intelligence}

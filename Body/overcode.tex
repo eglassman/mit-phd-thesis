@@ -295,7 +295,8 @@ i: 0, 1, 2
 Variable sequence extraction also works for purely functional programs, in which variables are never reassigned, because each recursive invocation is treated as if new values are given to its parameter variables. For example, in spite of the fact that the \codevar{iterPower} problem asked students to compute the exponential $\codevar{base}^\codevar{exp}$ \textit{iteratively}, $60$ of the $3842$ \codevar{iterPower} solutions in the dataset were in fact recursive. One of these recursive examples is shown below, along with the variable sequences observed for the recursive function's parameters.
 
 \begin{tabular}{ll}
-{\bf Recursive Example} & {\bf Program Trace for Recursive Example} \\
+{\bf Recursive Example} & {\bf Program Trace} \\
+ % & {\bf for Recursive Example} \\
 \begin{minipage}{0.5\linewidth}
 \begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
@@ -306,7 +307,7 @@ def iterPower(base,exp):
 iterPower(5.0, 3)
 \end{lstlisting}
 \end{minipage} &
-\begin{minipage}{0.5\linewidth}
+\begin{minipage}{0.4\linewidth}
 \begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{2,4,6,8,10,12,14,16,18,20,22,24,26,28,30}}]
 iterPower(5.0, 3)
  base : 5.0, exp : 3
@@ -342,7 +343,8 @@ value returned: 125.0
 \end{lstlisting}
 \end{minipage} 
 \\
-& {\bf Variable Sequences for Recursive Example} \\
+& {\bf Variable Sequences} \\
+% & {\bf for Recursive Example} \\
 &
 \begin{minipage}{0.5\linewidth}
 \begin{lstlisting}[language=python]
@@ -461,11 +463,11 @@ There are exceptions made to avoid name collisions. For example, in the running 
 \end{tabular}
 \vspace{5mm}
 
-After common and unique variables in the solutions are renamed, the solutions are now called {\it normal}.
+After common and unique variables in the solutions are renamed, the solutions are now called {\it normal}:
 
 \begin{tabular}{ll}
 
-{\bf Normal Student A Code (After Renaming)} & {\bf Normal Student B Code (After Renaming)} \\ 
+{\bf Normal Student A Code} & {\bf Normal Student B Code} \\ 
 
 \begin{minipage}{0.5\linewidth}
 \begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
@@ -486,7 +488,7 @@ def iterPower(base,exp):
 \end{lstlisting}
 \end{minipage}
 \\
-{\bf Normal Student C Code (After Renaming)} &  \\
+{\bf Normal Student C Code} &  \\
 \begin{minipage}{0.5\linewidth}
 \begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp__):
@@ -613,9 +615,9 @@ Rather than injecting a name collision into an otherwise correct solution, the p
 In the following example, the solution author made a copy of the \codevar{exp} variable, called it \codevar{exp1}, and modified neither. Both map to the same common variable, \codevar{expB}. Therefore, both have had their author-given names preserved, with an underscore appended to the local \codevar{exp} so it does not look like common variable \codevar{exp}. 
 
 \begin{tabular}{ll}
-{\bf Code with Multiple Instances} & {\bf Common Variable} \\
-{\bf of a Common Variable} & {\bf Mappings} \\
-\begin{minipage}{0.5\linewidth}
+{\bf Code with Multiple Instances} & {\bf Common Variable Mappings} \\
+{\bf of a Common Variable} & \\
+\begin{minipage}{0.4\linewidth}
 \begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
 def iterPower(base,exp):
    result=1
@@ -629,8 +631,8 @@ iterPower(5.0,3)
 \end{lstlisting}
 \end{minipage}
 &
-\begin{minipage}{0.5\linewidth}
-\begin{lstlisting}[]
+\begin{minipage}{0.6\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize]
 Both exp and exp1 map to
 common variable expB:
 exp: 3 
@@ -644,7 +646,7 @@ result: 1, 5.0, 25.0, 125.0
 \end{lstlisting}
 \end{minipage} \\
 {\bf Code with Multiple Instances Collision Resolved} & \\
-\begin{minipage}{0.5\linewidth}
+\begin{minipage}{0.4\linewidth}
 \begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python,linebackgroundcolor={\lstcolorlines[gray!20]{1,3,6}}]
 def iterPower(base,exp__):
    result=1
@@ -686,7 +688,7 @@ Clustering methods that use pairwise AST edit distance metrics have quadratic co
 
 \section{Dataset} \label{dataset}
 
-For evaluating both the analysis pipeline and the user interface of OverCode, the dataset of solutions is collected from 6.00x, an introductory programming course in Python that was offered on edX in fall 2012. Three exercise problems were chosen. This dataset consists of student solutions submitted within two weeks of the posting of those three problems. There are thousands of solutions to these problems in the dataset, from which all correct solutions, tested over a set of test cases, were selected for analysis. The number of solutions analyzed for each problem is shown in Figure~\ref{overcode_solutioncounttable}.
+For evaluating both the analysis pipeline and the user interface of OverCode, the dataset of solutions is collected from 6.00x, an introductory programming course in Python that was offered on edX in fall 2012. Three exercise problems were chosen. This dataset consists of student solutions submitted within two weeks of each problem's release date. There are thousands of solutions to these problems in the dataset, from which all correct solutions, tested over a set of test cases, were selected for analysis. The number of solutions analyzed for each problem is shown in Figure~\ref{overcode_solutioncounttable}.
 
 
 
@@ -881,7 +883,7 @@ def computeDeriv(poly):
 
 
 \section{OverCode Analysis Pipeline Evaluation}
-We now present the evaluation of the OverCode analysis pipeline implementation on our Python dataset. We first present the running time of our algorithm and show that it can generate stacks within a few minutes for each problem on a laptop. We then present the distribution of initial stack sizes generated by the pipeline. Finally, we present some examples of the common variables identified by the pipeline and report on the number of cases where name collisions are handled during the normalizing process. The evaluation was performed on a Macbook Pro 2.6GHz Intel Core i7 with 16GB of RAM. \todo{remove we's} 
+We now present the evaluation of the OverCode analysis pipeline implementation on our Python dataset. We first present the running time of our algorithm and show that it can generate stacks within a few minutes for each problem on a laptop. We then present the distribution of initial stack sizes generated by the pipeline. Finally, we present some examples of the common variables identified by the pipeline and report on the number of cases where name collisions are handled during the normalizing process. The evaluation was performed on a Macbook Pro 2.6GHz Intel Core i7 with 16GB of RAM. %\todo{remove we's} 
 
 {\bf Running Time} The complexity of the pipeline that generates stacks of solutions grows linearly in the number of solutions as described in Section~\ref{complexity}. Figure~\ref{backendevaluation} reports the running time of the pipeline on the problems in the dataset as well as the number of stacks and the number of common variables found across each of the problems. As can be seen from the Figure, the pipeline is able to normalize thousands of student solutions and generate stacks within a few minutes for each problem.
 
@@ -986,19 +988,31 @@ The tail of singleton solutions is long, and cannot be read in its entirety by t
 \label{collisions}
 \end{figure}
 
-\section{User Study 1: Writing a Class Forum Post}
+\section{User Studies}
+
 The goal was to design a system that allows teachers to develop a better understanding of the variation in student solutions, and give feedback that is relevant to more student solutions. Two user studies were designed to evaluate our progress in two ways: (1) user interface satisfaction and (2) how many solutions teachers could read and produce feedback on in a fixed amount of time. Reading and providing feedback to thousands of solutions is an unrealistically difficult task for the control condition, so instead of measuring time to finish the entire set of solutions, the experiment measures what subjects could accomplish in a fixed amount of time (15 minutes).
 
-The first study was a 12-person within-subjects evaluation of interface satisfaction when using OverCode for a realistic, relatively unstructured task. Using either OverCode or a baseline interface, subjects were asked to browse student solutions to the programming problems in our dataset and then write a class forum post on the good and bad ways students solved the problem. Through this study, the first hypothesis is tested:
+Together, these studies test four hypotheses:
 \begin{itemize}
-\item \textbf{H1 Interface Satisfaction}: Subjects will find OverCode easier to use, more helpful and less overwhelming for browsing thousands of solutions, compared to the baseline. 
+\item \textbf{H1 Interface Satisfaction} Subjects will find OverCode easier to use, more helpful and less overwhelming for browsing thousands of solutions, compared to the baseline. 
+
+\item {\bf H2 Read coverage and speed} Subjects are able to read code that represents more student solutions at a higher rate using OverCode than with the baseline. 
+
+\item {\bf H3 Feedback coverage} Feedback produced when using OverCode is relevant to more student solutions than when feedback is produced using the baseline.
+
+\item {\bf H4 Perceived coverage} Subjects feel that they develop a better high-level view of students' understanding and misconceptions, and provide more relevant feedback using OverCode than with the baseline.
+
 \end{itemize}
 
-\subsection{OverCode and Baseline Interfaces}
+\subsection{User Study 1: Writing a Class Forum Post}
 
-Two interfaces were designed, referred to here as OverCode and the baseline. The OverCode interface and backend are described in detail in Section \ref{overcode}. The baseline interface was a single webpage with all student solutions concatenated in a random order into a flat list (Figure \ref{iterPowerEdXControl}, left). This design emulates existing methods of reviewing solutions, and aims to draw out differences between browsing stacked and unstacked solutions. This is analogous to the ``flat'' interface chosen as a baseline for Basu et al.'s interface for grading clusters of short answers~\cite{basuDivideAndConquer}. Basu et al.'s assumption, that existing options for reviewing solutions are limited to going through solutions one-by-one, is backed by our pilot studies and interviews with teaching staff, and our own grading experiences. In fact, in edX programming MOOCs, teachers are not even provided with an interface for viewing all solutions at once. They can only look at one student solution at a time. If the solutions can be downloaded locally, some teachers may use within-file search functions like the command line utility \codevar{grep}. Our baseline allows that too, through the in-browser find command. 
+The first study was a 12-person within-subjects evaluation of interface satisfaction when using OverCode for a realistic, relatively unstructured task. Using either OverCode or a baseline interface, subjects were asked to browse student solutions to the programming problems in our dataset and then write a class forum post on the good and bad ways students solved the problem. Through this study, the first hypothesis is tested.
 
-In the baseline, solutions appeared visually similar to those in the OverCode interface (boxed, syntax-highlighted code), but the solutions were \emph{raw}, in the sense that they were not normalized for whitespace or variable naming differences. As in the OverCode condition, subjects were able to use standard web-browser features, such as the within-page \emph{find} action.
+\subsubsection{OverCode and Baseline Interfaces}
+
+Two interfaces were designed, referred to here as OverCode and the baseline. The OverCode interface and backend are described in detail in Section \ref{overcode}. The baseline interface was a single webpage with all student solutions concatenated in a random order into a flat list (Figure \ref{iterPowerEdXControl}, left). This design emulates existing methods of reviewing solutions, and aims to draw out differences between browsing stacked and unstacked solutions. This is analogous to the ``flat'' interface chosen as a baseline for Basu et al.'s interface for grading clusters of short answers~\cite{basuDivideAndConquer}. Basu et al.'s assumption, that existing options for reviewing solutions are limited to going through solutions one-by-one, is backed by our pilot studies and interviews with teaching staff, and our own grading experiences. In fact, in edX programming MOOCs, teachers are not even provided with an interface for viewing all solutions at once. They can only look at one student solution at a time. If the solutions can be downloaded locally, some teachers may use a search tool like \codevar{grep}. Our baseline allows for search too, through the in-browser \texttt{Find} command. 
+
+In the baseline, solutions appeared visually similar to those in the OverCode interface (boxed, syntax-highlighted code), but the solutions were raw, in the sense that they were not normalized for whitespace or variable naming differences. As in the OverCode condition, subjects were able to use standard web-browser features, such as the within-page \texttt{Find} action.
 
 
 \begin{figure}[h!]
@@ -1007,26 +1021,27 @@ In the baseline, solutions appeared visually similar to those in the OverCode in
 \includegraphics[scale=0.5]{Body/figures/overcode/iterPowerEdXControlStudy1.png} &
 \includegraphics[scale=0.37]{Body/figures/overcode/iterPowerEdXControlStudy2.png} \\
 \end{tabular}
-\caption{The baseline interface used in the Forum Post study (left) and the Coverage study (right).}
+\caption{Screenshots of the baseline interface. The appearance did not change significantly between the Forum Post study control interface, shown on the left, and the Coverage study control interface, shown on the right. Functionality did not change at all.}
 \label{iterPowerEdXControl}
 \end{figure}
-\subsection{Participants}
 
-Participants were recruited by reaching out to past and present programming course staff, and advertising on an academic computer science research lab email list. These individuals were qualified to participate in our study because they met at least one of the following requirements: (1) were current teaching staff of a computer science course (2) had graded Python code before, or (3) had significant Python programming experience, making them potential future teaching staff. 
+\subsubsection{Participants}
 
-Information about the subjects' backgrounds was collected during recruitment and again at the beginning of their one-hour in-lab user study session. 12 people (7 male) participated, with a mean age of 23.5 ($\sigma = 3.8$). Subjects had a mean 4 years of Python programming experience ($\sigma = 1.8$), and $75\%$ of participants had graded student solutions written in Python before. Half of the participants were graduate students, and the other half were undergraduates.
+Participants were recruited by reaching out to past and present programming course staff at our university, and advertising on an MIT CSAIL email list. These individuals were qualified to participate in our study because they met at least one of the following requirements: (1) have taught a computer science course (2) have graded Python code before, or (3) have significant Python programming experience, making them potential future teaching staff. Subjects were offered \$20 to participate. 
 
-\subsection{Apparatus}
+Information about the subjects' backgrounds was collected during recruitment and again at the beginning of their one-hour in-lab user study session. 12 people (7 male) participated, with a mean age of 23.5 ($\sigma = 3.8$). Subjects had a mean 4 years of Python programming experience ($\sigma = 1.8$), and $75\%$ of participants had graded student solutions written in Python before. Half of the participants were graduate students and the other half were undergraduates.
 
-Each subject was given \$20 to participate in a 60-minute session with an experimenter, in an on-campus academic lab conference room. They used laptops running MacOS and Linux with screen sizes ranging from 12.5 to 15.6 inches, and viewed the OverCode and baseline interfaces in either Safari or Chrome. Data was recorded with Google Docs and Google Forms filled out by participants.
-\subsection{Conditions}
+\subsubsection{Apparatus}
+
+Subjects used laptops running MacOS and Linux with screen sizes ranging from 12.5 to 15.6 inches, and viewed the OverCode and baseline interfaces in either Safari or Chrome. Data was recorded with Google Docs and Google Forms filled out by participants.
+
+\subsubsection{Conditions}
 
 Subjects performed the main task of browsing solutions and writing a class forum post twice, once in each interface condition, focusing on one of the three problems in our dataset (Section \ref{dataset}) each time. For each participant, the third remaining problem was used during training, to reduce learning effects when performing the two main tasks. The pairing and ordering of interface and problem conditions were fully counterbalanced, resulting in 12 total conditions. The twelve participants were randomly assigned to one of the 12 conditions, such that all conditions were tested.
 
-\subsection{Procedure}
+\subsubsection{Procedure}
 
-\subsubsection{Prompt}
-The experimenter began by reading the following prompt, to give the participant context for the tasks they would be performing:
+{\bf Prompt} The experimenter began by reading the following prompt, to give the participant context for the tasks they would be performing:
 
 \begin{quote}
 
@@ -1035,23 +1050,21 @@ We want to help TAs [teaching assistants] give feedback to students in programmi
 All the submissions are correct, in terms of input and output behavior. We're going to ask you to browse the submissions and produce feedback for students in the class. You'll do this primarily in the form of a class forum post.
 \end{quote}
 
-To make the task more concrete, participants were given an example\footnote{Our example was drawn from the blog ``Practice Python: 30-minute weekly Python exercises for beginners,'' posted on Thursday, April 24, 2014, and titled ``SOLUTION Exercise 11: Check Primality and Functions.'' (\url{http://practicepython.blogspot.com})} of a class forum post that used examples taken from student solutions to explain different strategies for solving a Python problem. They were also given print-outs of the prompts for each of the three problems in our dataset, to reference when looking at solutions.\subsubsection{Training}
+To make the task more concrete, participants were given an example\footnote{Our example was drawn from the blog ``Practice Python: 30-minute weekly Python exercises for beginners,'' posted on Thursday, April 24, 2014, and titled ``SOLUTION Exercise 11: Check Primality and Functions.'' (\url{http://practicepython.blogspot.com})} of a class forum post that used examples taken from student solutions to explain different strategies for solving a Python problem. They were also given print-outs of the prompts for each of the three problems in our dataset, to reference when looking at solutions.
 
-Given the subjects' extensive experience with web-browsers, training for the baseline interface was minimal. Prior to using the OverCode interface, subjects watched a 3-4 minute long training video demonstrating the features of OverCode, and were given an opportunity to become familiar with the interface and ask questions. The training session focused on the problem that would not be used in the main tasks, in order to avoid learning effects.
+{\bf Training} Given the subjects' extensive experience with web-browsers, training for the baseline interface was minimal. Prior to using the OverCode interface, subjects watched a 3-4 minute long training video demonstrating the features of OverCode, and were given an opportunity to become familiar with the interface and ask questions. The training session focused on the problem that would not be used in the main tasks, in order to avoid learning effects.
 
-\subsubsection{Tasks}
-Subjects then performed the main tasks twice, once in each interface, focusing on a different programming problem each time. They were given a fixed amount of time to both read solutions and provide feedback, so task completion times were not measured, but instead the quality of their experience in providing feedback to students at scale.
+{\bf Tasks} Subjects then performed the main tasks twice, once in each interface, focusing on a different programming problem each time. They were given a fixed amount of time to both read solutions and provide feedback, so task completion times were not measured, but instead the quality of their experience in providing feedback to students at scale.
 
 \begin{itemize}
 \item {\it Feedback for Students} (15 minutes) Subjects were asked to write a class forum post on the good and bad ways students solved the problem. The 15-minute period included both browsing and writing time, as subjects were free to paste in code examples and write comments as they browsed the solutions.
 
 \item {\it Autograder Bugs} (2 min) Although the datasets of student solutions were marked as correct by an autograder, there may be holes in the autograder test cases. Some solutions may deviate from the problem prompt, and therefore be considered incorrect by teachers, e.g., recursive solutions to \codevar{iterPower} when its prompt explicitly calls for an iterative solution. As a secondary task, subjects were asked to write down any bugs in the autograder they came across while browsing solutions. This was often performed concurrently with the primary task by the subject.
 \end{itemize}
-\subsubsection{Surveys}
-Subjects filled out a post-interface condition survey about their experience using the interface. This was a short-answer survey, where they wrote about what they liked, what they did not like, and what they would like to see in a future version of the interface. At the end of the study, subjects rated agreement (on a 7-point Likert scale) with statements about their satisfaction with each interface.
+{\bf Surveys} Subjects filled out a post-interface condition survey about their experience using the interface. This was a short-answer survey, where they wrote about what they liked, what they did not like, and what they would like to see in a future version of the interface. At the end of the study, subjects rated agreement (on a 7-point Likert scale) with statements about their satisfaction with each interface.
 
-\subsection{Results}
-\textbf{H1} is supported by ratings from the post-study survey (see Figure~\ref{study1Likert}). Statistical significance was computed using the Wilcoxon Signed Rank test, pairing users' ratings of each interface. After using both interfaces to view thousands of solutions, subjects found OverCode easier to use (W=52, Z=2.41, p<0.05, r=0.70) and less overwhelming (W = 0, Z = -2.86, p < 0.005, r = 0.83) than the baseline interface. Finally, participants felt that OverCode ``helped me get a better sense of my students' understanding'' than the baseline did (W = 66, Z = 3.04, p < 0.001, r = 0.88).
+\subsubsection{Results}
+Figure~\ref{study1Likert} shows that, compared to the control interface, subjects find OverCode less overwhelming, easier to use, and more helpful for getting a sense of students' understanding. After using both interfaces to view thousands of solutions, subjects found OverCode easier to use ($W=52, Z=2.41, p<0.05, r=0.70$) and less overwhelming ($W=0, Z=-2.86, p<0.005, r=0.83$) than the baseline interface. Finally, participants felt that OverCode ``helped me get a better sense of my students' understanding'' than the baseline did ($W=66, Z=3.04, p<0.001, r=0.88$). These differences are statistically significant, as computed by the Wilcoxon Signed Rank test with pairing users' ratings of each interface. This supports \textbf{H1}.
 
 \begin{figure}
 \centering
@@ -1063,11 +1076,11 @@ Subjects filled out a post-interface condition survey about their experience usi
 
 From the surveys conducted after subjects completed each interface condition, subjects found stacking and the ability to rewrite code to be useful and enjoyable features of OverCode:
 \begin{itemize}
-\item Stacking is an awesome feature. Rewrite tool is fantastic. Done feature is very rewarding--feels much less overwhelming. "Lines that appear in x submissions" also awesome.
+\item {\it Stacking is an awesome feature. Rewrite tool is fantastic. Done feature is very rewarding--feels much less overwhelming. "Lines that appear in x submissions" also awesome.}
 
-\item Really liked the clever approach for variable normalization. Also liked the fact that stacks showed numbers, so I'd know I'm focusing on the highest-impact submissions. Impressed by the rewrite ability... it cut down on work so much!
+\item {\it Really liked the clever approach for variable normalization. Also liked the fact that stacks showed numbers, so I'd know I'm focusing on the highest-impact submissions. Impressed by the rewrite ability... it cut down on work so much!}
 
-\item I liked having solutions collapsed (not having to deal with variable names, etc), and having rules to allow me to collapse even further. This made it easy to see the "plurality" of solutions right away; I spent most of the time looking at the solutions that only had a few instances.
+\item {\it I liked having solutions collapsed (not having to deal with variable names, etc), and having rules to allow me to collapse even further. This made it easy to see the ``plurality'' of solutions right away; I spent most of the time looking at the solutions that only had a few instances.}
 \end{itemize}
 
 When asked for suggestions, participants gave many suggestions on stacks, filtering, and rewrite rules, such as:
@@ -1077,66 +1090,41 @@ When asked for suggestions, participants gave many suggestions on stacks, filter
 \end{comment}
 \item Enable the teacher to change the main stack that is being compared against the others.
 \item Suggest possible rewrite rules, based on what the teacher has already written, and will not affect the answers on the test case.
-\item Create a filter that shows all stacks that do {\emph not} have a particular statement.
+\item Create a filter that shows all stacks that do {\it not} have a particular statement.
 \end{itemize}
 
 For both the OverCode and baseline interfaces, the feedback generated about \codevar{iterPower}, \codevar{hangman}, and \codevar{compDeriv} solutions fell into several common themes. One kind of feedback suggested new language features, such as using \codevar{*=} or the keyword \codevar{in}. Another theme identified inefficient, redundant, and convoluted control flow, such as repeated statements and unnecessary statements and variables. It was not always clear what the misconception was, though, as one participant wrote, \textit{``The double iterator solution surely shows some lack of grasp of power of for loop, or range, or something.''} Participant feedback included comments on the relative goodness of different correct solutions in the dataset. This was a more holistic look at student solutions as they varied along the dimensions of conciseness, clarity, and efficiency previously described.
 
 Study participants found both noteworthy correct solutions and solutions they considered incorrect, despite passing the autograder. One participant learned a new Python function, \codevar{enumerate}, while looking at a solution that used it. The participant wrote, \textit{``Cool, but uncalled for. I had to look it up :]. Use, but with comment.''} Participants also found recursive \codevar{iterPower} and \codevar{hangman} solutions, which they found noteworthy. For what should have been an iterative \codevar{iterPower} function, the fact that this recursive solution was considered correct by the autograder was considered an autograder bug by some participants. Using the built-in Python exponentiation operator \codevar{**} was also considered correct by the autograder, even though it subverted the point of the assignment. It was also noted as an autograder bug by some participants who found it.
-\section{User Study 2: Coverage}
 
-A second 12-person study was designed, similar in structure to the forum post study, but focused on measuring the coverage achieved by subjects in a fixed amount of time (15 minutes) when browsing and producing feedback on a large number of student solutions. The second study's task was more constrained than the first: instead of writing a freeform post, subjects were asked to identify the five most frequent strategies used by students and rate their confidence that these strategies were frequently used in the student solutions. These changes to the task, as well as modifications to the OverCode and baseline interfaces, enabled us to measure coverage in terms of solutions read, the relevance of written feedback and the subject's perceived coverage. The following hypotheses were tested:
+\subsection{User Study 2: Coverage}
 
-\begin{itemize}
-\item {\bf H2 Read coverage and speed} Subjects are able to read code that represents more student solutions at a higher rate using OverCode than with the baseline. 
+A second 12-person study was designed, similar in structure to the forum post study, but focused on measuring the coverage achieved by subjects in a fixed amount of time (15 minutes) when browsing and producing feedback on a large number of student solutions. The second study's task was more constrained than the first: instead of writing a freeform post, subjects were asked to identify the five most frequent strategies used by students and rate their confidence that these strategies were frequently used in the student solutions. These changes to the task enabled us to measure coverage in terms of solutions read, the relevance of written feedback and the subject's perceived coverage. In this study, the rest of the hypotheses, i.e., H2, H3, and H4, are tested.
 
-\item {\bf H3 Feedback coverage} Feedback produced when using OverCode is relevant to more student solutions than when feedback is produced using the baseline.
+Prior to running the second study, both the OverCode and baseline interfaces were slightly modified. Figure \ref{iterPowerEdXControl} shows the baseline changes that reduce the differences between the rendering of solutions in the baseline and OverCode interfaces. The OverCode interface was changed to show identifiers next to every stack and solutions so that subjects could provide it when asked.
 
-\item {\bf H4 Perceived coverage} Subjects feel that they develop a better high-level view of students' understanding and misconceptions, and provide more relevant feedback using OverCode than with the baseline.
-
-\end{itemize}
-
-\subsection{Participants, Apparatus, Conditions}
+\subsubsection{Participants, Apparatus, Conditions}
 
 The coverage study shared the same methods for recruiting participants, apparatus and conditions as the forum post study. 12 new participants (11 male) participated in the second study (mean age = 25.4, $\sigma = 6.9$). Across those 12 participants, the mean years of Python programming experience was 4.9 ($\sigma = 3.0$) and 9 of them had previously graded code (5 had graded Python code). There were 5 graduate students, 6 undergraduates, and 1 independent computer software professional.
 
-\subsection{Interface Modifications}
-Prior to the second study, both the OverCode and baseline interfaces were slightly modified (see differences in Figure \ref{iterPowerEdXControl}) in order to enable measurements of read coverage, feedback coverage and perceived coverage.
-\begin{itemize}
-\item Clicking on stacks or solutions caused the box of code to be outlined in blue. This enabled the subject to mark them as \emph{read}\footnote{In the OverCode condition, this replaced the \emph{done} checkboxes, in that clicking stacks caused the progress bar to update.} and enabled us to measure read coverage.
-\item Stacks and solutions were all marked with an identifier, which subjects were asked to include with each piece of feedback they produced. This enabled us to more easily compute feedback coverage, which will be explained further in Section~\ref{coverageResults}.
-\item All interface interactions were logged in the browser console, allowing for the tracking of both the subject's read coverage over time, as well as their usage of other features, such as the creation of rewrite rules to merge stacks.
-\item Where it differed slightly before, the styling of code in the baseline condition was changed to exactly match the code in the OverCode condition.
-\end{itemize}
-\subsection{Procedure}
-\subsubsection{Prompt}
-In the coverage study, the prompt was similar to the one used in the forum post study, explaining that the subjects would be tackling the problem of producing feedback for students at scale. The language was modified to shift the focus towards finding frequent strategies used by students, rather than any example of good or bad code used by a student.
 
-\subsubsection{Training}
-As before, subjects were shown a training video and given time to practice using OverCode features prior to their trial in the OverCode condition.
+\subsubsection{Procedure}
+{\bf Prompt} In the coverage study, the prompt was similar to the one used in the forum post study, explaining that the subjects would be tackling the problem of producing feedback for students at scale. The language was modified to shift the focus towards finding frequent strategies used by students, rather than any example of good or bad code used by a student.\todo{find prompt and put it in here}
 
-\subsubsection{Task}
-The coverage study task consisted of a more constrained feedback task. Given 15 minutes with either the OverCode or baseline interface, subjects were asked to fill out a table, identifying the 5 most frequent strategies used by students to solve the problem. For each strategy they identified, they were asked to fill in the following fields in the table:
+{\bf Training} As before, subjects were shown a training video and given time to practice using OverCode features prior to their trial in the OverCode condition.
+
+{\bf Task} The coverage study task consisted of a more constrained feedback task. Given 15 minutes with either the OverCode or baseline interface, subjects were asked to fill out a table, identifying the five most frequent strategies used by students to solve the problem. For each strategy they identified, they were asked to fill in the following fields in the table:
 \begin{itemize}
 \item A code example taken from the solution or stack.
 \item The identifier of the solution or stack.
-\item A short (1 sentence) annotation of what was good or bad about the strategy.
+\item A short (one sentence) annotation of what was good or bad about the strategy.
 \item Their confidence, on a scale of 1-7, that the strategy frequently occurred in the student solutions.
 \end{itemize}
 Importantly, subjects were also asked to mark solutions or stacks as \emph{read} by clicking on them after they had processed them, even if they were not choosing them as representative strategies. Combined with interaction logging done by the system, this enabled us to measure read coverage.
 
-\begin{comment}
-\begin{figure}[h!]
-\includegraphics[width=0.6\paperwidth]{figures/study-prompts.png}
-\caption{Prompts given to subjects in Study 1 (left) and Study 2 (right).}
-\label{studyPrompts}
-\end{figure}
-\end{comment}
-\subsubsection{Surveys} 
-\todo{remove we's from here on down}
-Although we measured interface satisfaction for a realistic task in the forum post study, we also measured interface satisfaction through surveys for this more constrained, coverage-focused task. Subjects filled out a post-interface condition survey in which they rated agreement (on a 7-point Likert scale) with positive and negative adjectives about their experience using the interface, and reflected on task difficulty. At the end of the study, subjects were asked to rate their agreement with statements about the usefulness of specific features of both the OverCode and baseline interfaces, and responded to the same interface satisfaction 7-point Likert scale statements used in the first study.
+{\bf Surveys} Although we measured interface satisfaction for a realistic task in the forum post study, we also measured interface satisfaction through surveys for this more constrained, coverage-focused task. Subjects filled out a post-interface condition survey in which they rated agreement (on a 7-point Likert scale) with positive and negative adjectives about their experience using the interface, and reflected on task difficulty. At the end of the study, subjects were asked to rate their agreement with statements about the usefulness of specific features of both the OverCode and baseline interfaces, and responded to the same interface satisfaction 7-point Likert scale statements used in the first study.
 
-\subsection{Results} \label{coverageResults}
+\subsubsection{Results} \label{coverageResults}
 \begin{figure*}[b!]
 \begin{tabular}{c | c}
 \begin{minipage}{.5\linewidth}
@@ -1154,18 +1142,12 @@ Although we measured interface satisfaction for a realistic task in the forum po
 \caption{In (a), we plot the mean number of platonic solutions read in OverCode over time versus the number of raw solutions read in the baseline interface over time while performing the 15-minute Coverage Study task. In (b), we replace the mean number of platonic solutions with the mean number of solutions, i.e., the stack size, they represent. These are shown for each of the three problems in the dataset.}
 \label{readCoverage}
 \end{figure*}
-\subsubsection{H2: Read coverage and speed}
-This hypothesis is supported by our measurements of read coverage from this study. For each problem, subjects were able to view more normalized and stacked solutions by the end of the 15-minute-long main task using OverCode than raw solutions when using the baseline interface (Mann--Whitney U = 16, n1 = n2 = 4, p<0.05). Figure \ref{readCoverage} shows the mean number of solutions read over time for each interface and each problem in our dataset. The curves show that subjects were able to read code that represented more raw solutions at a higher rate due to the stacking of similar solutions.
 
-\subsubsection{H3: Feedback coverage}
+{\bf H2: Read coverage and speed} Figure \ref{readCoverage} shows that subjects reading platonic \texttt{iterPower}, \texttt{hangman}, and \texttt{compDeriv} solutions in the OverCode interface covered the equivalent of 64\%, 25\%, and 14\% of all student solutions to those problems (Mann--Whitney U = 16, n1 = n2 = 4, p<0.05). Subjects read through more raw solutions than platonic solutions to the simplest problems, i.e., \texttt{iterPower} and \texttt{hangman}, but when problem difficulty increased, i.e., \texttt{compDeriv}, subjects read through OverCode's platonic solutions faster than raw solutions. This supports the H2 hypothesis.
 
-\begin{figure}[b!]
-\includegraphics[width=0.6\paperwidth]{Body/figures/overcode/feedbackCoverage.pdf}
-\caption{Mean feedback coverage (percentage of raw solutions) per trial during the coverage study for each problem, in the OverCode and baseline interfaces.}
-\label{aveCoveragePerPost}
-\end{figure}
+%This hypothesis is supported by our measurements of read coverage from this study. For each problem, subjects were able to view more normalized and stacked solutions by the end of the 15-minute-long main task using OverCode than raw solutions when using the baseline interface (Mann--Whitney U = 16, n1 = n2 = 4, p<0.05). Figure \ref{readCoverage} shows the mean number of solutions read over time for each interface and each problem in our dataset. The curves show that subjects were able to read code that represented more raw solutions at a higher rate due to the stacking of similar solutions.
 
-Each subject reported on the 5 most frequent strategies in a set of solutions, by copying both a code example and the identifier of the solution (baseline) or stack (OverCode) that it came from. We define \emph{feedback coverage} as the number of students for which the quoted code is relevant, in the sense that they wrote the same lines of code, ignoring differences in whitespace or variable names. We computed the coverage for each example using the following process:
+{\bf H3: Feedback coverage} Each subject reported on the five most frequent strategies in a set of solutions, by copying both a code example and the identifier of the solution (baseline) or stack (OverCode) that it came from. We define \emph{feedback coverage} as the number of students for which the quoted code is relevant, in the sense that they wrote the same lines of code, ignoring differences in whitespace or variable names. We computed the coverage for each example using the following process:
 \begin{itemize}
 \item Reduce the quoted code down to only the lines referred to in the annotation. Often, the subject's annotation would focus on a specific feature of the quoted code, which sometimes had additional lines that were unrelated to the subject's feedback. For example, comments about iterating over a range function, while also quoting the contents of the for loop. This step meant we would be calculating the coverage of a more general (smaller) set of lines.
 
@@ -1176,9 +1158,14 @@ Each subject reported on the 5 most frequent strategies in a set of solutions, b
 \item Find the raw solutions that include the set of normalized lines, using a map from stacks to raw solutions provided by the backend pipeline.
 \end{itemize}
 
-Figure \ref{aveCoveragePerPost} shows the mean coverage of a set of feedback produced by a single subject, across problems and interface conditions. The feedback coverage is shown as the mean percentage of raw solutions for which the feedback was relevant. When giving feedback on the \codevar{iterPower} and \codevar{hangman} problems, there was not a statistically significant difference in the feedback coverage between interface conditions. However, on \codevar{compDeriv}, the problem with the most complex solutions, subjects using OverCode were able to achieve significantly more coverage of student solutions than when using the baseline interface (Mann--Whitney U = 0, n1 = n2 = 4, p< 0.05).
+\begin{figure}[b!]
+\includegraphics[width=0.6\paperwidth]{Body/figures/overcode/feedbackCoverage.pdf}
+\caption{Mean feedback coverage, i.e., the percentage of raw solutions covered, per trial during the coverage study for each problem, in the OverCode and baseline interfaces.}
+\label{aveCoveragePerPost}
+\end{figure}
+\todo{what are the error bars?}
 
-\subsubsection{H4: Perceived coverage}
+Figure \ref{aveCoveragePerPost} shows the mean coverage of a set of feedback produced by a single subject, across problems and interface conditions. The feedback coverage is shown as the mean percentage of raw solutions for which the feedback was relevant. When giving feedback on the \codevar{iterPower} and \codevar{hangman} problems, there was not a statistically significant difference in the feedback coverage between interface conditions. However, on \codevar{compDeriv}, the problem with the most complex solutions, subjects using OverCode were able to achieve significantly more coverage of student solutions than when using the baseline interface (Mann--Whitney U = 0, n1 = n2 = 4, p< 0.05).
 
 \begin{figure*}[t!]
 \begin{tabular}{c | c}
@@ -1194,21 +1181,19 @@ Figure \ref{aveCoveragePerPost} shows the mean coverage of a set of feedback pro
 \\
 (a) & (b)
 \end{tabular}
-\caption{(a) Post-condition perception of coverage (excluding one participant) and (b) Confidence ratings that identified strategies were frequently used (1-7 scale).}
+\caption{Mean rating with standard error for (a) post-condition perception of coverage (excluding one participant) and (b) confidence ratings that identified strategies were frequently used (1-7 scale).}
 \label{perceivedCoverage}
 \end{figure*}
 
-After using each interface, we asked participants how strongly they agreed with the statement `This interface helped me develop a high-level view of students' understanding and misconceptions,' which quotes the first part of our third hypothesis. Participants agreed with this statement after using OverCode significantly more than when using the baseline interface (W=63, Z=2.70,p<0.01,r=0.81). Statistical significance was computed using the Wilcoxon Signed Rank test, pairing users' ratings of each interface. The analysis was done on 11 participants' data, as one participant's data was lost. The mean rating (with standard error) for the responses is shown in Figure~\ref{perceivedCoverage}(a). 
+{\bf H4: Perceived coverage} After using each interface, we asked participants how strongly they agreed with the statement `This interface helped me develop a high-level view of students' understanding and misconceptions,' which quotes the first part of our third hypothesis. Participants agreed with this statement after using OverCode significantly more than when using the baseline interface ($W=63, Z=2.70, p<0.01, r=0.81$). Statistical significance was computed using the Wilcoxon Signed Rank test, pairing users' ratings of each interface. The analysis was done on 11 participants' data, as one participant's data was lost. The mean rating with standard error for the responses is shown in Figure~\ref{perceivedCoverage}(a). 
 
-For each strategy identified by subjects, we asked them to rate their confidence, on a scale of 1-7, that the strategy was frequently used by students in the dataset. Mean confidence ratings on a per-problem basis are shown in Figure \ref{perceivedCoverage}(b). We found that for \codevar{compDeriv}, subjects using OverCode were significantly more confident that their annotations were relevant to many students, compared to the baseline (Mann--Whitney U = 260.5, n1 = 18 n2 = 16, p< 0.0001).
+For each strategy identified by subjects, we asked them to rate their confidence, on a scale of 1-7, that the strategy was frequently used by students in the dataset. Mean confidence ratings on a per-problem basis are shown in Figure \ref{perceivedCoverage}(b). We found that for \codevar{compDeriv}, subjects using OverCode were significantly more confident that their annotations were relevant to many students, compared to the baseline (Mann--Whitney $U=260.5, n_{1}=18, n_{2}=16, p<0.0001$).
  
-\subsubsection{H1: Interface satisfaction}
+{\bf H1: Interface satisfaction} Interface satisfaction was measured through multiple surveys, (1) immediately after using each interface and (2) after using both interfaces. Statistical significance was computed using the Wilcoxon Signed Rank test, pairing users' ratings of each interface. 
 
-Interface satisfaction was measured through multiple surveys, (1) immediately after using each interface and (2) after using both interfaces. Statistical significance was computed using the Wilcoxon Signed Rank test, pairing users' ratings of each interface. 
+Immediately after finishing the assigned tasks with an interface, participants rated their agreement with statements about the appropriateness of various adjectives to describe the interface they just used, on a 7-point Likert scale. While participants found the baseline to be significantly more simple ($W=2.5, Z=-2.60, p<0.01, r=0.78$), they found OverCode to be significantly more flexible ($W=45, Z=2.84, p<0.005, r=0.86$), less tedious ($W=3.5, Z=-2.41, p<0.05, r=0.73$), more interesting ($W=66, Z=2.96, p<0.001, r=0.89$), and more enjoyable ($W=45, Z=2.83, p<0.005, r=0.85$). The analysis was done on 11 participants' data, as one participant's data was lost. The mean ratings (with standard error) for the responses are shown in Figure~\ref{studyLikert1_onPop2}. 
 
-Immediately after finishing the assigned tasks with an interface, participants rated their agreement with statements about the appropriateness of various adjectives to describe the interface they just used, on a 7-point Likert scale. While participants found the baseline to be significantly more simple (W=2.5, Z=-2.60,p<0.01,r=0.78), they found OverCode to be significantly more flexible (W=45, Z=2.84, p<0.005, r=0.86), less tedious (W=3.5, Z=-2.41, p<0.05, r=0.73), more interesting (W=66, Z=2.96, p<0.001, r=0.89), and more enjoyable (W=45, Z=2.83, p<0.005, r=0.85). The analysis was done on 11 participants' data, as one participant's data was lost. The mean ratings (with standard error) for the responses are shown in Figure~\ref{studyLikert1_onPop2}. 
-
-After the completion of the Coverage Study, participants were asked again to rate their agreement with statements about each interface on a 7-point Likert scale. After using both interfaces to view thousands of solutions, there were no significant differences between how overwhelming or easy to use each interface was. However, participants did feel that OverCode ``helped me get a sense of my students' understanding'' more than the baseline (W=62.5, Z=-2.69, p<0.01, r=0.78). The mean ratings (with standard error) for the responses are shown in Figure~\ref{studyLikert1_onPop2}.
+After the completion of the Coverage Study, participants were asked again to rate their agreement with statements about each interface on a 7-point Likert scale. After using both interfaces to view thousands of solutions, there were no significant differences between how overwhelming or easy to use each interface was. However, participants did feel that OverCode ``helped me get a sense of my students' understanding'' more than the baseline ($W=62.5, Z=-2.69, p<0.01, r=0.78$). The mean ratings (with standard error) for the responses are shown in Figure~\ref{studyLikert1_onPop2}.
 
 \begin{figure}
 \centering
@@ -1229,35 +1214,33 @@ After the completion of the Coverage Study, participants were asked again to rat
 \label{studyLikert1_onPop2}
 \end{figure}
 
-\subsubsection{Usage and Usefulness of Interface Features}
-
-In the second part of the post-study survey, participants rated their agreement with statements about the helpfulness of various interface features on a 7-point Likert scale. There were only two features to ask about in the baseline interface (in-browser find and viewing raw solutions), which were mixed in with statements about features in the OverCode interface. The OverCode feature of stacking equivalent solutions was found more helpful than the baseline features of in-browser find (W=41, Z=2.07, p<0.05, r=0.60) and viewing raw student solutions, comments included (W=45, Z=2.87,p<0.005,r=0.83). The OverCode feature of variable renaming and previewing rewrite rules were also both found significantly more helpful than seeing raw student code (W=65.5,Z=2.09,p<0.05,r=0.61 and W=56.5, Z=2.14, p<0.05, r=0.62, respectively). The mean ratings for the features are shown in Figure~\ref{featureHelpfulness}.
+{\bf Usage and Usefulness of Interface Features} In the second part of the post-study survey, participants rated their agreement with statements about the helpfulness of various interface features on a 7-point Likert scale. There were only two features to ask about in the baseline interface (in-browser find and viewing raw solutions), which were mixed in with statements about features in the OverCode interface. The OverCode feature of stacking equivalent solutions was found more helpful than the baseline features of in-browser find ($W=41, Z=2.07, p<0.05, r=0.60$) and viewing raw student solutions, comments included ($W=45, Z=2.87, p<0.005, r=0.83$). The OverCode feature of variable renaming and previewing rewrite rules were also both found significantly more helpful than seeing raw student code ($W=65.5, Z=2.09, p<0.05, r=0.61$ and $W=56.5, Z=2.14, p<0.05, r=0.62$, respectively). The mean ratings for the features are shown in Figure~\ref{featureHelpfulness}.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{Body/figures/overcode/featureHelpfulness.png}
-\caption{Mean Likert scale ratings (with standard error) for the usefulness of features of OverCode and baseline.  {\it Find} refers to the find function within the web browser. {\it Find} appears twice in this figure because users rated its usefulness for each condition.}
+\caption{Mean Likert scale ratings (with standard error) for the usefulness of features of OverCode and baseline. {\it Find} refers to the find function within the web browser. {\it Find} appears twice in this figure because users rated its usefulness for each condition.}
 \label{featureHelpfulness}
 \end{figure}
 
 In addition to logging \codevar{read} events, we also recorded usage of interface features, such as creating rewrite rules and filtering stacks. A common usage strategy was to read through the stacks linearly and mark them as \codevar{read}, starting with the largest reference stack, then rewrite trivial variations in expressions to merge smaller behaviorally equivalent stacks into the largest stack. Stack filtering (Figure~\ref{linefilter}) was sometimes used to review solutions that contained a particularly conspicuous line, e.g., a recursive call to solve \codevar{iterPower} or an extremely long expression. The filter panel frequency slider (Figure~\ref{linefilter}a) and the variable legend (Figure~\ref{afterrewrite}b) were scarcely used.
 
-All subjects wrote at least two rewrite rules, often causing stacks to merge that only differed in some trivial way, like reordering operands in multiplication statements, e.g., \codevar{result = result*base} vs. \codevar{result = base*result}. Some rewrite rules merged Python expressions that behaved similarly but differed in their verbosity, e.g., \codevar{for i in range(0, exp)} vs. \codevar{for i in range(exp)}, - variations that might be considered noteworthy or trivial by different teachers.
+All subjects wrote at least two rewrite rules, often causing stacks to merge that only differed in some trivial way, like reordering operands in multiplication statements, e.g., \codevar{result = result*base} vs. \codevar{result = base*result}. Some rewrite rules merged Python expressions that behaved similarly but differed in their verbosity, e.g., \codevar{for i in range(0, exp)} vs. \codevar{for i in range(exp)}. These variations may be considered noteworthy or trivial by different teachers.
 \section{Discussion}
 
 Our three-part evaluation of the OverCode backend and user interface demonstrates its usability and usefulness in a realistic teaching scenario. Given that we focused on the first three weeks of an introductory Python programming course, our evaluation is limited to single functions, whose most common solutions were less than ten lines long. Some of these functions were recursive, while most were iterative. Variables were generally limited to booleans, integers, strings, and lists of these basic data types. All solutions had already passed the autograder tests, and study participants still found solutions that suggested student misconceptions or knowledge gaps. Future work will address more complex algorithms and data types.
 
-\subsection{Read coverage}
+\subsubsection{Read coverage}
 First, we observed that subjects were able to effectively read less in order to cover more ground (H1, read coverage). This is expected, because in OverCode each read stack represented tens or hundreds of raw solutions, while there was only a 1-to-1 mapping between read solutions and raw solutions in the baseline condition. The OverCode backend produces platonic solutions that represent many raw solutions, reducing the cognitive load of mentally processing all the raw solutions, including their variation in formatting and variable naming.
 
 Figure \ref{readCoverage}(a) shows that in some cases, subjects were able to read nearly as many (\codevar{hangman}) or more (\codevar{iterPower}) function definitions in the baseline as in OverCode. In the case of \codevar{iterPower}, the raw solutions are repetitive because of the simplicity of the problem and the relatively small amounts of variation demonstrated by student solutions. This can explain the subjects' ability to move quickly through the set of solutions, reading as many as 90 solutions in 15 minutes.
 
 Figure \ref{readCoverage}(b) shows the effective number of raw solutions read, when accounting for the number of solutions represented by each platonic solution read in the OverCode condition. In the case of \codevar{iterPower}, subjects can say they have effectively read more than 30\% of student solutions after reading the first stack. A similar statement can be made for \codevar{hangman}, where the largest stack includes roughly 10\% of solutions. In the case of \codevar{compDeriv}, the small size of its largest stack (22 out of 1433 raw solutions) means that the curve is less steep, but the use of rewrite rules (avg. 4.5 rules written per \codevar{compDeriv} subject) enabled subjects to cover over 10x the solutions covered by subjects in the baseline condition.
 
-\subsection{Feedback coverage}
+\subsubsection{Feedback coverage}
 We also found that subjects' feedback on solutions for the \codevar{compDeriv} problem had significantly higher coverage when produced using OverCode than with the baseline, but that this was not the case for the \codevar{iterPower} and \codevar{hangman} problems. \codevar{compDeriv} was a significantly more complicated problem than both \codevar{iterPower} and \codevar{hangman}, meaning that there was a greater amount of variation between student solutions. This high variation meant that any one piece of feedback might not be relevant to many raw solutions, unless it was produced after viewing the solution space as stacks and creating rewrite rules to simplify the space into larger, more representative stacks. Conversely, the simple nature of \codevar{iterPower} and \codevar{hangman} meant that there was less variation in student solutions. Therefore, regardless of whether the subject was using the OverCode or baseline condition, there was a higher likelihood that they would stumble across a solution that had frequently occurring lines of code, and the feedback coverage for these problems became comparable between the two problems.
 
-\subsection{Perceived coverage}
+\subsubsection{Perceived coverage}
 In addition to the actual read and feedback coverage that subjects achieved, an important finding was that (i) subjects felt they had developed a better high-level understanding of student solutions and (ii) subjects stated they were more confident that identified strategies were frequent issues in the dataset. While a low self-reported confidence score did not necessarily correlate with low feedback coverage, these results suggest that OverCode enables the teacher to gauge the impact that their feedback will have.
 
 %\section{Modifications and Extensions}
@@ -1271,7 +1254,7 @@ In addition to the actual read and feedback coverage that subjects achieved, an 
 %, as described in Section~\ref{subsec:grovercodepipeline}.
 % is, without being affected a very similar concept, except it is more robust to non-local variations in variable behavior. For example, if the line of code \texttt{for ___ in range(___):}initialization of two common variables 
 
-\subsection{Clarity in Variable Renaming}
+\subsubsection{Clarity in Variable Renaming}
 The modifiers appended to common variables to resolve Common/Common collisions caused some confusion. For example, \texttt{iB} is a legitimate, but odd, variable name. To indicate that the modifier is not something the student wrote themselves, modifiers are now rendered in the interface as numerical subscripts indicating whether they are the second or third or fourth, etc., most frequently occurring common variable with that name across all the solutions in the collection.
 
 \section{GroverCode: OverCode for Grading}\label{sec:grover}

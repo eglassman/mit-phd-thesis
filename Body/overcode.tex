@@ -1348,7 +1348,7 @@ The grading performed by the 6.0001 staff was intellectually demanding. For exam
 \item Horizontally aligned solutions for side-by-side comparison
 \item Easy filtering of solutions by input-output behavior, i.e., their error vectors
 \item Normalized variable names
-\item Solutions ordered to minimize the distance between adjacent solutions with respect to a custom similarity metric defined in Terman~\ref{staceythesis}
+\item Solutions ordered to minimize the distance between adjacent solutions with respect to a custom similarity metric defined in Stacey Terman's Master's of Engineering thesis~\cite{staceythesis}
 \item Highlighted lines of code in each solution which differ from the previous solution in the horizontal list
 \end{itemize}
 
@@ -1373,11 +1373,9 @@ The OverCode pipeline is modified for GroverCode to capture this syntactic infor
 \end{enumerate}
 Items 1 and 2 in this list together contain the information in the original normalized lines in OverCode and information about the line's syntax, regardless of the variables identities. Items 1 and 3 capture the information necessary to tell what the variable behavior is just within that one line and whether two lines in two different stacks will be highlighted as different from each other. This information is also used for variable renaming in incorrect solutions.
 
-The GroverCode normalization process uses this syntactic information, in addition to behavior, to identify and rename common variables. The line's template, e.g., \texttt{for \underline{\hspace{1em}} in \underline{\hspace{1em}}:} is the syntax of the line with variable names removed. For each common variable in correct solutions, GroverCode counts how many times it appears in each template and in which location, represented as an index into the blanks in the template. Examples of templates and locations are shown in Table~\ref{table:template-location}. If a yet-unrenamed variable in an incorrect solution appears in the exact same template-locations as a common variable in a correct solution, it will be renamed to match that common variable. If a variable in an incorrect solution is still not normalized, the counts of template-locations associated with each common variable in the correct solutions are used, as described in detail in Terman~\cite{staceythesis}, to infer the most likely common variable it could be renamed to, as long as a threshold for similarity is met. Otherwise, its original name is kept.
-
 \begin{table}
 \centering
-\caption*{\textbf{Example:} All templates and locations in which the abstract variable \texttt{exp}, the second argument to a recursive \texttt{power} function, appears. A location represents the index or indices of the blanks that the abstract variable occupies, where the first blank is index 0, the second is index 1, and so on. The second and third columns together form a template-location pair.} %Copied with permission from Terman~\cite{staceythesis}}\todo{get explicit permission}
+%Copied with permission from Terman~\cite{staceythesis}}\todo{get explicit permission}
 \begin{tabular}{l l r}
 %\hline
  &  & {\bf Location} \\
@@ -1404,8 +1402,13 @@ The GroverCode normalization process uses this syntactic information, in additio
 \footnotesize{\texttt{assert type(exp) is int and exp >= 0}} & \footnotesize{\texttt{assert type(\underline{\hspace{1em}}) is int and \underline{\hspace{1em}}>=0}} & 0, 1 \\
 %\hline
 \end{tabular}
-\label{table:template-location}
+\caption{\textbf{Example:} All templates and locations in which the abstract variable \texttt{exp}, the second argument to a recursive \texttt{power} function, appears. A location represents the index or indices of the blanks that the abstract variable occupies, where the first blank is index 0, the second is index 1, and so on. The second and third columns together form a template-location pair.} 
+\label{tab:templatelocation}
 \end{table}
+
+The GroverCode normalization process uses this syntactic information, in addition to behavior, to identify and rename common variables. The line's template, e.g., \texttt{for \underline{\hspace{1em}} in \underline{\hspace{1em}}:} is the syntax of the line with variable names removed. For each common variable in correct solutions, GroverCode counts how many times it appears in each template and in which location, represented as an index into the blanks in the template. Examples of templates and locations are shown in Table \autoref{tab:templatelocation}. If a yet-unrenamed variable in an incorrect solution appears in the exact same template-locations as a common variable in a correct solution, it will be renamed to match that common variable. If a variable in an incorrect solution is still not normalized, the counts of template-locations associated with each common variable in the correct solutions are used, as described in detail in Terman~\cite{staceythesis}, to infer the most likely common variable it could be renamed to, as long as a threshold for similarity is met. Otherwise, its original name is kept.
+
+
 
 
 

@@ -54,7 +54,7 @@ In the comparison workflow, students compare their correct solution to alternati
 \caption{In the \textit{self-reflection} workflow, students generate hints by reflecting on an obstacle they themselves have recently overcome. In the \textit{comparison} workflow, students compare their own solutions to those of other students, generating a hint as a byproduct of explaining how one might get from one solution to the other.}
 \label{fig:workflow}
 \end{figure}
-\todo{redo this figure}
+%\todo{DNHT: Redo this figure}
 
 \section{User Interfaces} 
 We designed two user interfaces, one for each workflow. To learnersource debugging hints with the self-reflection workflow, we built and deployed {\it Dear Beta}, a Meteor web application that serves as a central repository of debugging advice for and by students in the class. The name alludes to both the ``Dear Abby'' advice column and the Beta processor that students create in the class. To learnersource optimization hints with the comparison workflow, we designed {\it Dear Gamma}, a web interface students were required to fill out as a reflection activity after submitting their final correct circuit for a class assignment.
@@ -86,7 +86,7 @@ If the student resolves their autograder error and feels that the existing hints
 
 \subsubsection{Teacher Feedback on Early Prototypes of Dear Beta}
 
-\todo{finish removing we's}
+%\todo{finish removing we's}
 
 After deploying initial prototypes of Dear Beta for two semesters, we invited Teaching Assistants to share their complaints, requests, and experiences with us. Four TAs were interviewed, in person or by email, and their feedback and experiences informed Dear Beta's final design.
 
@@ -274,7 +274,7 @@ Lastly, when students request hints as they did in the Dear Gamma lab study, con
 \subsection{Generalization}
 Although we applied these workflows to computer architecture problems, the self-reflection and comparison workflows could be extended to other domains. The workflows can be most readily applied to solutions that can be objectively tested for satisfying a set of requirements, e.g., passing unit tests, or whose optimality can be objectively measured. In domains without objective test cases or definitions for optimality, it may be more difficult to establish indices for clustering hints. In these cases, students could be asked to write what challenge they overcame or select from a growing list, enabling others to search for those terms. The comparison workflow could be modified to simply pair students with solutions different than their own, letting them judge for themselves which they think is better, the alternative solution or their own, and write hints based on that judgment.
 
-\todo{add this: "In the next academic year, we plan to expand our deployment of Dear Beta to two new classes: a MOOC version of the computer architecture class in this paper and a residential college-level software engineering course taken by several hundred students each term. Solutions in the software engineering course are written in Java and tested against teacher-designed test suites. Each error could be specified by the problem set number, test name, and line number. The implementation of Dear Beta has been written generally so that it can simultaneously support both classes, each with their own schema for describing an error."}
+%\todo{add this: "In the next academic year, we plan to expand our deployment of Dear Beta to two new classes: a MOOC version of the computer architecture class in this paper and a residential college-level software engineering course taken by several hundred students each term. Solutions in the software engineering course are written in Java and tested against teacher-designed test suites. Each error could be specified by the problem set number, test name, and line number. The implementation of Dear Beta has been written generally so that it can simultaneously support both classes, each with their own schema for describing an error."}
 
 \section{Conclusions}
 This paper enriches learnersourcing by shaping the design space for learnersourcing personalized hints, and presenting two workflows that engage students in hint creation while reflecting on their own work as well as that of peers. We built Dear Beta and Dear Gamma, which apply these workflows to the creation of debugging and optimization hints, matching students to the appropriate hint creation task given their current progress. Results from our deployment study and subsequent lab study demonstrate the feasibility of these workflows, and indicate that student-generated hints are helpful to students. They also shed light on critical factors that may impact the quality of learnersourced hints, laying the groundwork for future systems in this area.

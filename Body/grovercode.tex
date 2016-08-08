@@ -78,17 +78,20 @@ As described in the chapter on OverCode, the OverCode analysis pipeline executes
 \includegraphics[width=0.75\columnwidth]{Body/figures/grovercode/recursive_example}
 \caption{Example of a recursive student solution.}
 \label{recursive_example}
-\vspace*{\floatsep}
+\end{figure}
+\begin{figure}[ht]
 \includegraphics[width=0.45\columnwidth]{Body/figures/grovercode/whilestandard}
 \caption{Example of a student solution using the Python keyword \texttt{while}.}
 \label{whilestandard}
-\vspace*{\floatsep}
+\end{figure}
+\begin{figure}[ht]
 \includegraphics[width=0.5\columnwidth]{Body/figures/grovercode/augmentedwhile}
 \caption{Example of a student solution using the Python keyword \texttt{while}, where the student has not modified any input arguments, i.e., better programming style.}
 \label{augmentedwhile}
 \end{figure} 
 
-Below are the sequences of variable values recorded by OverCode while executing \texttt{iterPower(5,3)} as defined in Figures \ref{recursive_example}, \ref{whilestandard}, and \ref{augmentedwhile}:
+Figure~\ref{fig:seqvarvals} shows the sequences of variable values recorded by OverCode while executing \texttt{iterPower(5,3)} as defined in Figures \ref{recursive_example}, \ref{whilestandard}, and \ref{augmentedwhile}:
+\begin{figure}
 \begin{itemize}
   \item {\bf Figure \ref{recursive_example}}
   \begin{itemize}
@@ -110,6 +113,9 @@ Below are the sequences of variable values recorded by OverCode while executing 
   \item \texttt{result: 1, 5, 25, 125}
   \end{itemize}
 \end{itemize}
+\caption{The sequences of variable values recorded by OverCode while executing \texttt{iterPower(5,3)}.}
+\label{fig:seqvarvals}
+\end{figure}
 
 In these examples, the input argument \texttt{base} would be considered a variable common to all three programs, but the input argument \texttt{exp} would not be. The variable \texttt{result} would also be considered a common variable shared across just the definitions in Figure \ref{whilestandard} and Figure \ref{augmentedwhile}. This allows us to distinguish between programs that calculate the answer in semantically distinct ways, without discriminating between the low-level design decisions about syntax. 
 
@@ -155,7 +161,7 @@ The LDA results were inspected by hand. One topic comparison captured the differ
 
 \section{Discussion and Future Work}
 
-LDA applied to a variable-by-solution matrix is a promising method for identifying variation within corpora of solutions to the same programming problem. However, the assumptions made in LDA, such as the independence of mixture components, and requirements, such as explicitly setting the number of mixture components beforehand, may mean that other mixture models, such as the Correlated Topic Model~\cite{}\todo{fill in} or the Hierarchical Dirichlet Process~\cite{}\todo{fill in} will ultimately be a better model fit for this purpose. In the future, new user interfaces would be helpful for this task, especially one which helps humans compare the output of models with different parameter values.
+LDA applied to a variable-by-solution matrix is a promising method for identifying variation within corpora of solutions to the same programming problem. However, the assumptions made in LDA, such as the independence of mixture components, and requirements, such as explicitly setting the number of mixture components beforehand, may mean that other mixture models, such as the Correlated Topic Model~\cite{ctm} or the Hierarchical Dirichlet Process~\cite{hdp05} will ultimately be a better model fit for this purpose. In the future, new user interfaces would be helpful for this task, especially one which helps humans compare the output of models with different parameter values.
 
 
 

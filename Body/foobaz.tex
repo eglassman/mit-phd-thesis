@@ -1,5 +1,7 @@
 \chapter{Foobaz: Feedback on Variable Names at Scale}\label{chapter:foobaz}
 
+This chapter presents the second example of clustering, visualizing, and giving feedback on an aspect of student solutions, i.e., the variety of student-chosen variable names. It is adapted and updated from a paper presented at the ACM Symposium on User Interface Software and Technology (UIST) in 2015~\cite{foobaz}. Pronouns like ``we'' and ``our'' refer to the coauthors of the UIST paper.
+
 When providing feedback on the substance and style of student solutions, the status quo is grading by hand. Unfortunately, hand-grading is labor intensive, potentially inconsistent across graders, and does not scale to the sizes associated with Massive Open Online Courses (MOOCs). Residential courses are also becoming massive. For example, UC Berkeley's introduction to programming, CS61A, has had more than a thousand students enrolled per semester~\cite{biggestClass}. Some Computer Science teachers, such as MIT's John Guttag and Ana Bell, are simultaneously teaching hundreds of students in residential programming courses and thousands of online students in MOOC versions of their courses.
 
 Variable naming is a specific, important aspect of writing readable, maintainable code, and many teachers want to give feedback on it. The quality of a name is best judged when its role within the surrounding code is known. However, at scale, teachers cannot read every solution. Programming education at scale opens up new challenges for processing and presenting thousands of solutions so that teachers can more easily view them. Teachers also cannot write comments on each solution. This difficulty motivates the creation of tools that help teachers give customized feedback.
@@ -143,7 +145,7 @@ The survey questions included both free response and 7-point Likert scale survey
 \item ``What did you wish you could have or achieve during this process of providing feedback on variable names?'' 
 \item ``What, if anything, did you find in the data that surprised you?''
 \end{enumerate}
-The Likert scale survey questions were:
+The 7-point Likert scale survey questions were:
 \begin{enumerate}
 \item ``This interface helped me provide feedback to many students.''
 \item ``The interface helped me develop a high-level view of students' variable naming skills.''
@@ -230,8 +232,8 @@ In all sessions, we used laptops with 15.4-inch or 13.3-inch screens. All partic
 We recruited 6 participants (4 female) who were either undergraduate or graduate students, through computer science-specific and campus-specific mailing lists, Facebook groups, and word of mouth advertising. Their ages were between 18 and 27 ($\mu=20.4$, $\sigma=3.2$). Four of the participants had taken one or two introductory programming courses on Coursera or at their high school or college campus. The remaining two participants had taken three or four classes that involved learning programming languages or computer science concepts, and had some experience with Python.
 
 \subsubsection{Results}
-
-Six students took a total of 12 quizzes, 11 of which were able to be personalized, even though their solutions were, in some cases, significantly different from the prior student solutions seen by teachers during quiz creation.\todo{do I have examples?} Correspondingly, in the surveys that followed, students agreed with the statement ``This quiz felt relevant to me'' at an average level of 5.4 ($\sigma = 1.0$) on a 7-point scale. One student solution did not receive a personalized quiz because its variables behaved in ways that no teacher in the previous study considered. That student was able to understand the new solution and take the quiz, though it had little relation to their own solution.
+%\todo{DNHT: do I have examples?}
+Six students took a total of 12 quizzes, 11 of which were able to be personalized, even though their solutions were, in some cases, significantly different from the prior student solutions seen by teachers during quiz creation. Correspondingly, in the surveys that followed, students agreed with the statement ``This quiz felt relevant to me'' at an average level of 5.4 ($\sigma = 1.0$) on a 7-point scale. One student solution did not receive a personalized quiz because its variables behaved in ways that no teacher in the previous study considered. That student was able to understand the new solution and take the quiz, though it had little relation to their own solution.
 
 Students were asked in the post-quiz surveys about what they learned from the exercise. One student replied, ``Possible variable names are pretty much synonyms, but the more detailed/specific ones are better.'' Another wrote, ``It's worthwhile to pick good variable names.'' Students' average level of agreement with the statement ``The quiz made me think about what makes variable names good or bad'' was 6.2 ($\sigma = 0.9$) on a 7-point scale. Mean levels of agreement with statements about the quizzes being confusing or tedious were 2.9 ($\sigma = 1.5$) and 3.4 ($\sigma = 1.2$), respectively, on a 7-point scale.
 

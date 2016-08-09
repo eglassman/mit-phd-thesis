@@ -6,38 +6,6 @@
 %% prompt when you run the file main.tex through LaTeX.
 \chapter{OverCode: Visualizing Variation in Student Solutions}\label{chapter:overcode}
 
-\begin{comment}
-For each problem (three quiz questions, four final exam questions):
-\begin{itemize}
-\item Number of solutions
-\item Number of solutions that actually made it through the pipeline
-\item Number of correct/incorrect solutions
-\item Average number of lines per solution
-
-\item Number of test cases
-\item Number of distinct error signatures
-\item Distribution of number of solutions per each error signature?? (This is in the plots of timing from the grading session logs also)
-
-\item Size of largest stack
-\item Number of stacks, number of solutions collapsed into stacks
-
-\item Total number of variables; how many in correct vs incorrect solutions
-\item Number of combined variables in correct solutions
-\item How many name clashes between variable names (e.g., i vs i2)
-\item Some examples of correct variable names and how many occurrences of a clash? (like in TOCHI paper)
-\item Number of incorrect variables that are matched with correct variables
-\item Examples of the most commonly matched correct variables and how many incorrect variables were matched with each
-\item How many clashes when renaming incorrect variables (i.e. multiple variables in the same solution renamed to the same correct variable)
-\end{itemize}
-
-
-
-In MOOCs, a single programming problem may produce thousands of solutions from learners. Understanding solution variation is important for providing appropriate feedback to students at scale.  The wide variation among these solutions can be a source of pedagogically valuable examples, and can be used to refine the autograder for the exercise by exposing corner cases. 
-We present OverCode, a system for visualizing and exploring thousands of programming solutions. OverCode uses both static and dynamic analysis to cluster similar solutions, and lets teachers further filter and cluster solutions based on different criteria.
-We evaluated OverCode against a non-clustering baseline in a within-subjects study with 24 teaching assistants, and found that the OverCode interface allows teachers to more quickly develop a high-level view of students' understanding and misconceptions, and to provide feedback that is relevant to more student solutions.
-
-\end{comment}
-
 %\section{Introduction}
 
 This chapter presents the first example of clustering, visualizing, and giving feedback on an aspect of student solutions. It is adapted and updated  from a paper in the Transactions on Computer-Human Interaction (TOCHI) in 2015~\cite{overcode}. It also includes extensions of that original publication developed in collaboration with Stacey Terman. The text about those extensions is, in part, adapted from her Master's of Engineering thesis. When discussing OverCode, pronouns like ``we'' and ``our'' refer to the coauthors of the TOCHI paper. When discussing modifications and extensions of OverCode, ``we'' and ``our'' includes Stacey Terman.
@@ -1109,9 +1077,6 @@ From the surveys conducted after subjects completed each interface condition, su
 
 When asked for suggestions, participants gave many suggestions on stacks, filtering, and rewrite rules, such as:
 \begin{itemize}
-\begin{comment}
-\item Augment the stacks with a representation of the output of the code in that stack, since the autograder can consider more than one particular output ``correct.'' 
-\end{comment}
 \item Enable the teacher to change the main stack that is being compared against the others.
 \item Suggest possible rewrite rules, based on what the teacher has already written, and will not affect the answers on the test case.
 \item Create a filter that shows all stacks that do {\it not} have a particular statement.

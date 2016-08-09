@@ -6,7 +6,7 @@ Systems that help students in massive programming courses may build on work from
 
 \section{Clustering}
 
-\todo{add citations}
+%\todo{add citations}
 
 Grouping similar items, i.e., {\it clustering}, is a fundamental human activity for organizing, making sense of, and drawing conclusions from data. Across many scientific fields, clustering goes by different names but serves a common purpose: helping humans explore, interpret, and summarize data~\cite{Jain50}.
 
@@ -225,8 +225,6 @@ Luxton-Reilly et al.~\cite{Luxton13} suggest that identifying distinct clusters 
 Luxton-Reilly et al.~\cite{Luxton13} develop a hierarchical clustering taxonomy for types of solution variations, from high- to low-level: structural, syntactic, or presentation-related. The structural similarity between solutions is captured by comparing their control flow graphs. If the control flow of two solutions is the same, then the syntactic variation within the blocks of code is compared by looking at the sequence of token classes. Variation in presentation, such as variable names and spacing, is only examined when two solutions are structurally and syntactically the same. However, it is not yet fully implemented. %In contrast, our approach is not hierarchical, and uses dynamic information in addition to syntactic information.
 
 %In the clustering pipeline described in this thesis, OverCode, clusters Python solutions to the same programming problem. 
-
-In this thesis, each Python solution is normalized before clustering and represented as a sequence of normalized lines of code. All solutions that share the same set of normalized lines of code are clustered together. The clustering is a strict partition of the solutions. This clustering process is hard and agglomerative but not hierarchical. It was designed with interpretability in mind. Hierarchical clustering may also be appropriate in this context, as long as human interpretability does not suffer. The OverCode clustering pipeline is also interactive, because the results are shown in an interface that allows the human to tell the system that some lines of code are not different in meaningful ways. If any clusters differ only by those lines of code that the human considers to be the same, those clusters will be merged.
 
 Other systems rely on clustering algorithms applied to solutions whose pairwise distances are determined by TED scores. AutoStyle~\cite{choudhury2016autostyle} uses the OPTICS clustering algorithm to cluster solutions based on normalized TED scores. Huang et al.~\cite{MOOCshop} and Rogers et al.~\cite{ACESthesis} cluster solutions by creating a graph where nodes are solutions and an edge between each pair of nodes exists if and only if the TED between their ASTs is below a user-specified threshold. Modularity is used to infer clusters within the graph. 
 

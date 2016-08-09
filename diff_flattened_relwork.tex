@@ -1,0 +1,1163 @@
+% -*- Mode:TeX -*-
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ../oldthesisdraft/main.tex   Tue Aug  9 12:59:51 2016
+%DIF ADD main.tex                     Tue Aug  9 13:02:45 2016
+
+%% The documentclass options along with the pagestyle can be used to generate
+%% a technical report, a draft copy, or a regular thesis.  You may need to
+%% re-specify the pagestyle after you \include  cover.tex.  For more
+%% information, see the first few lines of mitthesis.cls. 
+
+%\documentclass[12pt,vi,twoside]{mitthesis}
+%%
+%%  If you want your thesis copyright to you instead of MIT, use the
+%%  ``vi'' option, as above.
+%%
+%\documentclass[12pt,twoside,leftblank]{mitthesis}
+%%
+%% If you want blank pages before new chapters to be labelled ``This
+%% Page Intentionally Left Blank'', use the ``leftblank'' option, as
+%% above. 
+
+%\documentclass[12pt]{mitthesis}
+%\documentclass[12pt,singlespace,twoside]{mitthesis}
+%DIF 21a21
+%\documentclass{tufte-book} %DIF > 
+%DIF -------
+\documentclass[12pt,twoside]{mitthesis}
+\usepackage{lgrind}
+\usepackage{todonotes}
+\usepackage{subcaption}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+%DIF 30a31-39
+\usepackage{csquotes} %DIF > 
+\usepackage{sidecap} %DIF > 
+\usepackage{verbatim} %DIF > 
+\usepackage{tabularx} %DIF > 
+\usepackage{enumitem} %DIF > 
+\setlist{nosep} %DIF > 
+ %DIF > 
+\sidecaptionvpos{figure}{c} %DIF > 
+ %DIF > 
+%DIF -------
+%\usepackage{subfigure}
+%\documentclass[12pt,oneside]{mitthesis}
+%\usepackage{lgrind}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}    % if you want extra symbols
+\usepackage{mathrsfs}
+\usepackage{program}
+\usepackage{newlfont}
+\usepackage{rotating}
+\usepackage{varioref}
+\usepackage{graphicx}
+%\usepackage{txfont}
+\usepackage{makeidx}
+\usepackage{tocbibind}
+\usepackage{program}
+\usepackage{import}
+%\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{colortbl}
+\usepackage{todonotes}
+%DIF 54a64-66
+\usepackage{parskip} %DIF > 
+%\usepackage{booktabs} %DIF > 
+\usepackage{microtype} %DIF > 
+%DIF -------
+
+%\usepackage[LY1]{fontenc}
+%\usepackage{patchcmd}
+%\usepackage{myfss}
+%\usepackage{caslon}
+%\renewcommand{\encodingdefault}{LY1}
+%\rmshape \rgshape
+
+%\usepackage[oldstyle]{garamond}
+%\usepackage[lining]{agaramond}
+\usepackage[small]{eulervm}
+\usepackage{courier} % for texttt
+
+
+
+
+\usepackage[numbers,square,sort&compress]{natbib}
+\usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue, linkcolor=blue,bookmarks=true,bookmarksopen=true,bookmarksopenlevel=0,pdfstartview=Fit,pdfview=Fit,pagebackref,linktocpage=true,bookmarksnumbered=true]{hyperref}
+\usepackage{hypernat}
+\usepackage{array}
+\usepackage{supertabular}
+
+%%% stuff for doxygen
+%\usepackage{times}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{alltt}
+%\usepackage{Body/appb/doxygen}
+%%%%%%%%%%%
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+\usepackage{courier}
+%\newcommand \codevar[1]{\texttt{#1}}
+\usepackage{expl3,xparse} 
+\ExplSyntaxOn 
+\NewDocumentCommand \lstcolorlines { O{green} m } 
+{ \clist_if_in:nVT { #2 } { \the\value{lstnumber} }{ \color{#1} } } 
+\ExplSyntaxOff
+\definecolor{mygray}{rgb}{0.925,0.925,0.925}
+\definecolor{lightyellow}{HTML}{FFE600}
+
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+\pagenumbering{arabic}
+
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+
+\usepackage[T1]{fontenc}
+%DIF 115c128
+%DIF < \usepackage[scaled=0.80]{beramono}
+%DIF -------
+%\usepackage[scaled=0.80]{beramono} %DIF > 
+%DIF -------
+\usepackage{color}
+\usepackage{multirow}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\lstset{
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords = {MultiType},
+keywordstyle=\color{bluekeywords}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\footnotesize,
+numbers=none, xleftmargin=.1in, numbersep=3pt
+}
+
+% Symbols used by the authors
+    \DeclareMathOperator{\suffix}{suffix}
+    \DeclareMathOperator{\prefix}{prefix}
+    \DeclareMathOperator{\prob}{Pr}
+\newcommand{\conv}{\curvearrowright}
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brac}[1]{\left[#1\right]}
+\newcommand{\braces}[1]{\left\{#1\right\}}
+\newcommand{\avector}[2]{(#1_1,#1_2,\ldots,#1_{#2})} 
+\newcommand{\aset}[2]{{#1_1,#1_2,\ldots,#1_{#2}}} 
+\newcommand{\ith}[1]{\ensuremath{{#1^{\textrm{th}}}}} 
+\newcommand{\nd}[1]{\ensuremath{{#1^{\textrm{nd}}}}} 
+%DIF 150c163
+%DIF < \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+%DIF -------
+%\DeclareSymbolFont{AMSb}{U}{msb}{m}{n} %DIF > 
+%DIF -------
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\realNums}{\mathbin}{AMSb}{"52}
+
+
+\newcommand{\curls}[1]{\left\{#1\right\}}
+%\newcommand{\teirRegEx}{\ensuremath{\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\paren{\Sigma\cup\curls{.}\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}^{\ast}\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\cup\Sigma}}
+\newcommand{\teirRegEx}{\ensuremath{\Sigma\paren{\Sigma\cup\curls{.}}\Sigma}}
+\newcommand{\teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Fasta}{FastA}
+\newcommand{\fasta}{FastA}
+\newcommand{\psiblast}{psi--Blast}
+\newcommand{\prosite}{PROSITE}
+\newcommand{\biodictionary}{Bio--Dictionary}
+\newcommand{\genbank}{GENBANK}
+\newcommand{\embl}{EMBL}
+\newcommand{\etal}{\emph{et.\ al.\ }}
+\newcommand{\sptr}{SwissProt/TrEMBL}
+\newcommand{\swissp}{SWISS--PROT}
+\newcommand{\swissprot}{\swissp}
+\newcommand{\swissptr}{SWISS--PROT/TrEMBL}
+\newcommand{\swissprottrembl}{\swissptr}
+\newcommand{\amsdb}{AMSDb}
+\newcommand{\ncbi}{NCBI}
+\newcommand{\blosum}{BLOSUM}
+\newcommand{\pam}{PAM}
+\newcommand{\oligo}{oligonucleotide}
+\newcommand{\Oligo}{Oligonucleotide}
+\newcommand{\blast}{BLAST}
+\newcommand{\pr}[1]{\prob\left(#1\right)}
+\newcommand{\prt}[1]{\prob\left(\textrm{#1}\right)}
+\newcommand{\cp}[2]{\prob\left(#1\mid #2\right)}
+\newcommand{\cpt}[2]{\prob\left(\textrm{#1}\mid \textrm{#2}\right)}
+\newcommand{\ex}[1]{\mathbf{E}\left[#1\right]}
+%\newcommand{\var}[1]{\textrm{var}\left(#1\right)}
+\newcommand{\phip}[3]{\Phi\paren{\frac{#1-\paren{#2}}{#3}}}
+%\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\ten}[1]{\mathbf{#1}}
+\newcommand{\pdf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\pmf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\transf}[2]{M_{#1}\left(#2\right)}
+\newcommand{\expo}[1]{\exp\left[#1\right]}
+\newcommand{\pd}[2]{\frac{\partial}{\partial #2}\brac{#1}}
+\setlength{\extrarowheight}{3pt}
+\newcommand{\marnote}[1]{\marginpar{\raggedleft\footnotesize\bfseries\hspace{0pt} #1}}
+
+\usepackage{fancyhdr}
+%\renewcommand{\chaptermark}[1]{\markboth{\textit{\chaptername}\ \thechapter.\ #1}{}}
+
+%this defines the basic headers and footer
+% styles when we use the 'fancyhdr' styles
+%\lhead[\fancyplain{}{\itshape\footnotesize\thepage}]{\fancyplain{}{\itshape\footnotesize\rightmark}}
+%\rhead[\fancyplain{}{\itshape\footnotesize\leftmark}]{\fancyplain{}{\itshape\footnotesize\thepage}}
+%\lhead[\fancyplain{}\bfseries\thepage]{\fancyplain{}\bfseries\rightmark}
+%\rhead[\fancyplain{}\bfseries\leftmark]{\fancyplain{}\bfseries\thepage}
+%\pagestyle{fancyplain}
+\addtolength{\headwidth}{0.5\marginparsep}
+\addtolength{\headwidth}{0.5\marginparwidth}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\footnotesize\thepage}]{\fancyplain{}{\footnotesize\rightmark}}
+\rhead[\fancyplain{}{\footnotesize\leftmark}]{\fancyplain{}{\footnotesize\thepage}}
+\cfoot{}
+\cfoot{}
+
+% Special Float captions
+% Different font in captions
+\newcommand{\captionfonts}{\mdseries}
+\newcommand{\floatnamefonts}{\bfseries}
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\floatnamefonts #1:~~\captionfonts #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\floatnamefonts #1: \captionfonts #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+
+\makeindex
+
+\pagestyle{plain}
+
+
+\usepackage{courier}
+%DIF 238a251
+%\usepackage{unicode-math} %DIF > 
+%DIF -------
+
+\newcommand \codevar[1]{\texttt{#1}}
+
+%% This bit allows you to either specify only the files which you wish to
+%% process, or `all' to process all files which you \include.
+%% Krishna Sethuraman (1990).
+
+%\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
+%\def\all{all}
+%\ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
+%\DeclareMathAlphabet{\mathnormal}{OMS}{cmsy}{m}{n} %DIF > 
+%\setmathfont{Latin Modern Math} %DIF > 
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+%\fontencoding{LY1}\fontfamily{ACaslonPro}\mdweight
+
+%\input{Body/cover}
+\pagestyle{plain}
+%\input{Body/contents}
+
+%now start the fancy headings
+\pagestyle{fancyplain}
+\addtolength{\headheight}{\baselineskip}
+%add a nice little line underneath the heading
+%\renewcommand{\headrulewidth}{0.6pt}
+
+%DIF < \input{Body/intro.tex}
+%DIF > \input{Body/new_intro.tex}
+\chapter{Related Work}\label{chapter:relatedwork}
+
+Systems that help students in massive programming courses may build on work from \DIFdelbegin \DIFdel{any or all the following related fields: }\DIFdelend program analysis, program synthesis, crowd workflows, \DIFdelbegin \DIFdel{user-interface }\DIFdelend \DIFaddbegin \DIFadd{user interface }\DIFaddend design, machine learning, intelligent tutoring systems, natural language processing, data mining, and learning science. \DIFdelbegin \DIFdel{First, I present prior work and theories ofhow people learn that later inspired key design decisions. I then clarify how this thesis work is novel while describing related work that achieves similar goals or uses similar methods. %DIF < \todo{add references to my own work, to illustrate relevance}
+}\DIFdelend \DIFaddbegin \DIFadd{This chapter summarizes relevant technical and psychological work that supports the pedagogical value of the systems developed in this thesis and gives context to the technical contributions. %DIF > \todo{rewrite chapter description} %First, I present prior work and theories of how people learn that later inspired key design decisions or suggest that the systems in this thesis are beneficial in a learning environment. I then clarify how this thesis work is novel while describing related work that achieves similar goals or uses similar methods. %\todo{add references to my own work, to illustrate relevance}
+}\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \section{Exploring and Mining Variation in the Wild}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > \todo{rewrite this paragraph}
+
+\DIFdelbegin \DIFdel{One important aspect of both engineering and design is that there are multiple ways to solve the same problem. There are many means to an end, and the optimality of each solution may be context-dependent.
+Sub-optimality can have high personal, safety, and economic costs.
+}\DIFdelend \DIFaddbegin \section{Clustering}
+
+%DIF > \todo{add citations}
+
+\DIFadd{Grouping similar items, i.e., }{\it \DIFadd{clustering}}\DIFadd{, is a fundamental human activity for organizing, making sense of, and drawing conclusions from data. Across many scientific fields, clustering goes by different names but serves a common purpose: helping humans explore, interpret, and summarize data~\mbox{%DIFAUXCMD
+\cite{Jain50}}%DIFAUXCMD
+.
+}
+
+\DIFadd{This is }{\it \DIFadd{unsupervised machine learning}}\DIFadd{. There are no labels, no ground truth. For example, is there one true clustering of all the articles the New York Times ever published? Humans have goals, and how useful clusters are to them is all that matters.
+}
+
+\DIFadd{Humans are pattern finders. A human can look at collections of items and group them in various ways. For example, a collection of dogs could be grouped according to their size or the color of their fur. Both clusterings are equally valid. Clustering by size may be more useful if the purpose is to decide which dogs get walked together.
+}
+
+\DIFadd{Computers need more instructions before they can step in and help cluster items, when there are too many for a human to cluster them alone. Items need to be represented in a machine-readable way, and human judgements need to be replaced with computation.
+}
+
+\DIFadd{The first critical decision when preparing a collection for clustering by a computer is how to represent the items in a machine-readable format, e.g., as images or sets of attributes, also called }{\it \DIFadd{features}}\DIFadd{, like weight, height, and fur color. This }{\it \DIFadd{representation}} \DIFadd{effects every subsequent step of the clustering process~\mbox{%DIFAUXCMD
+\cite{Jain50}}%DIFAUXCMD
+. Since the clustering is performed for a human with a goal, the representation ideally captures aspects of the items that are relevant to that goal.
+}
+
+\DIFadd{Further customizing the item representation for the human goal, also known as }{\it \DIFadd{feature extraction}}\DIFadd{, is optional but often very helpful. Feature extraction is computing new features about each item from the original representation. These new features may better capture the aspects of items that are relevant to the human goal. For example, if the goal is to partition dogs by fur color and dogs are represented by images, one might extract the most common color in every dog image.
+}
+
+\DIFadd{A second optional step is }{\it \DIFadd{feature selection}}\DIFadd{, the process of determining what features can be ignored because they are irrelevant to the human goal. For example, if the goal is to partition dogs by fur color and dogs are represented by collections of features, then only the fur color feature may be selected, ignoring height and weight.
+}
+
+\DIFadd{Hopefully, at the end of this process, some items are closer to each other than they are to others, with respect to some aspect of the items the human cares about. If a computer is to verify this, one needs to define exactly what the }{\it \DIFadd{closer}} \DIFadd{means. The computer needs a human to define a }{\it \DIFadd{distance function}} \DIFadd{that quantifies how close or far items are from each other.
+}
+
+\DIFadd{The next step is choosing a }{\it \DIFadd{clustering method}}\DIFadd{, i.e., a general strategy. Clustering is finding clusters of items that are closer to each other than they are to items in other groups. There is no one best method for all clustering problems, but some methods produce clusters that support the human's problem-specific goal better than others.
+}
+
+\DIFadd{Some methods have an }{\it \DIFadd{objective function}} \DIFadd{that quantifies some desirable characteristic of clusters to maximize or some undesirable characteristic of clusters to minimize~\mbox{%DIFAUXCMD
+\cite{Jain50}}%DIFAUXCMD
+. One objective function sums up how different each item is from its cluster center. Presumably, the smaller the differences, the better the clustering. Specific clustering algorithms may define different centers for each cluster, tally up the differences in different ways, and follow different processes to minimize the objective function.
+}
+
+\DIFadd{Some methods are more easily characterized by their process than their objective function. }\DIFaddend For example, \DIFdelbegin \DIFdel{in the software industry, maintenance dominates the cost of producing software~\mbox{%DIFAUXCMD
+\cite{fox2013engineering}}%DIFAUXCMD
+. Poorly designed code may be the culprit because it requires significantly more maintenance. }%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{If solutions can be indexed in useful ways, they can be mined to ask basic questions like, }%DIFDELCMD < \begin{enumerate}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{hierarchical clustering methods are characterized as either:
+}
+
+ \begin{itemize} 
+\DIFaddend \item \DIFaddbegin {\it \DIFadd{agglomerative}} \DIFadd{or bottom-up, by merging individual items into small clusters, then merging small clusters into larger clusters, etc., or
+}\item {\it \DIFadd{divisive}} \DIFadd{or top-down, by splitting the entire collection of items into clusters, then splitting those clusters into further clusters, until all clusters only contain one item~\mbox{%DIFAUXCMD
+\cite{xu2005survey}}%DIFAUXCMD
+.
+} \end{itemize} 
+
+\DIFadd{The objective functions used in these methods help determine which clusters to merge or split.
+}
+
+\DIFadd{Some statistical clustering methods, such as mixture models, assume that the items are samples from underlying, unseen distributions of items. By making some assumptions about what those distributions might look like, an algorithm can map items to clusters to maximize a statistical measure of fit between the observed data and the unobserved distributions.
+}
+
+\DIFadd{Many methods require the human to provide additional values and thresholds, such as how similar two items need to be to be grouped together or how many clusters to look for. Some methods incorporate techniques that anticipate outliers and attempt to be robust to them.
+}
+
+\DIFadd{The types of clusters produced by clustering algorithms can be partitioned in several ways~\mbox{%DIFAUXCMD
+\cite{wiki:clustering}}%DIFAUXCMD
+, such as:
+}
+
+ \begin{itemize} 
+\item {\it \DIFadd{Hard}} \DIFadd{versus }{\it \DIFadd{soft}}\DIFadd{: If each item is mapped to a single cluster, the method is hard. If items can partially belong in different degrees to multiple clusters, the method is soft.
+}\item {\it \DIFadd{Partition}} \DIFadd{vs. }{\it \DIFadd{overlap}} \DIFadd{vs. }{\it \DIFadd{hierarchy}}\DIFadd{: If each item belongs to one and only one cluster, the method is producing strict partitions. If each item belongs to one or more clusters, than the method is producing overlapping clusters. If each item belongs to one cluster and clusters are strictly contained by other clusters, the method is hierarchical.
+} \end{itemize} 
+
+\DIFadd{Some methods do not produce clusters of items, but rather clusters of components within items. For example, Latent Dirichlet Allocation (LDA)~\mbox{%DIFAUXCMD
+\cite{lda} }%DIFAUXCMD
+does not cluster entire documents. It produces a hard, strict partition of words into different clusters, typically called }{\it \DIFadd{topics}}\DIFadd{. At the level of documents, however, this can look like a soft clustering: an individual document might be 50\% hospital-related words, 30\% government-related words, and 20\% negotiation-related words.
+}
+
+\DIFadd{Clusters are hard to objectively evaluate. It is expensive and time consuming to bring in humans with goals to evaluate how useful the clusters are to them. }{\it \DIFadd{Cluster validation}} \DIFadd{refers to the metrics used to approximate the quality of clusters with little or no human input~\mbox{%DIFAUXCMD
+\cite{xu2005survey}}%DIFAUXCMD
+. These metrics can be the basis of choosing one method over another, one parameter value over another, or one clustering over another quickly but approximately.
+}
+
+\DIFadd{Another way to produce more helpful clusterings is to involve the human in an }{\it \DIFadd{interactive}} \DIFadd{process. The clustering algorithm produces clusters and gives the human one or more ways to give feedback. Feedback could be in the form of indicating what is good or bad about this clustering. Feedback could be the human reaching in and directly moving an item from one cluster to another. The method reruns, based on this new information, and produces a new clustering for the human to evaluate and give feedback on.
+}
+
+\DIFadd{One aspect of clustering that does not fall into the traditional conversation about features, distance functions, and methods is }{\it \DIFadd{interpretability}}\DIFadd{. A clustering may have good quality scores with respect to those cluster validation metrics, but if it is difficult for the human to understand what each cluster contains, they may have trouble using it to achieve their goals.
+}
+
+\DIFadd{There are thousands of published methods that exhibit combinations of these properties and strategies. When comparing methods, it is helpful to break the comparison down by representation, features, distance function, objective function, and algorithm they use as well as the type of clusters they produce. In subsequent sections, this language will be used to help describe the many different code analysis and clustering processes found in related work.
+}
+
+
+\section{Mining Solution Variation}
+
+\DIFadd{One important aspect of both engineering and design is that there are multiple ways to solve the same problem, each with their own trade-offs. The consequences of these design choices can be significant. Suboptimal solutions, including poorly designed code, can have high personal, safety, and economic costs. 
+}
+
+\DIFadd{It may be possible to learn good and bad practices from large collections of previous solutions by looking at common and uncommon choices and making judgements about their successes and trade-offs. In order to understand the space of current solutions, there are many questions one could ask. }\DIFaddend In the face of a common design choice, what do \DIFdelbegin \DIFdel{people }\DIFdelend \DIFaddbegin \DIFadd{designers }\DIFaddend most commonly pick? Has this changed over time? \DIFdelbegin %DIFDELCMD < \item    %%%
+\DIFdelend What are popular design alternatives? \DIFdelbegin %DIFDELCMD < \item    %%%
+\DIFdelend What are examples of design \DIFdelbegin \DIFdel{fails }\DIFdelend \DIFaddbegin \DIFadd{failures }\DIFaddend that should be learned from and never repeated? \DIFdelbegin %DIFDELCMD < \item    %%%
+\DIFdelend What are examples of design innovations that are clearly head-and-shoulders above the rest? \DIFdelbegin %DIFDELCMD < \end{enumerate}
+%DIFDELCMD < %%%
+\DIFdelend The answers to these questions could fuel \DIFdelbegin \DIFdel{instruction }\DIFdelend \DIFaddbegin \DIFadd{education about designing solutions }\DIFaddend that complies with \DIFdelbegin \DIFdel{Variation Theory's recommendations. With }\DIFdelend \DIFaddbegin \DIFadd{variation theory recommendations. }\DIFaddend OverCode, Foobaz, and \DIFdelbegin \DIFdel{ClassOverflow, I }\DIFdelend \DIFaddbegin \DIFadd{the comparison learnersourcing workflow }\DIFaddend try to answer \DIFdelbegin \DIFdel{the same questions for students tackling the same programming challenge}\DIFdelend \DIFaddbegin \DIFadd{these questions for student solutions written in code}\DIFaddend .
+
+\DIFdelbegin %DIFDELCMD < \subsection{Webpages}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > The same questions could be applied to student solutions to a programming problem, and OverCode, Foobaz, and the targeted learnersourcing workflows attempt to answer them.
+\DIFaddbegin 
+
+\subsection{Code Outside the Classroom}
+
+\subsubsection{Web pages}
+\DIFaddend Ritchie et al.~\cite{ritchie2011d} describe a user interface for finding \DIFdelbegin \DIFdel{“relevant and inspiringdesign examples�}\DIFdelend \DIFaddbegin \DIFadd{helpful, i.e., relevant or inspiring, design examples }\DIFaddend from a curated database of web pages. \DIFdelbegin \DIFdel{This }\DIFdelend \DIFaddbegin \DIFadd{Their }\DIFaddend work is intended to support designers who like to refer to or adapt previous designs for their own purposes. Traditional search engines only index the content of web pages\DIFdelbegin \DIFdel{; this }\DIFdelend \DIFaddbegin \DIFadd{. Their }\DIFaddend system indexes web \DIFdelbegin \DIFdel{pages�}\DIFdelend \DIFaddbegin \DIFadd{pages' }\DIFaddend design style by automatically extracting global stylistic and structural features from each page. Instead of manual browsing, users can search and filter a gallery of design-indexed pages. Users can provide an example design in order to find similar and dissimilar designs, as well as high-level style terms like \DIFdelbegin \DIFdel{“minimal.�}\DIFdelend \DIFaddbegin \DIFadd{``minimal.''
+}\DIFaddend 
+
+Kumar et al.~\cite{webzeitgeist} defined {\it design mining} as \DIFdelbegin \DIFdel{�}\DIFdelend \DIFaddbegin \DIFadd{``}\DIFaddend using knowledge discovery techniques to understand design demographics, automate design curation, and support data-driven design tools.\DIFdelbegin \DIFdel{” This }\DIFdelend \DIFaddbegin \DIFadd{'' Their }\DIFaddend work goes beyond searching and filtering a gallery of hundreds of curated \DIFdelbegin \DIFdel{webpages}\DIFdelend \DIFaddbegin \DIFadd{web pages}\DIFaddend . Their Webzeitgeist design mining platform allows users to query a repository of hundreds of thousands of web pages based on the properties of their Document Object Model (DOM) tree and the look of the rendered page. A \DIFdelbegin \DIFdel{1679-dimensional }\DIFdelend vector of descriptive features \DIFdelbegin \DIFdel{are }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend computed for each DOM node in each page.
+
+Webzeitgeist enables users to ask and answer \DIFdelbegin \DIFdel{some of those originally highlighted questions }\DIFdelend \DIFaddbegin \DIFadd{questions like the following}\DIFaddend , with respect to \DIFdelbegin \DIFdel{this }\DIFdelend \DIFaddbegin \DIFadd{a }\DIFaddend large web page repository\DIFdelbegin \DIFdel{:
+}%DIFDELCMD < \begin{enumerate}
+%DIFDELCMD < \item    %%%
+\DIFdelend \DIFaddbegin \DIFadd{. }\DIFaddend What are all the distinct cursors? \DIFdelbegin %DIFDELCMD < \item    %%%
+\DIFdelend What are the most popular colors for text? \DIFdelbegin %DIFDELCMD < \item    %%%
+\DIFdelend How many DOM tree nodes does a typical page have? How deep is a typical DOM tree? \DIFdelbegin %DIFDELCMD < \item    %%%
+\DIFdelend What is the distribution of aspect ratios for images? \DIFdelbegin %DIFDELCMD < \item    %%%
+\DIFdelend What are the spatial distributions for common HTML tags? \DIFdelbegin %DIFDELCMD < \item    %%%
+\DIFdelend How do web page designers use the HTML canvas element?
+\DIFdelbegin %DIFDELCMD < \end{enumerate}
+%DIFDELCMD < %%%
+\DIFdelend 
+
+To dig into examples of a particular design choice, users can, for example, query for all pages with very wide images. The result is a set of horizontally scrolling pages. Alternatively, users can query for \DIFdelbegin \DIFdel{webpages }\DIFdelend \DIFaddbegin \DIFadd{web pages }\DIFaddend that have a particular layout, like a large header, a navigational element at the top of the page, and a text node containing greater than some threshold of words, in order to see all the examples of pages that fit those layout specifications. Specific combinations of page features can imply high-level designs as well so, with careful query construction, users can query for high-level ideas. For example, querying for pages with a centered HTML input element \DIFdelbegin \DIFdel{AND }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend low visual complexity retrieves many examples that look like the front pages of search engines.
+
+\DIFdelbegin %DIFDELCMD < \subsection{Android Apps}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsubsection{Android Apps}
+\DIFaddend 
+
+Shirazi et al.~\cite{Shirazi} and Alharbi and Yeh~\cite{Alharbi} describe automated processes for taking apart and analyzing Android app code as well as empirical analyses of \DIFdelbegin \DIFdel{corpuses of Android Apps available on }\DIFdelend \DIFaddbegin \DIFadd{corpora of Android apps available from }\DIFaddend the Google Play app store. Shirazi et al. analyzed the 400 most popular free Android applications, while Alharbi and Yeh tracked over 24,000 Android apps over a period of 18 months. Alharbi and Yeh \DIFdelbegin \DIFdel{caputured }\DIFdelend \DIFaddbegin \DIFadd{captured }\DIFaddend each update within their collection window, as well. They decompiled apps into code from which UI design and behavior could be inferred, e.g., XML and click handlers, and tracked changes across versions of the same app. Both papers analysed population-level characteristics of their \DIFdelbegin \DIFdel{corpuses}\DIFdelend \DIFaddbegin \DIFadd{corpora}\DIFaddend , answering questions like: \DIFdelbegin %DIFDELCMD < \begin{itemize}
+%DIFDELCMD < \item     %%%
+\DIFdel{What }\DIFdelend \DIFaddbegin \DIFadd{what }\DIFaddend is the distribution of layout design patterns, among the seven standard Android layout containers? \DIFdelbegin %DIFDELCMD < \item     %%%
+\DIFdelend What are the most common design patterns for navigation, e.g., tab layout and horizontal paging? Have any apps switched from one pattern to another?  \DIFdelbegin %DIFDELCMD < \item     %%%
+\DIFdelend How quickly are newly introduced design patterns adopted? \DIFdelbegin %DIFDELCMD < \item     %%%
+\DIFdelend What are the most frequent interface elements? And combinations of interface elements? How many applications does that combination cover?
+\DIFdelbegin %DIFDELCMD < \end{itemize}
+%DIFDELCMD < %%%
+\DIFdelend 
+
+\DIFdelbegin %DIFDELCMD < \subsection{Open-Source Code Repositories}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsubsection{Open-Source Code Repositories}
+\DIFaddend 
+
+Ideally, code is not just correct, it is simple, readable, and ready for the inevitable need for future changes~\cite{peters2010zen,6005notes}. How can we help students reach this level of programming composition zen? How can we learn from others' code, even after we become competent, or even an expert, at the art of programming?
+
+For the same reason we look at patterns in design across web pages and mobile apps, we can look at the design choices already made by humans who share their programs. Rather than using web crawlers or app stores, we can process millions of public repositories hosted online. What can we learn about good and bad code design decisions from these collections?
+
+These code analysis techniques that follow are most closely related to those developed for OverCode and Foobaz. \DIFaddbegin \DIFadd{The }\DIFaddend OverCode and Foobaz \DIFdelbegin \DIFdel{'s }\DIFdelend pipelines are optimized for user interfaces that help users answer design mining questions about their \DIFdelbegin \DIFdel{students' compositions }\DIFdelend \DIFaddbegin \DIFadd{student solutions }\DIFaddend and put the code front and center. 
+\DIFdelbegin \DIFdel{The advantages and disadvantages of the OverCode and Foobaz pipelines with respect to the systems designed in this section will be discussion in later chapters after the techniques developed in this thesis are fully explained.
+}\DIFdelend %DIF >  \subsubsection{Regularity In Code}
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Regularity In Code}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Several papers make similar observations, arguments, and emperical validation of the regularitythat can be found in code}\DIFdelend \DIFaddbegin \DIFadd{Code, like natural language, exhibits regularity}\DIFaddend . Hindle et al.~\cite{Hindle2012} \DIFdelbegin \DIFdel{were motivated by the assertion that human-produced natural language and human-produced program language may both be "complex and admit a great wealth of expression, but what people write ... is largely regular and predictable." The authors }\DIFdelend argue that the \DIFdelbegin \DIFdel{assertion }\DIFdelend \DIFaddbegin \DIFadd{regularity of code }\DIFaddend may be even more true for code than for natural language. Allamanis and Sutton~\cite{allamanis2014mining} observe that \DIFdelbegin \DIFdel{there are syntactic fragments , i.e., idioms, that }\DIFdelend \DIFaddbegin \DIFadd{some syntactic fragments }\DIFaddend serve a single semantic purpose and recur frequently across software projects. Fast et al.~\cite{codex} observe that poorly written code is often syntactically different from well written code, with the caveat that not all syntactically divergent code is bad.
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Mining Idioms}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin {\bf \DIFadd{Mining Idioms}}
+\DIFaddend 
+
+Idiomatic code is written in a manner that experienced programmers perceive as \DIFdelbegin \DIFdel{"normal " or "natural. " }\DIFdelend \DIFaddbegin \DIFadd{normal or natural. }\DIFaddend Idioms are roughly equivalent to mental \DIFdelbegin \DIFdel{"chunks." }\DIFdelend \DIFaddbegin \DIFadd{chunks, i.e., the memory units characterized by George Miller~\mbox{%DIFAUXCMD
+\cite{chunking}}%DIFAUXCMD
+. }\DIFaddend I will borrow an example from Allamanis and Sutton\DIFaddbegin \DIFadd{:}\DIFaddend ~\cite{allamanis2014mining}
+
+ \begin{itemize} 
+\item \DIFdelbegin \DIFdel{for(int i=0;i<n;i++)}%DIFDELCMD < {%%%
+\DIFdel{...}%DIFDELCMD < } %%%
+\DIFdelend \DIFaddbegin \texttt{\DIFadd{for (int i=0;i<n;i++) ...}} \DIFaddend is a common idiom for looping in Java.
+\item do-while and recursive looping strategies are not.
+ \end{itemize} 
+
+\DIFdelbegin \DIFdel{An experienced Java programmer will be able to understand the code whether it's idiomatic or not, but it may take longer. They may even be distracted by questions, e.g., "Why did the author make this choice?"
+}\DIFdelend %DIF > An experienced Java programmer will be able to understand the code whether it's idiomatic or not, but it may take longer. They may even be distracted by questions, e.g., {\it Why did the author make this choice?}
+
+Fast et al.~\cite{codex} break the definition of idioms into two levels. An example of a \DIFdelbegin \DIFdel{"}\DIFdelend high-level \DIFdelbegin \DIFdel{" }\DIFdelend idiom is code that initializes a nested hash. An example of a \DIFdelbegin \DIFdel{"}\DIFdelend low-level \DIFdelbegin \DIFdel{" }\DIFdelend idiom is code that returns the result of an addition operation. Some languages support a variety of different, equally good ways to do the same thing\DIFdelbegin \DIFdel{; others }\DIFdelend \DIFaddbegin \DIFadd{. Others }\DIFaddend encourage a single, idiomatic way to achieve each task.
+
+Idioms can and do recur throughout distinct projects and domains (unlike repeated code nearly verbatim, i.e., clones) and commonly involve syntactic sugar (unlike API patterns). In general, clone detectors look for the largest repeated code fragments and API mining algorithms look for frequently used sequences of API calls. Idiom mining is distinct because idioms have syntactic structure and are often wrapped around or interleaved with context-dependent blocks of code\DIFdelbegin \DIFdel{, like the block of statements within an the idiomatic for loop in the previous paragraph.}\DIFdelend \DIFaddbegin \DIFadd{.%DIF > , like the block of statements within an the idiomatic for loop in the previous paragraph.
+}\DIFaddend 
+
+There are enough idioms for some languages that they have lengthy, highly \DIFdelbegin \DIFdel{"starred" }\DIFdelend \DIFaddbegin \DIFadd{bookmarked }\DIFaddend and shared online guides. StackOverflow has many questions asked and answered about the appropriate language or library-specific idioms for particular, common tasks. It is difficult for expert users of each language or library to catalogue all the idioms. It is much more practical to simply look at how programmers are using the language or library and extract idioms from the data.
+
+Hindle et al.~\cite{Hindle2012} used statistical language models from natural language processing to identify idiom-like patterns in Java code. They found that \DIFdelbegin \DIFdel{corpus-based }\DIFdelend n-gram language models \DIFdelbegin \DIFdel{captured }\DIFdelend \DIFaddbegin \DIFadd{built by analyzing corporacaptured }\DIFaddend a high level of project- and domain-specific local regularity in programs. Local regularities are valuable for statistical machine translation of natural language\DIFdelbegin \DIFdel{; they }\DIFdelend \DIFaddbegin \DIFadd{. They }\DIFaddend may prove useful in analogous tasks for software as well. For example, the authors trained and tested \DIFdelbegin \DIFdel{a corpus-based }\DIFdelend \DIFaddbegin \DIFadd{an }\DIFaddend n-gram model token suggestion engine that looks at the previous two tokens already entered into the text buffer and predicts the next one the programmer might type.
+
+Allamanis and Sutton~\cite{allamanis2014mining} automatically mine idioms from a corpus of idiomatic code using nonparametric Bayesian tree substitution grammars. The mined idioms correspond to important programming concepts, e.g., object creation, exception handling, and resource management, and are \DIFdelbegin \DIFdel{, as expected, }\DIFdelend often library-specific. They found that 67\% of the idioms mined from one set of open source projects were also found in code snippets posted on StackOverflow.
+
+Fast et al.~\cite{codex} computed statistics about the abstract syntax trees (ASTs) of three million lines of popular open source code in the 100 most popular Ruby projects hosted on Github. AST nodes are normalized, and all identical normalized nodes are collapsed into a single database entry. The unparsed code snippets that correspond to each normalized node are saved. Codex normalizes these snippets by renaming variable identifiers, strings, symbols, and numbers to \DIFdelbegin \DIFdel{var0, var1, var2, str0, str1}\DIFdelend \DIFaddbegin \texttt{\DIFadd{var0}}\DIFadd{, }\texttt{\DIFadd{var1}}\DIFadd{, }\texttt{\DIFadd{var2}}\DIFadd{, }\texttt{\DIFadd{str0}}\DIFadd{, }\texttt{\DIFadd{str1}}\DIFaddend , etc. Note that this fails when primitives, like specific strings and numbers, are vital to interpreting the purpose of the statement.
+
+The resulting system, Codex, can warn programmers when they chain or compose functions, place a method call in a block, or pass an argument to a function that is infrequently seen in the corpus. It is fast enough to run in the background of an IDE, highlighting problem statements and annotating them with messages like, \DIFdelbegin \DIFdel{�}\DIFdelend \DIFaddbegin \DIFadd{``}\DIFaddend We have seen the function split 30,000 times and strip 20,000 times, but \DIFdelbegin \DIFdel{we�}\DIFdelend \DIFaddbegin \DIFadd{we'}\DIFaddend ve never seen them chained together.\DIFdelbegin \DIFdel{�}\DIFdelend \DIFaddbegin \DIFadd{'' }\DIFaddend Codex can be queried for nodes by code complexity; type, i.e., function call; frequency of occurrence across files and projects; and containment of particular strings.
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Mining Larger Patterns in Code}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin {\bf \DIFadd{Mining Larger Patterns in Code}}
+\DIFaddend 
+
+In the code of working applications, Ammons et al.~\cite{ammons2002mining} observed that \DIFdelbegin \DIFdel{�}\DIFdelend common behavior is often correct\DIFdelbegin \DIFdel{behavior. �}\DIFdelend \DIFaddbegin \DIFadd{. }\DIFaddend Based on that observation, they use probabilistic learning from program execution traces to infer the \DIFdelbegin \DIFdel{program�}\DIFdelend \DIFaddbegin \DIFadd{program'}\DIFaddend s formal correctness specifications. Inferring formal specifications for programs is valuable because programmers have historically been reluctant to write them. During program execution, the authors summarize frequent patterns as state machines that can be inspected by the programmer. As a result, the authors identified correct protocols and some previously unknown bugs.
+
+Buse and Weimer~\cite{buse2012synthesizing} go beyond idioms to mining API \DIFdelbegin \DIFdel{useage}\DIFdelend \DIFaddbegin \DIFadd{usage}\DIFaddend . Based on a corpus of Java code, they find examples that reference a target class, symbolically execute it to compute intraprocedural path predicates while recording all subexpression values, identify expressions that correspond to one use of the class, capture the order of method calls in those concrete examples, then use \DIFdelbegin \DIFdel{K-mediods }\DIFdelend \DIFaddbegin \DIFadd{K-medoids }\DIFaddend to cluster these extracted concrete use examples with a custom formal parameterized distance metric that penalizes for differences in method ordering and type information. Concrete use examples within the same cluster are merged into abstract uses represented as graphs with edge weights that correspond to counts of how many times node X happens before node Y. Finally, they have a synthesis method to express these abstract use graphs in a human-readable form, i.e., representative, well-formed, and well-typed Java code fragments.
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Mining Names}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin {\bf \DIFadd{Mining Names}}
+\DIFaddend 
+
+Without modifying execution, names can express to the human reader the type and purpose of an object, as well as suggest the kinds of operators used to manipulate it~\cite{jones2008operand}. Perhaps as a direct result, variable names can exhibit some of the same regularity exhibited by code, in general. H{{\o{}}}st and {{\O{}}}stvold~\cite{host2008java} go so far as to call method names a restricted natural language they dubbed Programmer English.
+
+H{{\o{}}}st and {{\O{}}}stvold~\cite{host2008java} ran an analysis pipeline on a corpus of Java that performs semantic analysis on methods and grammatical analysis on method names\DIFdelbegin \DIFdel{; it }\DIFdelend \DIFaddbegin \DIFadd{. It }\DIFaddend generates a data-driven phrasebook that Java programmers can use when naming methods. In a second publication~\cite{host2009debugging}, they formally defined and then automatically identified method naming bugs in code, i.e., giving a method a name that incorrectly implies what the method takes as an argument or does with an argument.
+
+They did this by identifying prevalent naming patterns, e.g., contains-*, which occur in over half of the applications in the corpus and match at least 100 method instances. They also determined and cataloged the attributes of each method body, such as whether it read or wrote fields, created new objects, or threw exceptions. If almost all the methods whose names match a particular pattern, e.g., contains-*, have an attribute or do not have some other attribute, it \DIFaddbegin \DIFadd{is }\DIFaddend automatically determined to be an implementation rule that all names in the corpus should follow. \DIFdelbegin \DIFdel{On }\DIFdelend \DIFaddbegin \DIFadd{When run on }\DIFaddend a large corpus of Java projects, this analysis pipeline found a variety of naming bugs.
+
+Fast et al.'s Codex~\cite{codex} produced similar results\DIFdelbegin \DIFdel{; by }\DIFdelend \DIFaddbegin \DIFadd{. By }\DIFaddend keeping track of variable names in variable assignment statements, it can warn programmers when their variable name violates \DIFdelbegin \DIFdel{statistically-established }\DIFdelend \DIFaddbegin \DIFadd{statistically established }\DIFaddend naming conventions, such as the (probably confusing) naming of a \DIFdelbegin \DIFdel{Hash object "array." 
+}\DIFdelend \DIFaddbegin \DIFadd{hash object ``array.'' 
+}\DIFaddend 
+
+Foobaz can go beyond Fast et al.~\cite{codex} and H{{\o{}}}st and {{\O{}}}stvold's~\cite{host2008java,host2009debugging} work in providing feedback on variable names because all solutions are known to address the same programming \DIFdelbegin \DIFdel{exercise}\DIFdelend \DIFaddbegin \DIFadd{problem}\DIFaddend .
+
+%DIF < \section{Variation and Commonality Across Student Solutions}
+\DIFdelbegin %DIFDELCMD < \section{Exploring and Mining Variation in Student Solutions}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > \subsection{Student Solutions}
+\DIFaddbegin \subsection{Code Inside the Classroom}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{All the work in this thesis was composed during an eruption of interest in teaching massive numbers of people through online exercises and courses. Computer-based, scalable teaching environments, such as Intelligent Tutoring Systems, were not new, and neither was putting coursework up online. For example, MIT OpenCourseware opened its virtual doors to provide free access to static MIT course materials nearly 15 years ago, in 2002. However, it was not until 2011, that the first full university level course was made available to the public, complete with college-level programming exercises. Soon after, several organizations, e.g., edX, Coursera, and Udacity, started up to provide similar experiences for a range of university courses. I was acutely aware of edX because it was first organized from within the same basement lab of Stata in which I was spending my days and nights helping students complete assignments for Computation Structures.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < Andrew Ng at Stanford opened up his machine learning course infrastructure to the public, so that they could "take" his class--including its web-based programming exercises.
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{These organizations were soon sitting on top of piles of student activity and responses that could be studied by researchers. It became possible to formulate and answer new questions. The ACM Learning at Scale conference was started to give these a dedicated venue to talk about this new work. Multiple research groups began working on making sense and making use of this data to enhance learning outcomes and experiences. The work in this section is relevant to processing large corpuses of }\DIFdelend \DIFaddbegin \DIFadd{The common purpose of the code in a corpus of }\DIFaddend student solutions to the same programming \DIFdelbegin \DIFdel{exercise. %DIF < What set this work apart from previous research efforts was the idea that, with additional students %Early posters and workshop papers reporting interesting research questions and approaches with only preliminary results inspired several series of papers by research groups working in parallel.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The common purpose of the code in the corpus }\DIFdelend \DIFaddbegin \DIFadd{problem }\DIFaddend almost certainly contributes to the regularity already found in code from large \DIFdelbegin \DIFdel{corpuses }\DIFdelend \DIFaddbegin \DIFadd{corpora }\DIFaddend of open source projects. However, \DIFdelbegin \DIFdel{this regularity from }\DIFdelend \DIFaddbegin \DIFadd{student-written code may not exhibit the same regularity as code written by software developers contributing to an open source project. In other words, the regularity of student solutions to the same programming problem that comes from sharing }\DIFaddend a common purpose may be \DIFdelbegin \DIFdel{more than }\DIFdelend counter-balanced by the \DIFdelbegin \DIFdel{fact that the code is generated by novices who are still learning how to program and are not yet well-versed in the common idioms and programming constructs. 
+}\DIFdelend \DIFaddbegin \DIFadd{variety of student coding styles. 
+}\DIFaddend 
+
+\DIFdelbegin \DIFdel{Unlike corpuses of }\DIFdelend \DIFaddbegin \DIFadd{It is easier to run student solutions than code in }\DIFaddend open source projects\DIFdelbegin \DIFdel{, it is often not difficult to go beyond static analysis and perform dynamic analyses while executing each solution in the corpus. A set of teacher-designed tests of expected behavior may }\DIFdelend \DIFaddbegin \DIFadd{. Teacher-designed tests }\DIFaddend already exist, some available to \DIFdelbegin \DIFdel{students while developing }\DIFdelend \DIFaddbegin \DIFadd{and some hidden from students while they developed }\DIFaddend their solutions, \DIFdelbegin \DIFdel{some hidden from students' view, }\DIFdelend and some generated on the fly \DIFdelbegin \DIFdel{, }\DIFdelend through fuzz testing \cite{fuzztesting}. %DIF < As a result, these solutions can be analyzed on both their syntactic and behavioral qualities.
+\DIFaddbegin \DIFadd{This means that dynamic analysis can complement the static analysis of solutions. %DIF >  solutions can be described by both their syntactic and behavioral qualities.
+}\DIFaddend 
+
+Also unlike \DIFdelbegin \DIFdel{corpuses }\DIFdelend \DIFaddbegin \DIFadd{corpora }\DIFaddend of open source code, the solutions in large \DIFdelbegin \DIFdel{corpuses }\DIFdelend \DIFaddbegin \DIFadd{corpora }\DIFaddend of student code often require feedback, so that the author can learn. Automated feedback on solutions to programming \DIFdelbegin \DIFdel{exercises }\DIFdelend \DIFaddbegin \DIFadd{problems }\DIFaddend is still an area of active research. For example, assigning grades based solely on the number of teacher-designed tests the code passes may not capture what teachers care to grade on. A single error in a solution can cause a near-perfect solution to fail all test cases. A solution can perform perfectly on test cases but be poorly written or violate instructions, e.g., use the wrong algorithm to achieve the right results. The test cases themselves may be poorly designed. \DIFdelbegin \DIFdel{For these reasons, the teaching staff of 6.0001 at MIT review every exam solution from each student by hand. }\DIFdelend \DIFaddbegin \DIFadd{Some teachers hand-review hundreds of exam solutions because the autograder output is not sufficient to assign grades. %DIF > For these reasons, the teaching staff of 6.0001 at MIT review every exam solution from each student by hand.
+}\DIFaddend 
+
+When \DIFdelbegin \DIFdel{teachers have }\DIFdelend \DIFaddbegin \DIFadd{a course has }\DIFaddend hundreds or thousands of students, it can be challenging to provide feedback to each solution quickly and consistently by hand. Design mining techniques and interfaces can help teachers explore and understand the whole space of solutions as well as distribute feedback to specific subsets of solutions, or subsets within solutions. It could be an important tool to assist in the sometimes difficult, manual task of identifying pedagogically valuable examples for illuminating a concept or principle. Distributing feedback can also be approached as an unsupervised or supervised, possibly interactive, machine learning problem, by leveraging clustering, classification, \DIFdelbegin \DIFdel{or }\DIFdelend \DIFaddbegin \DIFadd{clone detection, and }\DIFaddend mixture modeling methods. \DIFdelbegin \DIFdel{Clustering also need not be done by machine learning methods; clone detection methods can identify clones at a variety of levels~\mbox{%DIFAUXCMD
+\cite{roy2009comparison}}%DIFAUXCMD
+.
+}\DIFdelend %DIF > Clustering also need not be done by machine learning methods. For example, clone detection methods can identify clones at a variety of levels~\cite{roy2009comparison}.
+
+%DIF < Design mining, described in the previous section, is concerned with capturing design choices and then making the space of existing designs explorable. These approaches can be applied to large corpuses of student solutions to the same programming exercise as well. It could be an important tool to assist in the sometimes difficult, manual task of identifying pedagogically valuable examples for illuminating a concept or principle. 
+%DIF > \todo{DNHT: cite roy2009comparison?}
+
+\DIFdelbegin %DIFDELCMD < \subsection{Regularizing Code}
+%DIFDELCMD < %%%
+\DIFdel{Before comparing solutions, it is common to preprocess the code to remove token variability that is irrelevant to later stages in the analysis pipeline. Light preprocessing might include normalizing white space and removing comments. Slightly more preprocessing might include systematically renaming variable and method names, i.e., those chosen by the code author, to generic placeholders. OverCode and Foobaz also preprocess solutions by normalizing whitespace and removing comments. However, since variables are central to the both systems, variables are carefully tracked and strategically renamed, rather than replaced by generic placeholders.
+}\DIFdelend %DIF > Design mining, described in the previous section, is concerned with capturing design choices and then making the space of existing designs explorable. These approaches can be applied to large corpora of student solutions to the same programming exercise as well. It could be an important tool to assist in the sometimes difficult, manual task of identifying pedagogically valuable examples for illuminating a concept or principle. 
+
+%DIF < e.g., normalizing white space, removing comments, and/or mapping author-chosen variable and method names to generic, unique strings like $var0$ or $str1$. %. , with or without the regularization of variable and method names, whitespace, and comments    with or without the regularization of variable and method names, whitespace, and comments
+\DIFaddbegin \subsubsection{Regularizing Student Solutions}
+%DIF > Before comparing code, it is common to preprocess the code to remove token variability that is irrelevant to later stages in the analysis pipeline. Light preprocessing might include normalizing white space and removing comments. Slightly more preprocessing might include systematically renaming variable and method names, i.e., those chosen by the code author, to generic placeholders. OverCode and Foobaz also preprocess solutions by normalizing whitespace and removing comments. However, since variables are central to the both systems, 
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{More aggressive code preprocessing can remove syntactic differences between solutions that are semantically similar by using semantics-preserving transformations}\DIFdelend %DIF > More aggressive code preprocessing can remove syntactic differences between solutions that are semantically similar by using semantics-preserving transformations. 
+\DIFaddbegin 
+
+\DIFadd{Solutions to the same problem can have different syntax but common semantics. Semantics-preserving transformations can be used to identify and regularize semantically equivalent code}\DIFaddend . This can include standard compiler optimizations, such as dead code removal, constant folding, copy propagation, and the inlining of helper functions~\cite{rivers2015data}. It can also include transformations, like changes in the order of operands to a commutative function, that make one solution closer to another solution with respect to some definition of edit distance. Applying semantics-preserving transformations, sometimes referred to as \DIFdelbegin \DIFdel{canonicalization }\DIFdelend \DIFaddbegin \DIFadd{normalization }\DIFaddend or standardization, has been used for a variety of applications, including detecting clones\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{baxter,CCFinder}}%DIFAUXCMD
+, automatic "transform-based diagnosis " }\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{baxter,CCFinder}}%DIFAUXCMD
+, diagnosis }\DIFaddend of bugs in \DIFdelbegin \DIFdel{students' programswritten in programming tutors }\DIFdelend \DIFaddbegin \DIFadd{student-written programs~}\DIFaddend \cite{xutransformation}, and self-improving intelligent tutoring systems~\cite{rivers2015data}. 
+
+\DIFdelbegin \DIFdel{A schema, in the context of programming, }\DIFdelend \DIFaddbegin \DIFadd{Semantics-preserving transformations will not change the }{\it \DIFadd{schema(s)}} \DIFadd{within a solution. A schema }\DIFaddend is a high-level cognitive construct by which humans understand or generate code to solve problems~\cite{Soloway1984}. For example, two programs that implement bubble sort have the same schema, bubble sort, even though they may have different low-level implementations. 
+\DIFdelbegin \DIFdel{While powerful, these semantics-preserving transformations will not change the schema(s) within a solution.This is not true for the }\DIFdelend \DIFaddbegin 
+
+\DIFadd{Nguyen et al.~\mbox{%DIFAUXCMD
+\cite{codewebs} }%DIFAUXCMD
+mines }\DIFaddend probabilistic semantically equivalent AST subtrees \DIFdelbegin \DIFdel{algorithmically mined }\DIFdelend from a corpus of solutions \DIFdelbegin \DIFdel{by Nguyen et al. ~\mbox{%DIFAUXCMD
+\cite{codewebs}}%DIFAUXCMD
+. These are probabilistic equivalences because the different AST }\DIFdelend \DIFaddbegin \DIFadd{to the same problem. The equivalences are probabilistic because the }\DIFaddend subtrees are only verified to be semantically equivalent {\it with respect to} the problem and the specific test cases provided. \DIFaddbegin \DIFadd{In future work, this could also be used for regularization of code. For example, all subtrees in all solutions could be replaced with the most popular subtree that is probabilistically semantically equivalent to it, much like OverCode renames variables to their most popular names after determining that they are probabilistically semantically equivalent. 
+}\DIFaddend 
+
+%DIF < When two pieces of code have different syntax, and therefore different abstract syntax trees (ASTs), they may still be semantically equivalent. A teacher viewing the code may want to see those syntactic differences, or may want to ignore them in order to focus on semantic differences. Semantics-preserving transformations can reduce or eliminate the syntactic differences between code.
+\DIFaddbegin \DIFadd{In OverCode and Foobaz, variables are carefully tracked and strategically renamed, rather than replaced by generic placeholders. This normalization step is novel in that its design decisions were made to maximize }{\it \DIFadd{human readability}} \DIFadd{of the resulting code. As a side-effect, syntactic differences between answers are also reduced.
+}\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \subsection{Features and Distance Functions}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsubsection{Features and Distance Functions for Student Solutions}
+\DIFaddend 
+
+
+
+\DIFdelbegin \DIFdel{The challenge is designing features or distance functions that capture what the teacher cares about. Teachers may want to give feedback on correctness, design decisions (a. 
+k.a., code style), or both. Other applications of code similarity functions are clone detection and plagiarism.
+}\DIFdelend Solutions can be represented as sets or vectors of hand-crafted computed features, sequences of tokens, or graphs. In the context of software, tokens could be characters or tokens corresponding to the lexical rules of the programming language. Drummond et al.~\cite{drummond2014learning} \DIFdelbegin \DIFdel{catalogues }\DIFdelend \DIFaddbegin \DIFadd{catalog }\DIFaddend additional distance measures that are potentially helpful for clustering interactive programs.
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Features}
+%DIFDELCMD < %%%
+\DIFdelend %DIF >  \subsubsection{Features}
+%DIF >  {\bf Features of Student Solutions}
+\DIFaddbegin 
+
+\DIFaddend Just as the authors of Webzeitgeist defined sets of features to be computed for each node in a web page \DIFdelbegin \DIFdel{'s }\DIFdelend DOM~\cite{webzeitgeist}, there are many sets of features used to estimate program similarity in the literature. Aggrawal et al.~\cite{srikant2014system}, Elenbogen and Seliya~\cite{Elenbogen}, Roger ~\cite{ACESthesis}, Rees~\cite{Rees:1982}, Huang et al.~\cite{MOOCshop}, Kaleeswaran et al.~\cite{kaleeswaran2016semi}, and Taherkhani et al.~\cite{taherkhani2010recognizing} each defined a set of features that could be computed automatically for each solution and represented as a numerical feature vector. These feature sets each include \DIFdelbegin \DIFdel{a mixture of static and/}\DIFdelend \DIFaddbegin \DIFadd{static }\DIFaddend or dynamic features. \DIFaddbegin \DIFadd{Some include both.
+}\DIFaddend 
+
+Static features include \DIFdelbegin \DIFdel{but are not limited to counts of the solution's }\DIFdelend \DIFaddbegin \DIFadd{counts of }\DIFaddend various keywords and tokens \DIFaddbegin \DIFadd{in the solution}\DIFaddend , e.g., control flow keywords, operators, constants, and external function calls; counts of each type of expression in the solution;  measures of code complexity; length of commented code; scores from linting scripts; function name lengths; line lengths; and entire solution lengths. To quantify the goodness of a solution's style, AutoStyle~\cite{choudhury2016autostyle} used \DIFdelbegin \DIFdel{a pre-existing metric called }\DIFdelend the ABC score, a weighted count of assignments, branches, and conditional statements in a block of code.
+
+Dynamic features include \DIFdelbegin \DIFdel{but are not limited to }\DIFdelend data collected from running a solution on each test case, e.g., the solution \DIFdelbegin \DIFdel{'s }\DIFdelend output and whether or not it is correct with respect to the teacher \DIFdelbegin \DIFdel{'s }\DIFdelend specification, the evolution of values assigned to each variable within the solution, and the order in which statements in the solution are executed. For example, Huang et al.~\cite{MOOCshop} create an \DIFdelbegin \DIFdel{'output vector ' }\DIFdelend \DIFaddbegin \DIFadd{output vector }\DIFaddend for each solution: a binary vector representing the solution's correctness on each test case. For approximately one million solutions to 42 programming \DIFdelbegin \DIFdel{exercises Stanford's }\DIFdelend \DIFaddbegin \DIFadd{problems collected from the }\DIFaddend original Machine Learning MOOC \DIFaddbegin \DIFadd{offered by Stanford}\DIFaddend , the authors found that a teacher could cover 90\% of solutions or more in almost all problems by annotating the top 50 output vectors. However, \DIFdelbegin \DIFdel{this could be difficult; }\DIFdelend the authors acknowledge that many different mistakes can produce \DIFdelbegin \DIFdel{to }\DIFdelend the same output vector.
+
+\DIFdelbegin %DIFDELCMD < {\bf %%%
+\DIFdel{Role of Variables Theory}%DIFDELCMD < }
+%DIFDELCMD < %%%
+\DIFdelend %DIF >  {\bf Role of Variables Theory}
+\DIFaddbegin 
+
+\DIFaddend Variable behavior is \DIFdelbegin \DIFdel{another }\DIFdelend \DIFaddbegin \DIFadd{a }\DIFaddend specific kind of dynamic feature that merits additional description. Just as there is evidence that experts subconsciously internalize {\it control flow plans}, like the Running Total Loop Plan that accumulates partial totals, there is evidence that experts subconsciously internalize {\it variable plans} ~\cite{variableplans}. Variable plans are characterized by the function or role that it serves in a function, how it is initialized and updated, and conditional statements on the variable's value. 
+
+Empirically, the number of distinct variable roles found in introductory-level programs is small. While reviewing three introductory programming textbooks written for Pascal, Sajaniemi~\cite{sajaniemi2002empirical} hand-labeled the role of variables within each provided example program, based only on the pattern of successive values each variable took on. Nine variable roles, e.g., \DIFdelbegin \DIFdel{'stepper' and '}\DIFdelend \DIFaddbegin \DIFadd{``stepper'' and ``}\DIFaddend one-way flag\DIFdelbegin \DIFdel{'}\DIFdelend \DIFaddbegin \DIFadd{''}\DIFaddend , covered 99\% of the variables in all 109 programs found in those textbooks. Sajaniemi notes that a single variable can switch roles during execution, \DIFdelbegin \DIFdel{'properly ' or 'sporadically'}\DIFdelend \DIFaddbegin \DIFadd{properly or sporadically}\DIFaddend . A proper switch is when its final value while serving in one role is its initial value when serving in the next role. A sporadic switch is one in which the variable is reset to a new value at some point, to serve a new role that may or may not have anything to do with its previous role. Sajaniemi has been credited for creating what is now \DIFdelbegin \DIFdel{called }\DIFdelend \DIFaddbegin \DIFadd{known }\DIFaddend in the literature as role of variables theory. 
+
+Further work independently confirms and operationalizes Sajaniemi's insights. Taherkhani et al. ~\cite{taherkhani2010recognizing} found that 11 variable roles cover all variables in novice-level programs, including object-oriented, procedural, and functional programming styles, and went further to automatically classify algorithms based on variables and some additional features. Gulwani et al.~\cite{gulwani_fse14} also depend on variable behavior to recognize different algorithmic approaches\DIFdelbegin \DIFdel{; they }\DIFdelend \DIFaddbegin \DIFadd{. They }\DIFaddend ask teachers to annotate source code, by hand, with key values that differentiate algorithmic approaches. \DIFdelbegin \DIFdel{Gulwani et al.'s work was published at a conference six months after the submission of the OverCode manuscript to TOCHI.
+}\DIFdelend %DIF > Gulwani et al.'s work was published at a conference six months after the submission of the OverCode manuscript to TOCHI.
+
+OverCode and Foobaz make use of a pipeline that characterizes each solution as (1) a set of variables, which are distinguished from each other by their dynamic behavior during execution on test cases, (2) a set of one-line statements \DIFdelbegin \DIFdel{canonicalized }\DIFdelend \DIFaddbegin \DIFadd{normalized }\DIFaddend in a novel way by those identified variables and (3) the solution \DIFdelbegin \DIFdel{'s }\DIFdelend outputs in response to each test case. \DIFdelbegin \DIFdel{After OverCode's publication, }\DIFdelend Gulwani et al.~\cite{gulwani2016automated} \DIFdelbegin \DIFdel{used }\DIFdelend \DIFaddbegin \DIFadd{uses }\DIFaddend the same variable value tracing method to cluster solutions, augmenting it with information about control flow structure to overcome syntactic differences between solutions.
+
+\DIFdelbegin \DIFdel{Alternative distance functions based on tokens or solution-derived graphs, like ASTs, are included in the next sections for completeness, and so that the techniques can be revisited in discussions of future work.
+}\DIFdelend %DIF > Alternative distance functions based on tokens or solution-derived graphs, like ASTs, are included in the next sections for completeness, and so that the techniques can be revisited in discussions of future work.
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Token-based distance functions}
+%DIFDELCMD < %%%
+\DIFdel{Many token-based statistical }\DIFdelend %DIF >  {\bf Distance Functions for Student Solutions}
+\DIFaddbegin 
+
+\DIFadd{Statistical }\DIFaddend natural language processing techniques can also be applied to code, preferably after preprocessing. For example, Biegel et al.~\cite{Biegel} described how $w$-shingling can capture local patterns within a solution. The $w$-shingling of a solution is the set of all unique subsequences of $w$ tokens it contains \cite{BRODER19971157}. The resemblance $r$ between two solutions is defined as the number of unique subsequences of $w$ tokens both solutions contain, normalized (divided) by the union of unique subsequences of $w$ tokens contained in either solution. It other words, it is the Jaccard coefficient of the two solutions' $w$-shinglings. The resemblance distance is defined as $1-r$\DIFdelbegin \DIFdel{; it is a metric that }\DIFdelend \DIFaddbegin \DIFadd{, which }\DIFaddend obeys the triangle inequality. $n$-grams models are like $w$-shinglings except instead of capturing just the {\it set} of unique subsequences of a certain length, they also capture a more global feature: the relative frequencies of these unique subsequences in the entire solution or corpus. Similarly, representing Python programs as TF-IDF vectors calculated from counts of tokens, e.g., keywords, collected across the entire corpus of solutions can capture \DIFdelbegin \DIFdel{individual solution's deviations from whole-corpus }\DIFdelend \DIFaddbegin \DIFadd{deviations from corpus }\DIFaddend trends~\cite{Gaudencio}.
+
+CCFinder~\cite{CCFinder} and MOSS~\cite{schleimer2003winnowing} (Measure \DIFdelbegin \DIFdel{Of }\DIFdelend \DIFaddbegin \DIFadd{of }\DIFaddend Software Similarity) are both \DIFdelbegin \DIFdel{pair-wise }\DIFdelend \DIFaddbegin \DIFadd{pair wise }\DIFaddend similarity (clone) detectors. Like $w$-shingling and $n$-gram models, MOSS extracts all subsequences of tokens of a specified length\DIFdelbegin \DIFdel{; unlike }\DIFdelend \DIFaddbegin \DIFadd{. Unlike }\DIFaddend them, the order of these subsequences is preserved. CCFinder \cite{CCFinder} is an exception to this pattern\DIFdelbegin \DIFdel{; after }\DIFdelend \DIFaddbegin \DIFadd{. After }\DIFaddend aggressive pre-processing, it considers all sub-strings in both solutions and looks for matches.
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Structure-based features and distance functions}
+%DIFDELCMD < %%%
+\DIFdelend %DIF >  \subsubsection{Structure-based features and distance functions}
+
+The structure of solutions can be represented as trees, i.e., ASTs, and graphs, e.g., data dependency and control flow graphs. Binary or numerical feature vectors can be computed from the graphs, as well as graph-to-graph metrics of similarity, for use in feedback or assessment~\cite{Robinson:1980,srikant2014system}. Recent literature uses the full AST for computing pairwise distance metrics, e.g., the tree edit distance (TED). TED is defined as the minimum cost sequence of node edits that transforms one AST into another, given some \DIFdelbegin \DIFdel{set of costs on types of edits}\DIFdelend \DIFaddbegin \DIFadd{cost function}\DIFaddend .
+
+%The tree edit distance (TED) between two ASTs is the minimum cost sequence of node edits that transforms one AST into another, given some set of costs on types of edits. 
+
+While a naive TED algorithm scales very poorly with tree size, an optimized TED algorithm~\cite{shasha1994exact} makes this computation more feasible\DIFdelbegin \DIFdel{; it }\DIFdelend \DIFaddbegin \DIFadd{. The optimized algorithm }\DIFaddend is only quadratic in both the number of solutions and the size of their ASTs~\cite{MOOCshop}. In contrast, the analysis pipeline used by both OverCode and Foobaz \DIFdelbegin \DIFdel{clusters solutions }\DIFdelend scales linearly with the number and size of solutions. 
+
+Huang et al.~\cite{MOOCshop} used the optimized TED algorithm to process approximately a million solutions while executing on a computing cluster. The same analysis pipeline was used by Roger et al.~\cite{ACESthesis}. Yin et al.~\cite{yin2015clustering} defined a normalized TED that weighs edits associated with nodes closer to the tree root more heavily than nodes closer to the leaves. This prioritizes high-level structural similarities between solutions and de-emphasizes minor differences in syntax near the AST leaves.
+
+%DIF > \todo{DNHT: add http://web.stanford.edu/~cpiech/bio/papers/programEncoding.pdf}
+\DIFaddbegin 
+
+\DIFaddend %In contrast to these systems that rely on TED for pairwise distance computations, 
+
+
+\DIFdelbegin %DIFDELCMD < \subsection{Clustering Solutions}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsubsection{Clustering Student Solutions}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{Gaudencio et al.~\mbox{%DIFAUXCMD
+\cite{Gaudencio} }%DIFAUXCMD
+recently investigated whether computers might be able to compare student code solutions as well as teachers. In the process, they found that teachers only agreed with each otherbetween 62\% and 95\% of the time. Similarly, }\DIFdelend \DIFaddbegin \DIFadd{Clustering student solutions can be difficult. Teachers may not agree on which solutions are closest to each other~\mbox{%DIFAUXCMD
+\cite{Gaudencio}}%DIFAUXCMD
+. }\DIFaddend Rogers et al.~\cite{ACESthesis} found that official graders for a large programming course \DIFdelbegin \DIFdel{at Berkeley }\DIFdelend agreed on solution \DIFdelbegin \DIFdel{grades }\DIFdelend \DIFaddbegin \DIFadd{clusters }\DIFaddend only 47.5\% of the time even when there were only 3 possible \DIFdelbegin \DIFdel{grades }\DIFdelend \DIFaddbegin \DIFadd{clusters }\DIFaddend to choose from. In spite of the lack of agreement across \DIFaddbegin \DIFadd{some }\DIFaddend expert code evaluators, several research efforts have focused on automatically clustering \DIFdelbegin \DIFdel{and grading }\DIFdelend solutions.
+
+%DIF > too awkward to include: In order to agree on a set of clusters, humans must also agree on which solutions are closer or farther from each other. Gaudencio et al.~\cite{Gaudencio} found that teachers only agreed with each other on a solution comparison task between 62\% and 95\% of the time. Similarly, 
+\DIFaddbegin 
+
+\DIFaddend %\subsubsection{Clustering}
+%In addition to annotating groups of solutions with feedback, 
+Luxton-Reilly et al.~\cite{Luxton13} \DIFdelbegin \DIFdel{suggests }\DIFdelend \DIFaddbegin \DIFadd{suggest }\DIFaddend that identifying distinct clusters of solutions can help instructors select appropriate examples of code for helping students learn, e.g., in accordance with the systematic variation suggested by \DIFdelbegin \DIFdel{Variation Theory}\DIFdelend \DIFaddbegin \DIFadd{variation theory}\DIFaddend . They also suggest that it is helpful for teachers' own understanding and quality of feedback and guidance. Clustering can also be used to guide rubric creation.
+
+Luxton-Reilly et al.~\cite{Luxton13} develop a hierarchical clustering taxonomy for types of solution variations, from high- to low-level: structural, syntactic, or presentation-related. The structural similarity between solutions \DIFdelbegin \DIFdel{in a dataset }\DIFdelend is captured by comparing their control flow graphs. If the control flow of two solutions is the same, then the syntactic variation within the blocks of code is compared by looking at the sequence of token classes. \DIFdelbegin \DIFdel{Presentation-based variation}\DIFdelend \DIFaddbegin \DIFadd{Variation in presentation}\DIFaddend , such as variable names and spacing, is only examined when two solutions are structurally and syntactically the same. However, it is not yet fully implemented. %In contrast, our approach is not hierarchical, and uses dynamic information in addition to syntactic information.
+
+\DIFdelbegin \DIFdel{The analysis pipeline behind OverCode and Foobaz cluster solutions based on whether or not they have the same output vector and the same set of variables and canonicalized statements. }\DIFdelend %DIF > In the clustering pipeline described in this thesis, OverCode, clusters Python solutions to the same programming problem. 
+\DIFaddbegin 
+
+\DIFaddend Other systems rely on clustering algorithms applied to solutions whose pairwise distances are determined by TED scores. AutoStyle~\cite{choudhury2016autostyle} uses the OPTICS clustering algorithm to cluster solutions based on normalized TED scores. \DIFdelbegin \DIFdel{That work was inspired by early published OverCode work~\mbox{%DIFAUXCMD
+\cite{glassman2014feature} }%DIFAUXCMD
+on hierarchically clustering solutions. }\DIFdelend Huang et al.~\cite{MOOCshop} and Rogers et al.~\cite{ACESthesis} cluster solutions by creating a graph where nodes are solutions and an edge between each pair of nodes exists if and only if the TED between their ASTs is below a user-specified threshold. Modularity is used to infer clusters within the graph. 
+
+\DIFdelbegin \DIFdel{Another approach to clustering solutions comes from the field of Bayesian inference. The following methods are potentially useful in the context of OverCode:
+}%DIFDELCMD < \begin{itemize}
+ \begin{itemize} %DIFAUXCMD
+%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Bayesian Case Models (BCM) \mbox{%DIFAUXCMD
+\citet{beenNIPS} }%DIFAUXCMD
+learn a pre-set number of subspace clusters, where each cluster is represented by an example and a small set of features that play an "important role" in identifying that cluster. This representation of the clusters has been designed to increase human interpretability of the results. This model has has an interactive version, iBCM \mbox{%DIFAUXCMD
+\cite{beenthesis}}%DIFAUXCMD
+, where humans can directly modify the cluster example and important features that characterize a cluster. 
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Mind the Gap model (MGM) by \mbox{%DIFAUXCMD
+\citet{kim2015mind} }%DIFAUXCMD
+clusters data while also learning a "global set of distinguishable dimensions to assist with further data exploration and hypothesis generation. " This is another interpretable clustering algorithm, which may explain itself in ways teachers can understand and base grades on with confidence. }%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Dirichlet Process Mixture Models (DPMMs)~\mbox{%DIFAUXCMD
+\cite{} }%DIFAUXCMD
+do not require the number of clusters to be set beforehand; the number of clusters solutions are assigned to can grow as the number of solutions grow. However, every data point belongs to one cluster.
+}
+ \end{itemize} %DIFAUXCMD
+%DIFDELCMD < \end{itemize}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{Gross et al. \mbox{%DIFAUXCMD
+\cite{gross2012feedback} }%DIFAUXCMD
+use the Relational Neural Gas technique (RNG) to cluster graded solutions and find solutions, called prototypes, that can represent entire clusters. Feedback on new solutions is provided by highlighting the differences between the new solution and the closest prototype. Seeing these differences can help students debug their code. 
+}\DIFaddend 
+
+\DIFaddbegin \DIFadd{Unlike the work in this thesis, Gross et al. focus on providing feedback to a single student at a time. Graded solutions are clustered, and these clusters help identify problems in new solutions. In contrast, OverCode, Foobaz, and GroverCode process ungraded solutions and help staff compose feedback for the whole class or assign grades or feedback to a whole body of solutions at one time. OverCode and GroverCode do highlight differences between solutions to help pinpoint problems, although it is staff, rather than students, who view these differences.
+}
+
+
+\DIFaddend %into an intelligent tutoring system that provides a variety of feedback messages coaching students toward solutions with better coding style, based on an automatically computable heuristic for good code style.\todo{expand on it}
+
+%DIF < Drummond et al.~\cite{drummond2014learning} use Bayesian techniques to cluster solutions into one of two categories: "good" and "bad".
+%DIF > \todo{DNHT: Maybe add Classification for grading: Aggrawal et al. [successful] Rogers [unsuccessful] Taherkhani [successful]}
+
+\DIFdelbegin %DIFDELCMD < \subsection{Identifying Common Components Across Solutions}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > Drummond et al.~\cite{drummond2014learning} use Bayesian techniques to cluster solutions into one of two categories: ''good'' and ''bad''.
+
+\DIFdelbegin \DIFdel{Since teacher's holistic grades can be so inconsistent, they may be internally }\DIFdelend %DIF > \todo{add http://ethanfast.com/resources/deduceit-paper.pdf}
+\DIFaddbegin 
+
+%DIF > \todo{add bayesian clustering--like BCM}
+
+%DIF > \todo{DNHT: add https://arxiv.org/pdf/1501.04346v1.pdf}
+
+%DIF >  \subsubsection{Identifying Common Components Across Solutions}
+
+\DIFadd{Inconsistent holistic grades could be explained by teachers }\DIFaddend relying on different \DIFdelbegin \DIFdel{rubrics, not equally sensitive to minor differences, and/or weighing factors differently}\DIFdelend \DIFaddbegin \DIFadd{internalized rubrics}\DIFaddend . Teachers may be more consistent if, rather than generating holistic grades, they can annotate or grade particular components, mistakes, or design choices within solutions. Three existing approaches support this goal: (1) Create a classifier for \DIFdelbegin \DIFdel{every component, mistake, or design choice }\DIFdelend \DIFaddbegin \DIFadd{components that }\DIFaddend teachers are interested in, similar to what was done for web pages in the Webzeitgeist dataset by Lim et al.~\cite{lim2012learning}. (2) Model solutions as mixtures of components \DIFdelbegin \DIFdel{or design choices }\DIFdelend using mixture modeling. They have already been applied to source code \DIFdelbegin \DIFdel{~\mbox{%DIFAUXCMD
+\cite{} }%DIFAUXCMD
+}\DIFdelend and student solutions to open-response mathematical questions ~\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{} }%DIFAUXCMD
+~}\DIFdelend \cite{binkley2014understanding,Linstead}. (3) Create a \DIFdelbegin \DIFdel{'}\DIFdelend code search engine \DIFdelbegin \DIFdel{' }\DIFdelend which takes AST nodes or subtrees as queries and retrieves solutions in the database that contain them, as Nguyen et al.~\cite{codewebs} did for \DIFdelbegin \DIFdel{solutions to the same problem }\DIFdelend \DIFaddbegin \DIFadd{student solutions }\DIFaddend and Fast et al.~\cite{codex} did for general open source code.
+
+
+
+\DIFdelbegin \DIFdel{There is a particularly rich literature on Bayesian mixture models. The following methods are potentially useful in the context of OverCode: 
+}%DIFDELCMD < \begin{itemize}
+ \begin{itemize} %DIFAUXCMD
+%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Latent Dirichlet Allocation (LDA)~\mbox{%DIFAUXCMD
+\cite{bleiLDA} }%DIFAUXCMD
+is a mixture model that is typically applied to natural language. In that context, it learns "topics", i.e., distributions over words, as well as the distributions over topics found in each document. %DIF < , which is typically applied to corpuses of documents could model solutions as "documents" with sets of "words," where each word belongs to one topic and each document can contain words from multiple topics.
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Correlated Topic Models (CTM)~\mbox{%DIFAUXCMD
+\cite{} }%DIFAUXCMD
+are like LDA but topics are no longer assumed to be independent. In other words, the topics learned by the model can be correlated. If it it possible to formulate the inputs such that the learned latent topics represent design decisions, this could capture the reality that design choices are not independent of each other in code composition.
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Hierarchical Dirichlet Process Models (HDPs)~\mbox{%DIFAUXCMD
+\cite{}}%DIFAUXCMD
+, like DPMMs, do not require a pre-set number of clusters. Unlike DPMMs, solutions do not belong to a single cluster. Like LDA, solutions contain features, and each feature belongs to a cluster. Solutions can contain features from multiple clusters. This method emulates LDA with no pre-set number of clusters. 
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Models and inference algorithms built on Indian Buffet Processes (IBPs) by \mbox{%DIFAUXCMD
+\citet{doshi2009indian} }%DIFAUXCMD
+are like HDPs, but individual features can belong to multiple clusters.
+}
+ \end{itemize} %DIFAUXCMD
+%DIFDELCMD < \end{itemize}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsubsection{Visualizing and Interacting with Student Solutions}
+\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \subsection{Visualization and Interfaces}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend There are several existing visualizations or interfaces that help \DIFdelbegin \DIFdel{users }\DIFdelend \DIFaddbegin \DIFadd{teachers and students }\DIFaddend understand how solutions vary within a large corpus of solutions to a common problem\DIFdelbegin \DIFdel{and/or why a given set of solutions are grouped together. Even tools that are not built for this purpose, such as file comparison tools, do have useful features to consider when designing new interfaces. Most highlight inserted, deleted, and changed text.Unchanged text is often collapsed. Some of these tools are customized for analyzing code, such as Code Compare.They are also integrated into existing integrated development environments (IDE), including IntelliJ IDEA and Eclipse. These code-specific comparison tools may match methods rather than just comparing lines. Three panes side-by-side are used to show code during three-way merges of file differences. There are tools, e.g., KDiff3, which will show the differences between four files when performing a distributed version control merge operation, but that appears to be an upper limit. These tools do not scale beyond comparing a handful of programs simultaneously.
+}\DIFdelend \DIFaddbegin \DIFadd{. A common design choice is to map each solution to a point in some feature space. Huang et al.~\mbox{%DIFAUXCMD
+\cite{MOOCshop}}%DIFAUXCMD
+, Rogers et al.~\mbox{%DIFAUXCMD
+\cite{ACESthesis}}%DIFAUXCMD
+, AutoStyle~\mbox{%DIFAUXCMD
+\cite{choudhury2016autostyle}}%DIFAUXCMD
+, and Ned Gulley~\mbox{%DIFAUXCMD
+\cite{ICERGlassman} }%DIFAUXCMD
+all use this strategy. %DIF >  and/or why a given set of solutions are grouped together
+}\DIFaddend 
+
+%Cody\footnote{\url{mathworks.com/matlabcentral/cody}} is an informal learning environment for the Matlab programming language that presents learners with {\em solution maps}. 
+
+\DIFdelbegin \DIFdel{In contrast, the solutions maps in }\DIFdelend \DIFaddbegin \DIFadd{Ned Gulley designed solutions maps for }\DIFaddend Cody, a Matlab programming game\footnote{\url{mathworks.com/matlabcentral/cody}}, \DIFdelbegin \DIFdel{do }\DIFdelend \DIFaddbegin \DIFadd{to }\DIFaddend help users pick and compare pairs of solutions from hundreds of solutions to the same programming \DIFdelbegin \DIFdel{exercise}\DIFdelend \DIFaddbegin \DIFadd{problem}\DIFaddend . The solution map plots each solution as a point against two axes: time of \DIFaddbegin \DIFadd{solution }\DIFaddend submission on the horizontal axis, and code size on the vertical axis, where code size is the number of nodes in the parse tree of the solution. Users can select pairs of points to see the code they correspond to side-by-side beneath the solution map. Despite the simplicity of this metric, solution maps can provide quick and valuable insight when exploring differences among large numbers of solutions~\cite{ICERGlassman}. This can help game players learn alternative, possibly better, ways to solve a problem using the Matlab programming language, including its extensive libraries.
+
+Huang et al.~\cite{MOOCshop} and Rogers et al.~\cite{ACESthesis} \DIFdelbegin \DIFdel{have an alternative but still point-based representation of hundreds or thousands of solutions. They }\DIFdelend create graphs where each node is a solution and links between nodes indicate similarity scores beneath a certain threshold. \DIFdelbegin \DIFdel{Inter-Node }\DIFdelend \DIFaddbegin \DIFadd{Inter-node }\DIFaddend and inter-cluster distances correspond to syntactic similarity. Clusters are colored using modularity, a measure of how well a network decomposes into modular communities. Rogers et al.~\cite{ACESthesis} built a grading interface on top of this clustering process\DIFdelbegin \DIFdel{; graders }\DIFdelend \DIFaddbegin \DIFadd{. Graders }\DIFaddend graded one solution at a time, grouped by cluster.
+
+AutoStyle~\cite{choudhury2016autostyle} \DIFdelbegin \DIFdel{also uses a point-based display of solutions. The authors }\DIFdelend visualize all solutions on the screen using a t-SNE 2D visualization. Similar to the previous clustering interfaces, each point represents a solution and its color indicates its cluster. Hovering over a point reveals the solution it represents. Using this interface, teachers hand-annotate each cluster with a label, i.e., \DIFdelbegin \DIFdel{'good', 'average', or 'weak' }\DIFdelend \DIFaddbegin \DIFadd{``good'', ``average'', or ``weak'' }\DIFaddend and a hint about how to improve the solution. For each cluster, the teacher must also choose an exemplar solution from a {\it slightly better} cluster as an example of what to shoot for.
+
+\DIFdelbegin \DIFdel{In contrast to point-based displays, the }\DIFdelend \DIFaddbegin \DIFadd{Tools that are not built for representing an entire corpus, such as file comparison tools, do have useful features to consider when designing new interfaces. Most highlight inserted, deleted, and changed text. Unchanged text is often collapsed. Some of these tools are customized for analyzing code, such as Code Compare. They are also integrated into existing integrated development environments (IDE), including IntelliJ IDEA and Eclipse. These code-specific comparison tools may match methods rather than just comparing lines. Three panes side-by-side are used to show code during three-way merges of file differences. There are tools, e.g., KDiff3, which will show the differences between four files when performing a distributed version control merge operation, but that appears to be an upper limit. These tools do not scale beyond comparing a handful of programs simultaneously.
+}
+
+\DIFadd{The }\DIFaddend OverCode interface puts the code front and center, \DIFaddbegin \DIFadd{synthesizing platonic solutions that represent entire stacks of solutions, }\DIFaddend borrowing display techniques from file comparison tools, adding filtering mechanisms and interactive clustering through rewrite rules on top of the clustering done by the analysis pipeline. \DIFdelbegin \DIFdel{The pipeline' s clustering criteria allows the user interfaceto efficiently "name" clusters with a representative exemplar solution automatically}\DIFdelend \DIFaddbegin \DIFadd{OverCode was also inspired by information visualization projects like WordSeer \mbox{%DIFAUXCMD
+\cite{wordseerlitcomp13,wordseercikm13} }%DIFAUXCMD
+and CrowdScape \mbox{%DIFAUXCMD
+\cite{crowdscape}}%DIFAUXCMD
+. WordSeer helps literary analysts navigate and explore texts, using query words and phrases \mbox{%DIFAUXCMD
+\cite{wordseerhcir11}}%DIFAUXCMD
+. CrowdScape gives users an overview of crowd-workers' performance on tasks.
+}
+
+\DIFadd{More generally, several interfaces have been designed for providing grades or feedback to students at scale, and for browsing large collections in general, not just student solutions. The powergrading paradigm \mbox{%DIFAUXCMD
+\cite{basupowergrading} }%DIFAUXCMD
+enables teachers to assign grades or write feedback to many similar answers at once. Their interface focused on powergrading for short-answer questions from the U.S. Citizenship exam. After machine learning clustered answers, the frontend allowed teachers to read, grade, or provide feedback on similar answers simultaneously. When compared against a baseline interface, the teachers assigned grades to students substantially faster, gave more feedback to students, and developed a ``high-level view of students' understanding and misconceptions'' \mbox{%DIFAUXCMD
+\cite{basuDivideAndConquer}}%DIFAUXCMD
+}\DIFaddend .
+
+%DIF < \subsection{Handling Incorrect Solutions}
+\DIFaddbegin \section{Teaching Principles}
+\DIFaddend 
+
+
+%DIF < \todo{summarize Singh's Autograder, evan pu's paper?}
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < \section{Scalable teaching principles}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < Learning how to write programs, or at least how to “think computationally,” has gained national attention in the last year. Last September, New York City Mayor Bill de Blasio announced that all public schools in NYC will be required to offer computer science to all students by 2025. In January, the White House released its “Computer Science For All” initiative, “offering every student the hands-on computer science and math classes that make them job-ready on day one” (President Obama, 2016 State of the Union Address).
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < Schools like MIT, Stanford, Berkeley and the University of Washington have expanded to accommodate hundreds or thousands of students in a single programming class. Many more complete exercises on tutorial websites like Codecademy, Kahn Academy, and Code School or enroll in coding schools and bootcamps like General Assembly and Hackbright Academy. One-on-one tutoring is considered a gold standard in education, and the teacher-to-student ratio is only getting worse.
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < As we develop new tools, techniques, and curriculum to serve more students, it is important to be grounded in, or at least knowledgeable of, the work that researchers in educational psychology have been doing for decades: teasing apart what it takes to learn something efficiently and well.
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{There are many factors inside and outside the classroom that have significant effects on learning. I will focus on a few techniques and theories from }\DIFdelend \DIFaddbegin \DIFadd{This section describes ideas and techniques from educational psychology and }\DIFaddend the learning sciences that \DIFdelbegin \DIFdel{a human may be able to execute better with a computer than without. Therefore, peer groups, home environment, learning communities, and identity formation~\mbox{%DIFAUXCMD
+\cite{walberg1984improving,case2008education} }%DIFAUXCMD
+are beyond our consideration. }\DIFdelend \DIFaddbegin \DIFadd{influenced this thesis work. The systems in this thesis are designed to support teachers and students in massive classrooms. For example, one way to support teachers is to give them a better idea of the solution space, so they can better help a student one-on-one. Another way to support teachers is to deploy personalized prompts that mimic what the teacher might have said to the student if they could interact one-on-one.
+}\DIFaddend 
+
+%DIF < There is an entire literature on developing sustainable communities of practice that foster student development and mastery, much the way a traditional judo dojo operates. There is also great work on how identity formation can help budding experts persist and thrive in a learning environment. For a high level treatment of both those literatures as they pertain to engineering education, read this brief handbook for practitioners: Education theories on learning: an informal guide for the engineering education scholar.
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < However, I will focus on a few theories and concepts that specifically help teachers develop more effective presentations of information and exercises for practice. This short-list of ideas, techniques, and benchmarks from educational psychology have guided my own development of tools for teachers teaching hundreds or thousands of programming students at once.
+%DIFDELCMD < 
+
+%DIFDELCMD < \subsection{Tutoring}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Tutoring }\DIFdelend \DIFaddbegin \DIFadd{One-on-one or small group tutoring }\DIFaddend has been held up as a gold standard in education since 1984 when Bloom published a collection of his lab's work demonstrating tutoring's efficacy relative to other experimental and conventional methods at the time~\cite{bloom}. For example, his lab found that, after 11 sessions of instruction in probability or cartography, elementary and middle school students who received tutoring in groups of one to three were, on average, two standard deviations better than their counterparts in a conventional 30-person classroom. Given the expense of scaling up one-on-one tutoring, Bloom challenged the academic community to find a method of group instruction that was just as good, or better. \DIFdelbegin \DIFdel{That challenge still stands as a benchmark that modern systems and techniques can compare against.
+While I do not measure the relative learning gains associated with the systems presented in this thesis, I do relate key design decisions to the tutoring best practices that are able to be scaled up or automated, such as prompting for self-explanations.%DIF <  evidence from the learning sciences The focus on this thesis is on developing systems that scale up what good tutors and teachers do.
+}\DIFdelend \DIFaddbegin \DIFadd{This became known as Bloom's two sigma problem.
+%DIF > That challenge still stands as a benchmark that modern systems and techniques can compare against. While I do not measure the relative learning gains associated with the systems presented in this thesis, I do relate key design decisions to the tutoring best practices that are able to be scaled up or automated, such as prompting for self-explanations.% evidence from the learning sciences The focus on this thesis is on developing systems that scale up what good tutors and teachers do.
+}\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Reflection and Self-Explanation}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > \subsection{Self-Explanations and Reflection}
+
+\DIFdelbegin \DIFdel{Effective tutors often have characteristics described by Lepper and Wolverton's INSPIRE model: superior domain and pedagogical content knowledge, nurturing relationships with students, progressive content delivery, Socratic styles that }\DIFdelend \DIFaddbegin \DIFadd{Foobaz and the learnersourcing workflows explicitly }\DIFaddend prompt students to \DIFdelbegin \DIFdel{explain and generalize, and feedback on solutions, not students~\mbox{%DIFAUXCMD
+\cite{wood2012role}}%DIFAUXCMD
+. Turns et al. \mbox{%DIFAUXCMD
+\cite{asee} }%DIFAUXCMD
+argue that the absence of reflection in traditional engineering education is a significant shortcoming. This thesis contributes systems designed to address that shortcoming.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Self-explanations are generated by the student for themselves; they are a form of reflection, which is a critical method for triggering the transformation from conflict and doubt into clarity and coherence \mbox{%DIFAUXCMD
+\cite{dewey1933}}%DIFAUXCMD
+. Students }\DIFdelend \DIFaddbegin \DIFadd{reflect and generate explanations on their own. These explanations are helpful to others, but they are also helpful to the student who generated them. These explanations, sometimes called }\DIFaddend self-explanations\DIFaddbegin \DIFadd{, }\DIFaddend foster the integration of new knowledge\DIFdelbegin \DIFdel{, while some tutors' explanations may be insufficient or flawed, due to the curse of knowledge~\mbox{%DIFAUXCMD
+\cite{birch2007curse}}%DIFAUXCMD
+}\DIFdelend . Effective tutors encourage self-explanation by prompting students with questions like \DIFdelbegin \DIFdel{"Why?" and "How?"}\DIFdelend \DIFaddbegin {\it \DIFadd{Why?}} \DIFadd{and }{\it \DIFadd{How?}}\DIFaddend ~\cite{selfexplanation}. Students of tutors who fostered self-explanations had learning gains similar to those whose tutors provided their own explanations and feedback\cite{chi2001learning}. 
+
+%DIF < One insight stands out: the value of self-explanation for fostering student learning.
+\DIFaddbegin \DIFadd{Self-explanations are a form of reflection, which is a critical method for triggering the transformation from conflict and doubt into clarity and coherence~\mbox{%DIFAUXCMD
+\cite{dewey1933}}%DIFAUXCMD
+. Turns et al. \mbox{%DIFAUXCMD
+\cite{asee} }%DIFAUXCMD
+argue that the absence of reflection in traditional engineering education is a significant shortcoming. This thesis contributes systems designed, in part, to address that shortcoming.
+}\DIFaddend 
+
+
+%DIF < \subsubsection{Self-Explanation}
+%DIF > \subsection{Deliberate Practice and Rapid Feedback}
+
+%DIF < Reflection is also a critical method for triggering the transformation from conflict and doubt into clarity and coherence \cite{dewey1933}. Turning that reflection into a self-explanation further improves understanding \cite{selfexplanation}.
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < \subsubsection{Curse of Knowledge}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < While explanations generated by tutees may help them integrate new knowledge, explanations generated by experts, i.e., the tutor, may be insufficent or flawed, due to the curse of knowledge \cite{birch2007curse}.
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < Reflection is a critical method for triggering the transformation from conflict and doubt into clarity and coherence \cite{dewey1933}. Turning that reflection into a self-explanation further improves understanding \cite{selfexplanation}. According to Turns et al. \cite{asee}, the absence of reflection in traditional engineering education is a significant shortcoming. 
+%DIFDELCMD < 
+
+%DIFDELCMD < \subsection{Deliberate Practice}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend %Ericsson is one of the foremost experts on how learners can efficiently acquire domain-specific knowledge and skills, like those necessary for becoming an effective programmer. 
+
+\DIFaddbegin \DIFadd{OverCode and Foobaz are designed to help teachers give faster and more personalized feedback to massive numbers of introductory programming students. Rapid personalized feedback supports learning in foundational engineering classrooms \mbox{%DIFAUXCMD
+\cite{ieeeRapidFeedback}}%DIFAUXCMD
+. 
+}
+
+\DIFadd{Rapid feedback is also a critical part of deliberate practice, a targeted form of concentrated practice that helps build a specific skill. }\DIFaddend Deliberate practice is \DIFdelbegin \DIFdel{generally accepted to be goal directed}\DIFdelend \DIFaddbegin \DIFadd{goal-directed}\DIFaddend , effortful, \DIFdelbegin \DIFdel{not enjoyable, }\DIFdelend repetitive, accompanied by rapid feedback, and only sustained as long as the learner can be fully concentrated on the task, i.e., no more than a few hours~\cite{Gobet2012}. For example, rather than just playing pickup basketball games in the neighborhood, an aspiring professional player might design specific drills to work on his/her weaknesses. \DIFdelbegin \DIFdel{Teachers help facilitate deliberate practice, because they can design appropriate exercises and provide feedback until the student can differentiate between good and bad performance and provide that feedback to themselves.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Recent work incorporating }\DIFdelend \DIFaddbegin \DIFadd{Recent work incorporaing }\DIFaddend deliberate practice in large classrooms has demonstrated great benefits. A recent study of undergraduate physics classrooms found that, with deliberate practice as a base of the instructional design, improvements can approach and exceed Bloom's 2-sigma threshold~\cite{Deslauriers862}.
+\DIFdelbegin \DIFdel{Another recent study confirms the value of rapid feedback in foundation engineering classrooms \mbox{%DIFAUXCMD
+\cite{ieeeRapidFeedback}}%DIFAUXCMD
+. This thesis contributes systems designed to provide feedback on some aspects of programming tasks where it was not feasible to do so before, such as Foobaz, which stimulates reflection and provides feedback on one of the most basic forms of program readability: variable names.
+}\DIFdelend 
+
+\DIFdelbegin %DIFDELCMD < \subsection{Zone of Proximal Development and Scaffolding}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{Teachers help facilitate deliberate practice, because they can design appropriate exercises and provide feedback until the student can differentiate between good and bad performance and provide that feedback to themselves. Following this pattern of instruction, Foobaz introduces a new way for teachers to provide systematic personalized feedback on good and bad variable names. The student can use this feedback to improve their own solutions and build up their own mental model about variable names are good and bad.
+}\DIFaddend 
+
+ %DIF > Another recent study confirms the value of rapid feedback in foundational engineering classrooms \cite{ieeeRapidFeedback}. 
+\DIFaddbegin 
+
+%DIF > This thesis contributes systems designed to provide feedback on some aspects of programming tasks where it was not feasible to do so before, such as Foobaz, which stimulates reflection and provides feedback on one of the most basic forms of program readability: variable names.\todo{ROBTODO: REWRITE AND FLESH OUT INTO ITS OWN PARAGRAPH.}
+
+%DIF > \subsection{Zone of Proximal Development and Scaffolding}
+
+\DIFadd{The comparison learnersourcing workflow was designed with zones of proximal development (ZPD) and scaffolding in mind. The workflow dictates showing students better and worse solutions, relative to the solution they generated on their own. Some solutions are optimized in ways that may make them difficult to understand for a student who struggled just to make a working, non-optimized solution. Teachers who use the comparison workflow can decide whether students are prompted to reflect on slightly better and worse solution or radically better and worse solutions. Ideally, these better and worse solutions are not so different, they are outside a student's theoretical zone of proximal development.
+}
+
+\DIFaddend The concept of the zone of proximal development (ZPD) was first introduced in the \DIFdelbegin \DIFdel{mid 1920}\DIFdelend \DIFaddbegin \DIFadd{mid-1920}\DIFaddend 's by the Soviet pyschologist Lev Vygotsky. It refers to the gap between what a learner can do without help and what a learner cannot yet do, no matter how much help they are given. It is implied that an object of learning strictly outside the ZPD is either too easy or too hard, and little or no learning will occur.
+
+Wood et al.~\cite{woodscaffolding} introduced a complementary process called scaffolding. Scaffolding enables a learner to \DIFdelbegin \DIFdel{"solve a problem, carry out a task or achieve a goal which would otherwise be beyond his unassisted efforts" }\DIFdelend \DIFaddbegin \DIFadd{solve problems or achieve goals that would ordinarily be beyond their grasp }\DIFaddend because the teacher controls the aspects of the task that are initially outside the learner's abilities. Recent work suggests that the maximum learning gains come from giving students the hardest possible tasks they are able, with the assistance of scaffolding, to complete~\cite{zpd14}. 
+\DIFaddbegin 
+
+\DIFaddend Formative feedback~\cite{formative} can be helpful as part of the scaffolding. It should non-evaluative, supportive, timely, and specific. It usually arrives as a \DIFdelbegin \DIFdel{response to a student's action, e.g., a }\DIFdelend hint, an explanation, or a verification based on the student answer. \DIFdelbegin \DIFdel{Based on this research, one of the systems in this thesis, ClassOverflow, }\DIFdelend \DIFaddbegin \DIFadd{Likewise, the comparison workflow, }\DIFaddend identifies where a student solution is on the spectrum of optimality and prompts the student to reflect on \DIFdelbegin \DIFdel{the }%DIFDELCMD < {\it %%%
+\DIFdelend \DIFaddbegin \DIFadd{a better solution, such as the }\DIFaddend next most optimal \DIFdelbegin %DIFDELCMD < } %%%
+\DIFdel{solution}\DIFdelend \DIFaddbegin \DIFadd{one}\DIFaddend .
+
+\DIFdelbegin %DIFDELCMD < \subsection{The Role of Strategic Variation in Examples}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \section{Learning through Variation in Examples}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{Studies of tutors and their students help us identify characteristics and styles of interaction that help explain the effectiveness of tutoring. Some of these can be successfully deployed in large classrooms. However, the way we frame content can also have large }\DIFdelend \DIFaddbegin \DIFadd{The work in this thesis is deeply influenced by multiple theories about the role of variation in learning. Designing sets of examples that illuminate an object of learning can have signifiant }\DIFaddend effects on how students understand, generalize, and transfer their learning to new contexts. \DIFaddbegin \DIFadd{This section summarizes these theories and how they have been applied in studies of human learning.
+}\DIFaddend 
+
+%DIF > Studies of tutors and their students help us identify characteristics and styles of interaction that help explain the effectiveness of tutoring. Some of these can be successfully deployed in large classrooms. However, the way we frame content can also have large effects on how students understand, generalize, and transfer their learning to new contexts.
+\DIFaddbegin 
+
+\DIFaddend Concrete examples of an object of learning--like how to apply an appropriate statistical test in a statistics word problem--vary in ways that \DIFdelbegin \DIFdel{are superficial , e.g., irrelevant, and fundamental, e. g., relevant. }\DIFdelend \DIFaddbegin \DIFadd{may be superficial or fundamental. }\DIFaddend In the language of educational psychologists, these are often called surface and structural features ~\cite{quilicimayer}. A simple compare and contrast exercise when solving equations~\cite{rittle2007does} or examining case studies in negotiation~\cite{loewenstein2003analogical} can bring this variation to the fore, and yield learning benefits.
+
+Learning in the presence of variation in these features helps learners generalize and transfer their knowledge to new situations, such as better transfer of geometric problem solving skills~\cite{workedexamplesvariability,Variabilityofpractice}. Several educational models, e.g., \DIFdelbegin \DIFdel{Variation Theory }\DIFdelend \DIFaddbegin \DIFadd{variation theory }\DIFaddend and the 4C/ID Model~\cite{van2002blueprints}, build on the value of variability by suggesting specific ways for how it should be deployed in the classroom. The three \DIFdelbegin \DIFdel{primary systems }\DIFdelend \DIFaddbegin \DIFadd{components }\DIFaddend in this thesis, OverCode, Foobaz, and \DIFdelbegin \DIFdel{ClassOverflow}\DIFdelend \DIFaddbegin \DIFadd{the targeted learnersourcing workflows}\DIFaddend , are all designed to make the natural variability present in student solutions useful to teachers and students, in accordance with recommendations from the educational theories that follow.
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Analogical Learning}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsection{Analogical Learning}
+\DIFaddend 
+
+Analogies are central to human cognition\DIFdelbegin \DIFdel{; they }\DIFdelend \DIFaddbegin \DIFadd{. They }\DIFaddend can help learners understand and transfer knowledge and skills to new situations. Analogical learning is at play both when learners have a base of knowledge that they bring with them to a novel target and when they compare two partially understood situations that can illuminate each other\DIFdelbegin \DIFdel{, serving as both a source and recipient of information}\DIFdelend ~\cite{kurtz01learning,loewenstein2003analogical}. However, in order to reap the full benefits of analogical learning, learners must engage deeply. Reading two cases, serially, in a session is not enough\DIFdelbegin \DIFdel{; learners }\DIFdelend \DIFaddbegin \DIFadd{. Learners }\DIFaddend will not necessarily make the necessary connections unless there are explicit instructions to compare~\cite{loewenstein2003analogical,catrambone1989overcoming}. 
+\DIFaddbegin 
+
+\DIFaddend Kolodner~\cite{Kolodner} suggests creating software tools that align examples to facilitate analogical learning. This thesis is, in part, a response \DIFaddbegin \DIFadd{to }\DIFaddend this suggestion. \DIFaddbegin \DIFadd{The comparison learnersourcing workflow pairs solutions the student wrote themselves with solutions that are novel to them. They are prompted to compare the solutions and write a hint for future students.
+}\DIFaddend 
+
+Novices may become confused if asked to compare their solution to a fellow student's solution\DIFdelbegin \DIFdel{; this }\DIFdelend \DIFaddbegin \DIFadd{. This }\DIFaddend is not necessarily bad for learning outcomes. Piaget theorized that cognitive disequilibrium, experienced as confusion, could trigger learning due to the creation or restructuring of knowledge schema~\cite{disequilibrium}. D'Mello et al. maintain that confusion can be productive, as long as it is both appropriately injected and resolved~\cite{productiveconfusion}. Similarly, reflecting on a peer's conceptual development or alternative solution may bring about cognitive conflict that prompts reevaluation of the student's own beliefs and understanding \cite{kavanagh}. The \DIFdelbegin \DIFdel{ClassOverflow system }\DIFdelend \DIFaddbegin \DIFadd{comparison workflow component of this thesis }\DIFaddend is designed to stimulate this kind of productive confusion, comparison, and resolution through self-explanation. %DIF > \todo{DNHT: add Towards Providing Feedback to Students in Absence of Formalized Domain Models by Sebastian Gross, Bassam Mokbel, Barbara Hammer, Niels Pinkwart}
+
+Analogical learning can be very difficult. For example, the structural features may be aligned between a base and the new target situation, but large differences in surface features will hurt the learner's ability to see any connection~\cite{Kurtz}. This may be explained by how human memory works. For novices, the most reliable form of retrieval is based on surface similarity, not deep analogical similarity\DIFdelbegin \DIFdel{; experts }\DIFdelend \DIFaddbegin \DIFadd{. Experts }\DIFaddend can more easily retrieve situations that are structurally similar and therefore more relevant for a new situation at hand~\cite{Loewenstein}. \DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Variation Theory}\DIFdelend \DIFaddbegin \DIFadd{Variation theory}\DIFaddend , discussed next, is specifically designed to help students more deeply appreciate structural features, which may help them transfer their learning to new situations instead of feeling lost, confused by superficial differences.
+
+\DIFdelbegin %DIFDELCMD < \subsubsection{Variation Theory: Preventing Human Overfitting}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsection{Variation Theory}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{This }\DIFdelend \DIFaddbegin \DIFadd{Variation theory (VT)~\mbox{%DIFAUXCMD
+\cite{marton1997learning} }%DIFAUXCMD
+views learning and understanding as discernment, specifically of the various features of objects and concepts that define what they are. An }\DIFaddend aphorism captures the ideas at the heart of \DIFdelbegin \DIFdel{Variation Theory (VT) }\DIFdelend \DIFaddbegin \DIFadd{variation theory }\DIFaddend well: {\it \DIFdelbegin \DIFdel{"}\DIFdelend He cannot, England know, who knows England only.\DIFdelbegin \DIFdel{"}\DIFdelend } VT is concerned with the way in which students are taught from concrete examples. It is relatively new and still being investigated for its usefulness in a broad range of disciplines, including mathematics and computer science.%DIF > \todo{add more specific definition of VT} 
+
+VT \DIFaddbegin \DIFadd{is built on the understanding that learning is not possible unless the learner can discern what the object of learning is~\mbox{%DIFAUXCMD
+\cite{marton1997learning}}%DIFAUXCMD
+. Discernment is not possible without experiencing variation in the object of learning and the world in which it is situated~\mbox{%DIFAUXCMD
+\cite{marton2004classroom}}%DIFAUXCMD
+. Dimensions of variation are described by features~\mbox{%DIFAUXCMD
+\cite{ling2012variation}}%DIFAUXCMD
+}\footnote{\DIFadd{In variation theory literature, the nomenclature is similar but distinct from that of machine learning: features are referred to as aspects and feature values are referred to as features.}}\DIFadd{. Some feature values are irrelevant, while critical feature values collectively define the object of learning.
+}
+
+\DIFadd{Through the lens of machine learning, VT }\DIFaddend asserts that human learning can suffer from overfitting for some of the same reasons that machine learning algorithms do. \DIFdelbegin \DIFdel{Overfitting is a term I am borrowing from the machine learning community. }\DIFdelend If a machine learning algorithm \DIFdelbegin \DIFdel{"thinks" the }\DIFdelend \DIFaddbegin \DIFadd{selects the the color of the sky as the }\DIFaddend key difference between photos of cats and dogs \DIFdelbegin \DIFdel{is the color of the sky }\DIFdelend (which is obviously unrelated to distinguishing between photos of cats and dogs), then a possible explanation is that the algorithm was trained on photos with insufficient or biased variation. If all the cat photos it ever saw were taken on a cloudy day, and all the dog photos it ever saw were taken on a sunny day, could you blame this naive program for latching on to this obvious differentiator of housepet species? Humans can make the same inferential mistake when not exposed to a sufficient variety of examples of an object of learning. VT catalogues a hierarchy of patterns of variation designed to immunize the learner to this kind of mistake.
+
+\DIFdelbegin \DIFdel{More abstractly, VT is built on the understanding that learning is not possible without being able to discern what the object of learning is~\mbox{%DIFAUXCMD
+\cite{marton1997learning}}%DIFAUXCMD
+. Discernment is not possible without experiencing variation in the object of learning and the world in which its situated~\mbox{%DIFAUXCMD
+\cite{marton2004classroom}}%DIFAUXCMD
+. This variation is described in terms of aspects and features. An aspect refers to a dimension of variation, and a feature is a value of that dimension of variation~\mbox{%DIFAUXCMD
+\cite{ling2012variation}}%DIFAUXCMD
+. Some features are irrelevant, while critical features collectively define the object of learning.
+}\DIFdelend %DIF > This variation is described in terms of aspects and features. An aspect refers to a dimension of variation, and a feature is a value of that dimension of variation~\cite{ling2012variation}. Some features are irrelevant, while critical features collectively define the object of learning.
+
+For a more concrete discussion of variation, consider the following examples:
+ \begin{enumerate} 
+\item The phrase \DIFdelbegin \DIFdel{“a heavy object�}\DIFdelend \DIFaddbegin {\it \DIFadd{a heavy object}} \DIFaddend might not make sense to the reader unless they have interacted with objects of various weights.
+\item Consider a child who recently learned how to add numbers, but always starts with the larger number: 2+1=3, 4+2=6, etc. Asking the child to add the numbers in the opposite order, smaller number first, and verify that the result is the same introduces the commutative feature of addition.
+\item No matter how wildly a cup diverges from a prototypical example of a tea cup, if it does not have the critical feature of being able to hold something, it is not a cup.
+ \end{enumerate} 
+
+Marton et al.~\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{} }%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{marton1997learning} }%DIFAUXCMD
+}\DIFaddend identify four patterns of variation: \DIFdelbegin \DIFdel{contrast, separation, generalization, and fusion. }\DIFdelend \DIFaddbegin {\it \DIFadd{contrast}}\DIFadd{, }{\it \DIFadd{separation}}\DIFadd{, }{\it \DIFadd{generalization}}\DIFadd{, and }{\it \DIFadd{fusion}}\DIFadd{. The contrast pattern of variation includes examples that differ by feature values that determine whether each example represents the object of learning. }\DIFaddend If a child is learning the concept of \DIFdelbegin \DIFdel{“three�}\DIFdelend \DIFaddbegin \DIFadd{three}\DIFaddend , then contrast refers to being introduced to three apples, as well as a pair of apples, or a dozen. \DIFdelbegin \DIFdel{Generalization refers to being }\DIFdelend \DIFaddbegin \DIFadd{The generalization pattern highlights, through contrast, what about an object of learning remains constant while certain features vary. Using this pattern of variation, a child learning the concept of three might be }\DIFaddend introduced to different groups of three\DIFdelbegin \DIFdel{: }\DIFdelend \DIFaddbegin \DIFadd{, e.g., }\DIFaddend three apples, three dogs, three beaches, and three languages. This clarifies that it is not the apples that give \DIFdelbegin \DIFdel{“three�}\DIFdelend \DIFaddbegin {\it \DIFadd{three}} \DIFaddend its meaning. Separation refers to a pattern of examples that helps the learner separate a dimension of variation from other dimensions of variation. A child could be introduced to a litter of nearly identical puppies that only differ in coat color, for example. Fusion is the final pattern of variation, where the learner is exposed to examples that vary along all the dimensions of variation at once, since this is most commonly encountered in the real world. These patterns of variation are intended to reveal which aspects of a concept or phenomenon are superficial and irrelevant and which are innate and critical to its definition.
+
+VT is a framework that has guided teaching materials and been used as an analytic framework in a variety of contexts, including lessons on critical reading~\cite{noble1998contents}, vocabulary learning~\cite{doi:10.1108/IJLLS-10-2014-0038}, the color of light~\cite{Ling2006}, mathematics~\cite{Pythagoras233}, chemical engineering~\cite{C2RP20145C}, Laplace transforms~\cite{carstensen2004laplace}, supply and demand~\cite{marton2006some} and computing education~\cite{suhonen2007applications}. It has been the subject of a government-funded three-year longitudinal study in Hong Kong, with promising results~\cite{lo2005each}. 
+
+In this thesis, Overcode and Foobaz are explicitly designed to discover and make human-interpretable the variation naturally present in student solutions. All the systems in this thesis demonstrate ways in which extracted variation, in solutions or errors, can be used in massive classes. 
+\DIFdelbegin \DIFdel{In the next section, I describe efforts to extract, answer questions about, or otherwise make usable the natural variation in corpuses of webpages, apps, and code that do not all have the same purpose. In the final section, I describe similar efforts specifically for corpuses of student solutions to the same programming exercise. }\DIFdelend 
+
+%DIF < that teachers can more easily employ variation theory-based techniques. %While we do not yet have data that directly compares the effectiveness of VT-inspired lessons to those delivered by personal tutors, programming teachers can keep Variation Theory in mind when they teach concepts, like recursion.
+%DIF > \todo{summarize Singh's Autograder, evan pu's paper?}
+\DIFaddbegin \section{Personalized Student Support and Automated Tutoring}
+\DIFadd{Human tutoring can be very effective~\mbox{%DIFAUXCMD
+\cite{bloom} }%DIFAUXCMD
+but expensive to scale up. Effective human tutors often have characteristics described by Lepper and Wolverton's INSPIRE model: superior domain and pedagogical content knowledge, nurturing relationships with students, progressive content delivery, Socratic styles that prompt students to explain and generalize, and feedback on solutions, not students~\mbox{%DIFAUXCMD
+\cite{wood2012role}}%DIFAUXCMD
+.
+}\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \section{Learnersourcing and Peer Instruction}
+%DIFDELCMD < %%%
+%DIF < Several types of solutions have been deployed to help students get the personalized attention they need. These solutions span the spectrum from recruiting more teaching assistants from the ranks of previous students \cite{communityTAs} to automating hints using intelligent tutoring systems. 
+\DIFdelend \DIFaddbegin \DIFadd{Several types of solutions have been deployed to help students get the personalized attention they need, without relying solely on human tutors. These solutions span the spectrum from recruiting more teaching assistants from the ranks of previous students \mbox{%DIFAUXCMD
+\cite{communityTAs} }%DIFAUXCMD
+to automating hints using program synthesis or intelligent tutoring systems. 
+}\DIFaddend 
+
+\DIFaddbegin \DIFadd{Singh et al. \mbox{%DIFAUXCMD
+\cite{rishabh} }%DIFAUXCMD
+uses a constraint-based synthesis algorithm to find the minimal changes needed to make an incorrect Python solution functionally equivalent to a reference implementation. The changes are specified in terms of a problem-specific error model that captures the common mistakes students make on a particular problem. The system can automatically deliver hints to students about these changes at various levels of specificity. 
+}
+
+%DIF > \subsection{Intelligent Tutoring Systems}
+\DIFadd{Intelligent tutoring systems can provide personalized hints and other assistance to each student based on a pre-programmed student model. For example, previous systems sought to provide support through the use of adaptive scripts \mbox{%DIFAUXCMD
+\cite{kumar2007tutorial}}%DIFAUXCMD
+, or cues from the student's problem-solving actions \mbox{%DIFAUXCMD
+\cite{diziol}}%DIFAUXCMD
+. Despite the advantage of automated support, intelligent tutoring systems often require domain experts to design and build them, making them expensive to develop~\mbox{%DIFAUXCMD
+\cite{gross2012feedback}}%DIFAUXCMD
+. Furthermore, domain experts who generate these hints may also suffer from the }{\it \DIFadd{curse of knowledge}}\DIFadd{: the difficulty experts have when trying to see something from the point of view of a novice \mbox{%DIFAUXCMD
+\cite{curse}}%DIFAUXCMD
+. 
+}
+
+%DIF > \todo{DNHT: Include ``current ITSs require an exact formalization of the underlying domain knowledge which is usually a substantial amount of work: researchers have reported 100-1000 hours of authoring time needed for one hour of instruction [MBA03] from `Feedback Provision Strategies in Intelligent Tutoring Systems Based on Clustered Solution Spaces'''}
+
+%DIF > \subsection{Through Data Mining}
+\DIFadd{Unlike intelligent tutoring systems, the HelpMeOut system \mbox{%DIFAUXCMD
+\cite{helpmeout} }%DIFAUXCMD
+does not require a pre-programmed student model. It assists programmers during their debugging by suggesting code modifications mined from debugging performed by previous programmers. However, the suggestions lack explanations in plain language unless they are added by experts (teachers), so the limits imposed by the time, expense, and curse of knowledge of experts still apply.
+}
+
+\DIFadd{Rivers and Koedinger \mbox{%DIFAUXCMD
+\cite{riversaied} }%DIFAUXCMD
+propose a data-driven approach to create a solution space consisting of all possible paths from the problem statement to a correct solution. To project code onto this solution space, the authors apply a set of normalizing transformations to simplify, anonymize, and order syntax. The solution space can then be used to locate the potential learning progression for a student solution and provide hints on how to correct their attempt.
+}
+
+%DIF > \subsection{Learnersourcing and Peer Instruction}
+\DIFadd{Discussion forums derive their value from the content produced by the teachers and students who use them. These systems can harness the benefits of peer learning, where students can benefit from generating and receiving help from each other. However, as the system has no student model, the information is available to all students whether or not it is ultimately relevant. Students can receive personalized attention only if they post a question and receive a response. 
+}
+
+\DIFaddend Peer-pairing can stand in place of staff assistance, to both reduce the load on teaching staff and give students a chance to gain ownership of material through teaching it to someone else. Weld et al. speculate about peer-pairing in MOOCs based on student competency measures \cite{WeldHcomp12}, and Klemmer et al. demonstrate peer assessments' scalability to large online design-oriented classes~\cite{Klemmer}. Peer instruction~\cite{mazur} and peer assessment~\cite{peerassessment} have been integrated into many classroom activities and have also formed the basis of several online systems for peer-learning. For example, Talkabout organizes students into discussion groups based on characteristics such as gender or geographic balance \cite{talkabout}.
+
+Recent work on learnersourcing proposes that learners can collectively generate educational content for future learners while engaging in a meaningful learning experience themselves \cite{kim2013learnersourcing,weir2015,mitros2015}. For example, Crowdy enables people to annotate how-to videos while simultaneously learning from the video \cite{weir2015}. \DIFdelbegin \DIFdel{Within the ClassOverflow work, I }\DIFdelend \DIFaddbegin \DIFadd{The targeted learnersourcing workflows presented in this thesis }\DIFaddend expand on learnersourcing by requesting the contributions of specific learners who, by virtue of their work so far, are uniquely situated to compose a hint for fellow learners. \DIFdelbegin \DIFdel{I will refer to this as targeted learnersourcing.
+}\DIFdelend %DIF > I will refer to this as targeted learnersourcing.
+\DIFaddbegin 
+
+\DIFadd{Other important forms of personalized support for learning include peer groups, home environment, learning communities, and identity formation~\mbox{%DIFAUXCMD
+\cite{walberg1984improving,case2008education}}%DIFAUXCMD
+, but they are outside the scope of this thesis.
+}
+
+%DIF > \todo{DNHT: consider adding additional papers from notes}
+
+%DIF > \todo{DNHT: add http://research.microsoft.com/en-us/um/people/sumitg/pubs/fse14.pdf ''Our key insight is that the algorithmic strategy employed by a program can be identi ed by observing the values computed during the execution of the program.''}
+\DIFaddend 
+
+
+%\input{Body/overcode}
+%\input{Body/foobaz}
+%\input{Body/bayesian}
+%\input{Body/classoverflow}
+%\input{Body/grovercode}
+%\input{Body/discussion}
+%\input{Body/futurework}
+
+%\clearpage
+%\appendix
+%\addcontentsline{toc}{part}{Appendix}
+
+%\input{Body/appa}
+%\import{./Body/appb/}{appb.tex}
+%\input{Body/appc}
+%\input{Body/biblio.tex}
+%\input{Body/index.tex}
+\end{document}
+

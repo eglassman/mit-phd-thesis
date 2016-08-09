@@ -1,0 +1,239 @@
+% -*- Mode:TeX -*-
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ../oldthesisdraft/main_abstract.tex   Mon Aug  8 23:11:32 2016
+%DIF ADD main_abstract.tex                     Mon Aug  8 23:19:46 2016
+
+%% The documentclass options along with the pagestyle can be used to generate
+%% a technical report, a draft copy, or a regular thesis.  You may need to
+%% re-specify the pagestyle after you \include  cover.tex.  For more
+%% information, see the first few lines of mitthesis.cls. 
+
+%\documentclass[12pt,vi,twoside]{mitthesis}
+%%
+%%  If you want your thesis copyright to you instead of MIT, use the
+%%  ``vi'' option, as above.
+%%
+%\documentclass[12pt,twoside,leftblank]{mitthesis}
+%%
+%% If you want blank pages before new chapters to be labelled ``This
+%% Page Intentionally Left Blank'', use the ``leftblank'' option, as
+%% above. 
+
+%\documentclass[12pt]{mitthesis}
+%\documentclass[12pt,singlespace,twoside]{mitthesis}
+%DIF 21a21
+%\documentclass{tufte-book} %DIF > 
+%DIF -------
+\documentclass[12pt,twoside]{mitthesis}
+\usepackage{lgrind}
+\usepackage{todonotes}
+\usepackage{subcaption}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+%DIF 30a31-39
+\usepackage{csquotes} %DIF > 
+\usepackage{sidecap} %DIF > 
+\usepackage{verbatim} %DIF > 
+\usepackage{tabularx} %DIF > 
+\usepackage{enumitem} %DIF > 
+\setlist{nosep} %DIF > 
+ %DIF > 
+\sidecaptionvpos{figure}{c} %DIF > 
+ %DIF > 
+%DIF -------
+%\usepackage{subfigure}
+%\documentclass[12pt,oneside]{mitthesis}
+%\usepackage{lgrind}
+\input{Body/header.tex}
+\pagestyle{plain}
+
+
+\usepackage{courier}
+%DIF 38a48
+%\usepackage{unicode-math} %DIF > 
+%DIF -------
+
+\newcommand \codevar[1]{\texttt{#1}}
+
+%% This bit allows you to either specify only the files which you wish to
+%% process, or `all' to process all files which you \include.
+%% Krishna Sethuraman (1990).
+
+%\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
+%\def\all{all}
+%\ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
+%\DeclareMathAlphabet{\mathnormal}{OMS}{cmsy}{m}{n} %DIF > 
+%\setmathfont{Latin Modern Math} %DIF > 
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+%\fontencoding{LY1}\fontfamily{ACaslonPro}\mdweight
+
+
+
+\DIFdelbegin %DIFDELCMD < \input{Body/cover}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \addcontentsline{toc}{chapter}{\DIFadd{Cover page}}
+\title{\DIFadd{Clustering and Visualizing Solution Variation in Massive Programming Classes}}
+\author{\DIFadd{Elena L. Glassman}}
+\department{Department of Electrical Engineering \\ and Computer Science}
+%DIF >  If the thesis is for two degrees simultaneously, list them both
+%DIF >  separated by \and like this:
+ \degree{Doctor of Philosophy}
+%DIF > \degree{Bachelor of Science in Computer Science and Engineering}
+\degreemonth{August}
+\degreeyear{2016}
+\thesisdate{August 7, 2016}
+
+%DIF > % By default, the thesis will be copyrighted to MIT.  If you need to copyright
+%DIF > % the thesis to yourself, just specify the `vi' documentclass option.  If for
+%DIF > % some reason you want to exactly specify the copyright notice text, you can
+%DIF > % use the \copyrightnoticetext command.  
+\copyrightnoticetext{\copyright ~Elena L. Glassman, 2016.}
+
+\begin{comment}
+\copyrightnoticetext{\copyright ~Elena L. Glassman, 2016. \\
+{\footnotesize
+This work is licensed under the Creative
+Commons Attribution-NonCommercial 2.5
+License. To view a copy of this license, visit
+\url{http://creativecommons.org/licenses/by-nc/2.5/} or send a
+letter to
+Creative Commons
+543 Howard Street, 5th Floor,
+San Francisco, California, 94105, USA.
+}}
+\end{comment}
+
+%DIF >  If there is more than one supervisor, use the \supervisor command
+%DIF >  once for each.
+\supervisor{Robert C. Miller}{Professor of Electrical Engineering \\ and Computer Science}
+
+%DIF >  This is the department committee chairman, not the thesis committee
+%DIF >  chairman.  You should replace this with your Department's Committee
+%DIF >  Chairman.
+%DIF > \chairman{Daniel Blankschtein}{Chairman, Department Committee on Graduate Students}
+\chairman{------------------}{Chairman, Department Committee on Graduate Students}
+
+%DIF >  Make the titlepage based on the above information.  If you need
+%DIF >  something special and can't use the standard form, you can specify
+%DIF >  the exact text of the titlepage yourself.  Put it in a titlepage
+%DIF >  environment and leave blank lines where you want vertical space.
+%DIF >  The spaces will be adjusted to fill the entire page.  The dotted
+%DIF >  lines for the signatures are made with the \signature command.
+\maketitle
+
+%DIF >  The abstractpage environment sets up everything on the page except
+%DIF >  the text itself.  The title and other header material are put at the
+%DIF >  top of the page, and the supervisors are listed at the bottom.  A
+%DIF >  new page is begun both before and after.  Of course, an abstract may
+%DIF >  be more than one page itself.  If you need more control over the
+%DIF >  format of the page, you can use the abstract environment, which puts
+%DIF >  the word "Abstract" at the beginning and single spaces its text.
+
+%DIF > % You can either \input (*not* \include) your abstract file, or you can put
+%DIF > % the text of the abstract directly between the \begin{abstractpage} and
+%DIF > % \end{abstractpage} commands.
+
+%DIF >  First copy: start a new page, and save the page number.
+\cleardoublepage
+%DIF >  Uncomment the next line if you do NOT want a page number on your
+%DIF >  abstract and acknowledgments pages.
+\pagestyle{empty}
+\setcounter{savepage}{\thepage}
+\begin{abstractpage}\addcontentsline{toc}{chapter}{\DIFadd{Abstract}}
+\DIFadd{In large programming classes, a single problem may yield thousands of student solutions. Solutions can vary in correctness, approach, and readability. Understanding large-scale variation in solutions is a hard but important problem. For teachers, this variation could be a source of innovative new student solutions and instructive examples. Understanding solution variation could help teachers write better feedback, test cases, and evaluation rubrics. Theories of learning, e.g., analogical learning and variation theory, suggest that students would benefit from understanding the variation in their peers' solutions as well. Even when there are many solutions to a problem, when a student is struggling in a large class, other students may have struggled along a similar solution path, hit the same bugs, and have hints based on that earned expertise.
+}
+
+\DIFadd{This thesis describes systems that exploit large-scale solution variation and have been evaluated using data or live deployments in on-campus or edX courses with thousands of students. OverCode visualizes thousands of programming solutions using static and dynamic analysis to cluster similar solutions. Compared to the status quo, OverCode lets teachers quickly develop a high-level view of student understanding and misconceptions and provide feedback that is relevant to more student solutions. Foobaz helps teachers give feedback at scale on a critical aspect of readability, i.e., variable naming. Foobaz displays the distribution of student-chosen names for each common variable in student solutions and, with a few teacher annotations, it generates personalized quizzes that help students learn from the good and bad naming choices of their peers. ClassOverflow collects and organizes hints indexed by the autograder test that failed or a performance characteristic like size or speed. It helps students reflect on their debugging or optimization process and generates hints that can help other students with the same problem. These systems demonstrate how clustering and visualizing solution variation can help teachers directly respond to trends and outliers within student solutions, as well as help students help each other.
+}\end{abstractpage}
+
+%DIF >  Additional copy: start a new page, and reset the page number.  This way,
+%DIF >  the second copy of the abstract is not counted as separate pages.
+%DIF >  Uncomment the next 6 lines if you need two copies of the abstract
+%DIF >  page.
+%DIF >  \setcounter{page}{\thesavepage}
+%DIF >  \begin{abstractpage}
+%DIF >  \input{abstract}
+%DIF >  \end{abstractpage}
+
+\cleardoublepage
+
+\section*{\DIFadd{Preface}}\addcontentsline{toc}{chapter}{\DIFadd{Preface}}
+\DIFadd{I am not a professional software developer, but learning how to write programs in middle school was one of the most empowering skills my father could ever have taught me. I did not need access to chemicals or heavy machinery. I only needed a computer and occasionally an internet connection. I acquired datasets and wrote programs to extract interesting patterns in them. It was and still is a creative outlet.
+}
+
+\DIFadd{More recently, the value of learning how to code, or at least how to think computationally, has gained national attention. Last September, New York City Mayor Bill de Blasio announced that all public schools in NYC will be required to offer computer science to all students by 2025. In January of this year, the White House released its Computer Science for All initiative, "offering every student the hands--on computer science and math classes that make them job--ready on day one" (President Obama, 2016 State of the Union Address).
+}
+
+\DIFadd{The economic value and employment prospects associated with knowing how to program, the subsiding stigma of being a computer "geek" or "nerd," and the production and popularity of movies about programmers may be responsible for driving up enrollment in computer science classes to unprecedented levels. Hundreds or thousands of students enroll in programming courses at schools like MIT, Stanford, Berkeley and the University of Washington.
+}
+
+\DIFadd{One-on-one tutoring is considered a gold standard in education, and programming education is likely no exception. However, most students are not going to receive that kind of personalized instruction. We, as a computer science community, may not be able to offer one-on-one tutoring at a massive scale, but can we create systems that enhance the teacher and student experiences in massive classrooms in ways that would never have been possible in one-on-one tutoring? This thesis is one particular approach to answering that question. %DIF > are not even possible in just a one-on-one environment?% How can we best teach the next generation of students how to code when there are so many of them?
+}
+
+
+\cleardoublepage
+
+\section*{\DIFadd{Acknowledgments}}\addcontentsline{toc}{chapter}{\DIFadd{Acknowledgments}}
+
+\DIFadd{Thank you, thank you, thank you to my advisor, Rob Miller, who took a chance on me, and my other co-authors on this thesis work, Rishabh Singh, Jeremy Scott, Philip Guo, Lyla Fischer, Aaron Lin, and Carrie Cai. The past and present members of our User Interface Design group were instrumental in helping me feel at home in a new area and get up to speed while having fun. I'm also grateful to my past internship mentors at Google and MSR, specifically Dan Russell, Merrie Ringel Morris, and Andr}\'{e}\DIFadd{s Monroy-Hern}\'{a}\DIFadd{ndez, who gave me the chance to try out my chops in new environments. I also want to thank my friends outside MIT, especially the greater Boston community of wrestling coaches, who helped me learn important lessons outside the classroom. And, last but not least, my partner Victor, my parents, and my brother, who have each supported me in their own way, from hugs, to proofreading papers, to being technical sounding-boards, and finally, to demonstrating, as my brother has, how to switch fields, pick up a whole new set of skills, and look good doing it.
+}
+
+
+
+\DIFaddend \pagestyle{plain}
+\DIFdelbegin %DIFDELCMD < \input{Body/contents}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > \input{Body/contents}
+
+%now start the fancy headings
+\pagestyle{fancyplain}
+\addtolength{\headheight}{\baselineskip}
+%add a nice little line underneath the heading
+%\renewcommand{\headrulewidth}{0.6pt}
+
+%DIF < \input{Body/intro.tex}
+%DIF > \input{Body/new_intro.tex}
+%\input{Body/relatedWork}
+%\input{Body/overcode}
+%\input{Body/foobaz}
+%\input{Body/classoverflow}
+%\input{Body/grovercode}
+%\input{Body/discussion}
+%\input{Body/futurework}
+
+\DIFdelbegin %DIFDELCMD < \clearpage
+%DIFDELCMD < %%%
+\DIFdelend %DIF > \clearpage
+%\appendix
+%\addcontentsline{toc}{part}{Appendix}
+
+%\input{Body/appa}
+%\import{./Body/appb/}{appb.tex}
+%\input{Body/appc}
+\input{Body/biblio.tex}
+%\input{Body/index.tex}
+\end{document}
+

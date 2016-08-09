@@ -1,0 +1,843 @@
+% -*- Mode:TeX -*-
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ../oldthesisdraft/main.tex   Tue Aug  9 10:49:46 2016
+%DIF ADD main.tex                     Tue Aug  9 10:49:12 2016
+
+%% The documentclass options along with the pagestyle can be used to generate
+%% a technical report, a draft copy, or a regular thesis.  You may need to
+%% re-specify the pagestyle after you \include  cover.tex.  For more
+%% information, see the first few lines of mitthesis.cls. 
+
+%\documentclass[12pt,vi,twoside]{mitthesis}
+%%
+%%  If you want your thesis copyright to you instead of MIT, use the
+%%  ``vi'' option, as above.
+%%
+%\documentclass[12pt,twoside,leftblank]{mitthesis}
+%%
+%% If you want blank pages before new chapters to be labelled ``This
+%% Page Intentionally Left Blank'', use the ``leftblank'' option, as
+%% above. 
+
+%\documentclass[12pt]{mitthesis}
+%\documentclass[12pt,singlespace,twoside]{mitthesis}
+%DIF 21a21
+%\documentclass{tufte-book} %DIF > 
+%DIF -------
+\documentclass[12pt,twoside]{mitthesis}
+\usepackage{lgrind}
+\usepackage{todonotes}
+\usepackage{subcaption}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+%DIF 30a31-39
+\usepackage{csquotes} %DIF > 
+\usepackage{sidecap} %DIF > 
+\usepackage{verbatim} %DIF > 
+\usepackage{tabularx} %DIF > 
+\usepackage{enumitem} %DIF > 
+\setlist{nosep} %DIF > 
+ %DIF > 
+\sidecaptionvpos{figure}{c} %DIF > 
+ %DIF > 
+%DIF -------
+%\usepackage{subfigure}
+%\documentclass[12pt,oneside]{mitthesis}
+%\usepackage{lgrind}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}    % if you want extra symbols
+\usepackage{mathrsfs}
+\usepackage{program}
+\usepackage{newlfont}
+\usepackage{rotating}
+\usepackage{varioref}
+\usepackage{graphicx}
+%\usepackage{txfont}
+\usepackage{makeidx}
+\usepackage{tocbibind}
+\usepackage{program}
+\usepackage{import}
+%\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{colortbl}
+\usepackage{todonotes}
+%DIF 54a64-66
+\usepackage{parskip} %DIF > 
+%\usepackage{booktabs} %DIF > 
+\usepackage{microtype} %DIF > 
+%DIF -------
+
+%\usepackage[LY1]{fontenc}
+%\usepackage{patchcmd}
+%\usepackage{myfss}
+%\usepackage{caslon}
+%\renewcommand{\encodingdefault}{LY1}
+%\rmshape \rgshape
+
+%\usepackage[oldstyle]{garamond}
+%\usepackage[lining]{agaramond}
+\usepackage[small]{eulervm}
+\usepackage{courier} % for texttt
+
+
+
+%\usepackage{ulem} %underlines
+%\normalem % normal emph w/ ulem
+
+\usepackage[numbers,square,sort&compress]{natbib}
+\usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue, linkcolor=blue,bookmarks=true,bookmarksopen=true,bookmarksopenlevel=0,pdfstartview=Fit,pdfview=Fit,pagebackref,linktocpage=true,bookmarksnumbered=true]{hyperref}
+\usepackage{hypernat}
+\usepackage{array}
+\usepackage{supertabular}
+
+%%% stuff for doxygen
+%\usepackage{times}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{alltt}
+%\usepackage{Body/appb/doxygen}
+%%%%%%%%%%%
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+\usepackage{courier}
+%\newcommand \codevar[1]{\texttt{#1}}
+\usepackage{expl3,xparse} 
+\ExplSyntaxOn 
+\NewDocumentCommand \lstcolorlines { O{green} m } 
+{ \clist_if_in:nVT { #2 } { \the\value{lstnumber} }{ \color{#1} } } 
+\ExplSyntaxOff
+\definecolor{mygray}{rgb}{0.925,0.925,0.925}
+\definecolor{lightyellow}{HTML}{FFE600}
+
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+\pagenumbering{arabic}
+
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+
+\usepackage[T1]{fontenc}
+%DIF 115c128
+%DIF < \usepackage[scaled=0.80]{beramono}
+%DIF -------
+%\usepackage[scaled=0.80]{beramono} %DIF > 
+%DIF -------
+\usepackage{color}
+\usepackage{multirow}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\lstset{
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords = {MultiType},
+keywordstyle=\color{bluekeywords}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\footnotesize,
+numbers=none, xleftmargin=.1in, numbersep=3pt
+}
+
+% Symbols used by the authors
+    \DeclareMathOperator{\suffix}{suffix}
+    \DeclareMathOperator{\prefix}{prefix}
+    \DeclareMathOperator{\prob}{Pr}
+\newcommand{\conv}{\curvearrowright}
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brac}[1]{\left[#1\right]}
+\newcommand{\braces}[1]{\left\{#1\right\}}
+\newcommand{\avector}[2]{(#1_1,#1_2,\ldots,#1_{#2})} 
+\newcommand{\aset}[2]{{#1_1,#1_2,\ldots,#1_{#2}}} 
+\newcommand{\ith}[1]{\ensuremath{{#1^{\textrm{th}}}}} 
+\newcommand{\nd}[1]{\ensuremath{{#1^{\textrm{nd}}}}} 
+%DIF 150c163
+%DIF < \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+%DIF -------
+%\DeclareSymbolFont{AMSb}{U}{msb}{m}{n} %DIF > 
+%DIF -------
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\realNums}{\mathbin}{AMSb}{"52}
+
+
+\newcommand{\curls}[1]{\left\{#1\right\}}
+%\newcommand{\teirRegEx}{\ensuremath{\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\paren{\Sigma\cup\curls{.}\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}^{\ast}\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\cup\Sigma}}
+\newcommand{\teirRegEx}{\ensuremath{\Sigma\paren{\Sigma\cup\curls{.}}\Sigma}}
+\newcommand{\teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Fasta}{FastA}
+\newcommand{\fasta}{FastA}
+\newcommand{\psiblast}{psi--Blast}
+\newcommand{\prosite}{PROSITE}
+\newcommand{\biodictionary}{Bio--Dictionary}
+\newcommand{\genbank}{GENBANK}
+\newcommand{\embl}{EMBL}
+\newcommand{\etal}{\emph{et.\ al.\ }}
+\newcommand{\sptr}{SwissProt/TrEMBL}
+\newcommand{\swissp}{SWISS--PROT}
+\newcommand{\swissprot}{\swissp}
+\newcommand{\swissptr}{SWISS--PROT/TrEMBL}
+\newcommand{\swissprottrembl}{\swissptr}
+\newcommand{\amsdb}{AMSDb}
+\newcommand{\ncbi}{NCBI}
+\newcommand{\blosum}{BLOSUM}
+\newcommand{\pam}{PAM}
+\newcommand{\oligo}{oligonucleotide}
+\newcommand{\Oligo}{Oligonucleotide}
+\newcommand{\blast}{BLAST}
+\newcommand{\pr}[1]{\prob\left(#1\right)}
+\newcommand{\prt}[1]{\prob\left(\textrm{#1}\right)}
+\newcommand{\cp}[2]{\prob\left(#1\mid #2\right)}
+\newcommand{\cpt}[2]{\prob\left(\textrm{#1}\mid \textrm{#2}\right)}
+\newcommand{\ex}[1]{\mathbf{E}\left[#1\right]}
+%\newcommand{\var}[1]{\textrm{var}\left(#1\right)}
+\newcommand{\phip}[3]{\Phi\paren{\frac{#1-\paren{#2}}{#3}}}
+%\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\ten}[1]{\mathbf{#1}}
+\newcommand{\pdf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\pmf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\transf}[2]{M_{#1}\left(#2\right)}
+\newcommand{\expo}[1]{\exp\left[#1\right]}
+\newcommand{\pd}[2]{\frac{\partial}{\partial #2}\brac{#1}}
+\setlength{\extrarowheight}{3pt}
+\newcommand{\marnote}[1]{\marginpar{\raggedleft\footnotesize\bfseries\hspace{0pt} #1}}
+
+\usepackage{fancyhdr}
+%\renewcommand{\chaptermark}[1]{\markboth{\textit{\chaptername}\ \thechapter.\ #1}{}}
+
+%this defines the basic headers and footer
+% styles when we use the 'fancyhdr' styles
+%\lhead[\fancyplain{}{\itshape\footnotesize\thepage}]{\fancyplain{}{\itshape\footnotesize\rightmark}}
+%\rhead[\fancyplain{}{\itshape\footnotesize\leftmark}]{\fancyplain{}{\itshape\footnotesize\thepage}}
+%\lhead[\fancyplain{}\bfseries\thepage]{\fancyplain{}\bfseries\rightmark}
+%\rhead[\fancyplain{}\bfseries\leftmark]{\fancyplain{}\bfseries\thepage}
+%\pagestyle{fancyplain}
+\addtolength{\headwidth}{0.5\marginparsep}
+\addtolength{\headwidth}{0.5\marginparwidth}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\footnotesize\thepage}]{\fancyplain{}{\footnotesize\rightmark}}
+\rhead[\fancyplain{}{\footnotesize\leftmark}]{\fancyplain{}{\footnotesize\thepage}}
+\cfoot{}
+\cfoot{}
+
+% Special Float captions
+% Different font in captions
+\newcommand{\captionfonts}{\mdseries}
+\newcommand{\floatnamefonts}{\bfseries}
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\floatnamefonts #1:~~\captionfonts #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\floatnamefonts #1: \captionfonts #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+
+\makeindex
+
+\pagestyle{plain}
+
+
+\usepackage{courier}
+%DIF 238a251
+%\usepackage{unicode-math} %DIF > 
+%DIF -------
+
+\newcommand \codevar[1]{\texttt{#1}}
+
+%% This bit allows you to either specify only the files which you wish to
+%% process, or `all' to process all files which you \include.
+%% Krishna Sethuraman (1990).
+
+%\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
+%\def\all{all}
+%\ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
+%\DeclareMathAlphabet{\mathnormal}{OMS}{cmsy}{m}{n} %DIF > 
+%\setmathfont{Latin Modern Math} %DIF > 
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+%\fontencoding{LY1}\fontfamily{ACaslonPro}\mdweight
+
+%\input{Body/cover}
+\pagestyle{plain}
+%\input{Body/contents}
+
+%now start the fancy headings
+\pagestyle{fancyplain}
+\addtolength{\headheight}{\baselineskip}
+%add a nice little line underneath the heading
+%\renewcommand{\headrulewidth}{0.6pt}
+
+\chapter{Introduction}\label{chapter:introduction}
+
+\DIFdelbegin \DIFdel{Given growing demand, programming class sizes at major universities like MIT, Stanford, Berkeley, and University of Washington }\DIFdelend \DIFaddbegin \DIFadd{Introductory programming classes are big and hard to teach. Programming classes on some college campuses }\DIFaddend are reaching hundreds or thousands of students\DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{biggestClass}}%DIFAUXCMD
+. Massive Open Online Courses (MOOCs) on programming have drawn tens or hundreds of thousands of students~\mbox{%DIFAUXCMD
+\cite{codewebs}}%DIFAUXCMD
+. Millions of students complete programming problems online through sites like Khan Academy}\DIFaddend .
+\DIFdelbegin \DIFdel{However, one-on-one tutoring is considered a gold standard for the educational outcomes it regularly produces \mbox{%DIFAUXCMD
+\cite{bloom}}%DIFAUXCMD
+. The rapid, personalized feedback and attention that is possible within a one-on-one tutoring relationship or a small class becomes prohibitively difficult or expensive at larger scales. Systems and techniques that scale the benefits of low student-to-teacher ratios to arbitrarily many students is an on-going challenge in modern education}\DIFdelend \DIFaddbegin 
+
+\DIFadd{Massive classes generate massive datasets of solutions to the same programming problem. The problem could be exponentiating a number, computing a derivative, or transforming a string in a specific way. The solutions are typically a single function that prints or returns an answer}\DIFaddend . \DIFaddbegin \DIFadd{A terse solution might contain a couple of lines. An excessively verbose solution might contain over twenty lines.
+}
+
+\DIFadd{This thesis revolves around clustering and visualizing massive datasets of solutions in novel, human-readable ways. For example, rather than representing solutions as points in a projection of a high-dimensional space into two or three dimensions, OverCode's deterministic unsupervised clustering pipeline synthesizes platonic solutions that each represent entire stacks of solutions. For example, the solution shown in Figure~\ref{largestStack} represents 1538 solutions~\mbox{%DIFAUXCMD
+\cite{overcode}}%DIFAUXCMD
+. OverCode is the first of several systems for clustering and visualizing solutions and solution variation that were developed in this thesis.
+}\DIFaddend 
+
+\DIFdelbegin \DIFdel{Computers are a natural ally in this challenge. Even though computers do not yet have a human's ability to design curriculum, compose an entirely new question, or handle a novel answer, their attention, computation, and memory scales much better than humanity's. This thesis work supports a vision of teaching computer science education where humans--teachers and students--are front and center, discussing approaches, design choices, and trade-offs, augmented by computation behind the scenes. }\DIFdelend \DIFaddbegin \begin{figure}
+\centering
+\includegraphics[width=0.5\linewidth]{Body/figures/overcode/largest_stack_cropped.jpg}
+\caption{\DIFaddFL{A solution synthesized by OverCode that represents 1538 student solutions.}}
+\label{largestStack}
+\end{figure}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{The challenge of scaling up computer science education is usually framed as simply coping with the problems of large class sizes.
+This thesis, however, explores how the volume of students and their solutions can be exploited to enable new types of rapid personalized feedback, as well as recover aspects of a traditional small class.
+}\DIFdelend \DIFaddbegin \section{Solution Variation}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{Learners individually solving programming or digital hardware design problems can collectively generate a wide variety of possible bugs and solutions. A single programming or digital hardware design exercise may yield thousands of student solutions that vary in many ways, some superficial and some fundamental. For teachers, this variation can, for example, be a source of pedagogically valuable examples and corner casesthat slipped past an automatic grader. For students, the variation in a large class means that other students may have struggled along a similar solution path, hit the same bugs, and can offer hints based on that earned expertise}\DIFdelend \DIFaddbegin \DIFadd{The taxonomy for }{\it \DIFadd{solution variation}} \DIFadd{used in this thesis has three branches: correctness, approach, and readability. Since correctness is difficult to prove for an arbitrary piece of code, it is approximated in industry and education by correctness with respect to a set of test cases}\DIFaddend . \DIFaddbegin \DIFadd{In education, the machinery that checks for correctness is often called an autograder.
+}\DIFaddend 
+
+\DIFdelbegin \DIFdel{Understanding large-scale variation in student solutions requires identifying appropriate features of solutions,developing ways to automatically extract those features from each solution, user interface design to communicate the results to teachers or students, and possibly the collection of additional information from students through learnersourcing. This thesis includes the development of four systems that take advantage of the solution variation in large classes. All four systems have been evaluated using data or live deployments in on-campus or edX courses with hundreds or thousands of students}\DIFdelend \DIFaddbegin \DIFadd{There is a wide range of solutions that pass all the test cases and are labeled correct by the autograder, but they are not all equally good. Figure~\ref{table:diffapproaches} shows three different solutions of widely varying approach and readability that are correct with respect to the autograder test cases}\DIFaddend .
+
+\DIFdelbegin %DIFDELCMD < \section{A Tale of Two Turing Machines}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{figure}
+\begin{tabular}{ll}
+{\bf \DIFaddFL{Iterative Solution}} & {\bf \DIFaddFL{Recursive Solution}} \\
+\begin{minipage}{0.5\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
+\DIFaddFL{def power(base,exp):
+    result=1
+    while exp>0:
+        result*=base
+        exp-=1
+    return result
+}\end{lstlisting}
+\end{minipage}
+&
+\begin{minipage}{0.5\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
+\DIFaddFL{def power(base,exp):
+    if exp == 0:
+        return 1
+    else:
+        return base * power(base, exp-1)
+}\end{lstlisting}
+\end{minipage} \\
+%DIF >  \end{tabular}
+\DIFaddendFL 
+
+\DIFdelbeginFL \DIFdelFL{This work began after midnight in the basement computer lab of the Stata Center, where a student was struggling to create a Turing Machine that could detect whether a string of open and closed parentheses was properly balanced. If he was not successful within the next day or two, he would fail Computer Architecture (6.004). I will refer to him as Paul. I had a hard time helping Paul turn his Turing machine into one that would pass all the automatic grader's test tapes. I could not tell if his approach could work with a little debugging or was fatally flawed. I did not want to demoralize him by telling him to abandon his efforts so far and start over unless it was truly necessary. And what if he was on the path to a novel solutionno one elsehad created before?
+}\DIFdelendFL %DIF >  \begin{tabular}{l}
+\DIFaddbeginFL {\bf \DIFaddFL{Poorly Written Solution}} & \\
+\begin{minipage}{0.5\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
+\DIFaddFL{def power(base, exp):
+    tempBase=base
+    result = base
+}\DIFaddendFL 
+
+    \DIFdelbeginFL \DIFdelFL{While not a necessary condition for the correctness of his intended approach, finding a similar working solution in the pool of previous student submissions would serve as an existence proof and evidence that he should persevere. I had copies of hundreds of other students' correct Turing machines, but it was difficult to see by inspection whether any of these solutions were successful implementations of his intended approach}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{if type(base)==int:
+        while exp==0:
+            result = 1
+            print(result)
+            break
+        exp=exp-1
+        while exp >0:
+            tempCal=abs(tempBase)
+            exp=exp-1
+            while exp<0:
+                break
+            for i in range (1,tempCal):
+                result=result+base
+                tempCal=tempCal-1
+                tempRes=base
+            base=result
+        return(result)
+}
+
+    \DIFaddFL{else:
+        result = 1
+        while exp > 0:
+            result = result* base
+            exp = exp- 1
+        return result
+}\end{lstlisting}
+\end{minipage} 
+\end{tabular}
+\caption{\DIFaddFL{Three different solutions that exponentiate a base to an exponent. They are all marked correct by the autograder because they pass all the autograder test cases.}}
+\label{table:diffapproaches}
+\end{figure}
+
+\DIFadd{Solutions can have different approaches. For example, a student might be subversive and disregard a request by the teacher to solve the problem without using an existing equivalent library function. Or the student might include unnecessary lines of code that reveal possible misconceptions about how the language works. Figure~\ref{table:morediffapproaches} gives an example of each}\DIFaddend .
+\DIFdelbegin \DIFdel{This was due to both superficial static and dynamic differences between solutions. There are two sources of static superficial differences: (}\DIFdelend \DIFaddbegin 
+
+\begin{figure}
+\begin{tabular}{ll}
+{\bf \DIFaddFL{Subversive Solution}} &  \\
+\begin{minipage}{0.5\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
+\DIFaddFL{def power(base, exp):
+  return base**exp
+}\end{lstlisting}
+\end{minipage}
+& \\
+%DIF >  \end{tabular}
+
+%DIF >  \begin{tabular}{l}
+{\bf \DIFaddFL{Solution with Unnecessary Statement}} & \\
+\begin{minipage}{1.0\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
+\DIFaddFL{def power(base,exp):
+ result=}\DIFaddendFL 1
+ \DIFdelbeginFL \DIFdelFL{) students design their own symbol library and state names for the finite state machine portion of their Turing machine (2)students can list behavioral specifications in terms of their custom symbol and state names in any arbitrary order.
+  Each behavior-specifying rule is a computer-readable version of the form ``if you're in state X and you read symbol Y on the tape, overwrite symbol Y with symbol Z, move the tape-reader in direction W, and transition to state Q." Dynamic superficial differences arise because even after translating these textual statements into a finite state machine diagram, the diagrams look very different from one correct solution to the next. }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{while exp>0:
+     result=result*base
+     exp-=1
+     continue #keyword here does not change execution
+ return result
+}\end{lstlisting}
+\end{minipage} 
+\end{tabular}
+\caption{\DIFaddFL{Two different approaches to solving the problem. The first disregards teacher instructions to not use equivalent library functions and the second includes the keyword }\texttt{\DIFaddFL{continue}} \DIFaddFL{in a place where it is completely unnecessary, casting doubt on student understanding of the keyword }\texttt{\DIFaddFL{while}}\DIFaddFL{.}}
+\label{table:morediffapproaches}
+\end{figure}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{Eventually, through trial and error, he got his Turing Machine to work on all the test tapes, and passed the course. But I was deeply troubled by the experience. I felt like the information was there, in our staff server, but my brain could not see through the superficial textual differences nor mentally execute all the student solutions I had access to in order to have the perspective that would have helped me help Paul, when I could not see the bugs in his Turing Machine directly}\DIFdelend \DIFaddbegin \DIFadd{Approaches can be common or uncommon. One can think of the students submitting solutions as a generative function that produces a distribution of solutions we could characterize and take into account while teaching or designing new course material. Figure~\ref{table:commonuncommon} shows the most common and one of the most uncommon solutions produced by students for a problem assigned in 6.00x, an introductory programming course offered on edX in the fall of 2012. Uncommon solutions may be highly innovative or extraordinarily poor.
+}
+
+\begin{figure}
+\begin{tabular}{ll}
+{\bf \DIFaddFL{Common Solution}} & {\bf \DIFaddFL{Uncommon solution}} \\
+\begin{minipage}{0.5\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
+\DIFaddFL{def power(base,exp):
+  result=1
+  while exp>0:
+      result*=base
+      exp-=1
+  return result
+}\end{lstlisting}
+\end{minipage}
+& 
+%DIF >  \end{tabular}
+
+%DIF >  \begin{tabular}{l}
+ %DIF >  & \\
+\begin{minipage}{1.0\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
+\DIFaddFL{def power(base,exp):
+  if exp == 0:
+      return 1
+  else:
+      return base * power(base, exp-1)
+}\end{lstlisting}
+\end{minipage} 
+\end{tabular}
+\caption{\DIFaddFL{Common and uncommon solutions to exponentiating a base to an exponent produced by students in the 6.00x introductory Python programming course offered by edX in the Fall of 2012.}}
+\label{table:commonuncommon}
+\end{figure}
+
+\DIFadd{Readability is the third critical component of solution variation. Poorly written solutions like the one in Figure~\ref{table:diffapproaches} may be both the symptom and the cause of student confusion. Unreadable code is harder to understand and debug, for both teacher and student. In industry, peer-to-peer code reviews help prevent code with poor readability from entering code bases, where it can be difficult and costly to maintain.
+}
+
+{\it \DIFadd{Student design choices}} \DIFadd{affect correctness, approach, and readability. Examples include choosing }\texttt{\DIFadd{for}} \DIFadd{over ~}\texttt{\DIFadd{while}}\DIFadd{, }\texttt{\DIFadd{a *= b}} \DIFadd{over }\texttt{\DIFadd{a = a*b}}\DIFadd{, and recursive over iteration. Solution variation is a result of these choices. Even simple differences, like comments, statement order, formatting and variable names can make solutions look quite different to the unaided eye, as shown in Figure~\ref{table:difflook}.
+}
+
+\begin{figure}
+\begin{tabular}{ll}
+%DIF >  {\bf Solution } & {\bf Uncommon solution} \\
+\begin{minipage}{0.5\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
+\DIFaddFL{def iterPower(base, exp):
+  '''
+  base: int or float.
+  exp: int >= 0
+}
+
+  \DIFaddFL{returns: int or float, base^exp
+  '''
+  result = 1
+  while exp > 0:
+      result *= base
+      exp -= 1
+  return result
+}\end{lstlisting}
+\end{minipage}
+& 
+%DIF >  \end{tabular}
+
+%DIF >  \begin{tabular}{l}
+ %DIF >  & \\
+\begin{minipage}{1.0\linewidth}
+\begin{lstlisting}[basicstyle=\linespread{1.0}\ttfamily\footnotesize,language=python]
+\DIFaddFL{def iterPower(base, exp):
+  wynik = 1
+}
+
+  \DIFaddFL{while exp > 0:
+      exp -= 1  #exp argument is counter
+}
+
+      \DIFaddFL{wynik *= base
+}
+
+  \DIFaddFL{return wynik
+}\end{lstlisting}
+\end{minipage} 
+\end{tabular}
+\caption{\DIFaddFL{These two solutions only differ by comments, statement order, formatting, and variable names. Note: }\texttt{\DIFaddFL{wynik}} \DIFaddFL{means `result' in Polish.}}
+\label{table:difflook}
+\end{figure}
+
+\section{A Challenge and an Opportunity}
+
+\DIFadd{When teachers may have hundreds or thousands of raw student solutions to the same problem, it becomes arduous or impractical to review them by hand. And yet, only testing for approximate correctness via test cases has been automated. Identifying student solution approaches and readability automatically are still open areas of research. Given the volume and variety of student solutions, how do teachers comprehend what their students wrote? How do they give feedback on approach and readability at scale? 
+}
+
+\DIFadd{What value can }{\it \DIFadd{only}} \DIFadd{be extracted from a massive programming class? This thesis focuses on the opportunity posed by exploiting solution variation within large datasets of student solutions to the same problem. With algorithms, visualizations and interfaces, teachers may learn from their students by exposing student solutions they did not know about before. Teachers could find better examples to pull out for discussion. Teachers could write better feedback, test cases, and evaluation rubrics, given new knowledge of the distribution of student solutions across the dimensions of correctness, approach, and readability. And students could be tapped as experts on the solutions they create and the bugs they fix}\DIFaddend .
+
+\DIFdelbegin \DIFdel{After the semester ended, I looked into this further. I ran all the correct two-state Turing machinescollected during the semester on the same test tape containing a string of open and closed parentheses. The movement of the tape-reading head across this input was logged in coordinates relative to the common starting point, at the left end of the test tape, and displayed along the vertical axis. The horizontal axis represents the number of steps taken by the Turing machine on its way to completing the task.
+These discrete steps are analogous to time. 
+}\DIFdelend \DIFaddbegin \section{A Tale of Two Turing Machines}
+\DIFaddend 
+
+\DIFaddbegin \DIFadd{A short story about my time as a teaching assistant illustrates some of the challenges posed by solution variation. Students were programming simulated Turing machines, which compute by reading and writing to a simulated infinitely long tape. I struggled to help a student whose approach was not familiar to me. I could not tell if the approach was fatally flawed or unusual and possibly innovative. I did not want to dissuade him from a novel idea simply because I did not recognize it.
+}
+
+\DIFaddend The \DIFdelbegin \DIFdel{majority (88\%) of the solutionsemploy one of two mutually exclusive strategies. These strategies were identified just from visual inspection of the movement of many Turing machines across the common test tape. Figure \ref{turingFig} shows their locations on the common input tape over time, separated by strategy into Figures \ref{tapeMoveA} and \ref{tapeMoveB}. These two strategies for determining whether or not the tape's string of parentheses is balanced are (1) matching the innermost open parenthesis with the innermost closed parenthesis, i. e., standard semantic interpretation in math, and (2) matching the $n^{th}$ open parenthesis with the $n^{th}$ closed parenthesis. The remaining 12}\DIFdelend \DIFaddbegin \DIFadd{staff server had thousands of previously submitted correct student solutions, but I could not easily see if one of them successfully employed the same approach as the one envisioned by the struggling student. After experimenting with different representations, I found a visualization of Turing machine behavior on test cases that separated 90\% of the correct student solutions into two main approaches~\mbox{%DIFAUXCMD
+\cite{ICERGlassman}}%DIFAUXCMD
+. The remaining approximately 10}\DIFaddend \% of solutions \DIFdelbegin \DIFdel{(not shown) include }\DIFdelend \DIFaddbegin \DIFadd{included }\DIFaddend less common strategies. \DIFdelbegin \DIFdel{This analysis also exposes room for improvement in the suite of test tapes: at least two strategies in this group are known to pass the test tapes but are actually incorrect because they cannot handle an arbitrary depth of nested parentheses. }%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < Each staff member is encouraged to complete the Turing Machine lab on their own before counseling students. 
+\DIFdel{Staff members were aware of the Turing machine solution they each had found on their own time, and yet were }\DIFdelend \DIFaddbegin \DIFadd{Two solutions passed all test cases but subverted teacher instructions. Many teaching staff members were }\DIFaddend not aware that there were \DIFdelbegin \DIFdel{two mutually exclusive common solutions }\DIFdelend \DIFaddbegin \DIFadd{multiple solutions to the problem and that the current test suite was insufficient to distinguish correct solutions from incorrect ones}\DIFaddend . At least one staff member admitted steering students away from solutions they did not recognize, but in retrospect may have indeed been valid solutions.
+
+\DIFdelbegin \DIFdel{Based on my analysis, I was able to brief fellow 6.004 staff members on the space of solutions--both good and bad--in preparation for subsequent semesters and could suggest additions to the test tape suite to catch submissions that were previously erroneously marked as correct. 
+}\DIFdelend \DIFaddbegin \section{Research Questions}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{This experience was a critical and formative one for me. It has inspired the design approach and technical approach taken in many of the systems that follow.
+}\DIFdelend \DIFaddbegin \DIFadd{When a teacher cannot read all the student solutions to a programming problem because there are too many of them,
+} \begin{itemize} 
+\item {\bf \DIFadd{R1}} \DIFadd{how can the teacher understand the common and uncommon variation in their student solutions?
+}\item {\bf \DIFadd{R2}} \DIFadd{how can the teacher give feedback on approach and readability at scale?
+}\item {\bf \DIFadd{R3}} \DIFadd{... in a personalized way?
+}\item {\bf \DIFadd{R4}} \DIFadd{... and how can students do the same?
+} \end{itemize} 
+\DIFadd{In this thesis, several systems and workflows are developed and studied to better answer these questions. 
+}\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \begin{figure*}[p]
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{subfigure}[b]{1.0\textwidth}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=140mm]{Body/figures/ICERtapeLocations.png}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Tape on which all 148 two-state Turing machines were tested, and the numbering system by which locations along the test tape are identified.}}
+%DIFAUXCMD
+%DIFDELCMD < %DIFDELCMD < \label{tapeLocations}%%%
+%DIFDELCMD < \end{subfigure}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{subfigure}[b]{1.0\textwidth}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=0.85\textwidth]{Body/figures/tmvisualization_InnerParensMatched_allkidsAnno2}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Strategy A Turing machines: those which paired inner sets of open and closed parentheses, as is standard in mathematical notation. (73 out of 148 Turing machines)}}
+%DIFAUXCMD
+%DIFDELCMD < %DIFDELCMD < \label{tapeMoveA}%%%
+%DIFDELCMD < \end{subfigure}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{subfigure}[b]{1.0\textwidth}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=0.85\textwidth]{Body/figures/tmvisualization_NtoNParensMatched_allkidsAnno2}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Strategy B Turing machines: those which paired the first open with the first closed parenthesis, the second open with the second closed parenthesis, etc. (58 out of 148 Turing machines)}}
+%DIFAUXCMD
+%DIFDELCMD < %DIFDELCMD < \label{tapeMoveB}%%%
+%DIFDELCMD < \end{subfigure}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF <  \begin{subfigure}[b]{1.0\textwidth}
+%DIF <  \includegraphics[scale=0.85]{Body/figures/tmvisualization_Other_allkidsAnno}
+%DIF <  \caption{The trajectories of the 17 remaining Turing machines, run on the same common test tape as above, which have yet to be categorized. Both bold trajectories correspond to solutions that do not work in general, but passed the provided, fixed test suite.}
+%DIF <  \label{tapeMoveC}
+%DIF <  \end{subfigure}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{The two most common strategies for a two-state Turing machine to determine if a string of parentheses is balanced. Figures \ref{tapeMoveA} and \ref{tapeMoveB} show tape head position over time on the tape illustrated in Fig. \ref{tapeLocations}. The bold trajectories represent particularly clean examples.}}
+%DIFAUXCMD
+%DIFDELCMD < %DIFDELCMD < \label{turingFig}%%%
+%DIFDELCMD < \end{figure*}
+%DIFDELCMD < 
+
+%DIFDELCMD < \section{OverCode}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{In MOOCs, a single programming exercise may produce thousands of solutions from learners. Understanding solution variation is important for providing appropriate feedback to students at scale. The wide variation among these solutions can be a source of pedagogically valuable examples, and can be used to refine the autograder for the exercise by exposing corner cases. We developed OverCode to visualize and explore thousands of small Python programs that solve the same problem. 
+}\DIFdelend \DIFaddbegin \DIFadd{The OverCode and Foobaz systems both give teachers a better understanding of student solutions and how they vary in approach and readability. }\DIFaddend OverCode \DIFdelbegin \DIFdel{uses both static and dynamic analysis to cluster similar solutions , and lets teachers further filter and cluster solutions based on different criteria. We evaluated OverCode against a non-clustering baseline in a within-subjects study with 24 teaching assistants, and found that the OverCode interface }\DIFdelend allows teachers to more quickly develop a high-level view of student understanding and misconceptions\DIFdelbegin \DIFdel{, and to provide feedback that is }\DIFdelend \DIFaddbegin \DIFadd{. Foobaz displays the variety of common and uncommon variable names in student solutions to a single programming problem, so teachers can better understand student naming practices. The clustering and visualization techniques created for both these systems provide some new answers to the research question }{\bf \DIFadd{R1}} \DIFadd{for introductory Python problems. 
+}
+
+\DIFadd{OverCode also helps answer research question }{\bf \DIFadd{R2}}\DIFadd{. With OverCode, teachers produced feedback on solution approaches that was }\DIFaddend relevant to more student solutions\DIFaddbegin \DIFadd{, compared to feedback informed by status quo tools}\DIFaddend . 
+
+\DIFdelbegin %DIFDELCMD < \begin{figure}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=1.0\linewidth]{Body/figures/interfaceScreenShot.png}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{The OverCode user interface. The top left panel shows the number of clusters, called }%DIFDELCMD < {\it %%%
+\DIFdelFL{stacks}%DIFDELCMD < }%%%
+\DIFdelFL{, and the total number of solutions visualized. The next panel down in the first column shows the largest stack, while the second column shows the remaining stacks. The third column shows the lines of code occurring in the cleaned solutions of the stacks together with their frequencies.}}
+%DIFAUXCMD
+%DIFDELCMD < %DIFDELCMD < \label{fullinterface}%%%
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < 
+
+%DIFDELCMD < \section{Foobaz}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Traditional feedback methods, such as hand-grading student code for substance and style, are labor intensive and do not scale. We created a new user interface that addresses feedback at scale for a particular and important aspect of code quality}\DIFdelend \DIFaddbegin \DIFadd{The research question }{\bf \DIFadd{R3}} \DIFadd{asks how we can personalize feedback for individual students because personalization, in the form of one-on-one tutoring, has been a gold standard in educational psychology for decades~\mbox{%DIFAUXCMD
+\cite{bloom}}%DIFAUXCMD
+. For Foobaz, the challenge of delivering personalized feedback on approach and readability at scale was narrowed down to just one critical aspect of readability}\DIFaddend : variable names\DIFdelbegin \DIFdel{(see Figure \ref{fig:figure2}). Foobaz distinguishes variables by their behavior in the program, allowing teachers to comment not only on poor names, but also on names that mislead the reader about the variable 's role. We ran two lab studies of Foobaz, one with teachers and the other with students. In the first study, 10 Python teachers used Foobaz to comment on variable names in thousands of studentsolutions from an introductory programming MOOC.
+In the second study, 6 students composed fresh solutions to the same programming problems, and immediately received personalized variable-name quizzes composed in the previous user study. }%DIFDELCMD < 
+
+%DIFDELCMD < \begin{figure}
+%DIFDELCMD < 	\centering
+%DIFDELCMD < 	\includegraphics[width=1.0\linewidth]{Body/figures/FoobazInitialFat.png}
+%DIFDELCMD < 	%%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{The Foobaz teacher interface. The teacher is presented with a scrollable list of normalized solutions, each followed by a table of student-chosen variable names. Some names shown here have been labeled by the teacher as ``misleading or vague,'' ``too short,'' or ``fine.''}}
+	%DIFAUXCMD
+%DIFDELCMD < %DIFDELCMD < \label{fig:figure2}%%%
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < 
+
+%DIFDELCMD < \section{Extensions of OverCode Clustering}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{In order to perform more comprehensive clustering, several extensions of the original OverCode clustering methods have been explored and some have been fully implemented. GroverCode is an extension of OverCode built to canonicalize and cluster both correct and incorrect solutions }\DIFdelend . \DIFdelbegin \DIFdel{This was also done in the context of hundreds of exam-level solutions instead of thousands of solutions to "finger exercises" and problem set problems.This change in regime was inspired by need-finding interviews with the lecturer who teaches both the online and residential versions of MIT's introductory Python programming class. She was appreciative of the insights OverCode could give her extracted from the thousands of correct solutions submitted by her online students , but the semi-regular pain of hand-grading the hundreds of incorrect solutions submitted by tuition-paying residential students was a more immediate concern. Adapting to the needs of a team of graders grading a smaller number of more complex solutions, many of which were incorrect, required significant changes to the pipeline and interface.
+The resulting system was deployed to the staff for use during two grading sessions. The results of this field deployment are also promising; the staff welcomes its continued use in future semesters. More preliminary explorations of statistical methods for clustering solutions are also described.
+}\DIFdelend \DIFaddbegin \DIFadd{In a one-on-one scenario, a teacher helping a student might notice that the student is choosing poor variable names. The teacher might start a conversation about both their good and bad variable naming choices. In a massive classroom where that kind of chat is not possible, Foobaz delivers personalized active learning exercises intended to spark the same thought processes in the student. These exercises are called }{\it \DIFadd{variable name quizzes}}\DIFadd{. Foobaz helps answer }{\bf \DIFadd{R3}} \DIFadd{by demonstrating how teachers can compose automatically personalized feedback on an aspect of readability to students at scale.
+}\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \section{ClassOverflow}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{The final research question, }{\bf \DIFadd{R4}}\DIFadd{, is addressed by two novel workflows that collect and deliver personalized hints. It can be hard to get personalized help in large classes, especially when there are many varied solutions and bugs. Students who struggle, then succeed, become experts on writing particular solutions and fixing particular bugs. The two workflows are built on that insight. Unlike prior incarnations of assigning tasks to and collecting data from learners, i.e., learnersourcing~\mbox{%DIFAUXCMD
+\cite{kim2013learnersourcing}}%DIFAUXCMD
+, these workflows collect and distribute hints written only by students who earned the expertise necessary to write them. Both workflows give students an opportunity to reflect on their own technical successes and mistakes, which is helpful for learning~\mbox{%DIFAUXCMD
+\cite{dewey1933} }%DIFAUXCMD
+and currently lacking in the engineering education status quo~\mbox{%DIFAUXCMD
+\cite{asee}}%DIFAUXCMD
+. One of the two workflows also systematically exposes students to some of the variation present in other student solutions, as recommended by theories from educational psychology, specifically variation theory~\mbox{%DIFAUXCMD
+\cite{marton1997learning} }%DIFAUXCMD
+and analogical learning theory~\mbox{%DIFAUXCMD
+\cite{kurtz01learning,loewenstein2003analogical}}%DIFAUXCMD
+.
+}\DIFaddend 
+
+\DIFdelbegin \DIFdel{Personalized support for students is a gold standard in education, but it scales poorly with the number of students. Prior work on }\textit{\DIFdel{learnersourcing}} %DIFAUXCMD
+\DIFdel{presented an approach for learners to engage in human computation tasks while trying to learn a new skill. Our key insight is that students, through their own experience struggling with a particular problem, can become experts on the particular optimizations they implement or bugs they resolve. The students can then generate hints for fellow students based on their new expertise. ClassOverflow  uses new workflows to harvest and organize students' collective knowledge and advice for helping fellow novices through design problems in engineering (see Figure \ref{fig:workflow}). ClassOverflow was evaluated in an undergraduate digital hardware design class with hundreds of }\DIFdelend \DIFaddbegin \section{Thesis Statement and Contributions}
+
+\DIFadd{The systems described in this thesis show various mechanisms for handling and taking advantage of solution variation in massive programming courses. Students produce many variations of solutions to a problem, running into common and uncommon bugs along the way. Students can be pure producers whose solutions are analyzed and displayed to teachers. Alternatively, }\DIFaddend students \DIFdelbegin \DIFdel{. We show that, given our design choices, students can create helpful hints for their peers that augment or even replace teachers' personalized assistance, especially when that assistance is not available.
+}\DIFdelend \DIFaddbegin \DIFadd{can be prompted to generate analysis of their own and others' solutions, for the benefit of themselves and current and future students. %DIF > , and sends it to selected fellow learners as feedback. %We would like to demo these systems together, as a suite of learnersourcing systems that allow teachers to turn the challenges of teaching at scale into an opportunity for discussion, self-reflection, peer-teaching, and more learning from examples.
+}\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \begin{figure}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=1.0\linewidth]{Body/figures/classoverflow/CombinedWorkflow_CameraReady_FIXED_2.jpg}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{In the }\textit{\DIFdelFL{self-reflection}} %DIFAUXCMD
+\DIFdelFL{workflow, students generate hints by reflecting on an obstacle they themselves have recently overcome. In the }\textit{\DIFdelFL{comparison}} %DIFAUXCMD
+\DIFdelFL{workflow, students compare their own solutions to those of other students, generating a hint as a byproduct of explaining how one might get from one solution to the other.}}
+%DIFAUXCMD
+%DIFDELCMD < %DIFDELCMD < \label{fig:workflow}%%%
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < 
+
+%DIFDELCMD < {\bf %%%
+\DIFdelend My thesis statement is: 
+\DIFaddbegin \begin{displayquote}
+\DIFaddend Clustering and visualizing solution variation collected from programming courses can help teachers gain insights into student design choices, detect autograder failures, award partial credit, use targeted learnersourcing to collect hints for other students, and give personalized style feedback at scale.
+\DIFdelbegin %DIFDELCMD < }
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \end{displayquote}
+\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \section{Terminology}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Since terminology across research domains can vary, I will define the terms in which I will describe previous research and my own}\DIFdelend \DIFaddbegin \DIFadd{The main contributions of this thesis are}\DIFaddend :
+ \begin{itemize} 
+\item \DIFdelbegin \DIFdel{A }%DIFDELCMD < {\it %%%
+\DIFdel{solution}%DIFDELCMD < } %%%
+\DIFdel{is code that a particular person wrote in response to a prompt or problem description.
+}\DIFdelend \DIFaddbegin \DIFadd{An algorithm that uses the behavior of variables to help cluster Python solutions and generate the platonic solution for each cluster. Platonic solutions are readable and encode both static and dynamic information, i.e., the syntax carries the static information and the variable name encodes dynamic information.
+}\DIFaddend \item \DIFdelbegin %DIFDELCMD < {\it %%%
+\DIFdel{Solution clusters}%DIFDELCMD < } %%%
+\DIFdel{represent different patterns of implementation. For example, there may be two distinct solution clusters, both achieving the same input-output behavior but by different means.
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdelend A \DIFdelbegin %DIFDELCMD < {\it %%%
+\DIFdel{solution path}%DIFDELCMD < } %%%
+\DIFdel{is a series of code snapshots generated while a person is working toward meeting a particular input-output behavior specification. 
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{The }%DIFDELCMD < {\it %%%
+\DIFdel{space of student solutions}%DIFDELCMD < } %%%
+\DIFdel{refers to the aggregation of student-generated solutions and the solution clusters they form. }%DIFDELCMD < \item {\it %%%
+\DIFdel{Learnersourcing}%DIFDELCMD < }%%%
+\DIFdel{...
+}%DIFDELCMD < \end{itemize}
+%DIFDELCMD < 
+
+%DIFDELCMD < \section{Contributions}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The main contributions of this thesis are:
+}%DIFDELCMD < \begin{itemize}
+%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{A }\DIFdelend novel visualization that \DIFdelbegin \DIFdel{shows }\DIFdelend \DIFaddbegin \DIFadd{highlights }\DIFaddend similarity and variation among thousands of Python solutions \DIFdelbegin \DIFdel{, with cleaned code shown }\DIFdelend \DIFaddbegin \DIFadd{while displaying platonic solutions }\DIFaddend for each variant. 
+\item \DIFdelbegin \DIFdel{An algorithm that uses the behavior of variables to help cluster Python solutions and generate the cleaned code for each cluster of solutions.
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdelend Two user studies that show this visualization is useful for giving teachers a \DIFdelbegin \DIFdel{birds-eye }\DIFdelend \DIFaddbegin \DIFadd{bird's-eye }\DIFaddend view of thousands of students' Python solutions.
+\item A \DIFaddbegin \DIFadd{grading interface that shows similarity and variation among Python solutions, with faceted browsing so teachers can filter solutions by error signature, i.e., the test cases they pass and fail. 
+}\item \DIFadd{Two field deployments of the grading interface within introductory Python programming exam grading sessions.
+}\item \DIFadd{A }\DIFaddend technique for displaying clusters of Python solutions with only \DIFdelbegin \DIFdel{a slice }\DIFdelend \DIFaddbegin \DIFadd{an aspect, i.e., variable names and roles, }\DIFaddend of each cluster exposed, revealing the \DIFdelbegin \DIFdel{features }\DIFdelend \DIFaddbegin \DIFadd{details }\DIFaddend that are relevant to the task. \DIFdelbegin \DIFdel{In this application, the relevant features are variable names and roles.
+}\DIFdelend %DIF > In this application, the relevant features are variable names and roles.
+\item A workflow for generating personalized active learning exercises, emulating how a teacher might socratically discuss good and bad choices with a student while they review the student's solution together. 
+\item \DIFdelbegin \DIFdel{A working system which implements }\DIFdelend \DIFaddbegin \DIFadd{An implementation of }\DIFaddend the above technique and method for \DIFdelbegin \DIFdel{datasets from both MOOCs and large residential classes on introductory Python programming. }\DIFdelend \DIFaddbegin \DIFadd{variable naming. %DIF >  within datasets from both MOOCs and large residential classes on introductory Python programming.
+}\DIFaddend \item Two lab studies which evaluate both the \DIFdelbegin \DIFdel{teachers' and students' }\DIFdelend \DIFaddbegin \DIFadd{teacher and student }\DIFaddend experience of the \DIFdelbegin \DIFdel{variable name feedback workflow .
+}%DIFDELCMD < \item{A self-reflection learnersourcing workflow in which students generate hints for each other by reflecting on an obstacle they themselves have recently overcome while debugging their solution to a Python or digital design exercise.}
+%DIFDELCMD < \item{A comparison learnersourcing workflow in which students generate design hints for each other by comparing their own solutions to alternative designs submitted by other students.} 
+%DIFDELCMD < \item{A deployment of the self-reflection workflow in a 200-student class and a lab study of the comparison workflow with 9 participants. Results from these studies show that personalized hints can be viably learnersourced, and that these hints serve as helpful guides to fellow students encountering the same obstacle or attempting to reach the same goal.}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{workflow applied to variable names.
+}\item \DIFadd{A self-reflection learnersourcing workflow in which students generate hints for each other by reflecting on an obstacle they themselves have recently overcome while debugging their solution.
+}\item \DIFadd{A comparison learnersourcing workflow in which students generate design hints for each other by comparing their own solutions to alternative designs submitted by other students.
+}\item \DIFadd{Deployments of both workflows in a 200-student digital circuit programming class, and an in-depth lab study with 9 participants.
+}\DIFaddend  \end{itemize} 
+
+\section{Thesis Overview}
+
+Chapter \ref{chapter:relatedwork} summarizes prior and contemporary relevant research on systems that support programming education. It also briefly explains theories from the learning sciences and psychology literature that influenced or support the pedagogical value of the design choices made within this thesis.
+
+The four chapters that follow describe, in detail, the four systems developed, as well as their evaluation on archived data or in the field.
+
+ \begin{itemize} 
+\item OverCode (Chapter \ref{chapter:overcode}) visualizes thousands of programming solutions using static and dynamic analysis to cluster similar solutions. It lets teachers quickly develop a high-level view of student understanding and misconceptions and provide feedback that is relevant to many student solutions. \DIFaddbegin \DIFadd{It also describes GroverCode, an extension of OverCode optimized for grading correct and incorrect student solutions.
+}\DIFaddend 
+
+\item Foobaz (Chapter \ref{chapter:foobaz}) clusters variables in student \DIFdelbegin \DIFdel{programs }\DIFdelend \DIFaddbegin \DIFadd{solutions }\DIFaddend by their names and behavior so that teachers can give feedback on variable naming. Rather than requiring the teacher to comment on thousands of students individually, Foobaz generates personalized quizzes that help students evaluate their own names by comparing them with good and bad names from other students. 
+
+\item \DIFdelbegin \DIFdel{ClassOverflow (Chapter \ref{chapter:classoverflow} ) collects and organizes }\DIFdelend \DIFaddbegin \DIFadd{Chapter \ref{chapter:classoverflow} describes two workflows that collect and organize }\DIFaddend solution hints indexed by \DIFaddbegin \DIFadd{(1) }\DIFaddend the autograder test that failed or \DIFaddbegin \DIFadd{(2) }\DIFaddend a performance characteristic like size or speed. It helps students reflect on their debugging or optimization process, generates hints that can help other students with the same problem, and could potentially bootstrap an intelligent tutor tailored to the problem.
+
+\item \DIFdelbegin \DIFdel{OverCode Extensions (Chapter \ref{chapter:grovercode} ) describes (1) GroverCode, an extension to OverCode optimized for processing and displaying incorrect as well as correct student submissions and (2) }\DIFdelend \DIFaddbegin \DIFadd{Chapter \ref{chapter:grovercode} describes Bayesian }\DIFaddend clustering and mixture modeling algorithms applied to the OverCode pipeline \DIFdelbegin \DIFdel{'s output for }\DIFdelend \DIFaddbegin \DIFadd{output for extracting }\DIFaddend additional insight into patterns within student solutions. 
+%DIF < The GroverCode user interface is optimized and deployed in the field for teachers awarding partial credit to each of the hundreds of students who submitted programs in computer-based quizzes and final exams for the residential Python-based introductory programming (6.0001) and data science (6.0002) courses at MIT.
+ \end{itemize} 
+
+Chapter \ref{chapter:discussion} discusses \DIFdelbegin \DIFdel{the design lessons that apply to the entire collection of }\DIFdelend \DIFaddbegin \DIFadd{some of the insights that came out of building and testing the }\DIFaddend systems in this thesis. Chapter \DIFdelbegin \DIFdel{\ref{chapter:futurework} }\DIFdelend \DIFaddbegin \DIFadd{\ref{chapter:conclusion} }\DIFaddend outlines avenues of future work \DIFdelbegin \DIFdel{this thesis work}\DIFdelend \DIFaddbegin \DIFadd{on the systems and ideas in this thesis}\DIFaddend , in combination with the complementary work of others in this space\DIFdelbegin \DIFdel{, paves the way for.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{.
+}\DIFaddend %\input{Body/relatedWork}
+%\input{Body/overcode}
+%\input{Body/foobaz}
+%\input{Body/bayesian}
+%\input{Body/classoverflow}
+%\input{Body/grovercode}
+%\input{Body/discussion}
+%\input{Body/futurework}
+
+%\clearpage
+%\appendix
+%\addcontentsline{toc}{part}{Appendix}
+
+%\input{Body/appa}
+%\import{./Body/appb/}{appb.tex}
+%\input{Body/appc}
+%\input{Body/biblio.tex}
+%\input{Body/index.tex}
+\end{document}
+

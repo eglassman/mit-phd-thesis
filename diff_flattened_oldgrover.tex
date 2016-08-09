@@ -1,0 +1,1220 @@
+% -*- Mode:TeX -*-
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ../oldthesisdraft/main.tex   Tue Aug  9 13:46:57 2016
+%DIF ADD main.tex                     Tue Aug  9 13:47:22 2016
+
+%% The documentclass options along with the pagestyle can be used to generate
+%% a technical report, a draft copy, or a regular thesis.  You may need to
+%% re-specify the pagestyle after you \include  cover.tex.  For more
+%% information, see the first few lines of mitthesis.cls. 
+
+%\documentclass[12pt,vi,twoside]{mitthesis}
+%%
+%%  If you want your thesis copyright to you instead of MIT, use the
+%%  ``vi'' option, as above.
+%%
+%\documentclass[12pt,twoside,leftblank]{mitthesis}
+%%
+%% If you want blank pages before new chapters to be labelled ``This
+%% Page Intentionally Left Blank'', use the ``leftblank'' option, as
+%% above. 
+
+%\documentclass[12pt]{mitthesis}
+%\documentclass[12pt,singlespace,twoside]{mitthesis}
+%DIF 21a21
+%\documentclass{tufte-book} %DIF > 
+%DIF -------
+\documentclass[12pt,twoside]{mitthesis}
+\usepackage{lgrind}
+\usepackage{todonotes}
+\usepackage{subcaption}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+%DIF 30a31-39
+\usepackage{csquotes} %DIF > 
+\usepackage{sidecap} %DIF > 
+\usepackage{verbatim} %DIF > 
+\usepackage{tabularx} %DIF > 
+\usepackage{enumitem} %DIF > 
+\setlist{nosep} %DIF > 
+ %DIF > 
+\sidecaptionvpos{figure}{c} %DIF > 
+ %DIF > 
+%DIF -------
+%\usepackage{subfigure}
+%\documentclass[12pt,oneside]{mitthesis}
+%\usepackage{lgrind}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}    % if you want extra symbols
+\usepackage{mathrsfs}
+\usepackage{program}
+\usepackage{newlfont}
+\usepackage{rotating}
+\usepackage{varioref}
+\usepackage{graphicx}
+%\usepackage{txfont}
+\usepackage{makeidx}
+\usepackage{tocbibind}
+\usepackage{program}
+\usepackage{import}
+%\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{colortbl}
+\usepackage{todonotes}
+%DIF 54a64-66
+\usepackage{parskip} %DIF > 
+%\usepackage{booktabs} %DIF > 
+\usepackage{microtype} %DIF > 
+%DIF -------
+
+%\usepackage[LY1]{fontenc}
+%\usepackage{patchcmd}
+%\usepackage{myfss}
+%\usepackage{caslon}
+%\renewcommand{\encodingdefault}{LY1}
+%\rmshape \rgshape
+
+%\usepackage[oldstyle]{garamond}
+%\usepackage[lining]{agaramond}
+\usepackage[small]{eulervm}
+\usepackage{courier} % for texttt
+
+
+
+
+\usepackage[numbers,square,sort&compress]{natbib}
+\usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue, linkcolor=blue,bookmarks=true,bookmarksopen=true,bookmarksopenlevel=0,pdfstartview=Fit,pdfview=Fit,pagebackref,linktocpage=true,bookmarksnumbered=true]{hyperref}
+\usepackage{hypernat}
+\usepackage{array}
+\usepackage{supertabular}
+
+%%% stuff for doxygen
+%\usepackage{times}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{alltt}
+%\usepackage{Body/appb/doxygen}
+%%%%%%%%%%%
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+\usepackage{courier}
+%\newcommand \codevar[1]{\texttt{#1}}
+\usepackage{expl3,xparse} 
+\ExplSyntaxOn 
+\NewDocumentCommand \lstcolorlines { O{green} m } 
+{ \clist_if_in:nVT { #2 } { \the\value{lstnumber} }{ \color{#1} } } 
+\ExplSyntaxOff
+\definecolor{mygray}{rgb}{0.925,0.925,0.925}
+\definecolor{lightyellow}{HTML}{FFE600}
+
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+\pagenumbering{arabic}
+
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+
+\usepackage[T1]{fontenc}
+%DIF 115c128
+%DIF < \usepackage[scaled=0.80]{beramono}
+%DIF -------
+%\usepackage[scaled=0.80]{beramono} %DIF > 
+%DIF -------
+\usepackage{color}
+\usepackage{multirow}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\lstset{
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords = {MultiType},
+keywordstyle=\color{bluekeywords}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\footnotesize,
+numbers=none, xleftmargin=.1in, numbersep=3pt
+}
+
+% Symbols used by the authors
+    \DeclareMathOperator{\suffix}{suffix}
+    \DeclareMathOperator{\prefix}{prefix}
+    \DeclareMathOperator{\prob}{Pr}
+\newcommand{\conv}{\curvearrowright}
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brac}[1]{\left[#1\right]}
+\newcommand{\braces}[1]{\left\{#1\right\}}
+\newcommand{\avector}[2]{(#1_1,#1_2,\ldots,#1_{#2})} 
+\newcommand{\aset}[2]{{#1_1,#1_2,\ldots,#1_{#2}}} 
+\newcommand{\ith}[1]{\ensuremath{{#1^{\textrm{th}}}}} 
+\newcommand{\nd}[1]{\ensuremath{{#1^{\textrm{nd}}}}} 
+%DIF 150c163
+%DIF < \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+%DIF -------
+%\DeclareSymbolFont{AMSb}{U}{msb}{m}{n} %DIF > 
+%DIF -------
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\realNums}{\mathbin}{AMSb}{"52}
+
+
+\newcommand{\curls}[1]{\left\{#1\right\}}
+%\newcommand{\teirRegEx}{\ensuremath{\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\paren{\Sigma\cup\curls{.}\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}^{\ast}\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\cup\Sigma}}
+\newcommand{\teirRegEx}{\ensuremath{\Sigma\paren{\Sigma\cup\curls{.}}\Sigma}}
+\newcommand{\teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Fasta}{FastA}
+\newcommand{\fasta}{FastA}
+\newcommand{\psiblast}{psi--Blast}
+\newcommand{\prosite}{PROSITE}
+\newcommand{\biodictionary}{Bio--Dictionary}
+\newcommand{\genbank}{GENBANK}
+\newcommand{\embl}{EMBL}
+\newcommand{\etal}{\emph{et.\ al.\ }}
+\newcommand{\sptr}{SwissProt/TrEMBL}
+\newcommand{\swissp}{SWISS--PROT}
+\newcommand{\swissprot}{\swissp}
+\newcommand{\swissptr}{SWISS--PROT/TrEMBL}
+\newcommand{\swissprottrembl}{\swissptr}
+\newcommand{\amsdb}{AMSDb}
+\newcommand{\ncbi}{NCBI}
+\newcommand{\blosum}{BLOSUM}
+\newcommand{\pam}{PAM}
+\newcommand{\oligo}{oligonucleotide}
+\newcommand{\Oligo}{Oligonucleotide}
+\newcommand{\blast}{BLAST}
+\newcommand{\pr}[1]{\prob\left(#1\right)}
+\newcommand{\prt}[1]{\prob\left(\textrm{#1}\right)}
+\newcommand{\cp}[2]{\prob\left(#1\mid #2\right)}
+\newcommand{\cpt}[2]{\prob\left(\textrm{#1}\mid \textrm{#2}\right)}
+\newcommand{\ex}[1]{\mathbf{E}\left[#1\right]}
+%\newcommand{\var}[1]{\textrm{var}\left(#1\right)}
+\newcommand{\phip}[3]{\Phi\paren{\frac{#1-\paren{#2}}{#3}}}
+%\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\ten}[1]{\mathbf{#1}}
+\newcommand{\pdf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\pmf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\transf}[2]{M_{#1}\left(#2\right)}
+\newcommand{\expo}[1]{\exp\left[#1\right]}
+\newcommand{\pd}[2]{\frac{\partial}{\partial #2}\brac{#1}}
+\setlength{\extrarowheight}{3pt}
+\newcommand{\marnote}[1]{\marginpar{\raggedleft\footnotesize\bfseries\hspace{0pt} #1}}
+
+\usepackage{fancyhdr}
+%\renewcommand{\chaptermark}[1]{\markboth{\textit{\chaptername}\ \thechapter.\ #1}{}}
+
+%this defines the basic headers and footer
+% styles when we use the 'fancyhdr' styles
+%\lhead[\fancyplain{}{\itshape\footnotesize\thepage}]{\fancyplain{}{\itshape\footnotesize\rightmark}}
+%\rhead[\fancyplain{}{\itshape\footnotesize\leftmark}]{\fancyplain{}{\itshape\footnotesize\thepage}}
+%\lhead[\fancyplain{}\bfseries\thepage]{\fancyplain{}\bfseries\rightmark}
+%\rhead[\fancyplain{}\bfseries\leftmark]{\fancyplain{}\bfseries\thepage}
+%\pagestyle{fancyplain}
+\addtolength{\headwidth}{0.5\marginparsep}
+\addtolength{\headwidth}{0.5\marginparwidth}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\footnotesize\thepage}]{\fancyplain{}{\footnotesize\rightmark}}
+\rhead[\fancyplain{}{\footnotesize\leftmark}]{\fancyplain{}{\footnotesize\thepage}}
+\cfoot{}
+\cfoot{}
+
+% Special Float captions
+% Different font in captions
+\newcommand{\captionfonts}{\mdseries}
+\newcommand{\floatnamefonts}{\bfseries}
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\floatnamefonts #1:~~\captionfonts #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\floatnamefonts #1: \captionfonts #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+
+\makeindex
+
+\pagestyle{plain}
+
+
+\usepackage{courier}
+%DIF 238a251
+%\usepackage{unicode-math} %DIF > 
+%DIF -------
+
+\newcommand \codevar[1]{\texttt{#1}}
+
+%% This bit allows you to either specify only the files which you wish to
+%% process, or `all' to process all files which you \include.
+%% Krishna Sethuraman (1990).
+
+%\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
+%\def\all{all}
+%\ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
+%\DeclareMathAlphabet{\mathnormal}{OMS}{cmsy}{m}{n} %DIF > 
+%\setmathfont{Latin Modern Math} %DIF > 
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+%\fontencoding{LY1}\fontfamily{ACaslonPro}\mdweight
+
+%\input{Body/cover}
+\pagestyle{plain}
+%\input{Body/contents}
+
+%now start the fancy headings
+\pagestyle{fancyplain}
+\addtolength{\headheight}{\baselineskip}
+%add a nice little line underneath the heading
+%\renewcommand{\headrulewidth}{0.6pt}
+
+%DIF < \input{Body/intro.tex}
+%DIF > \input{Body/new_intro.tex}
+%\input{Body/relatedWork}
+%\input{Body/overcode}
+%\input{Body/foobaz}
+%\input{Body/bayesian}
+%\input{Body/classoverflow}
+\chapter{\DIFdelbegin \DIFdel{Extensions of OverCode }\DIFdelend \DIFaddbegin \DIFadd{Bayesian }\DIFaddend Clustering \DIFaddbegin \DIFadd{of Student Solutions}\DIFaddend }\label{chapter:grovercode}
+
+The original vision of OverCode was to discover pedagogically valuable themes of variation within thousands of student solutions to the same programming \DIFdelbegin \DIFdel{exercise. While OverCode does canonicalize and cluster correct solutions so that they can be more easily understood as a group, it does not pull out larger themes of variation as clearly as initially hoped for, nor does it handle incorrect solutions . This chapter describes more recent efforts to address both these shortcomings.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \section{Clustering Solutions with Statistical Models}%DIFDELCMD < \label{sec:latent}%%%
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{One approach to pulling out larger themes of variation within solutionsis to cluster more aggressively. OverCode's existing }\DIFdelend \DIFaddbegin \DIFadd{problem. Each Python solution is normalized before clustering and represented as a sequence of normalized lines of code. All solutions that share the same set of normalized lines of code are clustered together. The clustering is a strict partition of the solutions. This clustering process is hard and agglomerative but not hierarchical. It was designed with interpretability in mind. Hierarchical clustering may also be appropriate in this context, as long as human interpretability does not suffer. The OverCode }\DIFaddend clustering pipeline is \DIFdelbegin \DIFdel{a form of deterministic interpretable clustering. What }\DIFdelend \DIFaddbegin \DIFadd{also interactive, because the results are shown in an interface that allows the human to tell the system that some lines of code are not different in meaningful ways. If any clusters differ only by those lines of code that the human considers to be the same, those clusters will be merged. 
+}
+
+\DIFadd{In OverCode, what }\DIFaddend can vary and what is invariant across all the solutions within a \DIFdelbegin \DIFdel{cluster }\DIFdelend \DIFaddbegin \DIFadd{stack }\DIFaddend is clear, just by reading the \DIFdelbegin \DIFdel{canonicalized }\DIFdelend \DIFaddbegin \DIFadd{platonic }\DIFaddend solution that represents the \DIFdelbegin \DIFdel{cluster. Because it faithfully represents the syntax students used in each cluster, solutions are split apart into smaller clusters by small syntactic differences. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{One promising set of methods for more aggressive groupings of solutions are bottom-up and rule-based: they define rules for which solutions or }\DIFdelend \DIFaddbegin \DIFadd{stack. Syntactic differences split apart }\DIFaddend groups of solutions \DIFdelbegin \DIFdel{can be merged into a single cluster. Probablistic semantic equality or equality with respect to a teacher's test suite, which is already used by OverCode for variable names, can be used for subexpressions as well~\mbox{%DIFAUXCMD
+\cite{}}%DIFAUXCMD
+. Programming language-based methods, e.g., compiler optimizations, could collapse OverCode clusters based on known semantic equality. As a system designer, one must decide or give the teacher control over how many different, semantically equivalent solutions are collapsed into a single cluster since, at the highest level, all correct solutions to the same programming exercise are semantically equivalent. These methods are discussed again in the future work, because the second set of methods were chosen for future investigation in this chapter}\DIFdelend \DIFaddbegin \DIFadd{into smaller stacks so that each stack's platonic solution matches the syntax used in the solutions in represents. This can also produce more stacks than teachers can read. OverCode does normalize and cluster correct solutions so that they can be more easily understood as a group, but it does not pull out larger themes of variation as clearly as initially hoped}\DIFaddend .
+
+\DIFdelbegin \DIFdel{The second set of methods leverage statistical properties of the entire corpus of solutions}\DIFdelend %DIF > \section{Clustering Solutions with Statistical Models}\label{sec:latent}
+\DIFaddbegin 
+
+%DIF > One approach to pulling out larger themes of variation within solutions is to cluster more aggressively. 
+
+%DIF > The current OverCode pipeline performs deterministic interpretable unsupervised clustering in order to produce stacks of similar solutions. 
+
+%DIF >  In the interface, the human can step in and indicate which syntactic differences they do not care about, but  %Only in the interface can a human step in and tell the system to ignore certain syntactic differences.
+
+%DIF > There are several promising methods that may help merge stacks in future versions of the OverCode pipeline. 
+
+%DIF > Once a set of semantically equivalent and probabististically semantically equivalent could be used to identify semantically equivalent subexpressions across many solutions
+
+%DIF > Probablistic semantic equalivalence (PSE)~\cite{codewebs} is a similar concept applied to subexpressions. Overcode renames variables to their most common name across all solutions. OverCode could, in the future, also replace PSE subexpressions with their most common form across all solutions.
+
+%DIF > OverCode already uses its own form of probablistic semantic equality (PSE)~\cite{codewebs}, i.e., equality with respect to a test suite, to normalize variable names. This can be extended to subexpressions as well. Overcode renames PSE variables to their most common name across all solutions. OverCode could also replace PSE subespressions with their most common form across all solutions.
+
+%DIF > Compiler optimizations could be used to merge OverCode clusters. However, as a system designer, one must decide or give the teacher control over how many different, semantically equivalent solutions are collapsed into a single cluster since. %These methods are discussed again in the future work, because the second set of methods were chosen for future investigation in this chapter.
+
+\DIFadd{However, OverCode's normalized stacks do exhibit statistical regularity}\DIFaddend . Given that \DIFdelbegin \DIFdel{Variation Theory }\DIFdelend \DIFaddbegin \DIFadd{variation theory }\DIFaddend is interested in dimensions of variation \DIFdelbegin \DIFdel{(and consistency ) }\DIFdelend \DIFaddbegin \DIFadd{and consistency }\DIFaddend that characterize all possible instantiations of an idea, statistical methods warrant further investigation. Latent variable models are a type of statistical model that attempt to explain variation in a dataset based on underlying factors. With the right choice of features and model, a latent variable model may be able to capture underlying design choices. In this section, two latent variable models have been explored in a preliminary way for this purpose: the Bayesian Case Model (BCM) [citation removed from diff] and Latent Dirichlet Allocation (LDA) [citation removed from diff]. 
+
+BCM was selected because, like the original OverCode pipeline, it clusters solutions and produces a single solution to represent the entire cluster. Like OverCode, it also indicates the features that characterize each cluster. While OverCode displays the \DIFdelbegin \DIFdel{set of canonicalized lines that all members of a clusterdeterministically share}\DIFdelend \DIFaddbegin \DIFadd{platonic solution that shares the same set of normalized lines with all other members of the cluster}\DIFaddend , BCM learns a subspace of features that \DIFaddbegin \DIFadd{it determines }\DIFaddend are most characteristic of the solutions within \DIFdelbegin \DIFdel{cluster, in a probabilistic sense. 
+It also }\DIFdelend \DIFaddbegin \DIFadd{that cluster. 
+}
+
+\DIFadd{BCM }\DIFaddend has an interactive variant called iBCM\DIFdelbegin \DIFdel{, which allows the user }\DIFdelend \DIFaddbegin \DIFadd{. iBCM allows the teacher }\DIFaddend to directly modify the prototype and the subspace chosen by BCM if it disagrees with their domain knowledge or preferences. This \DIFdelbegin \DIFdel{user modification }\DIFdelend \DIFaddbegin \DIFadd{teacher action }\DIFaddend triggers a rerun of BCM with the modifications taken into account.%is taken into account by the algorithm 
+
+Internally, BCM depends on a mixture model with a Dirichlet prior. Rather than find a cluster for each entire solution, mixture models can learn clusters of features that co-exist across some subset of all solutions. The concentration parameter of \DIFdelbegin \DIFdel{BCM's }\DIFdelend \DIFaddbegin \DIFadd{the BCM }\DIFaddend Dirichlet prior is set to promote sparsity, i.e., mixture distributions over solutions that have the majority of their probability mass on a single mixture component. BCM then assigns each solution to a cluster according to its most probable mixture component. %In other words, after fitting the model to the data, each solution will likely have a single dominant mixture component associated with it. If data points were documents instead of solutions, one would say that each document is determined to have a single dominating topic.
+
+\DIFdelbegin \DIFdel{LDA }\DIFdelend \DIFaddbegin \DIFadd{Since teachers can be poor at clustering solutions, i.e., inconsistent with each other~\mbox{%DIFAUXCMD
+\cite{ACESthesis}}%DIFAUXCMD
+, it may also be difficult for any algorithm to find a clustering that appeals to most teachers. However, there are a statistical models, lie LDA, that cluster components of solutions instead of entire solutions. LDA }\DIFaddend was selected as an alternative \DIFdelbegin \DIFdel{statistical approach to BCM because of evidence collected at UCBerkeley~\mbox{%DIFAUXCMD
+\cite{} }%DIFAUXCMD
+that experts were themselves not particularly consistent about how to cluster solutions. While LDA's output is not as optimized for interpretability as BCM 's, it preserves the ability to examine solutions through the lens of their mixture components, rather than clusters. LDA learns both mixture components, which are distribution over features, and the distributions of those mixtures over each solution in the set it is trained on. Depending on the featureschosen to represent solutions, it may }\DIFdelend \DIFaddbegin \DIFadd{to BCM in order to explore how solution component clustering might better support teachers who do not agree on whole-solution clusterings.
+}
+
+%DIF > LDA clusters components of solutions, rather than assigning entire solutions to a particular cluster. This is an appealing model choice . % or even deciding which solutions are more similar to each other than others~\cite{}. 
+
+\DIFadd{BCM was built explicitly with interpretability in mind, but it is still not clear whether LDA or BCM are more interpretable in the context of clustering OverCode stacks. LDA has some known interpretability problems. As part of its training process, LDA learns distributions over features, also known as }{\it \DIFadd{mixture components}}\DIFadd{. It can }\DIFaddend be difficult to interpret exactly what \DIFdelbegin \DIFdel{a mixture component is }\DIFdelend \DIFaddbegin \DIFadd{an LDA mixture component means }\DIFaddend just by looking at its distribution over features.
+\DIFdelbegin \DIFdel{However, sorting solutions based on the degree to which a particular topic is associated with them may pull out a distinctive, human-interpretable themes. }\DIFdelend \DIFaddbegin 
+
+%DIF > and distributions of those mixtures over each solution in the set it is trained on. 
+
+%DIF > However, sorting solutions based on the degree to which a particular topic is associated with them may pull out a distinctive, human-interpretable themes. 
+
+\DIFaddend %Furthermore, when using LDA, the concentration parameter of the Dirichlet prior need not promote for sparsity; it can be tuned by a human or a heuristic, to maximize the usefulness of the resulting breakdown into mixture components. This parameter's optimal value may be problem-specific and teacher-specific. 
+
+\DIFdelbegin %DIFDELCMD < \subsection{Interpretable Clustering Solutions with BCM}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \section{Clustering Solutions with BCM}
+\DIFaddend 
+
+BCM was applied to the \DIFdelbegin \DIFdel{canonicalized cluster-representing }\DIFdelend \DIFaddbegin \DIFadd{platonic }\DIFaddend solutions generated by OverCode. \DIFdelbegin \DIFdel{These canonicalized }\DIFdelend \DIFaddbegin \DIFadd{The platonic }\DIFaddend solutions encode both static and dynamic information\DIFdelbegin \DIFdel{in a readable function}\DIFdelend , i.e., the syntax carries the static information and the variable \DIFdelbegin \DIFdel{name }\DIFdelend \DIFaddbegin \DIFadd{naming }\DIFaddend encodes dynamic information. The \DIFdelbegin \DIFdel{canonicalized function body }\DIFdelend \DIFaddbegin \DIFadd{platonic solution }\DIFaddend is tokenized and represented as \DIFdelbegin \DIFdel{binary vectors }\DIFdelend \DIFaddbegin \DIFadd{a binary vector }\DIFaddend indicating the existence of the features, including renamed variables and language-specific keywords, such as \DIFdelbegin \DIFdel{specific canonicalized }\DIFdelend \DIFaddbegin \DIFadd{normalized }\DIFaddend variable names like \texttt{listA} and Python keywords like \texttt{assert} and \texttt{while}. The result is a \DIFdelbegin \DIFdel{BCM }\DIFdelend clustering of OverCode \DIFdelbegin \DIFdel{clusters}\DIFdelend \DIFaddbegin \DIFadd{platonic solutions}\DIFaddend . 
+
+\DIFdelbegin \DIFdel{In a small pilot study, three introductory Python teachers were each given sets of Python solutions to three }\DIFdelend \DIFaddbegin \begin{figure}[ht]
+\includegraphics[width=0.75\columnwidth]{Body/figures/grovercode/overcode_ibcm}
+\caption{\DIFaddFL{This interface displays iBCM clusterings of OverCode platonic solutions and affords user feedback on cluster quality. The solutions on the left are cluster prototypes. The blue solution is the selected cluster whose members are shown in a scrollable list on the right-hand side. The tokens contained in red boxes are features that BCM identifies as characteristic of the cluster represented by that prototype. When a user hovers their cursor over a keyword or variable name, e.g., }\texttt{\DIFaddFL{len}}\DIFaddFL{, it is highlighted in a blue rectangle, indicating that it can be clicked.}}
+\label{overcode_ibcm}
+\end{figure}
+
+\subsection{Preliminary Evaluation}
+
+\DIFadd{BCM was run on three }\DIFaddend different programming problems selected from those previously analyzed in \DIFdelbegin \DIFdel{the chapter on OverCode. For each problem, they were asked to create a grading rubric and provide helpful comments for the students, based on interacting with solutions in one of three different interfaces. The three interfaces were: (1) raw solutions in the browser, similar to }\DIFdelend \DIFaddbegin \DIFadd{Chapter~\ref{chapter:overcode}. An interface, shown in Figure~\ref{overcode_ibcm}, displayed the results, with iBCM continuing to run in }\DIFaddend the \DIFdelbegin \DIFdel{control used in the OverCode studies, (2) OverCode's canonicalized cluster-representating solutions, and (3) a BCM clustering of OverCode clusters, i. e., the prototypes and characteristic features of each BCM cluster, as well as its cluster members. The BCM interface , shown in Figure~\ref{overcode_ibcm}, was running the iBCM variant of the algorithm, so teachers could promote }\DIFdelend \DIFaddbegin \DIFadd{backend, ready to update the clustering in response to teacher feedback. The interface afforded promoting }\DIFaddend a member of a cluster to be its prototype \DIFdelbegin \DIFdel{or click }\DIFdelend \DIFaddbegin \DIFadd{and clicking }\DIFaddend on a token within a \DIFdelbegin \DIFdel{prototype--a }\DIFdelend \DIFaddbegin \DIFadd{prototype, such as a }\DIFaddend variable name or \DIFdelbegin \DIFdel{keyword--to }\DIFdelend \DIFaddbegin \DIFadd{keyword, to }\DIFaddend toggle whether or not it is \DIFdelbegin \DIFdel{considered }\DIFdelend \DIFaddbegin \DIFadd{labeled }\DIFaddend a characteristic feature of that cluster.
+\DIFdelbegin \DIFdel{Both these modifications triggered BCM running in the backend to rerun and send a new clustering to the front end for display}\DIFdelend \DIFaddbegin 
+
+\DIFadd{In order to determine whether or not these clusterings and interface affordances are useful to teachers, a small pilot study was run on three teachers of introductory Python programming. For the pilot, two more interfaces were introduced as controls. One is a duplicate of the control interface used in the OverCode studies, i.e., a long list of syntax highlighted raw solutions in a random order in the browser. The second interface differs from the previous control by one factor: the raw solutions are replaced with their platonic equivalents.
+}
+
+\DIFadd{The teachers were each given sets of Python solutions to view in each of the three interfaces. For each problem, they were asked to create a grading rubric and provide helpful comments for the students of the type that might be mentioned in a class-wide forum post}\DIFaddend .
+
+\DIFdelbegin \DIFdel{Pilot users }\DIFdelend %DIF > , based on interacting with solutions in one of three different interfaces. The three interfaces were: (1) raw solutions in the browser, similar to the control used in the OverCode studies, (2) the OverCode platonic solutions, and (3) a BCM clustering of OverCode clusters, i.e., the prototypes and characteristic features of each BCM cluster, as well as its cluster members. 
+\DIFaddbegin 
+
+ %DIF > Both these modifications triggered BCM running in the backend to rerun and send a new clustering to the front end for display. 
+
+\DIFadd{The teachers }\DIFaddend appreciated the fact that BCM gave some structure to the space of solutions\DIFdelbegin \DIFdel{; rather }\DIFdelend \DIFaddbegin \DIFadd{. Rather }\DIFaddend than a long list of solutions, the interface suggested distinct subpopulations of solutions within the list. However, subjects did not fully understand the probabilistic nature of the clustering method. The presence of a single \DIFdelbegin \DIFdel{"intruder"}\DIFdelend \DIFaddbegin \DIFadd{intruder}\DIFaddend , i.e., a solution that the teacher believed did not belong in a cluster, caused confusion. This could be ameliorated by giving \DIFdelbegin \DIFdel{users }\DIFdelend \DIFaddbegin \DIFadd{teachers }\DIFaddend more ways to modify the clustering, e.g., allowing \DIFdelbegin \DIFdel{users }\DIFdelend \DIFaddbegin \DIFadd{teachers }\DIFaddend the option to kick an intruder out of a cluster and rerun BCM\DIFdelbegin \DIFdel{, or by introducing the tool as a mechanism for "discovery" instead of "organization. " }\DIFdelend \DIFaddbegin \DIFadd{. }\DIFaddend Subjects also requested richer or higher-level features than variable names and keywords. \DIFaddbegin \DIFadd{Been }\DIFaddend Kim's PhD thesis~\cite{beenthesis} describes a follow-up full user study comparing the efficacy of BCM \DIFdelbegin \DIFdel{vs. }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend iBCM on clustering OverCode \DIFdelbegin \DIFdel{cluster-representing }\DIFdelend \DIFaddbegin \DIFadd{platonic }\DIFaddend solutions. 
+
+\DIFdelbegin %DIFDELCMD < \begin{figure}[ht]
+%DIFDELCMD < \includegraphics[width=0.75\columnwidth]{Body/figures/grovercode/overcode_ibcm}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{The solutions on the left are cluster prototypes. The blue solution is the selected cluster whose members are shown in a scrollable list on the right hand side. The tokens contained in red boxes are features that BCM "believes" characterize the cluster represented by that prototype. When a user hovers their cursor over a keyword or variable name, e.g., }\texttt{\DIFdelFL{len}}%DIFAUXCMD
+\DIFdelFL{, it is highlighted in a blue rectangle, indicating that it can be interacted with, i.e., clicked.}}
+%DIFAUXCMD
+%DIFDELCMD < \label{overcode_ibcm}
+%DIFDELCMD < \end{figure} 
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \section{Clustering Solution Components with LDA}
+\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \subsection{Mixture Modeling Solutions with LDA}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{As described in the chapter on related work, other }\DIFdelend \DIFaddbegin \DIFadd{Other }\DIFaddend researchers have documented a lack of agreement across human-made clusters of student \DIFdelbegin \DIFdel{code}\DIFdelend \DIFaddbegin \DIFadd{solutions~\mbox{%DIFAUXCMD
+\cite{ACESthesis}}%DIFAUXCMD
+}\DIFaddend . One possible explanation for \DIFdelbegin \DIFdel{this low consistency across teacher-made clusterings of student code }\DIFdelend \DIFaddbegin \DIFadd{poor consistency }\DIFaddend is that solutions are mixtures of design choices and teachers care \DIFdelbegin \DIFdel{about different things. As described in~\mbox{%DIFAUXCMD
+\cite{berkeleymastersthesis}}%DIFAUXCMD
+: the clusters can be as straight forward as "1 pt", "2 pts" and "3 pts". }\DIFdelend \DIFaddbegin \DIFadd{differently about various aspects of solutions. }\DIFaddend If student A writes a solution with a well-written loop and extraneous statements while student B writes a solution with extra loops but otherwise very clean code, teachers can reasonably disagree about which cluster each whole solution should be placed in, depending on whether they believe inefficient control flow or extraneous statements are worse.
+
+Instead of trying to approximate clusterings that humans do not even agree on, it may be more useful to model solutions as mixtures of good and bad design choices. While more sophisticated mixture models' assumptions may ultimately be more appropriate, LDA \cite{lda} as implemented in the Gensim toolbox \cite{gensim} was chosen as the model to evaluate in this preliminary work. 
+
+Like BCM, LDA was run on the \DIFdelbegin \DIFdel{canonicalized cluster-representing solutions, not raw solutions}\DIFdelend \DIFaddbegin \DIFadd{platonic solutions}\DIFaddend . However, the representation of these solutions was also changed: in order to pull out higher-level patterns in approach, rather than lower-level patterns in syntax, solutions were represented solely by the behavior of the variables within them. 
+
+As described in the chapter on OverCode, the OverCode analysis pipeline executes all programs on a common set of test cases and records the sequence of values taken on by each variable in the program. OverCode assumes that variables in different programs that transition through the same sequence of values on the same test cases are in fact fulfilling the same semantic role in the program. %This sequence of values taken on by each variable in each program becomes a signature, i.e., the key to recognizing semantically equivalent variables across programs.  % and can therefore be considered the same {\bf common variable} uniquely defined by that sequence of values.
+
+
+
+\begin{figure}[ht]
+\includegraphics[width=0.75\columnwidth]{Body/figures/grovercode/recursive_example}
+\caption{Example of a recursive student solution.}
+\label{recursive_example}
+\DIFdelbeginFL %DIFDELCMD < \vspace*{\floatsep}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \end{figure}
+\begin{figure}[ht]
+\DIFaddendFL \includegraphics[width=0.45\columnwidth]{Body/figures/grovercode/whilestandard}
+\caption{Example of a \DIFdelbeginFL \texttt{\DIFdelFL{while}}%DIFAUXCMD
+\DIFdelFL{-based }\DIFdelendFL student solution \DIFaddbeginFL \DIFaddFL{using the Python keyword }\texttt{\DIFaddFL{while}}\DIFaddendFL .}
+\label{whilestandard}
+\DIFdelbeginFL %DIFDELCMD < \vspace*{\floatsep}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \end{figure}
+\begin{figure}[ht]
+\DIFaddendFL \includegraphics[width=0.5\columnwidth]{Body/figures/grovercode/augmentedwhile}
+\caption{Example of a \DIFdelbeginFL \texttt{\DIFdelFL{while}}%DIFAUXCMD
+\DIFdelFL{-based }\DIFdelendFL student solution \DIFaddbeginFL \DIFaddFL{using the Python keyword }\texttt{\DIFaddFL{while}}\DIFaddendFL , where the student has not modified any input arguments, i.e., better programming style.}
+\label{augmentedwhile}
+\end{figure} 
+
+\DIFdelbegin \DIFdel{Below are }\DIFdelend \DIFaddbegin \DIFadd{Figure~\ref{fig:seqvarvals} shows }\DIFaddend the sequences of variable values recorded by OverCode while executing \texttt{iterPower(5,3)} as defined in Figures \ref{recursive_example}, \ref{whilestandard}, and \ref{augmentedwhile}:
+\DIFaddbegin \begin{figure}
+\DIFaddendFL  \begin{itemize} 
+  \item {\bf Figure \ref{recursive_example}}
+   \begin{itemize} 
+  \setlength\itemsep{0.05em}
+  \item \texttt{exp: 3, 2, 1, 0, 1, 2, 3}
+  \item \texttt{base: 5}
+   \end{itemize} 
+  \item {\bf Figure \ref{whilestandard}}
+   \begin{itemize} 
+  \item \texttt{exp: 3, 2, 1, 0}
+  \item \texttt{base: 5}
+  \item \texttt{result: 1, 5, 25, 125}
+   \end{itemize} 
+  \item {\bf Figure \ref{augmentedwhile}}
+   \begin{itemize} 
+  \item \texttt{exp: 3}
+  \item \texttt{base: 5}
+  \item \texttt{iter: 3, 2, 1, 0}
+  \item \texttt{result: 1, 5, 25, 125}
+   \end{itemize} 
+ \end{itemize} 
+\DIFaddbeginFL \caption{\DIFaddFL{The sequences of variable values recorded by OverCode while executing }\texttt{\DIFaddFL{iterPower(5,3)}}\DIFaddFL{.}}
+\label{fig:seqvarvals}
+\end{figure}
+\DIFaddend 
+
+In \DIFdelbegin \DIFdel{the previous }\DIFdelend \DIFaddbegin \DIFadd{these }\DIFaddend examples, the input argument \texttt{base} would be considered \DIFaddbegin \DIFadd{a }\DIFaddend variable common to all three programs, but the input argument \texttt{exp} would not be. The variable \texttt{result} would also be considered a common variable shared across just the definitions in Figure \ref{whilestandard} and Figure \ref{augmentedwhile}. This allows us to distinguish between programs that calculate the answer in semantically distinct ways, without discriminating between the low-level \DIFdelbegin \DIFdel{syntax-based design decisions }\DIFdelend \DIFaddbegin \DIFadd{design decisions about syntax}\DIFaddend . 
+
+LDA is often applied to \DIFdelbegin \DIFdel{corpuses }\DIFdelend \DIFaddbegin \DIFadd{corpora }\DIFaddend of textual documents, where the corpus is represented as a $W \times N$ term-by-document matrix of counts, where $W$ is the vocabulary size across all documents and $N$ is the number of documents. In this representation, the document is represented a bag of word counts, i.e., how many times each word appears in the document. Following this analogy, solutions are represented as a bag of variable behaviors. The matrix representing the solutions in Figures \ref{recursive_example} through \ref{augmentedwhile} executed on \texttt{iterPower(5,3)} is shown in Table \ref{varbydocmat}.
+
+\begin{table}[t]
+\caption{Variable-by-Solution Matrix for Programs, where variables are uniquely identified by their sequence of values while run on a set of test case(s)}
+\label{varbydocmat}
+%\vskip 0.15in
+\begin{center}
+\begin{small}
+\begin{sc}
+\begin{tabular}{| l | c | c | c | c | c |}
+\hline
+%\abovespace\belowspace
+Sol- & \texttt{5} & \texttt{1,5,...} & \texttt{3,2,1,0,} & \texttt{3,2,1,0} & \texttt{3} \\
+ution& & \texttt{25,125} & \texttt{...1,2,3} & &  \\
+\hline
+%\abovespace
+\DIFdelbeginFL \DIFdelFL{Fig. }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Figure }\DIFaddendFL \ref{recursive_example} & 1 & 0 & 1 & 0 & 0 \\
+\DIFdelbeginFL \DIFdelFL{Fig. }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Figure }\DIFaddendFL \ref{whilestandard}     & 1 & 1 & 0 & 1 & 0 \\
+\DIFdelbeginFL \DIFdelFL{Fig. }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Figure }\DIFaddendFL \ref{augmentedwhile}    & 1 & 1 & 0 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{sc}
+\end{small}
+\end{center}
+%\vskip -0.1in
+\end{table}
+
+Note that, while the entries in Table \ref{varbydocmat} only take on values $0$ or $1$, more complicated definitions may have $n$ instances of, e.g., a variable that takes on the sequence of values \texttt{3,2,1,0}. In that case, there could be an $n$ in the \texttt{3,2,1,0} column for the row corresponding to that solution, or it can be left as a binary indicator. %In other words, true to the assumptions made by LDA, these are occurrence counts, not binary indicators.
+
+%DIF < \subsection{Procedure}
+%DIF > \section{Procedure}
+
+In order to run LDA, \DIFdelbegin \DIFdel{3875 }\DIFdelend student solutions to \DIFdelbegin \texttt{\DIFdel{iterPower}} %DIFAUXCMD
+\DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{a particular problem are }\DIFaddend first run on a set of test cases within the OverCode analysis pipeline. The OverCode pipeline \DIFdelbegin \DIFdel{produced }\DIFdelend \DIFaddbegin \DIFadd{produces }\DIFaddend a set of \DIFdelbegin \DIFdel{977 cluster-representing }\DIFdelend \DIFaddbegin \DIFadd{platonic }\DIFaddend solutions and a set of features for each solution, including which variable sequences were observed during execution. \DIFdelbegin \DIFdel{Another script turned this output into a }\DIFdelend \DIFaddbegin \DIFadd{A script extracts the }\DIFaddend variable-by-solution matrix\DIFdelbegin \DIFdel{for the 977 cluster-representing solutions, which were then fed into LDA for analysis. LDA was }\DIFdelend \DIFaddbegin \DIFadd{. LDA is then }\DIFaddend run repeatedly with \DIFdelbegin \DIFdel{multiple }\DIFdelend \DIFaddbegin \DIFadd{different }\DIFaddend values for the parameter that sets the number of latent mixture components \DIFaddbegin \DIFadd{and then inspected by hand}\DIFaddend . The results \DIFdelbegin \DIFdel{were examined by hand since }\DIFdelend \DIFaddbegin \DIFadd{of running LDA on platonic solutions is inspected by hand because cluster validity metrics like }\DIFaddend perplexity and held-out likelihoods are not necessarily good proxies for human interpretability \cite{readingtealeaves}. 
+
+\DIFdelbegin \DIFdel{Since the learned mixture components }\DIFdelend \DIFaddbegin \DIFadd{Inspection by hand can also be challenging. When LDA learns mixture components in this context, those components }\DIFaddend are distributions over variable behaviors\DIFdelbegin \DIFdel{, it is easier to inspect solutions which have high "amounts " }\DIFdelend \DIFaddbegin \DIFadd{. Rather than inspect these distributions, entire solutions containing high amounts }\DIFaddend of that mixture component \DIFdelbegin \DIFdel{"within" them and infer a theme by comparing them to solutions that contain high "amounts " of a different mixture component. These comparisons were done by hand for a subset of popular mixture components for each LDA model.
+}\DIFdelend \DIFaddbegin \DIFadd{were inspected instead. By comparing entire solutions with high and low amounts of each component, one can infer what each learned component captured. This method for understanding the results is similar to the recommendations of variation theory. 
+}
+
+\subsection{Preliminary Evaluation}
+\DIFadd{3875 student solutions to }\texttt{\DIFadd{iterPower}} \DIFadd{were run on a set of test cases within the OverCode analysis pipeline. The OverCode pipeline produced a set of 977 platonic solutions and sets of features for each solution. LDA was run on the resulting variable-by-solution matrix, using different parameter values.
+}
+
+\DIFadd{The LDA results were inspected by hand. }\DIFaddend One topic comparison captured the difference between solutions like Figure ~\ref{augmentedwhile} and ~\ref{whilestandard}. Another topic comparison exposed the difference between the subpopulation of solutions with \DIFdelbegin \DIFdel{extra (unnecessary ) }\DIFdelend \DIFaddbegin \DIFadd{unnecessary }\DIFaddend conditional statements and the common, more concise solution. 
+\DIFdelbegin \DIFdel{In the future, a user interface would be very helpful for this task, especially one which made it easier to compare the output of models with different parameter values. 
+}\DIFdelend 
+
+\DIFaddbegin \section{Discussion and Future Work}
+
+\DIFaddend LDA applied to a variable-by-solution matrix is a promising method for identifying variation within \DIFdelbegin \DIFdel{corpuses }\DIFdelend \DIFaddbegin \DIFadd{corpora }\DIFaddend of solutions to the same programming \DIFdelbegin \DIFdel{exercise}\DIFdelend \DIFaddbegin \DIFadd{problem}\DIFaddend . However, \DIFdelbegin \DIFdel{LDA's assumptions }\DIFdelend \DIFaddbegin \DIFadd{the assumptions made in LDA}\DIFaddend , such as the independence of mixture components, and requirements, such as explicitly setting the number of mixture components beforehand, may mean that other mixture models, such as the Correlated Topic Model~\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{} }%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{ctm} }%DIFAUXCMD
+}\DIFaddend or the Hierarchical Dirichlet Process~\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{} }%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{hdp05} }%DIFAUXCMD
+}\DIFaddend will ultimately be a better model fit for this purpose. \DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < \section{GroverCode: Clustering and Canonicalizing Incorrect Solutions}%DIFDELCMD < \label{sec:grover}%%%
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{While understanding the contents of thousands of correct student solutions can be helpful in both residential and online contexts, another application of OverCode's pipeline and interface is supporting the hand-grading of introductory Python programming exam solutions, only some of which are correct. Incorrect solutions are defined as those that do not pass at least one test case in the teacher-designed test suite.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Hand-reviewing solutions is necessary because teacher-designed test suites were found to unfairly penalize some students and award undeserved credit to others. For example, a single typo in an otherwise well-written solution can cause it to fail all the test cases and receive no credit. Conversely, a solution that subverts the purpose of the assignment can still receive credit by returning the expected answer to some or all of the test cases.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{For the staff of 6.0001, the residential introductory Python programming courses at MIT, this can be one of the most time-consuming and exhausting parts of teaching the course. It can take an full workday for the entire staff of eight to ten teachers to sit in a room and review several hundred students' solutions by hand in order to assign a single numerical grade to each solution. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{There are two main technical contributions found in the GroverCode extension of OverCode: a modified pipeline that can canonicalize both correct and incorrect solutions and an interface designed for grading. Just as the original pipeline used variable behavior to canonicalize variable names, the modified pipeline uses variable behavior and the syntax of statements containing each variable to canonicalize variable names in solutions that are not correct. This comes from the insight that a variable in an incorrect solution can be semantically equivalent to a variable in a correct solution but still behave differently; it can behave differently due to a bug in a line of code that directly modifies its value or a bug in a line of code that affects the behavior of another variable that it depends on. Since many of the exam solutions are incorrect and do not get clustered together, the new user interface organizes solutions according to their behavior on test cases and compositional similarity to each other, rather than by cluster size.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{GroverCode was iteratively designed and evaluated as a grading tool through two live deployments during the Spring 2016 6.0001 staff exam grading sessions. Approximately two hundred students were enrolled in the course, and nine instructors used GroverCode to grade nearly all student code submissions. A total of seven programming exercises of a variety of difficulties were graded over the course of these two sessions. GroverCode was particularly appreciated on simpler problems where correct solutions were clustered together and graded by a single teacher's action. The canonicalization process applied to more complex solutions, especially those which included student-written objects, was at times more harmful than helpful for teacher's comprehension of student code. Conversely, the feature for grouping solutions based on their behavior on test cases was appreciated regardless of solution complexity.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \subsection{User Interface}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Figures~\ref{fig:whole_interface},~\ref{fig:correct_stack}, and~\ref{fig:rubric} capture the GroverCode user interface during the second and final deployment of the Spring 2016 term. Unlike OverCode, there are both correct and incorrect solutions in view; they are differentiable by their different background colors, as well as a red "X" next to every failed test. To better explain each test failure, the solution's differing actual and expected outputs are also displayed. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The panel of progress indicators and filters is always in view. The rows of aligned sequences of green checks and red dashes represent "error vectors", the pass/fail results with respect to the ordered list of teacher-specified test cases. The checkbox next to each error vector allows the teacher to selectively view subsets of solutions based on the particular tests they pass and fail. Solutions with the same error vectors may include similar mistakes.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Correct solutions are stacked the same way they are in OverCode. In contrast, incorrect solutions were canonicalized but not stacked, even if they were identical after canonicalization. Grades are propagated to all the solutions in a stack; propagating actual student grades based on a probabilistic canonicalization process that was not thoroughly vetted before deployment would be unfair to students. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The user interface includes the following features in an attempt to minimize the cognitive load experienced by teachers rapidly switching between grading one solution and the next:
+}%DIFDELCMD < \begin{itemize}
+ \begin{itemize} %DIFAUXCMD
+%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Horizontally aligned solutions for side-by-side comparison
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Easy filtering of solutions by input-output behavior, i.e., their error vectors
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Canonicalized variable names
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Solutions ordered to minimize the distance between adjacent solutions with respect to a custom similarity metric defined in Terman~\ref{staceythesis}
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Highlighted lines of code in each solution which differ from the previous solution in the horizontal list
+}
+ \end{itemize} %DIFAUXCMD
+%DIFDELCMD < \end{itemize}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The hope is that canonicalization helps teachers switch between solutions more often than it harms reability.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \begin{figure}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=\textwidth]{Body/figures/grovercode/figure_1}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{The GroverCode user interface displaying solutions to an introductory Python programming exam problem, in which students are asked to implement a function to flatten a nested list of arbitrary depth.
+}}
+%DIFAUXCMD
+%DIFDELCMD < \label{fig:whole_interface}
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{figure}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_2}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{A correct solution, its corresponding raw submission, and its performance on test cases, as displayed in GroverCode.}}
+%DIFAUXCMD
+%DIFDELCMD < \label{fig:correct_stack}
+%DIFDELCMD < \end{figure}
+%DIFDELCMD <  
+
+%DIFDELCMD < \begin{figure}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=0.5\textwidth]{Body/figures/grovercode/figure_3}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{A stack with the rubric dropdown menu open. Text for each of the checked items is automatically inserted in the comment box.}}
+%DIFAUXCMD
+%DIFDELCMD < %DIFDELCMD < \label{fig:rubric}%%%
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < 
+
+%DIFDELCMD < \subsection{Implementation}%%%
+\DIFdel{~}%DIFDELCMD < %DIFDELCMD < \label{subsec:grovercodepipeline}%%%
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The GroverCode implementation is a modification of the OverCode pipeline, including the updates described in Section~\ref{subsec:morelineinfo}. Solutions which return an expected output for all test cases during the preprocessing step are categorized as "correct", and all other solutions, having failed at least one test case, are categorized as "incorrect". Correct solutions are canonicalized by the same process as was used in the original OverCode. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{In the original OverCode pipeline for correct solutions, variable behavior is assumed to hold enough semantic information to be the sole basis on which variable names are canonicalized. In this first version of GroverCode, applies this rule to incorrect solutions as well, but only for variables whose behavior matches a common variable in the correct solutions. %DIF < if a variable in an incorrect solution has the same behavior as a common variable in the correct solutions, GroverCode will rename the variable in the incorrect solution so it matches the common variable's name in the correct solutions.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{However, that purely behavior-based renaming strategy may change in future versions of GroverCode because, given that incorrect solutions are known to be wrong with respect to input-output behavior, the behavior of the variables within them is suspect too, regardless of whether it happens to match a common variable in a correct solution.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Consider the following example: in the syntax of an incorrect solution, a variable $i$ may be operated or depended on exactly the same way as a common variable in a correct solution. However, if an error somewhere else in the solution causes $i$ to behave differently, the original method of variable renaming will be thrown off. Based on this example, variables in incorrect solutions that are not already renamed based on behavior are renamed based on syntax.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The most recently updated OverCode pipeline represents each line's syntax and variables in a separable way (see Section~\ref{subsec:morelineinfo}). The line's syntax, e.g., }\texttt{\DIFdel{for }\underline{\DIFdel{\hspace{1em}}} %DIFAUXCMD
+\DIFdel{in }\underline{\DIFdel{\hspace{1em}}}%DIFAUXCMD
+\DIFdel{:}}%DIFAUXCMD
+\DIFdel{, is referred to as a template. For each common variable in correct solutions, GroverCode counts how many times it appears in each template and in which location, represented as an index into the blanks in the template. Examples of templates and locations are shown in Table~\ref{table:template-location}. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < \begin{table}
+%DIFDELCMD < \centering
+%DIFDELCMD < \caption*{\textbf{Example:} All templates and locations in which the abstract variable \texttt{exp}, the second argument to a recursive \texttt{power} function, appears. A location represents the index or indices of the blanks that the abstract variable occupies, where the first blank is index 0, the second is index 1, and so on. The second and third columns together form a template-location pair. Copied with permission from Terman~\cite{staceythesis}}
+%DIFDELCMD < \begin{tabular}{|c|c|c|}
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Example line of code }%DIFDELCMD < & %%%
+\DIFdelFL{Template }%DIFDELCMD < & %%%
+\DIFdelFL{Location }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{def power(base, exp):}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\DIFdelFL{def power(}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{,}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{):}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{1 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{while index <= exp:}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\DIFdelFL{while }\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{<=}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{:}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{1 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{return 1.0*base*power(base, exp-1)}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\DIFdelFL{return 1.0*}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{*}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{*power(}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{,}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{-1)}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{3 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{return base*power(base, exp-1)}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\DIFdelFL{return }\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{*power(}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{,}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{-1)}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{2 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{return power(base, exp-1)*base}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\DIFdelFL{return power(}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{,}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{-1)*}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{1 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{ans = base*power(base, exp-1)}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{=}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{*power(}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{,}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{-1)}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{3 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{if exp <= 0:}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\DIFdelFL{if }\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{<=0:}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{0 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{if exp == 0:}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\DIFdelFL{if }\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{==0:}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{0 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{if exp >= 1:}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\DIFdelFL{if }\underline{\DIFdelFL{\hspace{1em}}} %DIFAUXCMD
+\DIFdelFL{>= 1:}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{0 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\texttt{\DIFdelFL{assert type(exp) is int and exp >= 0}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\texttt{\DIFdelFL{assert type(}\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{) is int and }\underline{\DIFdelFL{\hspace{1em}}}%DIFAUXCMD
+\DIFdelFL{>=0}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\DIFdelFL{0, 1 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < \end{tabular}
+%DIFDELCMD < %DIFDELCMD < \label{table:template-location}%%%
+%DIFDELCMD < \end{table}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{If a yet-unrenamed variable in an incorrect solution appears in the exact same template-locations as a common variable in a correct solution, it will be renamed to match that common variable.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{If a variable in an incorrect solution is still not canoncialized, the counts of template-locations associated with each common variable in the correct solutions are used, as described in detail in Terman~\mbox{%DIFAUXCMD
+\cite{staceythesis}}%DIFAUXCMD
+, to infer the most likely common variable it could be renamed to, as long as a threshold for similarity is met. Otherwise, its original name is kept. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < \subsection{Field Deployment}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The GroverCode analysis pipeline was run on both the midterm and final exam problems from the Spring 2016 semester of 6.0001, which had approximately 200 students enrolled. These exams contained seven programming problems in total, and between 133 and 189 solutions per problem made it through the analysis pipeline to be displayed in the user interface. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Using the GroverCode user interface, nine instructors, including one lecturer and eight teaching assistants (TAs) graded these solutions as part of their official grading responsibilities. Those solutions that did not successfully pass through the pipeline were graded by hand afterwards.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The TAs' grading events, e.g., adding or applying rubric items and point valuesto solutions, were logged.
+An observer took extensive notes during each day-long grading session to capture spontaneous feature requests as well as bugs and complaints. For full disclosure, one of the TAs in these grading sessions was the Masters of Engineering student who implemented most of GroverCode, and the observer was the author of this thesis.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < \begin{comment}
+%DIFDELCMD < \subsubsection{Programming Exam Problems}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{For each problem processed during the field deployments, an example of a staff-written correct solution is included below. Given the increasing difficulty of these exam problems, the following numbers dropped between the midterm and the final: the number of students present to take the exam, the number of students who submitted any solution to a given problem before the test period ended, and the number of correct solutions that could be clustered.
+}%DIFDELCMD < 
+
+%DIFDELCMD < {\bf %%%
+\DIFdel{Midterm Problems}%DIFDELCMD < }
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{itemize}
+%DIFDELCMD < \item %%%
+\DIFdel{Question 4: }\texttt{\DIFdel{power}}%DIFAUXCMD
+\DIFdel{. Write a recursive function to calculate the exponential }\texttt{\DIFdel{base}} %DIFAUXCMD
+\DIFdel{to the power }\texttt{\DIFdel{exp}}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{In the future, new user interfaces would be helpful for this task, especially one which helps humans compare the output of models with different parameter values}\DIFaddend .
+
+
+
+\DIFdelbegin %DIFDELCMD < \includegraphics[scale=0.65]{Body/figures/grovercode/fig_power}
+%DIFDELCMD < 
+
+%DIFDELCMD < \item %%%
+\DIFdel{Question 5: }\texttt{\DIFdel{give\_and\_take}}%DIFAUXCMD
+\DIFdel{. Given a dictionary }\texttt{\DIFdel{d}} %DIFAUXCMD
+\DIFdel{and a list }\texttt{\DIFdel{L}}%DIFAUXCMD
+\DIFdel{, return a new dictionary that contains the keys of }\texttt{\DIFdel{d}}%DIFAUXCMD
+\DIFdel{. Map each key to its value in }\texttt{\DIFdel{d}} %DIFAUXCMD
+\DIFdel{plus one if the key is contained in }\texttt{\DIFdel{L}}%DIFAUXCMD
+\DIFdel{, and its value in d minus one if the key is not contained in }\texttt{\DIFdel{L}}%DIFAUXCMD
+\DIFdel{.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \includegraphics[scale=0.65]{Body/figures/grovercode/fig_give_and_take}
+%DIFDELCMD < 
+
+%DIFDELCMD < \item %%%
+\DIFdel{Question 6: }\texttt{\DIFdel{closest\_power}}%DIFAUXCMD
+\DIFdel{. Given an integer base and a target integer }\texttt{\DIFdel{num}}%DIFAUXCMD
+\DIFdel{, find the integer exponent that minimizes the difference between }\texttt{\DIFdel{num}} %DIFAUXCMD
+\DIFdel{and }\texttt{\DIFdel{base}} %DIFAUXCMD
+\DIFdel{to the power of exponent, choosing the smaller exponent in the case of a tie.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \includegraphics[scale=0.65]{Body/figures/grovercode/fig_closest_power}
+%DIFDELCMD < \end{itemize}
+%DIFDELCMD < 
+
+%DIFDELCMD < {\bf %%%
+\DIFdel{Final Exam Problems}%DIFDELCMD < }
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{itemize}
+ \begin{itemize} %DIFAUXCMD
+%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Question 4: }\texttt{\DIFdel{deep\_reverse}}%DIFAUXCMD
+\DIFdel{. Write a function that takes a list of lists of integers }\texttt{\DIFdel{L}}%DIFAUXCMD
+\DIFdel{, and reverses }\texttt{\DIFdel{L}} %DIFAUXCMD
+\DIFdel{and each element of }\texttt{\DIFdel{L}} %DIFAUXCMD
+\DIFdel{in place.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \includegraphics[scale=0.65]{Body/figures/grovercode/fig_deep_reverse}
+%DIFDELCMD < 
+
+%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Question 5: }\texttt{\DIFdel{applyF\_filterG}}%DIFAUXCMD
+\DIFdel{. Write a function that takes three arguments: a list of integers }\texttt{\DIFdel{L}}%DIFAUXCMD
+\DIFdel{, a function }\texttt{\DIFdel{f}} %DIFAUXCMD
+\DIFdel{that takes an integer and returns an integer, and a function }\texttt{\DIFdel{g}} %DIFAUXCMD
+\DIFdel{that takes an integer and returns a boolean. Remove elements from }\texttt{\DIFdel{L}} %DIFAUXCMD
+\DIFdel{such that for each remaining element }\texttt{\DIFdel{i}}%DIFAUXCMD
+\DIFdel{, }\texttt{\DIFdel{f(g(i))}} %DIFAUXCMD
+\DIFdel{returns }\texttt{\DIFdel{True}}%DIFAUXCMD
+\DIFdel{. Return the largest element of the mutated list, or -1 if the list is empty after mutation.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \includegraphics[scale=0.65]{Body/figures/grovercode/fig_applyF_filterG}
+%DIFDELCMD < 
+
+%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Question 6: }\texttt{\DIFdel{MITCampus}}%DIFAUXCMD
+\DIFdel{. Given the definitions of two classes: }\texttt{\DIFdel{Location}}%DIFAUXCMD
+\DIFdel{, which represents a two-dimensional coordinate point, and }\texttt{\DIFdel{Campus}}%DIFAUXCMD
+\DIFdel{, which represents a college campus centered at a particular }\texttt{\DIFdel{Location}}%DIFAUXCMD
+\DIFdel{, fill in several methods in the }\texttt{\DIFdel{MITCampus}} %DIFAUXCMD
+\DIFdel{class, a subclass of }\texttt{\DIFdel{Campus}} %DIFAUXCMD
+\DIFdel{that represents a college campus with tents at various }\texttt{\DIFdel{Locations}}%DIFAUXCMD
+\DIFdel{.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \includegraphics[scale=0.65]{Body/figures/grovercode/fig_mitcampus}
+%DIFDELCMD < 
+
+%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{Question 7: }\texttt{\DIFdel{longest\_run}}%DIFAUXCMD
+\DIFdel{. Write a function that takes a list of integers }\texttt{\DIFdel{L}}%DIFAUXCMD
+\DIFdel{, finds the longest run of either monotonically increasing or monotonically decreasing integers in }\texttt{\DIFdel{L}}%DIFAUXCMD
+\DIFdel{, and returns the sum of this run.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \includegraphics[scale=0.65]{Body/figures/grovercode/fig_longest_run}
+
+ \end{itemize} %DIFAUXCMD
+%DIFDELCMD < \end{itemize}
+%DIFDELCMD < 
+
+%DIFDELCMD < \subsubsection{Pipeline Evaluation}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The number of submissions submitted for each problem and the number that were successfully processed by the GroverCode pipeline is shown in Table~\ref{table:num_submissions}.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \begin{table}[h!]
+%DIFDELCMD < \centering
+%DIFDELCMD < \begin{tabular}{|c|c|c|c|c|c|c|c|}
+%DIFDELCMD < \hline
+%DIFDELCMD < & \multicolumn{3}{c|}{Quiz} & \multicolumn{4}{c|}{Final} \\
+%DIFDELCMD < \cline{2-8}
+%DIFDELCMD < & %%%
+\DIFdelFL{q4 }%DIFDELCMD < & %%%
+\DIFdelFL{q5 }%DIFDELCMD < & %%%
+\DIFdelFL{q6 }%DIFDELCMD < & %%%
+\DIFdelFL{q4 }%DIFDELCMD < & %%%
+\DIFdelFL{q5 }%DIFDELCMD < & %%%
+\DIFdelFL{q6 }%DIFDELCMD < & %%%
+\DIFdelFL{q7 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Submissions }%DIFDELCMD < & %%%
+\DIFdelFL{193 }%DIFDELCMD < & %%%
+\DIFdelFL{193 }%DIFDELCMD < & %%%
+\DIFdelFL{193 }%DIFDELCMD < & %%%
+\DIFdelFL{175 }%DIFDELCMD < & %%%
+\DIFdelFL{173 }%DIFDELCMD < & %%%
+\DIFdelFL{170 }%DIFDELCMD < & %%%
+\DIFdelFL{165 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Mean lines per submission }%DIFDELCMD < & %%%
+\DIFdelFL{9.9 }%DIFDELCMD < & %%%
+\DIFdelFL{16.9 }%DIFDELCMD < & %%%
+\DIFdelFL{19.8 }%DIFDELCMD < & %%%
+\DIFdelFL{12.3 }%DIFDELCMD < & %%%
+\DIFdelFL{20.9 }%DIFDELCMD < & %%%
+\DIFdelFL{50.0 }%DIFDELCMD < & %%%
+\DIFdelFL{41.8 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Solutions successfully processed }%DIFDELCMD < & %%%
+\DIFdelFL{186 }%DIFDELCMD < & %%%
+\DIFdelFL{189 }%DIFDELCMD < & %%%
+\DIFdelFL{168  }%DIFDELCMD < & %%%
+\DIFdelFL{170 }%DIFDELCMD < & %%%
+\DIFdelFL{166  }%DIFDELCMD < & %%%
+\DIFdelFL{134 }%DIFDELCMD < & %%%
+\DIFdelFL{133 }%DIFDELCMD < \\
+%DIFDELCMD <  & %%%
+\DIFdelFL{(96\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(98\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(87\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(97\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(96\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(79\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(81\%) }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < \end{tabular}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Number of submissions submitted and successfully processed  by GroverCode for each problem in the dataset. Reasons why a solution might not make it through the pipeline include syntax errors and memory management issues caused by students' inappropriate function calls.}}
+%DIFAUXCMD
+%DIFDELCMD < \label{table:num_submissions}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Table~\ref{table:cluster_stats} captures the scale of the variation as well as some clustering statistics.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \begin{table}[!ht]
+%DIFDELCMD < \centering
+%DIFDELCMD < \begin{tabular}{|l|c|c|c|c|c|c|c|}
+%DIFDELCMD < \hline
+%DIFDELCMD < & \multicolumn{3}{c|}{Quiz} & \multicolumn{4}{c|}{Final} \\
+%DIFDELCMD < \cline{2-8}
+%DIFDELCMD < & %%%
+\DIFdelFL{q4 }%DIFDELCMD < & %%%
+\DIFdelFL{q5 }%DIFDELCMD < & %%%
+\DIFdelFL{q6 }%DIFDELCMD < & %%%
+\DIFdelFL{q4 }%DIFDELCMD < & %%%
+\DIFdelFL{q5 }%DIFDELCMD < & %%%
+\DIFdelFL{q6 }%DIFDELCMD < & %%%
+\DIFdelFL{q7 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Correct submissions }%DIFDELCMD < & %%%
+\DIFdelFL{182 }%DIFDELCMD < & %%%
+\DIFdelFL{160 }%DIFDELCMD < & %%%
+\DIFdelFL{94 }%DIFDELCMD < & %%%
+\DIFdelFL{96 }%DIFDELCMD < & %%%
+\DIFdelFL{49 }%DIFDELCMD < & %%%
+\DIFdelFL{16 }%DIFDELCMD < & %%%
+\DIFdelFL{12 }%DIFDELCMD < \\
+%DIFDELCMD <  & %%%
+\DIFdelFL{(94\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(82\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(49\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(55\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(28\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(9\%) }%DIFDELCMD < & %%%
+\DIFdelFL{(7\%) }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Incorrect submissions }%DIFDELCMD < & %%%
+\DIFdelFL{4 }%DIFDELCMD < & %%%
+\DIFdelFL{29 }%DIFDELCMD < & %%%
+\DIFdelFL{74 }%DIFDELCMD < & %%%
+\DIFdelFL{74 }%DIFDELCMD < & %%%
+\DIFdelFL{117 }%DIFDELCMD < & %%%
+\DIFdelFL{118 }%DIFDELCMD < & %%%
+\DIFdelFL{121 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Test cases }%DIFDELCMD < & %%%
+\DIFdelFL{10 }%DIFDELCMD < & %%%
+\DIFdelFL{15 }%DIFDELCMD < & %%%
+\DIFdelFL{25 }%DIFDELCMD < & %%%
+\DIFdelFL{11 }%DIFDELCMD < & %%%
+\DIFdelFL{10 }%DIFDELCMD < & %%%
+\DIFdelFL{17 }%DIFDELCMD < & %%%
+\DIFdelFL{28 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Distinct error signatures }%DIFDELCMD < & %%%
+\DIFdelFL{6 }%DIFDELCMD < & %%%
+\DIFdelFL{16 }%DIFDELCMD < & %%%
+\DIFdelFL{36 }%DIFDELCMD < & %%%
+\DIFdelFL{12 }%DIFDELCMD < & %%%
+\DIFdelFL{38 }%DIFDELCMD < & %%%
+\DIFdelFL{57 }%DIFDELCMD < & %%%
+\DIFdelFL{42 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Correct stacks }%DIFDELCMD < & %%%
+\DIFdelFL{40 }%DIFDELCMD < & %%%
+\DIFdelFL{84 }%DIFDELCMD < & %%%
+\DIFdelFL{93 }%DIFDELCMD < & %%%
+\DIFdelFL{47 }%DIFDELCMD < & %%%
+\DIFdelFL{46 }%DIFDELCMD < & %%%
+\DIFdelFL{16 }%DIFDELCMD < & %%%
+\DIFdelFL{12 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Stacks containing > 1 submission }%DIFDELCMD < & %%%
+\DIFdelFL{13 }%DIFDELCMD < & %%%
+\DIFdelFL{18 }%DIFDELCMD < & %%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{8 }%DIFDELCMD < & %%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Solutions collapsed into stacks }%DIFDELCMD < & %%%
+\DIFdelFL{151 }%DIFDELCMD < & %%%
+\DIFdelFL{94 }%DIFDELCMD < & %%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{57 }%DIFDELCMD < & %%%
+\DIFdelFL{5 }%DIFDELCMD < & %%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < \end{tabular}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{The degree of variation in input-output behavior and statistics about stack sizes.}}
+%DIFAUXCMD
+%DIFDELCMD < \label{table:cluster_stats}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < \begin{comment}
+\DIFdel{Table~\ref{table:renametype} summarizes the counts of the various mechanims by which variables in incorrect solutions were canonicalized.
+}%DIFDELCMD < 
+
+%DIFDELCMD < \begin{table}
+%DIFDELCMD < \centering
+%DIFDELCMD < \begin{tabular}{|l|c|c|c|c|c|c|c|}
+%DIFDELCMD < \hline
+%DIFDELCMD < & \multicolumn{3}{c|}{Quiz} & \multicolumn{4}{c|}{Final} \\
+%DIFDELCMD < \cline{2-8}
+%DIFDELCMD < & %%%
+\DIFdelFL{q4 }%DIFDELCMD < & %%%
+\DIFdelFL{q5 }%DIFDELCMD < & %%%
+\DIFdelFL{q6 }%DIFDELCMD < & %%%
+\DIFdelFL{q4 }%DIFDELCMD < & %%%
+\DIFdelFL{q5 }%DIFDELCMD < & %%%
+\DIFdelFL{q6 }%DIFDELCMD < & %%%
+\DIFdelFL{q7 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Vars. in incorrect submissions }%DIFDELCMD < & %%%
+\DIFdelFL{15 }%DIFDELCMD < & %%%
+\DIFdelFL{149 }%DIFDELCMD < & %%%
+\DIFdelFL{482 }%DIFDELCMD < & %%%
+\DIFdelFL{289 }%DIFDELCMD < & %%%
+\DIFdelFL{550 }%DIFDELCMD < & %%%
+\DIFdelFL{559 }%DIFDELCMD < & %%%
+\DIFdelFL{859 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Vars. renamed based on values }%DIFDELCMD < & %%%
+\DIFdelFL{14 }%DIFDELCMD < & %%%
+\DIFdelFL{84 }%DIFDELCMD < & %%%
+\DIFdelFL{266 }%DIFDELCMD < & %%%
+\DIFdelFL{97 }%DIFDELCMD < & %%%
+\DIFdelFL{246 }%DIFDELCMD < & %%%
+\DIFdelFL{97 }%DIFDELCMD < & %%%
+\DIFdelFL{187 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Vars. renamed based on templates }%DIFDELCMD < & %%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{58 }%DIFDELCMD < & %%%
+\DIFdelFL{166 }%DIFDELCMD < & %%%
+\DIFdelFL{136 }%DIFDELCMD < & %%%
+\DIFdelFL{264 }%DIFDELCMD < & %%%
+\DIFdelFL{188 }%DIFDELCMD < & %%%
+\DIFdelFL{489 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < %%%
+\DIFdelFL{Vars. not renamed }%DIFDELCMD < & %%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{7 }%DIFDELCMD < & %%%
+\DIFdelFL{50 }%DIFDELCMD < & %%%
+\DIFdelFL{56 }%DIFDELCMD < & %%%
+\DIFdelFL{40 }%DIFDELCMD < & %%%
+\DIFdelFL{274 }%DIFDELCMD < & %%%
+\DIFdelFL{183 }%DIFDELCMD < \\
+%DIFDELCMD < \hline
+%DIFDELCMD < \end{tabular}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Statistics about variables renaming based on different heuristics in the GroverCode canonicalization process.}}
+%DIFAUXCMD
+%DIFDELCMD < %DIFDELCMD < \label{table:renametype}%%%
+%DIFDELCMD < \end{table}
+%DIFDELCMD < %%%
+%DIF < \end{comment}
+ %DIFDELCMD < 
+
+%DIFDELCMD < \subsubsection{Discussion}
+%DIFDELCMD < %%%
+\DIFdel{For simpler solutions, variable renaming was an invisible and possibly slightly confusing helping hand. One grader remarked, outloud: "Why is everyone naming their iterator variable 'i'?" at which point he had to be reminded of the variable renaming process. As solutions became more varied and structurally complex, graders started immediately looking the raw solutions because the renaming of variables, removal of comments, and standardization of whitespace in the canonicalized solutions was removing clues they needed in order to understand the student's intent.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{While it was difficult to get direct feedback on the helpfulness of pair-wise difference highlighting and optimized solution ordering, graders heavily used and appreciated the ability to filter and grade solutions one error vector at a time. At least one grader remarked aloud that it seemed like many of the solution with the same error vector made similar mistakes. Therefore filtering by error vector may have been one of the stronger contributors to any hypothetical decreased cognitive load due to using GroverCode over the status quo of random assignment to solutions in a CSV file.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \section{Conclusion}
+The clustering described in the original OverCode work was relatively limited in scope, but it did produce \DIFdelbegin \DIFdel{, at least for simple introductory Python programming problems, a concise standardized representation of }\DIFdelend \DIFaddbegin \DIFadd{platonic }\DIFaddend solutions that can be used for more statistically sophisticated clustering techniques and as a starting point for helping graders understand and grade incorrect student solutions by hand.
+
+
+%\input{Body/discussion}
+%\input{Body/futurework}
+
+%\clearpage
+%\appendix
+%\addcontentsline{toc}{part}{Appendix}
+
+%\input{Body/appa}
+%\import{./Body/appb/}{appb.tex}
+%\input{Body/appc}
+%\input{Body/biblio.tex}
+%\input{Body/index.tex}
+\end{document}
+

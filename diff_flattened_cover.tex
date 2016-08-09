@@ -1,0 +1,587 @@
+% -*- Mode:TeX -*-
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ../oldthesisdraft/main.tex   Tue Aug  9 19:05:16 2016
+%DIF ADD main.tex                     Tue Aug  9 19:04:53 2016
+
+%% The documentclass options along with the pagestyle can be used to generate
+%% a technical report, a draft copy, or a regular thesis.  You may need to
+%% re-specify the pagestyle after you \include  cover.tex.  For more
+%% information, see the first few lines of mitthesis.cls. 
+
+%\documentclass[12pt,vi,twoside]{mitthesis}
+%%
+%%  If you want your thesis copyright to you instead of MIT, use the
+%%  ``vi'' option, as above.
+%%
+%\documentclass[12pt,twoside,leftblank]{mitthesis}
+%%
+%% If you want blank pages before new chapters to be labelled ``This
+%% Page Intentionally Left Blank'', use the ``leftblank'' option, as
+%% above. 
+
+%\documentclass[12pt]{mitthesis}
+%\documentclass[12pt,singlespace,twoside]{mitthesis}
+%DIF 21a21
+%\documentclass{tufte-book} %DIF > 
+%DIF -------
+\documentclass[12pt,twoside]{mitthesis}
+\usepackage{lgrind}
+\usepackage{todonotes}
+\usepackage{subcaption}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+%DIF 30a31-39
+\usepackage{csquotes} %DIF > 
+\usepackage{sidecap} %DIF > 
+\usepackage{verbatim} %DIF > 
+\usepackage{tabularx} %DIF > 
+\usepackage{enumitem} %DIF > 
+\setlist{nosep} %DIF > 
+ %DIF > 
+\sidecaptionvpos{figure}{c} %DIF > 
+ %DIF > 
+%DIF -------
+%\usepackage{subfigure}
+%\documentclass[12pt,oneside]{mitthesis}
+%\usepackage{lgrind}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}    % if you want extra symbols
+\usepackage{mathrsfs}
+\usepackage{program}
+\usepackage{newlfont}
+\usepackage{rotating}
+\usepackage{varioref}
+\usepackage{graphicx}
+%\usepackage{txfont}
+\usepackage{makeidx}
+\usepackage{tocbibind}
+\usepackage{program}
+\usepackage{import}
+%\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{colortbl}
+\usepackage{todonotes}
+%DIF 54a64-66
+\usepackage{parskip} %DIF > 
+%\usepackage{booktabs} %DIF > 
+\usepackage{microtype} %DIF > 
+%DIF -------
+
+%\usepackage[LY1]{fontenc}
+%\usepackage{patchcmd}
+%\usepackage{myfss}
+%\usepackage{caslon}
+%\renewcommand{\encodingdefault}{LY1}
+%\rmshape \rgshape
+
+%\usepackage[oldstyle]{garamond}
+%\usepackage[lining]{agaramond}
+\usepackage[small]{eulervm}
+\usepackage{courier} % for texttt
+
+
+
+
+\usepackage[numbers,square,sort&compress]{natbib}
+\usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue, linkcolor=blue,bookmarks=true,bookmarksopen=true,bookmarksopenlevel=0,pdfstartview=Fit,pdfview=Fit,pagebackref,linktocpage=true,bookmarksnumbered=true]{hyperref}
+\usepackage{hypernat}
+\usepackage{array}
+\usepackage{supertabular}
+
+%%% stuff for doxygen
+%\usepackage{times}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{alltt}
+%\usepackage{Body/appb/doxygen}
+%%%%%%%%%%%
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+\usepackage{courier}
+%\newcommand \codevar[1]{\texttt{#1}}
+\usepackage{expl3,xparse} 
+\ExplSyntaxOn 
+\NewDocumentCommand \lstcolorlines { O{green} m } 
+{ \clist_if_in:nVT { #2 } { \the\value{lstnumber} }{ \color{#1} } } 
+\ExplSyntaxOff
+\definecolor{mygray}{rgb}{0.925,0.925,0.925}
+\definecolor{lightyellow}{HTML}{FFE600}
+
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+\pagenumbering{arabic}
+
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+
+\usepackage[T1]{fontenc}
+%DIF 115c128
+%DIF < \usepackage[scaled=0.80]{beramono}
+%DIF -------
+%\usepackage[scaled=0.80]{beramono} %DIF > 
+%DIF -------
+\usepackage{color}
+\usepackage{multirow}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\lstset{
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords = {MultiType},
+keywordstyle=\color{bluekeywords}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\footnotesize,
+numbers=none, xleftmargin=.1in, numbersep=3pt
+}
+
+% Symbols used by the authors
+    \DeclareMathOperator{\suffix}{suffix}
+    \DeclareMathOperator{\prefix}{prefix}
+    \DeclareMathOperator{\prob}{Pr}
+\newcommand{\conv}{\curvearrowright}
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brac}[1]{\left[#1\right]}
+\newcommand{\braces}[1]{\left\{#1\right\}}
+\newcommand{\avector}[2]{(#1_1,#1_2,\ldots,#1_{#2})} 
+\newcommand{\aset}[2]{{#1_1,#1_2,\ldots,#1_{#2}}} 
+\newcommand{\ith}[1]{\ensuremath{{#1^{\textrm{th}}}}} 
+\newcommand{\nd}[1]{\ensuremath{{#1^{\textrm{nd}}}}} 
+%DIF 150c163
+%DIF < \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+%DIF -------
+%\DeclareSymbolFont{AMSb}{U}{msb}{m}{n} %DIF > 
+%DIF -------
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\realNums}{\mathbin}{AMSb}{"52}
+
+
+\newcommand{\curls}[1]{\left\{#1\right\}}
+%\newcommand{\teirRegEx}{\ensuremath{\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\paren{\Sigma\cup\curls{.}\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}^{\ast}\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\cup\Sigma}}
+\newcommand{\teirRegEx}{\ensuremath{\Sigma\paren{\Sigma\cup\curls{.}}\Sigma}}
+\newcommand{\teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Fasta}{FastA}
+\newcommand{\fasta}{FastA}
+\newcommand{\psiblast}{psi--Blast}
+\newcommand{\prosite}{PROSITE}
+\newcommand{\biodictionary}{Bio--Dictionary}
+\newcommand{\genbank}{GENBANK}
+\newcommand{\embl}{EMBL}
+\newcommand{\etal}{\emph{et.\ al.\ }}
+\newcommand{\sptr}{SwissProt/TrEMBL}
+\newcommand{\swissp}{SWISS--PROT}
+\newcommand{\swissprot}{\swissp}
+\newcommand{\swissptr}{SWISS--PROT/TrEMBL}
+\newcommand{\swissprottrembl}{\swissptr}
+\newcommand{\amsdb}{AMSDb}
+\newcommand{\ncbi}{NCBI}
+\newcommand{\blosum}{BLOSUM}
+\newcommand{\pam}{PAM}
+\newcommand{\oligo}{oligonucleotide}
+\newcommand{\Oligo}{Oligonucleotide}
+\newcommand{\blast}{BLAST}
+\newcommand{\pr}[1]{\prob\left(#1\right)}
+\newcommand{\prt}[1]{\prob\left(\textrm{#1}\right)}
+\newcommand{\cp}[2]{\prob\left(#1\mid #2\right)}
+\newcommand{\cpt}[2]{\prob\left(\textrm{#1}\mid \textrm{#2}\right)}
+\newcommand{\ex}[1]{\mathbf{E}\left[#1\right]}
+%\newcommand{\var}[1]{\textrm{var}\left(#1\right)}
+\newcommand{\phip}[3]{\Phi\paren{\frac{#1-\paren{#2}}{#3}}}
+%\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\ten}[1]{\mathbf{#1}}
+\newcommand{\pdf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\pmf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\transf}[2]{M_{#1}\left(#2\right)}
+\newcommand{\expo}[1]{\exp\left[#1\right]}
+\newcommand{\pd}[2]{\frac{\partial}{\partial #2}\brac{#1}}
+\setlength{\extrarowheight}{3pt}
+\newcommand{\marnote}[1]{\marginpar{\raggedleft\footnotesize\bfseries\hspace{0pt} #1}}
+
+\usepackage{fancyhdr}
+%\renewcommand{\chaptermark}[1]{\markboth{\textit{\chaptername}\ \thechapter.\ #1}{}}
+
+%this defines the basic headers and footer
+% styles when we use the 'fancyhdr' styles
+%\lhead[\fancyplain{}{\itshape\footnotesize\thepage}]{\fancyplain{}{\itshape\footnotesize\rightmark}}
+%\rhead[\fancyplain{}{\itshape\footnotesize\leftmark}]{\fancyplain{}{\itshape\footnotesize\thepage}}
+%\lhead[\fancyplain{}\bfseries\thepage]{\fancyplain{}\bfseries\rightmark}
+%\rhead[\fancyplain{}\bfseries\leftmark]{\fancyplain{}\bfseries\thepage}
+%\pagestyle{fancyplain}
+\addtolength{\headwidth}{0.5\marginparsep}
+\addtolength{\headwidth}{0.5\marginparwidth}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\footnotesize\thepage}]{\fancyplain{}{\footnotesize\rightmark}}
+\rhead[\fancyplain{}{\footnotesize\leftmark}]{\fancyplain{}{\footnotesize\thepage}}
+\cfoot{}
+\cfoot{}
+
+% Special Float captions
+% Different font in captions
+\newcommand{\captionfonts}{\mdseries}
+\newcommand{\floatnamefonts}{\bfseries}
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\floatnamefonts #1:~~\captionfonts #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\floatnamefonts #1: \captionfonts #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+
+\makeindex
+
+\pagestyle{plain}
+
+
+\usepackage{courier}
+%DIF 238a251
+%\usepackage{unicode-math} %DIF > 
+%DIF -------
+
+\newcommand \codevar[1]{\texttt{#1}}
+
+%% This bit allows you to either specify only the files which you wish to
+%% process, or `all' to process all files which you \include.
+%% Krishna Sethuraman (1990).
+
+%\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
+%\def\all{all}
+%\ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
+%\DeclareMathAlphabet{\mathnormal}{OMS}{cmsy}{m}{n} %DIF > 
+%\setmathfont{Latin Modern Math} %DIF > 
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+%\fontencoding{LY1}\fontfamily{ACaslonPro}\mdweight
+
+% -*-latex-*-
+% $Log: cover.tex,v $
+% Revision 1.7  2001/02/08 18:53:16  boojum
+% changed some \newpages to \cleardoublepages
+%
+% Revision 1.6  1999/10/21 14:49:31  boojum
+% changed comment referring to documentstyle
+%
+% Revision 1.5  1999/10/21 14:39:04  boojum
+% *** empty log message ***
+%
+% Revision 1.4  1997/04/18  17:54:10  othomas
+% added page numbers on abstract and cover, and made 1 abstract
+% page the default rather than 2.  (anne hunter tells me this
+% is the new institute standard.)
+%
+% Revision 1.4  1997/04/18  17:54:10  othomas
+% added page numbers on abstract and cover, and made 1 abstract
+% page the default rather than 2.  (anne hunter tells me this
+% is the new institute standard.)
+%
+% Revision 1.3  93/05/17  17:06:29  starflt
+% Added acknowledgements section (suggested by tompalka)
+% 
+% Revision 1.2  92/04/22  13:13:13  epeisach
+% Fixes for 1991 course 6 requirements
+% Phrase "and to grant others the right to do so" has been added to 
+% permission clause
+% Second copy of abstract is not counted as separate pages so numbering works
+% out
+% 
+% Revision 1.1  92/04/22  13:08:20  epeisach
+\addcontentsline{toc}{chapter}{Cover page}
+\title{Clustering and Visualizing Solution Variation \DIFdelbegin \DIFdel{In }\DIFdelend \DIFaddbegin \DIFadd{in }\DIFaddend Massive Programming Classes}
+\DIFdelbegin %DIFDELCMD < \todo{Massive removed based on rob's feedback on NEML poster}
+%DIFDELCMD < %%%
+\DIFdelend \author{Elena L. Glassman}
+\department{Department of Electrical Engineering \\ and Computer Science}
+% If the thesis is for two degrees simultaneously, list them both
+% separated by \and like this:
+ \degree{Doctor of Philosophy}
+%\degree{Bachelor of Science in Computer Science and Engineering}
+\degreemonth{August}
+\degreeyear{2016}
+\thesisdate{August 7, 2016}
+
+%% By default, the thesis will be copyrighted to MIT.  If you need to copyright
+%% the thesis to yourself, just specify the `vi' documentclass option.  If for
+%% some reason you want to exactly specify the copyright notice text, you can
+%% use the \copyrightnoticetext command.  
+\copyrightnoticetext{\copyright ~Elena L. Glassman, 2016.}
+
+\begin{comment}
+\copyrightnoticetext{\copyright ~Elena L. Glassman, 2016. \\
+{\footnotesize
+This work is licensed under the Creative
+Commons Attribution-NonCommercial 2.5
+License. To view a copy of this license, visit
+\url{http://creativecommons.org/licenses/by-nc/2.5/} or send a
+letter to
+Creative Commons
+543 Howard Street, 5th Floor,
+San Francisco, California, 94105, USA.
+}}
+\end{comment}
+
+% If there is more than one supervisor, use the \supervisor command
+% once for each.
+\supervisor{Robert C. Miller}{Professor of Electrical Engineering \\ and Computer Science}
+
+% This is the department committee chairman, not the thesis committee
+% chairman.  You should replace this with your Department's Committee
+% Chairman.
+%\chairman{Daniel Blankschtein}{Chairman, Department Committee on Graduate Students}
+\chairman{------------------}{Chairman, Department Committee on Graduate Students}
+
+% Make the titlepage based on the above information.  If you need
+% something special and can't use the standard form, you can specify
+% the exact text of the titlepage yourself.  Put it in a titlepage
+% environment and leave blank lines where you want vertical space.
+% The spaces will be adjusted to fill the entire page.  The dotted
+% lines for the signatures are made with the \signature command.
+\maketitle
+
+% The abstractpage environment sets up everything on the page except
+% the text itself.  The title and other header material are put at the
+% top of the page, and the supervisors are listed at the bottom.  A
+% new page is begun both before and after.  Of course, an abstract may
+% be more than one page itself.  If you need more control over the
+% format of the page, you can use the abstract environment, which puts
+% the word "Abstract" at the beginning and single spaces its text.
+
+%% You can either \input (*not* \include) your abstract file, or you can put
+%% the text of the abstract directly between the \begin{abstractpage} and
+%% \end{abstractpage} commands.
+
+% First copy: start a new page, and save the page number.
+\cleardoublepage
+% Uncomment the next line if you do NOT want a page number on your
+% abstract and acknowledgments pages.
+\pagestyle{empty}
+\setcounter{savepage}{\thepage}
+\begin{abstractpage}\addcontentsline{toc}{chapter}{Abstract}
+%DIF <  $Log: abstract.tex,v $
+%DIF <  Revision 1.1  93/05/14  14:56:25  starflt
+%DIF <  Initial revision
+%DIF < 
+%DIF <  Revision 1.1  90/05/04  10:41:01  lwvanels
+%DIF <  Initial revision
+%DIF < 
+%DIF < 
+%DIF < % The text of your abstract and nothing else (other than comments) goes here.
+%DIF < % It will be single-spaced and the rest of the text that is supposed to go on
+%DIF < % the abstract page will be generated by the abstractpage environment.  This
+%DIF < % file should be \input (not \include 'd) from cover.tex.
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{In a massive open online course (MOOC)}\DIFdelend \DIFaddbegin \DIFadd{In large programming classes}\DIFaddend , a single \DIFdelbegin \DIFdel{programming exercise }\DIFdelend \DIFaddbegin \DIFadd{problem }\DIFaddend may yield thousands of student solutions\DIFdelbegin \DIFdel{that vary in many ways, some superficial and some fundamental}\DIFdelend \DIFaddbegin \DIFadd{. Solutions can vary in correctness, approach, and readability}\DIFaddend . Understanding large-scale variation in \DIFdelbegin \DIFdel{programs }\DIFdelend \DIFaddbegin \DIFadd{solutions }\DIFaddend is a hard but important problem. For teachers, this variation \DIFdelbegin \DIFdel{can }\DIFdelend \DIFaddbegin \DIFadd{could }\DIFaddend be a source of \DIFdelbegin \DIFdel{pedagogically valuable examples and expose corner casesnot yet covered by autograding. For students, }\DIFdelend \DIFaddbegin \DIFadd{innovative new student solutions and instructive examples. Understanding solution variation could help teachers write better feedback, test cases, and evaluation rubrics. Theories of learning, e.g., analogical learning and variation theory, suggest that students would benefit from understanding }\DIFaddend the variation in \DIFdelbegin \DIFdel{a large class means that }\DIFdelend \DIFaddbegin \DIFadd{their peers' solutions as well. Even when there are many solutions to a problem, when a student is struggling in a large class, }\DIFaddend other students may have struggled along a similar solution path, hit the same bugs, and \DIFdelbegin \DIFdel{can offer }\DIFdelend \DIFaddbegin \DIFadd{have }\DIFaddend hints based on that earned expertise.
+
+This thesis describes \DIFdelbegin \DIFdel{three systems that explore the value of solution variation in large-scale programming and simulated digital circuit classes. All three systems }\DIFdelend \DIFaddbegin \DIFadd{systems that exploit large-scale solution variation and }\DIFaddend have been evaluated using data or live deployments in on-campus or edX courses with thousands of students. \DIFdelbegin \DIFdel{(1) }\DIFdelend OverCode visualizes thousands of programming solutions using static and dynamic analysis to cluster similar solutions. \DIFdelbegin \DIFdel{It }\DIFdelend \DIFaddbegin \DIFadd{Compared to the status quo, OverCode }\DIFaddend lets teachers quickly develop a high-level view of student understanding and misconceptions and provide feedback that is relevant to \DIFdelbegin \DIFdel{many }\DIFdelend \DIFaddbegin \DIFadd{more }\DIFaddend student solutions. \DIFdelbegin \DIFdel{(2) Foobaz clusters variables in student programs by their names and behavior so that teachers can give feedback on }\DIFdelend \DIFaddbegin \DIFadd{Foobaz helps teachers give feedback at scale on a critical aspect of readability, i.e., }\DIFaddend variable naming. \DIFdelbegin \DIFdel{Rather than requiring the teacher to comment on thousands of students individually, Foobaz }\DIFdelend \DIFaddbegin \DIFadd{Foobaz displays the distribution of student-chosen names for each common variable in student solutions and, with a few teacher annotations, it }\DIFaddend generates personalized quizzes that help students \DIFdelbegin \DIFdel{evaluate their own names by comparing them with }\DIFdelend \DIFaddbegin \DIFadd{learn from the }\DIFaddend good and bad \DIFdelbegin \DIFdel{names from other students. (3) ClassOverflow collects and organizes solution hints indexed by the autograder test that failed or a performance characteristic like size or speed. It helps students reflect on their debugging or optimization process, generates hints that can help other students with the same problem, and could potentially bootstrap an intelligent tutor tailored to the problem}\DIFdelend \DIFaddbegin \DIFadd{naming choices of their peers. Finally, this system describes two complementary learnersourcing workflows that help students write hints for each other while reflecting on their own bugs and comparing their own solutions with other student solutions}\DIFaddend . These systems demonstrate how clustering and visualizing \DIFdelbegin \DIFdel{student solutions helps teachers and students provide types of one-on-one design feedback at scale that was previously only possible in a small classroom or one-on-one tutoring. The design choices around which these scaled-up forms of feedback rest can be curated by teachers directly from }\DIFdelend \DIFaddbegin \DIFadd{solution variation can help teachers directly respond to }\DIFaddend trends and outliers within \DIFdelbegin \DIFdel{the students' own solutions. The feedback generated by both teachers and students can be re-used by future students who attempt the same programming or hardware design problem.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{student solutions, as well as help students help each other.
+}\DIFaddend \end{abstractpage}
+
+% Additional copy: start a new page, and reset the page number.  This way,
+% the second copy of the abstract is not counted as separate pages.
+% Uncomment the next 6 lines if you need two copies of the abstract
+% page.
+% \setcounter{page}{\thesavepage}
+% \begin{abstractpage}
+% \input{abstract}
+% \end{abstractpage}
+
+\cleardoublepage
+
+\section*{Preface}\addcontentsline{toc}{chapter}{Preface}
+I am not a professional software developer, but learning how to write programs in middle school was one of the most empowering skills my father could ever have taught me. I did not need access to chemicals or heavy \DIFdelbegin \DIFdel{machinery--just }\DIFdelend \DIFaddbegin \DIFadd{machinery. I only needed }\DIFaddend a computer and \DIFdelbegin \DIFdel{, occasionally , }\DIFdelend \DIFaddbegin \DIFadd{occasionally }\DIFaddend an internet connection. I acquired datasets and wrote programs to extract interesting patterns in them. It \DIFdelbegin \DIFdel{was--and still is--a }\DIFdelend \DIFaddbegin \DIFadd{was and still is a }\DIFaddend creative outlet.
+
+More recently, the value of learning how to code, or at least how to \DIFdelbegin \DIFdel{"think computationally" }\DIFdelend \DIFaddbegin \DIFadd{think computationally, }\DIFaddend has gained national attention. Last September, New York City Mayor Bill de Blasio announced that all public schools in NYC will be required to offer computer science to all students by 2025. In January of this year, the White House released its Computer Science \DIFdelbegin \DIFdel{For }\DIFdelend \DIFaddbegin \DIFadd{for }\DIFaddend All initiative, "offering every student the \DIFdelbegin \DIFdel{hands-on }\DIFdelend \DIFaddbegin \DIFadd{hands--on }\DIFaddend computer science and math classes that make them \DIFdelbegin \DIFdel{job-ready }\DIFdelend \DIFaddbegin \DIFadd{job--ready }\DIFaddend on day one" (President Obama, 2016 State of the Union Address).
+
+The economic value and employment prospects associated with knowing how to program, the subsiding stigma of being \DIFdelbegin \DIFdel{"a computer geek}\DIFdelend \DIFaddbegin \DIFadd{a computer "geek" or "nerd}\DIFaddend ," and the \DIFaddbegin \DIFadd{production and }\DIFaddend popularity of movies about \DIFdelbegin \DIFdel{(now rich) programmers like The Social Network, has driven }\DIFdelend \DIFaddbegin \DIFadd{programmers may be responsible for driving }\DIFaddend up enrollment in computer science classes to unprecedented levels. Hundreds or thousands of students enroll in programming \DIFdelbegin \DIFdel{classes }\DIFdelend \DIFaddbegin \DIFadd{courses }\DIFaddend at schools like MIT, Stanford, Berkeley and the University of Washington.
+
+One-on-one tutoring is considered a gold standard in education, and programming education is likely no exception. However, most students are not going to receive that kind of personalized instruction. We, as a computer science community, may not be able to offer one-on-one tutoring at a massive scale, but can we create systems that enhance the teacher and student experiences in massive classrooms in ways that would never have been possible in one-on-one tutoring? This thesis is one particular approach to answering that question. %are not even possible in just a one-on-one environment?% How can we best teach the next generation of students how to code when there are so many of them?
+
+
+\cleardoublepage
+
+\section*{Acknowledgments}\addcontentsline{toc}{chapter}{Acknowledgments}
+
+\DIFdelbegin %DIFDELCMD < \begin{comment}
+%DIFDELCMD < %%%
+\DIFdel{There are countless individuals who have helped me in ways, large and small, complete this particular marathon. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{I thank my father for inviting me to think with him about interesting problems and principles in electrical engineering and computer science (even while we were in the middle of a Saturday morning jog through town when I was growing up), for teaching me how to program, for helping me learn new concepts by explaining them to him, and for providing emotional support throughout my time becoming an engineer. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{I thank my mother for helping me put together science fair boards at the last minute, copy-editing my paper drafts, and listening to my many updates about life and drama at the Institute.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{I thank my brother for demonstrating how to completely switch fields of expertise, become a computer scientist and software developer, and look good doing it.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{I thank my partner, Victor, for making my final year of graduate school so much fun, giving meencouraging pep-talks when I was felt down, and reminding me to "squeeze limes" and do what needs to be done, even when I did not want to.
+}%DIFDELCMD < \end{comment}
+%DIFDELCMD < %%%
+\DIFdel{I thank my labmates, Carrie, Juho, Tom, Katrina, ... }%DIFDELCMD < \todo{finish}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{comment}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{First, I would like to thank my parents for fostering my love of scientific inquiry (literally, a love of asking good questions and problems worth working on), for encouraging me to sit by the fire in a comfy chair and ask `what if?' and for proofreading all my camera-ready submissions. }%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{I would also like to thank my brother, for being a model of courage and steady progress on a PhD in a new field. We both switched fields to get to where we are, and making progress side by side (virtually) has been a resevoir of quiet support.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{I am grateful for my thesis advisor Rob Miller's guidance, support, and insight. Bumping into him in the Gates tower stairway was one of the best things that happened to me in graduate school. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{My collaborators...
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{My lab neighbors...
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{My friends outsid the lab...
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{I am indebted to many people who both directly and indirectly
+contributed to this thesis. First, Iwould like to thank those
+collaborators who directly contributed.  Most of all, I'm grateful
+for the help and friendship of Mark Styczynski. Mark was my
+collaborator on all matters computational for the past four years
+--- his influence is evident throughout this document.  I'm also grateful for my collaboration with Christopher Loose, who performed
+many of the experiments on antimicrobial peptides described in
+Chapter~\ref{chapter:amps}.  Finally, I would like to thank Isidore Rigoutsos, who
+straddled the line between collaborator and advisor.  Isidore taught
+me an attention to detail and a penchant for the UNIX command line
+and vi editor.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Most importantly, I am indebted to Greg Stephanopoulos, my advisor,
+whose guidance and support was unwavering these past six years. Greg
+is the perpetual optimist --- always positive in the face of my many
+failures along the way. He also gave me the freedom to pursue
+projects of my own choosing, which contributed greatly to my
+academic independence, if not the selection of wise projects.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{I am much obliged to my thesis committee members: my advisor Greg, Isidore, Bill Green, and Bob Berwick.  My committee was always
+flexible in scheduling and judicious in their application of both
+carrots and sticks.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{There are numerous people who contributed indirectly to this thesis. First among these is my intelligent, lovely, and vivacious wife
+Kathryn Miller--Jensen.  Next}\DIFdelend \DIFaddbegin \DIFadd{Thank you, thank you, thank you to my advisor, Rob Miller, who took a chance on me}\DIFaddend , \DIFaddbegin \DIFadd{and }\DIFaddend my \DIFaddbegin \DIFadd{other co-authors on this thesis work, Rishabh Singh, Jeremy Scott, Philip Guo, Lyla Fischer, Aaron Lin, and Carrie Cai. The past and present members of our User Interface Design group were instrumental in helping me feel at home in a new area and get up to speed while having fun. I'm also grateful to my past internship mentors at Google and MSR, specifically Dan Russell, Merrie Ringel Morris, and Andr\'{e}s Monroy-Hern\'{a}ndez, who gave me the chance to try out my chops in new environments. I also want to thank my friends outside MIT, especially the greater Boston community of wrestling coaches, who helped me learn important lessons outside the classroom. And, last but not least, my partner Victor, my }\DIFaddend parents\DIFdelbegin \DIFdel{Carl and Julie, my sister
+Heather, and my in-laws, Ron, Joyce, Suzanne, Jeff, and Mindi.
+Finally, there are innumerable friends who contributed and to whom I
+am greatly appreciative including Michael Raab, Joel Moxley, Bill
+Schmitt, Vipin Guptda, and Jatin Misra.
+}%DIFDELCMD < \end{comment}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{, and my brother, who have each supported me in their own way, from hugs, to proofreading papers, to being technical sounding-boards, and finally, to demonstrating, as my brother has, how to switch fields, pick up a whole new set of skills, and look good doing it.
+}\DIFaddend 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% -*-latex-*-
+
+\pagestyle{plain}
+%\input{Body/contents}
+
+%now start the fancy headings
+\pagestyle{fancyplain}
+\addtolength{\headheight}{\baselineskip}
+%add a nice little line underneath the heading
+%\renewcommand{\headrulewidth}{0.6pt}
+
+%DIF < \input{Body/intro.tex}
+%DIF > \input{Body/new_intro.tex}
+%\input{Body/relatedWork}
+%\input{Body/overcode}
+%\input{Body/foobaz}
+%\input{Body/bayesian}
+%\input{Body/classoverflow}
+%\input{Body/grovercode}
+%\input{Body/discussion}
+%\input{Body/futurework}
+
+%\clearpage
+%\appendix
+%\addcontentsline{toc}{part}{Appendix}
+
+%\input{Body/appa}
+%\import{./Body/appb/}{appb.tex}
+%\input{Body/appc}
+%\input{Body/biblio.tex}
+%\input{Body/index.tex}
+\end{document}
+

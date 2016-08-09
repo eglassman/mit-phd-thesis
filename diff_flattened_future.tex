@@ -1,0 +1,467 @@
+% -*- Mode:TeX -*-
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ../oldthesisdraft/main.tex   Tue Aug  9 14:21:20 2016
+%DIF ADD main.tex                     Tue Aug  9 14:21:38 2016
+
+%% The documentclass options along with the pagestyle can be used to generate
+%% a technical report, a draft copy, or a regular thesis.  You may need to
+%% re-specify the pagestyle after you \include  cover.tex.  For more
+%% information, see the first few lines of mitthesis.cls. 
+
+%\documentclass[12pt,vi,twoside]{mitthesis}
+%%
+%%  If you want your thesis copyright to you instead of MIT, use the
+%%  ``vi'' option, as above.
+%%
+%\documentclass[12pt,twoside,leftblank]{mitthesis}
+%%
+%% If you want blank pages before new chapters to be labelled ``This
+%% Page Intentionally Left Blank'', use the ``leftblank'' option, as
+%% above. 
+
+%\documentclass[12pt]{mitthesis}
+%\documentclass[12pt,singlespace,twoside]{mitthesis}
+%DIF 21a21
+%\documentclass{tufte-book} %DIF > 
+%DIF -------
+\documentclass[12pt,twoside]{mitthesis}
+\usepackage{lgrind}
+\usepackage{todonotes}
+\usepackage{subcaption}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+%DIF 30a31-39
+\usepackage{csquotes} %DIF > 
+\usepackage{sidecap} %DIF > 
+\usepackage{verbatim} %DIF > 
+\usepackage{tabularx} %DIF > 
+\usepackage{enumitem} %DIF > 
+\setlist{nosep} %DIF > 
+ %DIF > 
+\sidecaptionvpos{figure}{c} %DIF > 
+ %DIF > 
+%DIF -------
+%\usepackage{subfigure}
+%\documentclass[12pt,oneside]{mitthesis}
+%\usepackage{lgrind}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}    % if you want extra symbols
+\usepackage{mathrsfs}
+\usepackage{program}
+\usepackage{newlfont}
+\usepackage{rotating}
+\usepackage{varioref}
+\usepackage{graphicx}
+%\usepackage{txfont}
+\usepackage{makeidx}
+\usepackage{tocbibind}
+\usepackage{program}
+\usepackage{import}
+%\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{colortbl}
+\usepackage{todonotes}
+%DIF 54a64-66
+\usepackage{parskip} %DIF > 
+%\usepackage{booktabs} %DIF > 
+\usepackage{microtype} %DIF > 
+%DIF -------
+
+%\usepackage[LY1]{fontenc}
+%\usepackage{patchcmd}
+%\usepackage{myfss}
+%\usepackage{caslon}
+%\renewcommand{\encodingdefault}{LY1}
+%\rmshape \rgshape
+
+%\usepackage[oldstyle]{garamond}
+%\usepackage[lining]{agaramond}
+\usepackage[small]{eulervm}
+\usepackage{courier} % for texttt
+
+
+
+\usepackage[numbers,square,sort&compress]{natbib}
+\usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue, linkcolor=blue,bookmarks=true,bookmarksopen=true,bookmarksopenlevel=0,pdfstartview=Fit,pdfview=Fit,pagebackref,linktocpage=true,bookmarksnumbered=true]{hyperref}
+\usepackage{hypernat}
+\usepackage{array}
+\usepackage{supertabular}
+
+%%% stuff for doxygen
+%\usepackage{times}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{alltt}
+%\usepackage{Body/appb/doxygen}
+%%%%%%%%%%%
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+\usepackage{courier}
+%\newcommand \codevar[1]{\texttt{#1}}
+\usepackage{expl3,xparse} 
+\ExplSyntaxOn 
+\NewDocumentCommand \lstcolorlines { O{green} m } 
+{ \clist_if_in:nVT { #2 } { \the\value{lstnumber} }{ \color{#1} } } 
+\ExplSyntaxOff
+\definecolor{mygray}{rgb}{0.925,0.925,0.925}
+\definecolor{lightyellow}{HTML}{FFE600}
+
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+\pagenumbering{arabic}
+
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+
+\usepackage[T1]{fontenc}
+%DIF 115c128
+%DIF < \usepackage[scaled=0.80]{beramono}
+%DIF -------
+%\usepackage[scaled=0.80]{beramono} %DIF > 
+%DIF -------
+\usepackage{color}
+\usepackage{multirow}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\lstset{
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords = {MultiType},
+keywordstyle=\color{bluekeywords}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\footnotesize,
+numbers=none, xleftmargin=.1in, numbersep=3pt
+}
+
+% Symbols used by the authors
+    \DeclareMathOperator{\suffix}{suffix}
+    \DeclareMathOperator{\prefix}{prefix}
+    \DeclareMathOperator{\prob}{Pr}
+\newcommand{\conv}{\curvearrowright}
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brac}[1]{\left[#1\right]}
+\newcommand{\braces}[1]{\left\{#1\right\}}
+\newcommand{\avector}[2]{(#1_1,#1_2,\ldots,#1_{#2})} 
+\newcommand{\aset}[2]{{#1_1,#1_2,\ldots,#1_{#2}}} 
+\newcommand{\ith}[1]{\ensuremath{{#1^{\textrm{th}}}}} 
+\newcommand{\nd}[1]{\ensuremath{{#1^{\textrm{nd}}}}} 
+%DIF 150c163
+%DIF < \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+%DIF -------
+%\DeclareSymbolFont{AMSb}{U}{msb}{m}{n} %DIF > 
+%DIF -------
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\realNums}{\mathbin}{AMSb}{"52}
+
+
+\newcommand{\curls}[1]{\left\{#1\right\}}
+%\newcommand{\teirRegEx}{\ensuremath{\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\paren{\Sigma\cup\curls{.}\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}^{\ast}\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\cup\Sigma}}
+\newcommand{\teirRegEx}{\ensuremath{\Sigma\paren{\Sigma\cup\curls{.}}\Sigma}}
+\newcommand{\teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Fasta}{FastA}
+\newcommand{\fasta}{FastA}
+\newcommand{\psiblast}{psi--Blast}
+\newcommand{\prosite}{PROSITE}
+\newcommand{\biodictionary}{Bio--Dictionary}
+\newcommand{\genbank}{GENBANK}
+\newcommand{\embl}{EMBL}
+\newcommand{\etal}{\emph{et.\ al.\ }}
+\newcommand{\sptr}{SwissProt/TrEMBL}
+\newcommand{\swissp}{SWISS--PROT}
+\newcommand{\swissprot}{\swissp}
+\newcommand{\swissptr}{SWISS--PROT/TrEMBL}
+\newcommand{\swissprottrembl}{\swissptr}
+\newcommand{\amsdb}{AMSDb}
+\newcommand{\ncbi}{NCBI}
+\newcommand{\blosum}{BLOSUM}
+\newcommand{\pam}{PAM}
+\newcommand{\oligo}{oligonucleotide}
+\newcommand{\Oligo}{Oligonucleotide}
+\newcommand{\blast}{BLAST}
+\newcommand{\pr}[1]{\prob\left(#1\right)}
+\newcommand{\prt}[1]{\prob\left(\textrm{#1}\right)}
+\newcommand{\cp}[2]{\prob\left(#1\mid #2\right)}
+\newcommand{\cpt}[2]{\prob\left(\textrm{#1}\mid \textrm{#2}\right)}
+\newcommand{\ex}[1]{\mathbf{E}\left[#1\right]}
+%\newcommand{\var}[1]{\textrm{var}\left(#1\right)}
+\newcommand{\phip}[3]{\Phi\paren{\frac{#1-\paren{#2}}{#3}}}
+%\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\ten}[1]{\mathbf{#1}}
+\newcommand{\pdf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\pmf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\transf}[2]{M_{#1}\left(#2\right)}
+\newcommand{\expo}[1]{\exp\left[#1\right]}
+\newcommand{\pd}[2]{\frac{\partial}{\partial #2}\brac{#1}}
+\setlength{\extrarowheight}{3pt}
+\newcommand{\marnote}[1]{\marginpar{\raggedleft\footnotesize\bfseries\hspace{0pt} #1}}
+
+\usepackage{fancyhdr}
+%\renewcommand{\chaptermark}[1]{\markboth{\textit{\chaptername}\ \thechapter.\ #1}{}}
+
+%this defines the basic headers and footer
+% styles when we use the 'fancyhdr' styles
+%\lhead[\fancyplain{}{\itshape\footnotesize\thepage}]{\fancyplain{}{\itshape\footnotesize\rightmark}}
+%\rhead[\fancyplain{}{\itshape\footnotesize\leftmark}]{\fancyplain{}{\itshape\footnotesize\thepage}}
+%\lhead[\fancyplain{}\bfseries\thepage]{\fancyplain{}\bfseries\rightmark}
+%\rhead[\fancyplain{}\bfseries\leftmark]{\fancyplain{}\bfseries\thepage}
+%\pagestyle{fancyplain}
+\addtolength{\headwidth}{0.5\marginparsep}
+\addtolength{\headwidth}{0.5\marginparwidth}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\footnotesize\thepage}]{\fancyplain{}{\footnotesize\rightmark}}
+\rhead[\fancyplain{}{\footnotesize\leftmark}]{\fancyplain{}{\footnotesize\thepage}}
+\cfoot{}
+\cfoot{}
+
+% Special Float captions
+% Different font in captions
+\newcommand{\captionfonts}{\mdseries}
+\newcommand{\floatnamefonts}{\bfseries}
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\floatnamefonts #1:~~\captionfonts #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\floatnamefonts #1: \captionfonts #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+
+\makeindex
+
+\pagestyle{plain}
+
+
+\usepackage{courier}
+%DIF 238a251
+%\usepackage{unicode-math} %DIF > 
+%DIF -------
+
+\newcommand \codevar[1]{\texttt{#1}}
+
+%% This bit allows you to either specify only the files which you wish to
+%% process, or `all' to process all files which you \include.
+%% Krishna Sethuraman (1990).
+
+%\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
+%\def\all{all}
+%\ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
+%\DeclareMathAlphabet{\mathnormal}{OMS}{cmsy}{m}{n} %DIF > 
+%\setmathfont{Latin Modern Math} %DIF > 
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+%\fontencoding{LY1}\fontfamily{ACaslonPro}\mdweight
+
+%\input{Body/cover}
+\pagestyle{plain}
+%\input{Body/contents}
+
+%now start the fancy headings
+\pagestyle{fancyplain}
+\addtolength{\headheight}{\baselineskip}
+%add a nice little line underneath the heading
+%\renewcommand{\headrulewidth}{0.6pt}
+
+%DIF < \input{Body/intro.tex}
+%DIF > \input{Body/new_intro.tex}
+%\input{Body/relatedWork}
+%\input{Body/overcode}
+%\input{Body/foobaz}
+%\input{Body/bayesian}
+%\input{Body/classoverflow}
+%\input{Body/grovercode}
+%\input{Body/discussion}
+\chapter{Conclusion}\label{chapter:conclusion}
+
+This thesis demonstrates several ways to capture distributions of student solutions and make this information useful to teachers and students in large programming \DIFdelbegin \DIFdel{classes}\DIFdelend \DIFaddbegin \DIFadd{courses}\DIFaddend . Capturing commonalities can save teachers time and exhaustion by summarizing many solutions with a single representative. It can also direct teachers to where the majority of the class is within the space of solutions or errors, so they can respond to student needs based on data, not hunches. Capturing variation allows teachers to see how students deviate from the common choices in ways that are superior and deserving celebration or inferior and requiring corrective feedback. These deviations can be used to inspire or directly seed exercises based on modern theories of how students learn generalizeable knowledge from concrete examples. It also saves teachers the time and effort of generating pedagogically valuable examples themselves. Systems in this thesis also demonstrate how the inherent variation in student solutions can be automatically presented back to students, as an active reflection exercise that can benefit both current and future students. 
+
+The technical challenges tackled in order to capture and display distributions of solutions include designing solution representations, measures of similarity between solutions, mechanisms for grouping or filtering them, and human-interpretable displays. Challenges in workflow design centered around simple, minimally-intrusive ways to perform targeted learnersourcing in an on-going programming \DIFdelbegin \DIFdel{class}\DIFdelend \DIFaddbegin \DIFadd{course}\DIFaddend .
+
+\section{Summary of Contributions}
+
+The original OverCode system included a novel visualization that shows similarity and variation among thousands of Python solutions, backed by an algorithm that uses the behavior of variables to help cluster Python solutions and generate human-interpretable \DIFdelbegin \DIFdel{canonicalized code }\DIFdelend \DIFaddbegin \DIFadd{platonic solutions }\DIFaddend for each cluster of solutions. The Foobaz system demonstrated how, even when an aspect of variation is hidden in one view of a distribution of solutions, it can be exposed, in context, in a separate view. Additional follow-on work expanded \DIFdelbegin \DIFdel{OverCode's canonicalization }\DIFdelend \DIFaddbegin \DIFadd{the OverCode normalization }\DIFaddend process to incorrect solutions and explored additional human-interpretable mechanisms for identifying population-level design alternatives.
+
+Foobaz contributed a workflow for generating personalized active learning exercises, emulating how a teacher might socratically discuss good and bad choices with a student while they review the student's solution together. The Foobaz system demonstrates one concrete way in which a conversation about design decisions, i.e., variable naming, that might only happen in one-on-one interactions with an instructor, can be scaled up to an arbitrarily large class, personalized to each student, be based on the distribution of naming choices found in solutions composed by the teacher's current class or previous classes, and deployed to future classes who assign the same programming \DIFdelbegin \DIFdel{exercise}\DIFdelend \DIFaddbegin \DIFadd{problem}\DIFaddend .
+
+Finally, \DIFdelbegin \DIFdel{ClassOverflow, which collectively refers to the Dear Beta and Dear Gamma workflows , contributes the concept }\DIFdelend \DIFaddbegin \DIFadd{the self-reflection and comparison workflows demonstrate the potential }\DIFaddend of targeted learnersourcing. The \DIFdelbegin \DIFdel{Dear Beta }\DIFdelend self-reflection workflow allows students to generate hints for each other by reflecting on an obstacle they themselves have recently overcome while debugging their own solution. The \DIFdelbegin \DIFdel{Dear Gamma }\DIFdelend comparison workflow prompts students to generate design hints for each other by comparing their own solutions to alternative designs submitted by other students. \DIFdelbegin \DIFdel{Results from these studies }\DIFdelend \DIFaddbegin \DIFadd{Studies of the Dear Beta and Dear Gamma systems }\DIFaddend show that personalized hints \DIFaddbegin \DIFadd{collected through these workflows }\DIFaddend can be viably learnersourced, and that these hints serve as helpful guides to fellow students encountering the same obstacle or attempting to reach the same goal.
+
+\section{Future Work}
+\DIFdelbegin \DIFdel{"}\DIFdelend \DIFaddbegin \DIFadd{``}\DIFaddend One never notices what has been done; one can only see what remains to be done...\DIFdelbegin \DIFdel{" }\DIFdelend \DIFaddbegin \DIFadd{'' }\DIFaddend - Marie Curie (1984)
+
+There are many directions in which this work can be grown. Some of the research that has been published in parallel with this work can be directly incorporated into future systems. At the same time, many of the existing features can be improved without incorporating any new techniques, based on already collected feedback during user studies, deployments, and other design critiques.
+
+\subsection{OverCode}
+
+OverCode was designed for thousands of correct solutions to introductory Python programming problems. Many residential and online exercises now afford automatic, immediate feedback about the correctness of a solution. Under these conditions, nearly all the final solutions are correct, but it is clear from reading through them that some students have better command of programming than others, just based on compositional quality. As a result, OverCode was designed to reveal to the teacher what their students' solutions actually look like, modulo white space and comments. These solutions are rendered for the teacher using most common variable names and statement orders.%DIF > \todo{check the statement order} 
+
+However, as programming \DIFdelbegin \DIFdel{exercises }\DIFdelend \DIFaddbegin \DIFadd{problems }\DIFaddend escalate from the simple to the complex, OverCode's utility breaks down. It can still create \DIFdelbegin \DIFdel{canonicalized cluster-representing }\DIFdelend \DIFaddbegin \DIFadd{platonic }\DIFaddend solutions and display them in a way that helps teachers spot contrasts, but the clusters themselves become smaller and smaller. As programming \DIFdelbegin \DIFdel{exercises }\DIFdelend \DIFaddbegin \DIFadd{problems }\DIFaddend require more complex solutions, there is also an increasing need to go beyond representing what students actually wrote and toward human-interpretable representations of larger clusters. There are two promising complementary avenues for implementing this next step.
+
+The first avenue is more bottom-up clustering. \DIFdelbegin \DIFdel{Just as the variation in variable names was hidden by recognizing that variables across programs were semantically equivalentand could be replaced with their most popular student-given name, it may be possible to do the same with respect to semantically-equivalent subexpressions. There two promising ways to determine the semantic equivalence of subexpressions or lines of code in large corpuses of student solutions: (1) semantic equivalence based on the rules of the programming language (2) probablistic semantic equivalence based on the dynamic }\DIFdelend \DIFaddbegin \DIFadd{A critical part of forming OverCode stacks is identifying which variables are semantically equivalent, based on their }\DIFaddend behavior during execution on \DIFdelbegin \DIFdel{test cases, as defined in Nguyen et al.}\DIFdelend \DIFaddbegin \DIFadd{the same test cases. Overcode then renames variables to their most common name across all solutions. This normalization process could be extended to subexpressions and code blocks as well, using semantics-preserving transformations, e.g., compiler optimizations, and probablistic semantic equalivalence (PSE)}\DIFaddend ~\cite{codewebs}. OverCode could\DIFdelbegin \DIFdel{feature an additional button which collapses these detected equivalences, showing the most popular choice in the solution representing the new, larger clusters}\DIFdelend \DIFaddbegin \DIFadd{, in the future, replace semantically equivalent or PSE subexpressions with their most common form across all solutions. Alternatively, this process could be controlled by the user, who decides the degree to which they would like to hide less common semantically equivalent subexpressions}\DIFaddend . An interface \DIFdelbegin \DIFdel{, perhaps like the teacher interface in Foobaz , can }\DIFdelend \DIFaddbegin \DIFadd{like Foobaz could }\DIFaddend allow teachers to view and compose feedback \DIFdelbegin \DIFdel{that dimension of variation, if they wish}\DIFdelend \DIFaddbegin \DIFadd{on the distribution of semantically equivalent subexpressions, just as Foobaz allowed teachers to do for variable names}\DIFaddend .
+
+%DIF > Just as the variation in variable names was hidden by recognizing that variables across programs were semantically equivalent and could be replaced with their most popular student-given name, it may be possible to do the same with respect to semantically-equivalent subexpressions. There two promising ways to determine the semantic equivalence of subexpressions or lines of code in large corpora of student solutions: (1) semantic equivalence based on the rules of the programming language (2) probablistic semantic equivalence based on the dynamic behavior during execution on test cases, as defined in Nguyen et al.~\cite{codewebs}. 
+\DIFaddbegin 
+
+%DIF > OverCode could feature an additional button which collapses these detected equivalences, showing the most popular choice in the solution representing the new, larger clusters. An interface, perhaps like the teacher interface in Foobaz, can allow teachers to view and compose feedback that dimension of variation, if they wish. 
+
+\DIFaddend The second promising avenue for creating larger clusters is continuing to model the corpus of solutions to the same programming \DIFdelbegin \DIFdel{exercise }\DIFdelend \DIFaddbegin \DIFadd{problem }\DIFaddend as samples from an underlying distribution of solutions shaped by \DIFdelbegin \DIFdel{the teacher 's }\DIFdelend \DIFaddbegin \DIFadd{teacher }\DIFaddend explanations, student \DIFdelbegin \DIFdel{'s }\DIFdelend prior knowledge, common novice misconceptions, and the constraints of the language itself. Depending on the model chosen, larger clusters could be groups of whole solutions or groups of sub-components the co-occur within many solutions. Iterating on solution representation, model choice, interface, and interaction will hopefully allow teachers to understand their students' design choices, give style feedback, and assign grades with confidence. 
+
+Even simple additions to the OverCode interface could approximate what more sophisticated statistical methods would do. For example, LDA may pull out distributions of commonly co-occuring variable behaviors \DIFdelbegin \DIFdel{(as described in the chapter on OverCode extensions), }\DIFdelend but the current OverCode interface could be modified to suggest and filter by common sets of strictly co-occurring variable behaviors. This approximation is less robust in the face of noise, but it is at least easier for the \DIFdelbegin \DIFdel{user }\DIFdelend \DIFaddbegin \DIFadd{teacher }\DIFaddend to interpret using the language of filtering. %mechanisms. rather than relying on LDA , applied to identify common types of solutions, the OverCode interface could suggest and support filtering for solutions that have a common set of strictly co-occuring variable behaviors. 
+
+When visualizing the resulting clusters, it is important to keep in mind the ease with which \DIFdelbegin \DIFdel{users }\DIFdelend \DIFaddbegin \DIFadd{teachers }\DIFaddend can interpret the results. Simple modifications to the OverCode interface can go a long way, such as highlighting the sub-expressions or \DIFdelbegin \DIFdel{canonicalized }\DIFdelend \DIFaddbegin \DIFadd{normalized }\DIFaddend variable names within lines of code, rather than the entire lines, that separate one cluster from another. Another modification would increase the interpretability of the \DIFdelbegin \DIFdel{canonicalized }\DIFdelend \DIFaddbegin \DIFadd{normalized }\DIFaddend variables. Since the variable behavior is used to \DIFdelbegin \DIFdel{canonicalize }\DIFdelend \DIFaddbegin \DIFadd{normalize }\DIFaddend variable names, the values of variables and sub-expressions during execution on a test case could be displayed just beneath or alongside the code, as demonstrated in \DIFdelbegin \DIFdel{an experimental Python notebook ~\mbox{%DIFAUXCMD
+\cite{kevinkwokdemo}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{Kevin Kwok's (unpublished) Python notebook demo}\DIFaddend , in addition to the way it is currently shown, as a legend mapping each variable name to its behavior beneath a tab that many user study subjects did not consult. 
+
+
+%\todo{Interface upgrades: talk about beneath-line value annotation like that cool notebook and showing differences at the level of subexpressions, and filtering by sets of common variables in solutions which is like cheap version of lda on variables}
+
+When the program tracing, renaming, or reformatting scripts generate an error while processing a solution, the solution is removed from the pipeline. This percentage of correct edX solutions that did not make it through the pipeline was less than five percent of solutions were excluded from each problem, but that can be reduced further by adding support for handling more special cases and language constructs to these library functions. As solutions get more complex, it will also be necessary to expand the OverCode pipeline to more gracefully handle user-created objects and helper functions. Complementary efforts, like ~\cite{choudhury2016autostyle}, also cannot yet handle more than a single function. This remains a difficult but important hurdle to expanding beyond introductory Python programming courses. As part of this expansion, it may be helpful to adopt the \texttt{observe} construct introduced by Gulwani et al.~\cite{gulwani_fse14} and support teacher annotation of solutions with the observe construct within the OverCode user interface. By soliciting human annotation of important variable values, two variables would not need to behave identically in order to be considered by OverCode as semantically the same.% reduces the need for variables
+
+OverCode could also be integrated with the autograder that tests student solutions for input-output correctness. The execution could be performed once in such a way that it serves both systems, since both OverCode and many autograders require actually executing the code on specified test cases. If integrated into the autograder, teachers could give \DIFdelbegin \DIFdel{`power feedback ' }\DIFdelend \DIFaddbegin \DIFadd{feedback }\DIFaddend by writing line- or stack-specific feedback to be sent to students alongside the input-output test results. The OverCode interface may also provide benefit to students, in addition to teaching staff, after students have solved the problem on their own. Cody is a standing example of the value of this kind of design/style feedback. However, the current interface may need to be adjusted for use by non-expert students, instead of teachers. %This would require pipeline and user interface modifications, in order to account for the fact that not all solutions would be returning the same values for each test case.
+
+Simple interface enhancements would give teachers, and potentially students, more freedom to explore. For example, many user study subjects requested the ability to promote any cluster to be the reference cluster. A student might want to see their solution as the reference, at least as a starting point. Similar to \DIFdelbegin \DIFdel{GroverCode's }\DIFdelend \DIFaddbegin \DIFadd{the GroverCode }\DIFaddend sorting mechanism, the OverCode interface could support sorting clusters by their similarity to the reference as well as by cluster size. 
+
+%DIF > \todo{add text about boolean variables not being renamable, require more information, perhaps even more than GroverCode collections}
+\DIFaddbegin 
+
+\DIFaddend \subsection{GroverCode}
+
+\DIFdelbegin \DIFdel{GroverCode's canonicalization }\DIFdelend \DIFaddbegin \DIFadd{The normalization }\DIFaddend of incorrect solutions is based on heuristics about co-occurrences of syntax and variable behavior in both correct and incorrect solutions. This was an attempt to see how far the OverCode features could go toward \DIFdelbegin \DIFdel{canonicalizing }\DIFdelend \DIFaddbegin \DIFadd{normalizing }\DIFaddend incorrect solutions in addition to correct solutions, without using any additional technology. 
+\DIFdelbegin \DIFdel{However, there is pre-existing technology, i.e., }\DIFdelend \DIFaddbegin 
+
+\DIFaddend AutoGrader~\cite{autograder} \DIFdelbegin \DIFdel{, that could }\DIFdelend \DIFaddbegin \DIFadd{could also }\DIFaddend be added to the pipeline. \DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend The AutoGrader understands a language for expressing corrections in introductory Python programs. The authors created a list of such possible corrections\DIFdelbegin \DIFdel{, and if applying }\DIFdelend \DIFaddbegin \DIFadd{. If }\DIFaddend a small subset of those corrections changes a solution's input-output behavior to match a reference solution, \DIFdelbegin \DIFdel{the Autograder }\DIFdelend \DIFaddbegin \DIFadd{Autograder has diagnosed the bug(s) and }\DIFaddend can automatically correct the solution. It does not take into account which sets of corrections are more common, unlike the design philosophy the defines OverCode. However, the corrections that are applied are guaranteed to convert the incorrect solutions into correct ones. The correct solutions can move through the OverCode pipeline to be \DIFdelbegin \DIFdel{canonicalized }\DIFdelend \DIFaddbegin \DIFadd{normalized }\DIFaddend and clustered without heuristics. 
+
+If the AutoGrader is added to the pipeline, it will likely move some but not all solutions from the incorrect to the correct category. The corrections that have been automatically applied could be displayed alongside the corrected code in the GroverCode interface, for transparency. The GroverCode process for analyzing and displaying solutions that are still incorrect after being analyzed by the AutoGrader would be unchanged. If the language for expressing corrections is simple and expressive enough that it can be used by graders to write new rules while they are grading, the combined AutoGrader-OverCode pipeline could be rerun to correct any other yet ungraded solutions that are not already automatically corrected. 
+
+\DIFdelbegin \DIFdel{There are also a }\DIFdelend \DIFaddbegin \DIFadd{A }\DIFaddend variety of interface updates \DIFdelbegin \DIFdel{that have also }\DIFdelend \DIFaddbegin \DIFadd{have }\DIFaddend been requested by the teachers who used GroverCode during live deployments\DIFdelbegin \DIFdel{, such as }\DIFdelend \DIFaddbegin \DIFadd{. For example, some teachers requested }\DIFaddend the ability to \DIFaddbegin \DIFadd{dynamically }\DIFaddend add new tests to the test suite \DIFdelbegin \DIFdel{. These requests have been catalogued and added the the project as feature requests. }\DIFdelend \DIFaddbegin \DIFadd{and to edit student solutions in the interface without switching to an external editor. %DIF > These requests have been catalogued and added the the project as feature requests. 
+}\DIFaddend 
+
+\subsection{Foobaz}
+
+%This is a step on a clear path toward user interfaces that allow teachers to give meaningful feedback to students at scale about a variety of at least partially subjective but important aspects of code. We believe that 
+The approach taken in designing Foobaz may be generalizable to other aspects of programming style. Just as OverCode establishes the equivalency of variables based on their behavior during test cases, one could establish the behavior equivalency of larger or more abstract entities, such as student-written lines of code, sets of lines of code, or entire functions. We consider this a class of problems that Foobaz, and similar systems built after it, can tackle. Future iterations of Foobaz-inspired interfaces could also include additional constraints and affordances to encourage teachers to leave more explanations for their assessments, accompanied by better support for reusing common comments. Teachers could also be given the option to augment or overwrite existing labels, e.g., ``too short,'' to match their own preferences. %Finally, based on usage logs and Likert scale ratings on the helpfulness of various features, we will simplify the interface by removing unappreciated features and improve average response times by eliminating redundant computation.
+
+\DIFdelbegin %DIFDELCMD < \subsection{ClassOverflow}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsection{Targeted Learnersourcing}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{The primarily difficulty of iterating on the two workflows, }\DIFdelend Dear Beta and Dear Gamma \DIFdelbegin \DIFdel{, that are collectively referred to in this thesis as ClassOverflow, is that they are }\DIFdelend \DIFaddbegin \DIFadd{were }\DIFaddend most successful when \DIFdelbegin \DIFdel{they are }\DIFdelend directly integrated into \DIFdelbegin \DIFdel{teacher' s own systems and endorsed or }\DIFdelend \DIFaddbegin \DIFadd{teachers' existing mandatory assignments or actively }\DIFaddend promoted by staff. \DIFdelbegin \DIFdel{Sometimes the support is there, and sometimes it is not. For classes with sufficiently supportive teachersin the future, a 'prompting' }\DIFdelend \DIFaddbegin \DIFadd{In future classes with supportive teachers, a }\DIFaddend module can be added to the Dear Beta workflow \DIFdelbegin \DIFdel{which }\DIFdelend \DIFaddbegin \DIFadd{that }\DIFaddend identifyies when a student is in a good place to supply a hint \DIFaddbegin \DIFadd{and prompts them to do so}\DIFaddend . This would be an improvement over the current stand-alone website that students are explicitly directed to when they need help, but not when they can give help. Future work on Dear Gamma should include improving the metric for optimality and the rendering of solutions such that all the differences between more and less optimal solutions are visible to reflecting, hint-writing students. One potential future incarnation of the Dear Beta \DIFdelbegin \DIFdel{+ }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend Dear Gamma workflow is a crowd-sourced intelligent tutor that helps students get to a correct solution and then optimize that solution, completely driven by student-written hints. %To make this happen, the infrastructure to connect these systems to each other and to an existing course needs to be built. 
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF <  on common errors and on strategies to convert less optimal student-written correct solutions into more optimal ones. %ranked by an  We will also explore what Dear Gamma in the context of the software engineering course could look like, e.g., prompting students to write hints about the style and correctness of code written by other students. We plan to continue deploying iterations of these workflows in classes for students' immediate benefit, and to demonstrate that it can enrich the learning experience across multiple engineering domains.
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < \todo{use a platform like http://lalitjain.com/files/next.pdf}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < \subsection{Mathematical Expressions}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < they may be able to add new correction rules to the AutoGrader's list as they grade. 
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < It is also possible that the gap between automatically corrected solutions and those solutions that could not be automatically corrected could be exposed in the inter
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF <  and has demonstrated  correction rates of ;  have used that language to create an error model for  that can correct incorrect solutions automatically if a small number of items in the error model can; utoGrader searches the space of all possible applications of those 
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < two ways come from the field of Bayesian inference, and specifically, latent variable models that find (1) clusters of solutions or (2) topics that cut across solutions. The benefit of the existing OverCode clustering pipeline is that, when looking at the cluster representative solution, the teacher knows exactly which ways the solutions beneath it vary and in which ways they do not. 
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < Traditional The challenge of displaying clusters 
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < interpretable clustering methods. 
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < Latent variable models 
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < \todo{skim and add later: "As new solutions are submitted by students, the number of observed distinct student design decisions may grow without bound, and each solution may be a mixture of multiple design decisions. Therefore, a Hierarchical Dirichlet Process \cite{hdp} for learning these underlying design decisions may be a good model choice for this data. However, since some design decisions may be correlated with each other, it may be even more accurate to replace the (conveniently conjugate) Dirichlet prior with a (non-conjugate) logistic normal prior that can model correlated topics in addition to uncorrelated topics. This would be a non-parametric version of the Correlated Topic Model \cite{ctm}. If, as is likely, the chosen features can belong to multiple design decisions, it may be useful to add in elements of the Indian Buffett Process \cite{ibp}. Since (1) we do not know how many clusters will exist in the data ahead of time and (2) new solutions may introduce new clusters (there is no finite limit on the number of clusters as more solutions are received), models built on Dirichlet Processes are a good fit. Since solutions may contain multiple design decisions, it is preferable to be able to assign each of those design decisions separately, rather than assigning the entire solution to a cluster. HDPs are a good fit. If different design decisions share common features, IBPs may be an even better fit.Since the output of LDA and its infinite cousin, the HDP, can be difficult to interpret, BCM or MGM's optimizations for interpretability may make them more appropriate choices.Since teachers develop their own internal rubric for which differences matter and which do not, models which can incorporate and adjust based on feedback from the user, like iBCM, may be good model choices.Each of these models have favorable properties, and some properties can be super-imposed, while others are mutually exclusive. There is also previously ignored factors like the difficulty of implementing an inference algorithm for the model and the scalability and time requirements of running the chosen inference algorithm on the chosen representation of the solutions."}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF < "finger exercises" to exam questions, the complexity of solutions increases. 
+\DIFdelend 
+
+
+
+%\clearpage
+%\appendix
+%\addcontentsline{toc}{part}{Appendix}
+
+%\input{Body/appa}
+%\import{./Body/appb/}{appb.tex}
+%\input{Body/appc}
+%\input{Body/biblio.tex}
+%\input{Body/index.tex}
+\end{document}
+

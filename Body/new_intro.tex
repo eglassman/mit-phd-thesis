@@ -4,7 +4,7 @@ Introductory programming classes are big and hard to teach. Programming classes 
 
 Massive classes generate massive datasets of solutions to the same programming problem. The problem could be exponentiating a number, computing a derivative, or transforming a string in a specific way. The solutions are typically a single function that prints or returns an answer. A terse solution might contain a couple of lines. An excessively verbose solution might contain over twenty lines.
 
-This thesis revolves around clustering and visualizing massive datasets of solutions in novel, human-readable ways. For example, rather than representing solutions as points in a projection of a high-dimensional space into two or three dimensions, OverCode's deterministic unsupervised clustering pipeline synthesizes platonic solutions that each represent entire stacks of solutions. For example, the solution shown in Figure~\ref{largestStack} represents 1538 solutions~\cite{overcode}. OverCode is the first of several systems for clustering and visualizing solutions and solution variation that were developed in this thesis.
+This thesis revolves around clustering and visualizing massive datasets of solutions in novel, human-readable ways. For example, rather than representing solutions as points in a projection of a high-dimensional space into two or three dimensions, OverCode's deterministic unsupervised clustering pipeline synthesizes solutions that each represent entire stacks of solutions. For example, the solution shown in Figure~\ref{largestStack} represents 1538 solutions~\cite{overcode}. OverCode is the first of several systems for clustering and visualizing solutions and solution variation that were developed in this thesis.
 
 \begin{figure}
 \centering
@@ -15,7 +15,7 @@ This thesis revolves around clustering and visualizing massive datasets of solut
 
 \section{Solution Variation}
 
-The taxonomy for {\it solution variation} used in this thesis has three branches: correctness, approach, and readability. Since correctness is difficult to prove for an arbitrary piece of code, it is approximated in industry and education by correctness with respect to a set of test cases. In education, the machinery that checks for correctness is often called an autograder.
+In this thesis, {\it solution variation} means three things: correctness, approach, and readability. Since correctness is difficult to prove for an arbitrary piece of code, it is approximated in industry and education by correctness with respect to a set of test cases. In education, the machinery that checks for correctness is often called an autograder.
 
 There is a wide range of solutions that pass all the test cases and are labeled correct by the autograder, but they are not all equally good. Figure~\ref{table:diffapproaches} shows three different solutions of widely varying approach and readability that are correct with respect to the autograder test cases.
 
@@ -151,7 +151,13 @@ def power(base,exp):
 
 Readability is the third critical component of solution variation. Poorly written solutions like the one in Figure~\ref{table:diffapproaches} may be both the symptom and the cause of student confusion. Unreadable code is harder to understand and debug, for both teacher and student. In industry, peer-to-peer code reviews help prevent code with poor readability from entering code bases, where it can be difficult and costly to maintain.
 
-{\it Student design choices} affect correctness, approach, and readability. Examples include choosing \texttt{for} over ~\texttt{while}, \texttt{a *= b} over \texttt{a = a*b}, and recursive over iteration. Solution variation is a result of these choices. Even simple differences, like comments, statement order, formatting and variable names can make solutions look quite different to the unaided eye, as shown in Figure~\ref{table:difflook}.
+Student design choices affect correctness, approach, and readability. Examples include choosing:
+\begin{itemize} 
+\item \texttt{for} or ~\texttt{while}
+\item \texttt{a *= b} or \texttt{a = a*b}
+\item recursive or iteration 
+\end{itemize}
+Solution variation is a result of these choices. Even simple differences, like comments, statement order, formatting and variable names can make solutions look quite different to the unaided eye, as shown in Figure~\ref{table:difflook}.
 
 \begin{figure}
 \begin{tabular}{ll}
@@ -216,11 +222,21 @@ When a teacher cannot read all the student solutions to a programming problem be
 \item {\bf R3} ... in a personalized way?
 \item {\bf R4} ... and how can students do the same?
 \end{itemize}
-In this thesis, several systems and workflows are developed and studied to better answer these questions. 
+In this thesis, several systems and workflows are developed and studied to better answer these questions. The first is OverCode, a system for visualizing variation in student Python solutions. The second is Foobaz, a system for visualizing variable name variation and delivering personalized feedback on naming choices. The third and fourth are two complementary learnersourcing workflows that help students write hints for each other through self-reflection and comparison with other student solutions.
+
+\subsection{Systems Built}
+
+\subsubsection{OverCode}
+
+\subsubsection{Foobaz}
+
+\subsubsection{Learnersourcing Personalized Hints}
+
+\subsection{Systems as Answers}
 
 The OverCode and Foobaz systems both give teachers a better understanding of student solutions and how they vary in approach and readability. OverCode allows teachers to more quickly develop a high-level view of student understanding and misconceptions. Foobaz displays the variety of common and uncommon variable names in student solutions to a single programming problem, so teachers can better understand student naming practices. The clustering and visualization techniques created for both these systems provide some new answers to the research question {\bf R1} for introductory Python problems. 
 
-OverCode also helps answer research question {\bf R2}. With OverCode, teachers produced feedback on solution approaches that was relevant to more student solutions, compared to feedback informed by status quo tools. 
+OverCode is also an answer to the research question {\bf R2}. With OverCode, teachers produced feedback on solution approaches that was relevant to more student solutions, compared to feedback informed by status quo tools. 
 
 The research question {\bf R3} asks how we can personalize feedback for individual students because personalization, in the form of one-on-one tutoring, has been a gold standard in educational psychology for decades~\cite{bloom}. For Foobaz, the challenge of delivering personalized feedback on approach and readability at scale was narrowed down to just one critical aspect of readability: variable names. In a one-on-one scenario, a teacher helping a student might notice that the student is choosing poor variable names. The teacher might start a conversation about both their good and bad variable naming choices. In a massive classroom where that kind of chat is not possible, Foobaz delivers personalized active learning exercises intended to spark the same thought processes in the student. These exercises are called {\it variable name quizzes}. Foobaz helps answer {\bf R3} by demonstrating how teachers can compose automatically personalized feedback on an aspect of readability to students at scale.
 

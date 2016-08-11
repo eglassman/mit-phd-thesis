@@ -1,17 +1,327 @@
+% -*- Mode:TeX -*-
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ../pastMondaythesis/main.tex   Thu Aug 11 11:22:38 2016
+%DIF ADD main.tex                       Thu Aug 11 11:22:44 2016
+
+%% The documentclass options along with the pagestyle can be used to generate
+%% a technical report, a draft copy, or a regular thesis.  You may need to
+%% re-specify the pagestyle after you \include  cover.tex.  For more
+%% information, see the first few lines of mitthesis.cls. 
+
+%\documentclass[12pt,vi,twoside]{mitthesis}
+%%
+%%  If you want your thesis copyright to you instead of MIT, use the
+%%  ``vi'' option, as above.
+%%
+%\documentclass[12pt,twoside,leftblank]{mitthesis}
+%%
+%% If you want blank pages before new chapters to be labelled ``This
+%% Page Intentionally Left Blank'', use the ``leftblank'' option, as
+%% above. 
+
+%\documentclass[12pt]{mitthesis}
+%\documentclass[12pt,singlespace,twoside]{mitthesis}
+%\documentclass{tufte-book}
+\documentclass[12pt,twoside]{mitthesis}
+\usepackage{lgrind}
+\usepackage{todonotes}
+\usepackage{subcaption}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{csquotes}
+\usepackage{sidecap}
+\usepackage{verbatim}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\setlist{nosep}
+
+\sidecaptionvpos{figure}{c}
+
+%\usepackage{subfigure}
+%\documentclass[12pt,oneside]{mitthesis}
+%\usepackage{lgrind}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}    % if you want extra symbols
+\usepackage{mathrsfs}
+\usepackage{program}
+\usepackage{newlfont}
+\usepackage{rotating}
+\usepackage{varioref}
+\usepackage{graphicx}
+%\usepackage{txfont}
+\usepackage{makeidx}
+\usepackage{tocbibind}
+\usepackage{program}
+\usepackage{import}
+%\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{colortbl}
+\usepackage{todonotes}
+\usepackage{parskip}
+%\usepackage{booktabs}
+\usepackage{microtype}
+
+%\usepackage[LY1]{fontenc}
+%\usepackage{patchcmd}
+%\usepackage{myfss}
+%\usepackage{caslon}
+%\renewcommand{\encodingdefault}{LY1}
+%\rmshape \rgshape
+
+%\usepackage[oldstyle]{garamond}
+%\usepackage[lining]{agaramond}
+\usepackage[small]{eulervm}
+\usepackage{courier} % for texttt
+
+
+
+\usepackage[numbers,square,sort&compress]{natbib}
+\usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue, linkcolor=blue,bookmarks=true,bookmarksopen=true,bookmarksopenlevel=0,pdfstartview=Fit,pdfview=Fit,pagebackref,linktocpage=true,bookmarksnumbered=true]{hyperref}
+\usepackage{hypernat}
+\usepackage{array}
+\usepackage{supertabular}
+
+%%% stuff for doxygen
+%\usepackage{times}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{alltt}
+%\usepackage{Body/appb/doxygen}
+%%%%%%%%%%%
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+\usepackage{courier}
+%\newcommand \codevar[1]{\texttt{#1}}
+\usepackage{expl3,xparse} 
+\ExplSyntaxOn 
+\NewDocumentCommand \lstcolorlines { O{green} m } 
+{ \clist_if_in:nVT { #2 } { \the\value{lstnumber} }{ \color{#1} } } 
+\ExplSyntaxOff
+\definecolor{mygray}{rgb}{0.925,0.925,0.925}
+\definecolor{lightyellow}{HTML}{FFE600}
+
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+\pagenumbering{arabic}
+
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+
+\usepackage[T1]{fontenc}
+%\usepackage[scaled=0.80]{beramono}
+\usepackage{color}
+\usepackage{multirow}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\lstset{
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords = {MultiType},
+keywordstyle=\color{bluekeywords}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\footnotesize,
+numbers=none, xleftmargin=.1in, numbersep=3pt
+}
+
+% Symbols used by the authors
+    \DeclareMathOperator{\suffix}{suffix}
+    \DeclareMathOperator{\prefix}{prefix}
+    \DeclareMathOperator{\prob}{Pr}
+\newcommand{\conv}{\curvearrowright}
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brac}[1]{\left[#1\right]}
+\newcommand{\braces}[1]{\left\{#1\right\}}
+\newcommand{\avector}[2]{(#1_1,#1_2,\ldots,#1_{#2})} 
+\newcommand{\aset}[2]{{#1_1,#1_2,\ldots,#1_{#2}}} 
+\newcommand{\ith}[1]{\ensuremath{{#1^{\textrm{th}}}}} 
+\newcommand{\nd}[1]{\ensuremath{{#1^{\textrm{nd}}}}} 
+%\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\realNums}{\mathbin}{AMSb}{"52}
+
+
+\newcommand{\curls}[1]{\left\{#1\right\}}
+%\newcommand{\teirRegEx}{\ensuremath{\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\paren{\Sigma\cup\curls{.}\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}^{\ast}\paren{\Sigma\cup\curls{\brac{\Sigma\Sigma^{\ast}\Sigma}}}\cup\Sigma}}
+\newcommand{\teirRegEx}{\ensuremath{\Sigma\paren{\Sigma\cup\curls{.}}\Sigma}}
+\newcommand{\teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Teiresias}{\texttt{TEIRESIAS}}
+\newcommand{\Fasta}{FastA}
+\newcommand{\fasta}{FastA}
+\newcommand{\psiblast}{psi--Blast}
+\newcommand{\prosite}{PROSITE}
+\newcommand{\biodictionary}{Bio--Dictionary}
+\newcommand{\genbank}{GENBANK}
+\newcommand{\embl}{EMBL}
+\newcommand{\etal}{\emph{et.\ al.\ }}
+\newcommand{\sptr}{SwissProt/TrEMBL}
+\newcommand{\swissp}{SWISS--PROT}
+\newcommand{\swissprot}{\swissp}
+\newcommand{\swissptr}{SWISS--PROT/TrEMBL}
+\newcommand{\swissprottrembl}{\swissptr}
+\newcommand{\amsdb}{AMSDb}
+\newcommand{\ncbi}{NCBI}
+\newcommand{\blosum}{BLOSUM}
+\newcommand{\pam}{PAM}
+\newcommand{\oligo}{oligonucleotide}
+\newcommand{\Oligo}{Oligonucleotide}
+\newcommand{\blast}{BLAST}
+\newcommand{\pr}[1]{\prob\left(#1\right)}
+\newcommand{\prt}[1]{\prob\left(\textrm{#1}\right)}
+\newcommand{\cp}[2]{\prob\left(#1\mid #2\right)}
+\newcommand{\cpt}[2]{\prob\left(\textrm{#1}\mid \textrm{#2}\right)}
+\newcommand{\ex}[1]{\mathbf{E}\left[#1\right]}
+%\newcommand{\var}[1]{\textrm{var}\left(#1\right)}
+\newcommand{\phip}[3]{\Phi\paren{\frac{#1-\paren{#2}}{#3}}}
+%\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\ten}[1]{\mathbf{#1}}
+\newcommand{\pdf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\pmf}[2]{p_{#1}\left(#2\right)}
+\newcommand{\transf}[2]{M_{#1}\left(#2\right)}
+\newcommand{\expo}[1]{\exp\left[#1\right]}
+\newcommand{\pd}[2]{\frac{\partial}{\partial #2}\brac{#1}}
+\setlength{\extrarowheight}{3pt}
+\newcommand{\marnote}[1]{\marginpar{\raggedleft\footnotesize\bfseries\hspace{0pt} #1}}
+
+\usepackage{fancyhdr}
+%\renewcommand{\chaptermark}[1]{\markboth{\textit{\chaptername}\ \thechapter.\ #1}{}}
+
+%this defines the basic headers and footer
+% styles when we use the 'fancyhdr' styles
+%\lhead[\fancyplain{}{\itshape\footnotesize\thepage}]{\fancyplain{}{\itshape\footnotesize\rightmark}}
+%\rhead[\fancyplain{}{\itshape\footnotesize\leftmark}]{\fancyplain{}{\itshape\footnotesize\thepage}}
+%\lhead[\fancyplain{}\bfseries\thepage]{\fancyplain{}\bfseries\rightmark}
+%\rhead[\fancyplain{}\bfseries\leftmark]{\fancyplain{}\bfseries\thepage}
+%\pagestyle{fancyplain}
+\addtolength{\headwidth}{0.5\marginparsep}
+\addtolength{\headwidth}{0.5\marginparwidth}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\footnotesize\thepage}]{\fancyplain{}{\footnotesize\rightmark}}
+\rhead[\fancyplain{}{\footnotesize\leftmark}]{\fancyplain{}{\footnotesize\thepage}}
+\cfoot{}
+\cfoot{}
+
+% Special Float captions
+% Different font in captions
+\newcommand{\captionfonts}{\mdseries}
+\newcommand{\floatnamefonts}{\bfseries}
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\floatnamefonts #1:~~\captionfonts #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\floatnamefonts #1: \captionfonts #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+
+\makeindex
+
+\pagestyle{plain}
+
+
+\usepackage{courier}
+%\usepackage{unicode-math}
+
+\newcommand \codevar[1]{\texttt{#1}}
+
+%% This bit allows you to either specify only the files which you wish to
+%% process, or `all' to process all files which you \include.
+%% Krishna Sethuraman (1990).
+
+%\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
+%\def\all{all}
+%\ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
+%\DeclareMathAlphabet{\mathnormal}{OMS}{cmsy}{m}{n}
+%\setmathfont{Latin Modern Math}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+%\fontencoding{LY1}\fontfamily{ACaslonPro}\mdweight
+
+%\input{Body/cover}
+\pagestyle{plain}
+%\input{Body/contents}
+
+%now start the fancy headings
+\pagestyle{fancyplain}
+\addtolength{\headheight}{\baselineskip}
+%add a nice little line underneath the heading
+%\renewcommand{\headrulewidth}{0.6pt}
+
+%\input{Body/new_intro.tex}
+%\input{Body/relatedWork}
+%\input{Body/overcode}
+%\input{Body/foobaz}
+%\input{Body/bayesian}
+%\input{Body/classoverflow}
 \chapter{Bayesian Clustering of Student Solutions}\label{chapter:grovercode}
 
-The original vision of OverCode was to discover pedagogically valuable themes of variation within thousands of student solutions to the same programming problem. It summarizes the most common solutions well because they are grouped into large clusters. It also produces a long tail of small clusters. Pulling out themes of variation from the long tail can be challenging.
+The original vision of OverCode was to discover pedagogically valuable themes of variation within thousands of student solutions to the same programming problem. \DIFdelbegin \DIFdel{Each }\DIFdelend \DIFaddbegin \DIFadd{It summarizes the most common solutions well because they are grouped into large clusters. It also produces a long tail of small clusters. Pulling out themes of variation from the long tail can be challenging.
+}
 
-There are a variety of clustering methods that could be applied to pulling themes out of the long tail of small OverCode clusters. Some methods create hierarchical clusterings. At higher levels of the hierarchy, clusters contain a larger diversity of solutions. Some methods break solutions down into clusterable components or allow solutions to partially belong to several clusters, so that each solution does not need to be strictly associated with a single cluster. Bayesian methods treat student solutions as examples sampled from some underlying distribution of student solutions. Each of these families of methods have appealing properties.
+\DIFadd{There are a variety of clustering methods that could be applied to pulling themes out of the long tail of small OverCode clusters. Some methods create hierarchical clusterings. At higher levels of the hierarchy, clusters contain a larger diversity of solutions. Some methods break solutions down into clusterable components or allow solutions to partially belong to several clusters, so that each solution does not need to be strictly associated with a single cluster. Bayesian methods treat student solutions as examples sampled from some underlying distribution of student solutions. Each of these families of methods have appealing properties.
+}
 
-The recent development of Bayesian clustering methods built explicitly for interpretability spurred my exploration of Bayesian methods for clustering student solutions. This chapter explores the application of two Bayesian clustering methods to the normalized solutions produced by OverCode.
+\DIFadd{The recent development of Bayesian clustering methods built explicitly for interpretability spurred my exploration of Bayesian methods for clustering student solutions. This chapter explores the application of two Bayesian clustering methods to the normalized solutions produced by OverCode.
+}
 
 
-%OverCode produces a strict partition of solutions
+%DIF > OverCode produces a strict partition of solutions
 
 \section{OverCode as Clustering Algorithm}
 
-In OverCode, each Python solution is normalized and clustered. All solutions that share the same set of normalized lines of code are clustered together. The clustering is a strict partition of the solutions. This clustering process is hard and agglomerative but not hierarchical. It was designed with interpretability in mind. Hierarchical clustering may also be appropriate in this context, as long as human interpretability does not suffer. The OverCode clustering pipeline is also interactive, because the results are shown in an interface that allows the human to tell the system that some lines of code are not different in meaningful ways. If any clusters differ only by those lines of code that the human considers to be the same, those clusters will be merged. 
+\DIFadd{In OverCode, each }\DIFaddend Python solution is normalized \DIFdelbegin \DIFdel{before clustering and represented as a sequence of normalized lines of code}\DIFdelend \DIFaddbegin \DIFadd{and clustered}\DIFaddend . All solutions that share the same set of normalized lines of code are clustered together. The clustering is a strict partition of the solutions. This clustering process is hard and agglomerative but not hierarchical. It was designed with interpretability in mind. Hierarchical clustering may also be appropriate in this context, as long as human interpretability does not suffer. The OverCode clustering pipeline is also interactive, because the results are shown in an interface that allows the human to tell the system that some lines of code are not different in meaningful ways. If any clusters differ only by those lines of code that the human considers to be the same, those clusters will be merged. 
 
 In OverCode, what can vary and what is invariant across all the solutions within a stack is clear, just by reading the platonic solution that represents the stack. Syntactic differences split apart groups of solutions into smaller stacks so that each stack's platonic solution matches the syntax used in the solutions in represents. This can also produce more stacks than teachers can read. OverCode does normalize and cluster correct solutions so that they can be more easily understood as a group, but it does not pull out larger themes of variation as clearly as initially hoped.
 
@@ -33,17 +343,17 @@ In OverCode, what can vary and what is invariant across all the solutions within
 
 %Compiler optimizations could be used to merge OverCode clusters. However, as a system designer, one must decide or give the teacher control over how many different, semantically equivalent solutions are collapsed into a single cluster since. %These methods are discussed again in the future work, because the second set of methods were chosen for future investigation in this chapter.
 
-\section{The Applicability of Bayesian Clustering Methods}
+\DIFdelbegin \DIFdel{However, OverCode's normalized stacks do exhibit statistical regularity. }\DIFdelend \DIFaddbegin \section{The Applicability of Bayesian Clustering Methods}
 
-%While OverCode is deterministic, its output, namely, the normalized solutions, may exhibit statistical regularity in a similar way to human language. 
+%DIF > While OverCode is deterministic, its output, namely, the normalized solutions, may exhibit statistical regularity in a similar way to human language. 
 
-Given that variation theory is interested in dimensions of variation and consistency that characterize all possible instantiations of an idea, statistical methods warrant further investigation. Latent variable models are a type of statistical model that attempt to explain variation in a dataset based on underlying factors. With the right choice of features and model, a latent variable model may be able to capture underlying design choices. Two latent variable models have been explored in a preliminary way for this purpose: the Bayesian Case Model (BCM)~\cite{bcm} and Latent Dirichlet Allocation (LDA)~\cite{lda}. 
+\DIFaddend Given that variation theory is interested in dimensions of variation and consistency that characterize all possible instantiations of an idea, statistical methods warrant further investigation. Latent variable models are a type of statistical model that attempt to explain variation in a dataset based on underlying factors. With the right choice of features and model, a latent variable model may be able to capture underlying design choices. \DIFdelbegin \DIFdel{In this section, two }\DIFdelend \DIFaddbegin \DIFadd{Two }\DIFaddend latent variable models have been explored in a preliminary way for this purpose: the Bayesian Case Model (BCM)~\cite{bcm} and Latent Dirichlet Allocation (LDA)~\cite{lda}. 
 
 BCM was selected because, like the original OverCode pipeline, it clusters solutions and produces a single solution to represent the entire cluster. Like OverCode, it also indicates the features that characterize each cluster. While OverCode displays the platonic solution that shares the same set of normalized lines with all other members of the cluster, BCM learns a subspace of features that it determines are most characteristic of the solutions within that cluster. 
 
 BCM has an interactive variant called iBCM. iBCM allows the teacher to directly modify the prototype and the subspace chosen by BCM if it disagrees with their domain knowledge or preferences. This teacher action triggers a rerun of BCM with the modifications taken into account.%is taken into account by the algorithm 
 
-Internally, BCM depends on a mixture model with a Dirichlet prior. Rather than find a cluster for each entire solution, mixture models can learn clusters of features that co-exist across some subset of all solutions. The concentration parameter of the BCM Dirichlet prior is set to promote sparsity. That means that the mixture distributions over solutions will be biased to have the majority of their probability mass on a single mixture component. BCM then assigns each solution to a cluster according to its most probable mixture component. %In other words, after fitting the model to the data, each solution will likely have a single dominant mixture component associated with it. If data points were documents instead of solutions, one would say that each document is determined to have a single dominating topic.
+Internally, BCM depends on a mixture model with a Dirichlet prior. Rather than find a cluster for each entire solution, mixture models can learn clusters of features that co-exist across some subset of all solutions. The concentration parameter of the BCM Dirichlet prior is set to promote sparsity\DIFdelbegin \DIFdel{, i. e., }\DIFdelend \DIFaddbegin \DIFadd{. That means that the }\DIFaddend mixture distributions over solutions \DIFdelbegin \DIFdel{that }\DIFdelend \DIFaddbegin \DIFadd{will be biased to }\DIFaddend have the majority of their probability mass on a single mixture component. BCM then assigns each solution to a cluster according to its most probable mixture component. %In other words, after fitting the model to the data, each solution will likely have a single dominant mixture component associated with it. If data points were documents instead of solutions, one would say that each document is determined to have a single dominating topic.
 
 Since teachers can be poor at clustering solutions, i.e., inconsistent with each other~\cite{ACESthesis}, it may also be difficult for any algorithm to find a clustering that appeals to most teachers. However, there are a statistical models, lie LDA, that cluster components of solutions instead of entire solutions. LDA was selected as an alternative to BCM in order to explore how solution component clustering might better support teachers who do not agree on whole-solution clusterings.
 
@@ -63,7 +373,7 @@ BCM was applied to the platonic solutions generated by OverCode. The platonic so
 
 \begin{figure}[ht]
 \includegraphics[width=0.75\columnwidth]{Body/figures/grovercode/overcode_ibcm}
-\caption{This interface displays iBCM clusterings of OverCode platonic solutions and affords user feedback on cluster quality. The solutions on the left are cluster prototypes. The blue solution is the selected cluster whose members are shown in a scrollable list on the right-hand side. The tokens contained in red boxes are features that BCM identifies as characteristic of the cluster represented by that prototype. When a user hovers the cursor over a keyword or variable name, e.g., \texttt{len}, it is highlighted in a blue rectangle, indicating that it can be clicked.}
+\caption{This interface displays iBCM clusterings of OverCode platonic solutions and affords user feedback on cluster quality. The solutions on the left are cluster prototypes. The blue solution is the selected cluster whose members are shown in a scrollable list on the right-hand side. The tokens contained in red boxes are features that BCM identifies as characteristic of the cluster represented by that prototype. When a user hovers \DIFdelbeginFL \DIFdelFL{their }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{the }\DIFaddendFL cursor over a keyword or variable name, e.g., \texttt{len}, it is highlighted in a blue rectangle, indicating that it can be clicked.}
 \label{overcode_ibcm}
 \end{figure}
 
@@ -111,27 +421,27 @@ As described in the chapter on OverCode, the OverCode analysis pipeline executes
 
 Figure~\ref{fig:seqvarvals} shows the sequences of variable values recorded by OverCode while executing \texttt{iterPower(5,3)} as defined in Figures \ref{recursive_example}, \ref{whilestandard}, and \ref{augmentedwhile}:
 \begin{figure}
-\begin{itemize}
+ \begin{itemize} 
   \item {\bf Figure \ref{recursive_example}}
-  \begin{itemize}
+   \begin{itemize} 
   \setlength\itemsep{0.05em}
   \item \texttt{exp: 3, 2, 1, 0, 1, 2, 3}
   \item \texttt{base: 5}
-  \end{itemize}
+   \end{itemize} 
   \item {\bf Figure \ref{whilestandard}}
-  \begin{itemize}
+   \begin{itemize} 
   \item \texttt{exp: 3, 2, 1, 0}
   \item \texttt{base: 5}
   \item \texttt{result: 1, 5, 25, 125}
-  \end{itemize}
+   \end{itemize} 
   \item {\bf Figure \ref{augmentedwhile}}
-  \begin{itemize}
+   \begin{itemize} 
   \item \texttt{exp: 3}
   \item \texttt{base: 5}
   \item \texttt{iter: 3, 2, 1, 0}
   \item \texttt{result: 1, 5, 25, 125}
-  \end{itemize}
-\end{itemize}
+   \end{itemize} 
+ \end{itemize} 
 \caption{The sequences of variable values recorded by OverCode while executing \texttt{iterPower(5,3)}.}
 \label{fig:seqvarvals}
 \end{figure}
@@ -186,4 +496,19 @@ LDA applied to a variable-by-solution matrix is a promising method for identifyi
 
 \section{Conclusion}
 The clustering described in the original OverCode work was relatively limited in scope, but it did produce platonic solutions that can be used for more statistically sophisticated clustering techniques and as a starting point for helping graders understand and grade incorrect student solutions by hand.
+
+
+%\input{Body/discussion}
+%\input{Body/futurework}
+
+%\clearpage
+%\appendix
+%\addcontentsline{toc}{part}{Appendix}
+
+%\input{Body/appa}
+%\import{./Body/appb/}{appb.tex}
+%\input{Body/appc}
+%\input{Body/biblio.tex}
+%\input{Body/index.tex}
+\end{document}
 

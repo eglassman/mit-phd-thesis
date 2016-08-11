@@ -466,13 +466,11 @@ at the
 % basic abstract environment
 \def\abstractpage{\cleardoublepage
 \begin{center}{\large{\bf \@title} \\
-by \\
-\@author \\[\baselineskip]}
+by \@author }
 \par
 \def\baselinestretch{1}\@normalsize
-Submitted to the \@department \\
-on \@thesisdate, in partial fulfillment of the \\
-requirements for the \@degreeword\ of \\
+Submitted to the \@department\ on \@thesisdate, \\ in partial fulfillment of the
+requirements for the \@degreeword\ of
 \@degree
 \end{center}
 \par

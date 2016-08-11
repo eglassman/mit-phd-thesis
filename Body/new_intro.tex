@@ -223,12 +223,12 @@ When a teacher cannot read all the student solutions to a programming problem be
 \item {\bf R4} ... and how can students do the same?
 \end{itemize}
 
-\subsection{Systems Built}
+%\subsection{Systems Built}
 In this thesis, several systems and workflows are developed and studied to better answer these questions. The first is OverCode, a system for visualizing variation in student Python solutions. The second is Foobaz, a system for visualizing variable name variation and delivering personalized feedback on naming choices. The third and fourth systems are based on two novel, complementary learnersourcing workflows that help students write hints for each other through self-reflection and comparison with other student solutions.
 
 %\subsection{Addressing {\bf R1}, {\bf R2}, and {\bf R3} with OverCode and Foobaz}
 
-\subsubsection{OverCode}
+\subsection{OverCode}
 
 Understanding solution variation is important for providing appropriate feedback to students at scale. In one-on-one scenarios, understanding the space of potential solutions can help teachers counsel students struggling to implement their own solutions. The wide variation among these solutions can be a source of pedagogically valuable examples for course materials and forum posts and expose corner cases that spur autograder refinements.
 
@@ -245,38 +245,43 @@ The normalized solutions encode both static and dynamic information. More specif
 \label{fig:fullovercodeinterface}
 \end{figure}
 
-\subsubsection{Foobaz}
+\subsection{Foobaz}
 
 Traditional feedback methods, such as hand-grading student solutions for approach and readability, are labor intensive and do not scale. Foobaz transforms the output of the OverCode analysis pipeline into an interface for teachers to compose feedback at scale on a critical aspect of readability, variable naming. As shown in Figure \ref{fig:foobaz_teacherview}, the Foobaz teacher interface displays the most common and uncommon names for variables in each stack of solutions and allows teachers to label good examples of good and bad student-chosen variable names. Students receive these labels in the form of a personalized active learning exercise, where they can learn from the good and bad variable name choices of fellow students. 
 
 Once created, these exercises are reusable for as long as the programming problem specification is unchanged. In the first of two user studies, teachers quickly created exercises that could be personalized to the majority of student solutions collected from a Python programming MOOC. In the second of two user studies, fresh students wrote solutions to the same programming problems and received personalized feedback from the teachers in the previous study. A snapshot of this feedback, in the form of an active learning exercise, is shown in Figure~\ref{fig:foobaz_studentview}. Foobaz demonstrates that teachers can efficiently give feedback at scale on variable naming, a critical aspect of readability.
 
-\begin{figure*}[p]
+% \begin{figure*}[p]
 
-\begin{subfigure}[b]{1.0\textwidth}
+%\begin{subfigure}[b]{1.0\textwidth}
+\begin{figure}
 \centering
 \includegraphics[width=0.75\linewidth]{Body/figures/foobaz/FoobazInitialView4.jpg}
 \caption{The Foobaz teacher interface. The teacher is presented with a scrollable list of normalized solutions, each followed by a table of student-chosen variable names. Some names shown here have been labeled by the teacher as ``misleading or vague,'' ``too short,'' or ``fine.''}
 \label{fig:foobaz_teacherview}
-\end{subfigure}
+%\end{subfigure}
+\end{figure}
 
-\begin{subfigure}[b]{1.0\textwidth}
+%\begin{subfigure}[b]{1.0\textwidth}
+\begin{figure}
 \centering
-\includegraphics[width=0.4\linewidth]{Body/figures/foobaz/feedbackQuizExample.png}
-\caption{A personalized active learning activity as seen by the student, delivered by edX infrastructure. Students are shown their own solution, with a variable name replaced by an arbitrary symbol, followed by variable names for the student to consider and label using the same labels that were available to the teacher. After the student has submitted their own judgments, the teacher labels are revealed, along with teacher comments.}
+\includegraphics[width=0.8\linewidth]{Body/figures/foobaz/foobaz_personalized_quiz.jpg}
+\caption{A personalized active learning activity as seen by the student. Students are shown their own solution, with a variable name replaced by an arbitrary symbol, followed by variable names for the student to consider and label using the same labels that were available to the teacher. After the student has submitted their own judgments, the teacher labels are revealed, along with teacher comments.}
 \label{fig:foobaz_studentview}
-\end{subfigure}
+%\end{subfigure}
+\end{figure}
+%old image: feedbackQuizExample.png
 
-\caption{Snapshots of the Foobaz teacher interface and personalized feedback for a student about variable names.}
-\end{figure*}
+%\caption{Snapshots of the Foobaz teacher interface and personalized feedback for a student about variable names.}
+%\end{figure*}
 
-\subsubsection{Learnersourcing Personalized Hints}
+\subsection{Learnersourcing Personalized Hints}
 
 Personalization, in the form of one-on-one tutoring, has been a gold standard in educational psychology for decades~\cite{bloom}. It can be hard to get personalized help in large classes, especially when there are many varied solutions and bugs. Students who struggle, then succeed, become experts on writing particular solutions and fixing particular bugs. This thesis describes two workflows built on that insight, shown in Figure~\ref{fig:betagammaworkflow}. 
 
 Unlike prior incarnations of assigning tasks to and collecting data from students, i.e., learnersourcing~\cite{kim2013learnersourcing}, these workflows collect and distribute hints written only by students who earned the expertise necessary to write them. Both workflows give students an opportunity to reflect on their own technical successes and mistakes, which is helpful for learning~\cite{dewey1933} and currently lacking in the engineering education status quo~\cite{asee}. One of the two workflows also systematically exposes students to some of the variation present in other student solutions, as recommended by theories from educational psychology, specifically variation theory~\cite{marton1997learning} and analogical learning theory~\cite{kurtz01learning,loewenstein2003analogical}.
 
-These workflows were applied to programming problems in an undergraduate digital hardware design class with hundreds of students. Field deployments and an in-lab study show that students can create helpful hints for their peers that augment or even replace teachers’ personalized assistance. %, especially when that assistance is not available.
+These workflows were applied to programming problems in an undergraduate digital circuit programming class with hundreds of students. Field deployments and an in-lab study show that students can create helpful hints for their peers that augment or even replace teachers’ personalized assistance. %, especially when that assistance is not available.
 
 
 \begin{figure}
@@ -286,18 +291,20 @@ These workflows were applied to programming problems in an undergraduate digital
 \label{fig:betagammaworkflow}
 \end{figure}
 
-\subsection{Systems as Answers to Research Questions}
+\subsection{Systems as Answers}
 
-\subsubsection{{\bf R1} Understanding Variation at Scale}
+While they are not the only answers or complete answers to the research questions that motivated this thesis, these systems shed new light on how to support teachers and students in massive programming classes.
+
+\subsubsection{(R1) Understanding Variation at Scale}
 The OverCode and Foobaz systems both give teachers a better understanding of student solutions and how they vary in approach and readability. OverCode allows teachers to more quickly develop a high-level view of student understanding and misconceptions. Foobaz displays the variety of common and uncommon variable names in student solutions to a single programming problem, so teachers can better understand student naming practices. The clustering and visualization techniques created for both these systems provide some new answers to the research question {\bf R1} for introductory Python problems. 
 
-\subsubsection{{\bf R2} Feedback on Approach and Readability at Scale}
+\subsubsection{(R2) Feedback on Approach and Readability at Scale}
 OverCode is also an answer to the research question {\bf R2}. With OverCode, teachers produced feedback on solution approaches that was relevant to more student solutions, compared to feedback informed by status quo tools. 
 
-\subsubsection{{\bf R3} Personalized Feedback on Approach and Readability at Scale}
+\subsubsection{(R3) Personalized Feedback on Approach and Readability at Scale}
 To create Foobaz, the challenge of delivering personalized feedback on approach and readability at scale was narrowed down to just one critical aspect of readability: variable names. In a one-on-one scenario, a teacher helping a student might notice that the student is choosing poor variable names. The teacher might start a conversation about both their good and bad variable naming choices. In a massive classroom where that kind of chat is not possible, Foobaz delivers personalized active learning exercises intended to spark the same thought processes in the student. Foobaz helps answer {\bf R3} by demonstrating how teachers can compose automatically personalized feedback on an aspect of readability to students at scale. %These exercises are called {\it variable name quizzes}. 
 
-\subsubsection{{\bf R4} Personalized Feedback at Scale}
+\subsubsection{(R4) Personalized Feedback at Scale}
 The two novel workflows that collect and deliver personalized student-written hints address this final research question in a general way. Their instantiations as systems deployed in an undergraduate engineering course demonstrated that, given appropriate design choices and prompts, students can give personalized feedback in large-scale courses.
 
 
@@ -363,14 +370,14 @@ The main contributions of this thesis are:
 
 Chapter \ref{chapter:relatedwork} summarizes prior and contemporary relevant research on systems that support programming education. It also briefly explains theories from the learning sciences and psychology literature that influenced or support the pedagogical value of the design choices made within this thesis.
 
-The four chapters that follow describe, in detail, the four systems developed, as well as their evaluation on archived data or in the field.
+The four chapters that follow describe various ways that solution variation in large-scale programming courses can be clustered and visualized. These chapters include evaluations on archived data or in the field.
 
 \begin{itemize}
-\item OverCode (Chapter \ref{chapter:overcode}) visualizes thousands of programming solutions using static and dynamic analysis to cluster similar solutions. It lets teachers quickly develop a high-level view of student understanding and misconceptions and provide feedback that is relevant to many student solutions. It also describes GroverCode, an extension of OverCode optimized for grading correct and incorrect student solutions.
+\item OverCode (Chapter \ref{chapter:overcode}) visualizes thousands of programming solutions using static and dynamic analysis to cluster similar solutions. This chapter also describes GroverCode, an extension of OverCode optimized for grading correct and incorrect student solutions.
 
 \item Foobaz (Chapter \ref{chapter:foobaz}) clusters variables in student solutions by their names and behavior so that teachers can give feedback on variable naming. Rather than requiring the teacher to comment on thousands of students individually, Foobaz generates personalized quizzes that help students evaluate their own names by comparing them with good and bad names from other students. 
 
-\item Chapter \ref{chapter:classoverflow} describes two workflows that collect and organize solution hints indexed by (1) the autograder test that failed or (2) a performance characteristic like size or speed. It helps students reflect on their debugging or optimization process, generates hints that can help other students with the same problem, and could potentially bootstrap an intelligent tutor tailored to the problem.
+\item Chapter \ref{chapter:classoverflow} describes two learnersourcing workflows that collect and group hints for solutions indexed by autograder test failures or performance characteristics like size or speed. They help students reflect on their debugging or optimization process and write hints that can help other students with a similar problem.%, and could potentially bootstrap an intelligent tutor tailored to the problem. %and their application to a digital circuit programming class. They
 
 \item Chapter \ref{chapter:grovercode} describes Bayesian clustering and mixture modeling algorithms applied to the OverCode pipeline output for extracting additional insight into patterns within student solutions. 
 \end{itemize}

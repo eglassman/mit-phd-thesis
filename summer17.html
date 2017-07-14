@@ -320,11 +320,12 @@
                         <div class="row">
                           <div class="col-sm-6">
                             "Codewebs" by Huang et. al. (WWW '14)
+                            <br>
                             <ul>
                                 <li>~40,000 student submissions</li>
-                                <li>from Stanford's open online Machine Learning course</li>
+                                <!-- <li>from Stanford's open online Machine Learning course</li> -->
                                 <li>Requires pairwise tree edit distances</li>
-                                <li>Ran on a computing cluster</li>
+                                <!-- <li>Ran on a computing cluster</li> -->
                                 <!-- - Nodes represent submissions -->
                             </ul>
                           </div>
@@ -352,10 +353,37 @@
                         <!-- ####IDEA 1: Synthesize representative solutions -->
                         <!-- ####you can read -->
                         <!-- ####Thesis Contribution 1:  -->
-                        ####Cluster and visualize in a human-readable way
+                        ###Cluster and visualize solutions
+                        ####in a human-readable way
+                        <!-- **1538** -->
+                        <br>
+
                         <img data-src="img/largest_stack_cropped.jpg">
                         <br>
                         Cluster membership and synthesized cluster prototype <br> are determined by human-understandable rules.
+                        
+                        <!-- This synthesized solution represents 1538 solutions -->
+
+                        <aside class="notes">
+                            - show a stack of programs produced by my fast linear pipeline
+                            - generate an information visualization approach that does enable teachers to explore the variation in solutions at scale.
+                        </aside>
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- ####IDEA 1: Synthesize representative solutions -->
+                        <!-- ####you can read -->
+                        <!-- ####Thesis Contribution 1:  -->
+                        ###Cluster and visualize solution variation
+                        ####in a human-readable way
+                        <!-- **1538** -->
+                        <br>
+
+                        <img data-src="img/explode_name_variation_zoomed.jpg">
+                        <br>
+                        Variations across cluster members and synthesized cluster prototypes <br> are determined by human-understandable rules.
                         
                         <!-- This synthesized solution represents 1538 solutions -->
 
@@ -373,7 +401,7 @@
                         - Research Questions
                             - (R1) understand **SV**
                             - (R2) feedback on **SV** at scale
-                            - (R3) personalized feedback on **SV** at scale
+                            - (R3) *personalized* feedback on **SV** at scale
                             - (R4) collect and distribute student advice, given **SV**
                         - Discussion
                     </script>
@@ -400,9 +428,9 @@
                         1. <code>power(5,3)</code> should return <code>125</code>
                         2. <code>power(3,4)</code> should return <code>81</code>
                         3. <code>power(2,5)</code> should return <code>32</code>
-                        4. <code>...</code>
+                        4. ...
 
-                        (automated with an "autograder")
+                        <!-- (automated with an "autograder") -->
 
                         <aside class="notes">
                             The first is correctness. If the program does not achieve the desired goal, it is incorrect. Proving the correctness of an arbitrary program is difficult, so instead, an approximation is often used: test cases. A test case is a pair of expected inputs and outputs. If, for every input the program is run on, it returns the expected output, it is correct (with respect to that set of test cases). Without a human in the loop, computers can apply these test cases to check student programs for this kind of approximate correctness.
@@ -572,13 +600,13 @@
                     </script>
                 </section>
 
-                <section data-markdown>
+                <!-- <section data-markdown>
                     <script type="text/template">
                         <img data-src="img/wordiness.jpg">
                     </script>
-                </section>
+                </section> -->
 
-                <section data-markdown>
+                <!-- <section data-markdown>
                     <script type="text/template">
                         ##Readability matters
                         <aside class="notes">
@@ -590,7 +618,7 @@
                         </aside>
 
                     </script>
-                </section>
+                </section> -->
 
                 <section data-markdown>
                     <script type="text/template">
@@ -600,9 +628,11 @@
                                 - structural -->
 
                         - Examples:
-                            - <code>for</code> vs. <code>while</code>
-                            - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code>
                             - recursion vs. iteration
+                            - <code>base&#42;&#42;exp</code> vs. <code>a**b</code>
+                            <!-- - <code>for</code> vs. <code>while</code> -->
+                            <!-- - <code>a &#42;= b</code> vs. <code>a = a&#42;b</code> -->
+                            
 
                         *Solution variation is a result of these choices*<!-- .element: class="fragment" -->
 
